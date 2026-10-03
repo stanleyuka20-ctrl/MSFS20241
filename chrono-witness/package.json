@@ -1,0 +1,27 @@
+{
+  "name": "chrono-witness",
+  "private": true,
+  "version": "0.1.0",
+  "type": "module",
+  "description": "CHRONO WITNESS — a first-person historical time-travel adventure built with Three.js and TypeScript.",
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc --noEmit && vite build",
+    "preview": "vite preview --port 4173",
+    "typecheck": "tsc --noEmit",
+    "test": "vitest run",
+    "smoke": "node tools/smoke.mjs",
+    "bench": "node tools/bench.mjs"
+  },
+  "dependencies": {
+    "three": "0.186.1",
+    "three-mesh-bvh": "0.9.15"
+  },
+  "devDependencies": {
+    "@types/three": "0.186.0",
+    "playwright-core": "1.56.1",
+    "typescript": "5.9.3",
+    "vite": "7.1.12",
+    "vitest": "3.2.4"
+  }
+}

@@ -1,0 +1,887 @@
+{
+  "chapter": "ww1_somme_1916",
+  "verificationNote": "All sources accessed 2026-10-03. Direct page fetching (WebFetch) was blocked by the sandbox network policy for every reference host tried (iwm.org.uk, nam.ac.uk, britannica.com, cwgc.org, wikipedia.org, longlongtrail.co.uk, gutenberg.org, archive.org). Each 'documented' fact was checked against search-engine result summaries of the cited page, not a full read. Before shipping, a human should open each URL and confirm the wording. Sources whose keys start with 'wiki_', 'gwf_' or 'fp_' are tertiary or low-reliability and only back facts that a primary or museum source also supports, or facts marked reconstruction.",
+  "sources": {
+    "iwm_somme": {
+      "title": "Battle of the Somme",
+      "publisher": "Imperial War Museums",
+      "url": "https://www.iwm.org.uk/history/first-world-war/somme",
+      "accessed": "2026-10-03"
+    },
+    "iwm_somme_final": {
+      "title": "How did the Battle of the Somme end?",
+      "publisher": "Imperial War Museums",
+      "url": "https://www.iwm.org.uk/history/first-world-war/somme/final-phase",
+      "accessed": "2026-10-03"
+    },
+    "nam_eric_hall": {
+      "title": "Second Lieutenant Eric Hall",
+      "publisher": "National Army Museum (First World War in Focus)",
+      "url": "https://ww1.nam.ac.uk/stories/second-lieutenant-eric-hall/",
+      "accessed": "2026-10-03"
+    },
+    "canada_ancre_heights": {
+      "title": "Ancre Heights (battle honour)",
+      "publisher": "Department of National Defence, Government of Canada",
+      "url": "https://www.canada.ca/en/department-national-defence/services/military-history/history-heritage/battle-honours-honorary-distinctions/ancre-heights.doc",
+      "accessed": "2026-10-03"
+    },
+    "wiki_transloy": {
+      "title": "Battle of Le Transloy",
+      "publisher": "Wikipedia (tertiary; cites the British Official History, Miles 1938)",
+      "url": "https://en.wikipedia.org/wiki/Battle_of_Le_Transloy",
+      "accessed": "2026-10-03"
+    },
+    "wiki_ancre_heights": {
+      "title": "Battle of the Ancre Heights",
+      "publisher": "Wikipedia (tertiary)",
+      "url": "https://en.wikipedia.org/wiki/Battle_of_the_Ancre_Heights",
+      "accessed": "2026-10-03"
+    },
+    "wiki_butte": {
+      "title": "Attacks on the Butte de Warlencourt",
+      "publisher": "Wikipedia (tertiary)",
+      "url": "https://en.wikipedia.org/wiki/Attacks_on_the_Butte_de_Warlencourt",
+      "accessed": "2026-10-03"
+    },
+    "wiki_bst": {
+      "title": "British Summer Time",
+      "publisher": "Wikipedia (tertiary; refers to the Summer Time Act 1916)",
+      "url": "https://en.wikipedia.org/wiki/British_Summer_Time",
+      "accessed": "2026-10-03"
+    },
+    "wfa_terms": {
+      "title": "Great War Terms used by the British",
+      "publisher": "The Western Front Association",
+      "url": "https://www.westernfrontassociation.com/world-war-i-articles/2008/december/great-war-terms-used-by-the-british/",
+      "accessed": "2026-10-03"
+    },
+    "smith_1917": {
+      "title": "Trench Warfare: A Manual for Officers and Men (J. S. Smith, 1917)",
+      "publisher": "Project Gutenberg (eBook #61519)",
+      "url": "https://www.gutenberg.org/files/61519/61519-h/61519-h.htm",
+      "accessed": "2026-10-03"
+    },
+    "frontlineulster_parapet": {
+      "title": "Field fortifications: how thick was thick enough?",
+      "publisher": "Frontline Ulster (quotes the 1901 Manual of Military Engineering)",
+      "url": "https://frontlineulster.co.uk/field-fortifications-how-thick-was-thick-enough/",
+      "accessed": "2026-10-03"
+    },
+    "gwf_firestep": {
+      "title": "Height of fire step (discussion citing Manual of Field Engineering 1911)",
+      "publisher": "The Great War (1914-1918) Forum (low reliability)",
+      "url": "https://www.greatwarforum.org/topic/222564-height-of-fire-step/",
+      "accessed": "2026-10-03"
+    },
+    "doyle_geology": {
+      "title": "Feature article on the geology of the Western Front (P. Doyle)",
+      "publisher": "London South Bank University Open Research",
+      "url": "https://openresearch.lsbu.ac.uk/download/28f1ea328cd68fd88034124c593e9c353a2a0b392f4c11bc2c3f92b48a6b42bd/55079588/Feature%20Doyle.pdf",
+      "accessed": "2026-10-03"
+    },
+    "iwm_voices_trench": {
+      "title": "Trench Life During The First World War (Voices of the First World War)",
+      "publisher": "Imperial War Museums",
+      "url": "https://www.iwm.org.uk/history/voices-of-the-first-world-war-trench-life",
+      "accessed": "2026-10-03"
+    },
+    "iwm_duckboard_obj": {
+      "title": "duckboard, British, First World War",
+      "publisher": "Imperial War Museums (collection object 30028121)",
+      "url": "https://www.iwm.org.uk/collections/item/object/30028121",
+      "accessed": "2026-10-03"
+    },
+    "iwm_film_engineers": {
+      "title": "Australian Engineers Prepare a Defensive System (film)",
+      "publisher": "Imperial War Museums film archive",
+      "url": "https://film.iwmcollections.org.uk/record/2713",
+      "accessed": "2026-10-03"
+    },
+    "iwm_dugout_1916": {
+      "title": "Interior of a Dug-out, 27 November 1916",
+      "publisher": "Imperial War Museums (collection object 286)",
+      "url": "https://www.iwm.org.uk/collections/item/object/286",
+      "accessed": "2026-10-03"
+    },
+    "iwm_gas_chamber": {
+      "title": "The Gas Chamber (artwork, blanketed dug-out used for gas drill)",
+      "publisher": "Imperial War Museums (collection object 22976)",
+      "url": "https://www.iwm.org.uk/collections/item/object/22976",
+      "accessed": "2026-10-03"
+    },
+    "wfa_guillemont": {
+      "title": "Guillemont, 3 September 1916: Tactics and Insights",
+      "publisher": "The Western Front Association",
+      "url": "https://www.westernfrontassociation.com/world-war-i-articles/guillemont-3-september-1916-tactics-and-insights/",
+      "accessed": "2026-10-03"
+    },
+    "cwm_wire": {
+      "title": "Supply Line: Barbed Wire (education sheet)",
+      "publisher": "Canadian War Museum",
+      "url": "https://www.warmuseum.ca/wp-content/uploads/2023/08/CWM_SupplyLine_BarbedWire_EN_FINAL_20140922.pdf",
+      "accessed": "2026-10-03"
+    },
+    "awm_corkscrew": {
+      "title": "British Corkscrew Entanglement Support: Fromelles",
+      "publisher": "Australian War Memorial",
+      "url": "https://www.awm.gov.au/collection/C1273156",
+      "accessed": "2026-10-03"
+    },
+    "cwm_periscope": {
+      "title": "Supply Line: Trench Periscope (education sheet)",
+      "publisher": "Canadian War Museum",
+      "url": "https://www.warmuseum.ca/wp-content/uploads/2023/08/CWM_SupplyLine_TrenchPeriscope_EN_FINAL_20140922.pdf",
+      "accessed": "2026-10-03"
+    },
+    "iwm_periscope_obj": {
+      "title": "Improvised wooden box Trench Periscope",
+      "publisher": "Imperial War Museums (collection object 30025172)",
+      "url": "https://www.iwm.org.uk/collections/item/object/30025172",
+      "accessed": "2026-10-03"
+    },
+    "dva_signallers": {
+      "title": "Australian signallers in World War I",
+      "publisher": "Anzac Portal, Department of Veterans' Affairs (Australia)",
+      "url": "https://anzacportal.dva.gov.au/wars-and-missions/ww1/personnel/army-life/signallers",
+      "accessed": "2026-10-03"
+    },
+    "iwm_signalling_story": {
+      "title": "Signalling (community story)",
+      "publisher": "Imperial War Museums, Lives of the First World War",
+      "url": "https://livesofthefirstworldwar.iwm.org.uk/story/40066",
+      "accessed": "2026-10-03"
+    },
+    "cwm_communication": {
+      "title": "Tactics and Logistics on Land: Communication",
+      "publisher": "Canadian War Museum",
+      "url": "https://www.warmuseum.ca/firstworldwar/history/battles-and-fighting/tactics-and-logistics-on-land/communication/",
+      "accessed": "2026-10-03"
+    },
+    "nam_comms": {
+      "title": "Communication on the Front Line",
+      "publisher": "National Army Museum (First World War in Focus)",
+      "url": "https://ww1.nam.ac.uk/915/news/communication-front-line/",
+      "accessed": "2026-10-03"
+    },
+    "nli_ab152": {
+      "title": "'152' Army correspondence book (field service)",
+      "publisher": "National Library of Ireland catalogue",
+      "url": "https://catalogue.nli.ie/Record/vtls000813738",
+      "accessed": "2026-10-03"
+    },
+    "ncl_ab152": {
+      "title": "FP/1/3/10 Army Book 152. Correspondence Book (Field Service)",
+      "publisher": "Newcastle University Special Collections",
+      "url": "https://specialcollections.ncl.ac.uk/fp-1-3-10",
+      "accessed": "2026-10-03"
+    },
+    "wartimecanada_ab153": {
+      "title": "Field Message Book (Army Book 153)",
+      "publisher": "Wartime Canada",
+      "url": "https://wartimecanada.ca/fr/node/3019",
+      "accessed": "2026-10-03"
+    },
+    "royalsignals_forms": {
+      "title": "Signal forms (Army Form C.2121 'Messages and Signals')",
+      "publisher": "Royal Signals (royalsignals.org.uk, enthusiast reference)",
+      "url": "https://www.royalsignals.org.uk/forms.html",
+      "accessed": "2026-10-03"
+    },
+    "ramc_chain": {
+      "title": "Chain of evacuation",
+      "publisher": "RAMC in the Great War (ramc-ww1.com)",
+      "url": "https://www.ramc-ww1.com/chain_of_evacuation.php",
+      "accessed": "2026-10-03"
+    },
+    "iwm_medicine": {
+      "title": "Medicine in the First World War",
+      "publisher": "Imperial War Museums",
+      "url": "https://www.iwm.org.uk/history/a-short-guide-to-medical-services-during-the-first-world-war",
+      "accessed": "2026-10-03"
+    },
+    "tna_stretcher": {
+      "title": "Medicine on the Western Front (part one): Stretcher bearer casualties",
+      "publisher": "The National Archives (UK)",
+      "url": "https://www.nationalarchives.gov.uk/education/resources/medicine-on-the-western-front-part-one/stretcher-bearer-casualties/",
+      "accessed": "2026-10-03"
+    },
+    "iwm_sb_brassard": {
+      "title": "brassard, British, stretcher bearer",
+      "publisher": "Imperial War Museums (collection object 30060231)",
+      "url": "https://www.iwm.org.uk/collections/item/object/30060231",
+      "accessed": "2026-10-03"
+    },
+    "iwm_stretcher_obj": {
+      "title": "Stretcher, field: British",
+      "publisher": "Imperial War Museums (collection object 30028459)",
+      "url": "https://www.iwm.org.uk/collections/item/object/30028459",
+      "accessed": "2026-10-03"
+    },
+    "awm_med_evac": {
+      "title": "Medical evacuation (Anzac Voices exhibition)",
+      "publisher": "Australian War Memorial",
+      "url": "https://www.awm.gov.au/visit/exhibitions/anzac-voices/medical-evacuation",
+      "accessed": "2026-10-03"
+    },
+    "iwm_kit": {
+      "title": "Soldiers' kit during the First World War",
+      "publisher": "Imperial War Museums",
+      "url": "https://www.iwm.org.uk/history/first-world-war/western-front/soldier-kit",
+      "accessed": "2026-10-03"
+    },
+    "iwm_1908_webbing": {
+      "title": "Webbing, 1908 Pattern (set)",
+      "publisher": "Imperial War Museums (collection object 30016085)",
+      "url": "https://www.iwm.org.uk/collections/item/object/30016085",
+      "accessed": "2026-10-03"
+    },
+    "iwm_1914_leather": {
+      "title": "1914 Pattern Leather Equipment",
+      "publisher": "Imperial War Museums (collection object 30015833)",
+      "url": "https://www.iwm.org.uk/collections/item/object/30015833",
+      "accessed": "2026-10-03"
+    },
+    "nam_brodie": {
+      "title": "The Brodie Helmet",
+      "publisher": "National Army Museum (First World War in Focus)",
+      "url": "https://ww1.nam.ac.uk/1904/news/brodie-helmet/",
+      "accessed": "2026-10-03"
+    },
+    "iwm_brodie_obj": {
+      "title": "Steel Helmet, MK I Brodie pattern: British Army",
+      "publisher": "Imperial War Museums (collection object 30090820)",
+      "url": "https://www.iwm.org.uk/collections/item/object/30090820",
+      "accessed": "2026-10-03"
+    },
+    "awm_ph": {
+      "title": "PH Helmet respirator: British Army",
+      "publisher": "Australian War Memorial",
+      "url": "https://www.awm.gov.au/collection/C164321",
+      "accessed": "2026-10-03"
+    },
+    "awm_sbr": {
+      "title": "Small box respirator (3D Treasures)",
+      "publisher": "Australian War Memorial",
+      "url": "https://www.awm.gov.au/3dtreasures/items/small-box-respirator",
+      "accessed": "2026-10-03"
+    },
+    "iwm_sbr_story": {
+      "title": "Description of the box respirator, designed by Bertram Lambert",
+      "publisher": "Imperial War Museums, Lives of the First World War",
+      "url": "https://livesofthefirstworldwar.iwm.org.uk/story/42522",
+      "accessed": "2026-10-03"
+    },
+    "iwm_whales": {
+      "title": "Why Whales Were Vital In The First World War",
+      "publisher": "Imperial War Museums",
+      "url": "https://www.iwm.org.uk/history/first-world-war/home-front/why-whales-were-vital-in-the-first-world-war",
+      "accessed": "2026-10-03"
+    },
+    "iwm_clean": {
+      "title": "Keeping Clean And Healthy In Trenches During World War 1",
+      "publisher": "Imperial War Museums",
+      "url": "https://www.iwm.org.uk/history/first-world-war/western-front/how-to-keep-clean-and-healthy-in-the-trenches",
+      "accessed": "2026-10-03"
+    },
+    "iwm_food": {
+      "title": "Food That Fuelled The Front Line During World War 1",
+      "publisher": "Imperial War Museums",
+      "url": "https://www.iwm.org.uk/history/first-world-war/western-front/food",
+      "accessed": "2026-10-03"
+    },
+    "nam_rumjar": {
+      "title": "Mudbound: Conserving a First World War rum jar",
+      "publisher": "National Army Museum",
+      "url": "https://www.nam.ac.uk/explore/mudbound-conserving-army-rum-jar",
+      "accessed": "2026-10-03"
+    },
+    "wfa_rum": {
+      "title": "Alcohol in the trenches: the rum ration",
+      "publisher": "The Western Front Association",
+      "url": "https://www.westernfrontassociation.com/world-war-i-articles/2021/december/alcohol-in-the-trenches-the-rum-ration/",
+      "accessed": "2026-10-03"
+    },
+    "iwm_whizzbang": {
+      "title": "What was a whizz-bang?",
+      "publisher": "Imperial War Museums, Lives of the First World War",
+      "url": "https://livesofthefirstworldwar.iwm.org.uk/story/102088",
+      "accessed": "2026-10-03"
+    },
+    "iwm_slang": {
+      "title": "10 Tommy Slang Terms From The First World War",
+      "publisher": "Imperial War Museums",
+      "url": "https://www.iwm.org.uk/history/whizz-bangs-and-wind-ups-10-tommy-slang-terms",
+      "accessed": "2026-10-03"
+    },
+    "cwm_routine": {
+      "title": "Trench Conditions: Trench Routine",
+      "publisher": "Canadian War Museum",
+      "url": "https://www.warmuseum.ca/firstworldwar/history/life-at-the-front/trench-conditions/trench-routine/",
+      "accessed": "2026-10-03"
+    },
+    "cwm_raids": {
+      "title": "Tactics and Logistics on Land: Trench Raids",
+      "publisher": "Canadian War Museum",
+      "url": "https://www.warmuseum.ca/firstworldwar/history/battles-and-fighting/tactics-and-logistics-on-land/trench-raids/",
+      "accessed": "2026-10-03"
+    },
+    "peinetti_torchis": {
+      "title": "The torchis of northern France (Peinetti, 2016, accepted manuscript)",
+      "publisher": "HAL-SHS open archive (CNRS)",
+      "url": "https://halshs.archives-ouvertes.fr/halshs-01360081v1/file/Peinetti%202016_The%20torchis%20of%20northern%20France_accepted%20manuscript.pdf",
+      "accessed": "2026-10-03"
+    },
+    "fp_picardy": {
+      "title": "Picardy Traditional Houses and Architecture",
+      "publisher": "French Property (commercial site, low reliability)",
+      "url": "https://french-property.com/regions/picardie/houses-homes-architecture",
+      "accessed": "2026-10-03"
+    }
+  },
+  "facts": [
+    {
+      "id": "somme_dates",
+      "text": "The Battle of the Somme was fought from 1 July to 18 November 1916, a joint British and French offensive. Over 141 days the British advanced at most about seven miles.",
+      "status": "documented",
+      "sources": [
+        "iwm_somme"
+      ]
+    },
+    {
+      "id": "somme_first_day",
+      "text": "On 1 July 1916 the British Army suffered over 57,000 casualties, including 19,240 killed. It is the bloodiest day in British military history.",
+      "status": "documented",
+      "sources": [
+        "iwm_somme"
+      ]
+    },
+    {
+      "id": "somme_final_phase",
+      "text": "In October and November the weather got worse (rain, then sleet and snow). The final phase was an attempt to take a few more German positions. Beaumont Hamel, a first-day objective, fell in mid-November, bringing the battle to a close.",
+      "status": "documented",
+      "sources": [
+        "iwm_somme",
+        "iwm_somme_final"
+      ]
+    },
+    {
+      "id": "oct_1916_operations",
+      "text": "October 1916 saw the Battle of Le Transloy (Fourth Army, about 1 to 18-20 October) and the Battle of the Ancre Heights (Reserve Army, 1 October to 11 November, including the Canadian Corps' attacks on Regina Trench). Attacks on the Butte de Warlencourt (47th, 23rd and 41st Divisions among others) failed.",
+      "status": "documented",
+      "sources": [
+        "canada_ancre_heights",
+        "wiki_transloy",
+        "wiki_ancre_heights",
+        "wiki_butte"
+      ]
+    },
+    {
+      "id": "oct_1916_weather",
+      "text": "Frequent heavy rain in October 1916 turned the shell-churned chalk and clay into sticky mud. Roads and tracks became nearly impassable, attacks were postponed, aircraft were grounded, and guns and supplies were very hard to move forward.",
+      "status": "documented",
+      "sources": [
+        "iwm_somme_final",
+        "canada_ancre_heights",
+        "wiki_transloy"
+      ]
+    },
+    {
+      "id": "oct_1916_stretcher_bearing",
+      "text": "An officer's account for 20 October 1916 records being 'out in mud and pouring rain, sopping wet through all day, stretcher bearing'. By late October the weather 'has quite broken up'.",
+      "status": "documented",
+      "sources": [
+        "nam_eric_hall"
+      ]
+    },
+    {
+      "id": "clocks_1916",
+      "text": "Britain's first Summer Time ran from 21 May to 1 October 1916, so in October 1916 the clocks were back on GMT. Dawn stand-to was roughly 6-7 a.m. and dusk about 5-6 p.m. local time; the exact times are an estimate.",
+      "status": "reconstruction",
+      "sources": [
+        "wiki_bst"
+      ]
+    },
+    {
+      "id": "trench_lines",
+      "text": "A British trench system had a front (fire) line, a support line and a reserve line, joined by communication trenches. Short saps were narrow trenches pushed out at an angle from the main trench, toward listening posts.",
+      "status": "documented",
+      "sources": [
+        "wfa_terms",
+        "smith_1917"
+      ]
+    },
+    {
+      "id": "traverses",
+      "text": "Fire trenches were not straight. Traverses (blocks of earth or sandbags) divided them into fire bays, which limited enfilade fire and contained shell blast. One 1917 manual gives fire bays of 12-18 ft and traverses of about 9 x 9 ft.",
+      "status": "documented",
+      "sources": [
+        "wfa_terms",
+        "smith_1917"
+      ]
+    },
+    {
+      "id": "parapet_parados",
+      "text": "The parapet was the raised front of the trench and the parados the raised back, often made of sandbags. Pre-war engineering doctrine treated about 2 ft of earth as enough to stop a rifle bullet.",
+      "status": "documented",
+      "sources": [
+        "wfa_terms",
+        "frontlineulster_parapet"
+      ]
+    },
+    {
+      "id": "fire_step",
+      "text": "The fire step was a raised ledge that let a soldier see and fire over the parapet. The 1911 Manual of Field Engineering diagrams reportedly put the top of the fire step about 4 ft 6 in below the top of the parapet.",
+      "status": "documented",
+      "sources": [
+        "wfa_terms",
+        "gwf_firestep"
+      ]
+    },
+    {
+      "id": "trench_size",
+      "text": "Working dimensions for level design: trench floor about 6-8 ft below the parapet top, 3.5-6 ft wide at the top, narrower at the bottom; fire step about 18 in deep. Real trenches varied widely, and by October 1916 front lines on the Somme were often linked shell holes and hastily dug, shallow lines rather than textbook trenches.",
+      "status": "reconstruction",
+      "sources": [
+        "smith_1917"
+      ]
+    },
+    {
+      "id": "sandbags",
+      "text": "Filling sandbags to build up parapets was routine trench work. A sandbag was about 18 in long and a foot wide, filled with soil and tied.",
+      "status": "documented",
+      "sources": [
+        "iwm_voices_trench"
+      ]
+    },
+    {
+      "id": "duckboards_sumps",
+      "text": "Duckboards (slatted wooden walkways) were laid on the trench floor, often over sump pits, drainage holes dug at intervals along one side of the trench.",
+      "status": "documented",
+      "sources": [
+        "wfa_terms",
+        "iwm_duckboard_obj"
+      ]
+    },
+    {
+      "id": "revetting",
+      "text": "Trench walls were held up (revetted) with corrugated iron sheets and timber A-frames, which also carried the duckboards. Woven brushwood hurdles, expanded metal and sandbags were used too.",
+      "status": "documented",
+      "sources": [
+        "iwm_film_engineers"
+      ]
+    },
+    {
+      "id": "revetting_note",
+      "text": "Hurdles and expanded metal appear in period engineering practice, but no museum page was retrieved that confirms them for the Somme specifically. Mix them in with A-frames and corrugated iron as plausible variety.",
+      "status": "reconstruction",
+      "sources": []
+    },
+    {
+      "id": "dugouts",
+      "text": "A dugout could be anything from a scrape in the trench wall ('funk hole') to a suite of rooms underground. German deep dugouts on the Somme were cut 10 m or more into the chalk. Most British front-line shelters were shallower.",
+      "status": "documented",
+      "sources": [
+        "wfa_terms",
+        "wfa_guillemont",
+        "iwm_dugout_1916"
+      ]
+    },
+    {
+      "id": "dugout_gas_curtain",
+      "text": "Blankets hung across dugout entrances acted as gas curtains. Period images show blanketed dug-outs, which were also used for gas-mask drill.",
+      "status": "documented",
+      "sources": [
+        "iwm_gas_chamber"
+      ]
+    },
+    {
+      "id": "dugout_fumes",
+      "text": "Dugouts could become death traps from fumes given off by exploding high-explosive shells. Bearers at Guillemont found men in a shaft who were dead but unmarked. The game should not show this. It is context for why the player's dugout needs an air exit.",
+      "status": "documented",
+      "sources": [
+        "wfa_guillemont"
+      ]
+    },
+    {
+      "id": "wire_pickets",
+      "text": "Barbed-wire entanglements were put up at night by wiring parties. From about 1915, steel corkscrew ('screw') pickets were screwed into the ground with a stick or entrenching-tool handle instead of being hammered, which kept the work quiet.",
+      "status": "documented",
+      "sources": [
+        "cwm_wire",
+        "awm_corkscrew",
+        "wfa_terms"
+      ]
+    },
+    {
+      "id": "periscope",
+      "text": "Trench periscopes used two mirrors at 45 degrees in a box or tube so men could watch no man's land without raising their heads. Improvised box periscopes were common. British Army workshops in France began making them in mid-1916.",
+      "status": "documented",
+      "sources": [
+        "cwm_periscope",
+        "iwm_periscope_obj"
+      ]
+    },
+    {
+      "id": "somme_geology",
+      "text": "The Somme is a chalk upland. The chalk is covered by clay-with-flints, loess and loam (limon) that can be several metres thick. Spoil dug from trenches showed white against the darker topsoil, and wet, broken ground became a sticky chalk-clay mud.",
+      "status": "documented",
+      "sources": [
+        "doyle_geology"
+      ]
+    },
+    {
+      "id": "spoil_visual",
+      "text": "Art direction: brown loam topsoil about 1-3 m deep over off-white, frost-shattered chalk with dark flint nodules. Parapets and shell-hole rims are streaked grey-white, and puddles are milky grey.",
+      "status": "reconstruction",
+      "sources": [
+        "doyle_geology"
+      ]
+    },
+    {
+      "id": "field_telephone",
+      "text": "The Telephone D Mark III became the standard British field telephone. It had a buzzer unit and Morse key, so Morse could be sent when a line was too noisy for speech.",
+      "status": "documented",
+      "sources": [
+        "iwm_signalling_story",
+        "dva_signallers"
+      ]
+    },
+    {
+      "id": "line_repair",
+      "text": "Field-telephone cable was often cut by shellfire. Signallers, often in pairs, followed the line by hand to find the break and joined it under fire.",
+      "status": "documented",
+      "sources": [
+        "dva_signallers",
+        "iwm_signalling_story"
+      ]
+    },
+    {
+      "id": "runners",
+      "text": "When lines were cut, runners carrying written messages on foot were often the most reliable way to communicate, though they were exposed to fire. Pigeons, lamps and flags were also used.",
+      "status": "documented",
+      "sources": [
+        "cwm_communication",
+        "nam_comms"
+      ]
+    },
+    {
+      "id": "message_form",
+      "text": "CORRECTION: the 'Messages and Signals' form was Army Form C.2121, issued in pads and used in field message books (Army Book 153, 'Field Message Book'). Army Book 152 was the 'Correspondence Book (Field Service)', a squared-paper carbon-copy notebook used for notes, sketches and records.",
+      "status": "documented",
+      "sources": [
+        "royalsignals_forms",
+        "wartimecanada_ab153",
+        "nli_ab152",
+        "ncl_ab152"
+      ]
+    },
+    {
+      "id": "evac_chain",
+      "text": "Evacuation chain: regimental stretcher-bearers carried the wounded to the battalion Regimental Aid Post (RAP, run by the battalion medical officer). Field Ambulance (RAMC) bearers took over to the Advanced Dressing Station, then on to a Main Dressing Station, then by motor or horse ambulance to a Casualty Clearing Station.",
+      "status": "documented",
+      "sources": [
+        "ramc_chain",
+        "iwm_medicine",
+        "tna_stretcher"
+      ]
+    },
+    {
+      "id": "stretcher_bearers",
+      "text": "Each battalion had a medical officer and at least 16 stretcher-bearers, at first often bandsmen. They wore a white armband with 'SB' in red. A carry could be up to about 4 miles over mud or broken ground.",
+      "status": "documented",
+      "sources": [
+        "ramc_chain",
+        "iwm_sb_brassard",
+        "tna_stretcher"
+      ]
+    },
+    {
+      "id": "stretcher_carry",
+      "text": "Four bearers were often needed for one stretcher case. Narrow trenches with tight traverses made carrying very hard, so bearers sometimes went over open ground under fire. Mud could be knee- or thigh-deep.",
+      "status": "documented",
+      "sources": [
+        "awm_med_evac",
+        "tna_stretcher"
+      ]
+    },
+    {
+      "id": "kit_uniform_webbing",
+      "text": "British infantry wore khaki Service Dress and 1908 Pattern web equipment (150 rounds, water bottle, haversack, entrenching tool). Many New Army units also used the 1914 Pattern leather equipment as a stopgap.",
+      "status": "documented",
+      "sources": [
+        "iwm_kit",
+        "iwm_1908_webbing",
+        "iwm_1914_leather"
+      ]
+    },
+    {
+      "id": "brodie_timeline",
+      "text": "The Brodie steel helmet was chosen in September 1915. At first it was scarce 'trench stores', about 140,000 by March 1916. About a million were in service by July 1916, when it first appeared in numbers on the Somme. By October 1916 front-line troops should be shown wearing it.",
+      "status": "documented",
+      "sources": [
+        "nam_brodie",
+        "iwm_brodie_obj"
+      ]
+    },
+    {
+      "id": "gas_timeline",
+      "text": "The PH helmet (a chemically treated flannel hood with glass eyepieces and an exhale valve) was in general use by July 1916. The Small Box Respirator began to be issued from about August 1916, and issue was complete by early 1917. October 1916 is a changeover period: show mostly PH helmets with the odd SBR.",
+      "status": "documented",
+      "sources": [
+        "awm_ph",
+        "awm_sbr",
+        "iwm_sbr_story"
+      ]
+    },
+    {
+      "id": "trench_foot",
+      "text": "To prevent trench foot, men changed into dry socks daily and rubbed whale oil into each other's feet. Battalions sent dry socks up with the rations.",
+      "status": "documented",
+      "sources": [
+        "iwm_whales",
+        "iwm_clean"
+      ]
+    },
+    {
+      "id": "food",
+      "text": "Rations included tinned bully beef, Maconochie (tinned beef and vegetable stew, disliked cold), hard biscuits, bread, jam and a great deal of tea. Water often came up in petrol tins.",
+      "status": "documented",
+      "sources": [
+        "iwm_food"
+      ]
+    },
+    {
+      "id": "rum",
+      "text": "The rum ration was about 2.5 fl oz (about 70 ml) a day, drunk in front of an officer or NCO. It came up in one-gallon stoneware jars stamped 'SRD', commonly read as 'Supply Reserve Depot'.",
+      "status": "documented",
+      "sources": [
+        "nam_rumjar",
+        "wfa_rum"
+      ]
+    },
+    {
+      "id": "whizz_bang",
+      "text": "'Whizz-bang' was soldiers' slang for a shell from a light, high-velocity field gun, first the German 77 mm. The shell arrived almost at once, so you heard the 'whizz' just before or with the 'bang' and had almost no warning.",
+      "status": "documented",
+      "sources": [
+        "iwm_whizzbang",
+        "iwm_slang"
+      ]
+    },
+    {
+      "id": "bombardment_experience",
+      "text": "Veterans describe a bombardment as continuous noise, with shells heard coming and men judging where they would land. Dugouts shook and could fall in, and men dug each other out. Some broke down under the strain ('shell shock').",
+      "status": "documented",
+      "sources": [
+        "iwm_voices_trench"
+      ]
+    },
+    {
+      "id": "very_lights",
+      "text": "Very (Verey) lights were coloured flares fired from a Very pistol, used at night to light up no man's land and to signal.",
+      "status": "documented",
+      "sources": [
+        "wfa_terms",
+        "cwm_raids"
+      ]
+    },
+    {
+      "id": "routine",
+      "text": "Daily routine: stand-to on the fire step at dawn and dusk. In daylight, sentries were posted and other men rested or worked out of sight below ground. At night there were wiring, digging, ration and carrying parties, patrols and raids.",
+      "status": "documented",
+      "sources": [
+        "cwm_routine"
+      ]
+    },
+    {
+      "id": "village_destruction",
+      "text": "By late summer 1916, villages in the battle zone such as Guillemont and Ginchy had been shelled flat into heaps of rubble and reddish brick dust. Cellars, wells and dugouts beneath them were used as shelters.",
+      "status": "documented",
+      "sources": [
+        "wfa_guillemont"
+      ]
+    },
+    {
+      "id": "picardy_buildings",
+      "text": "Picardy farmhouses were built around a closed courtyard with barns and stables. Walls were red brick, or timber frame filled with torchis (cob of clay and fibre), on chalk or brick footings, with steep flat-tile roofs. Many had a vaulted cellar.",
+      "status": "documented",
+      "sources": [
+        "peinetti_torchis",
+        "fp_picardy"
+      ]
+    },
+    {
+      "id": "farm_cellar_scene",
+      "text": "A ruined farm whose brick-vaulted cellar has survived under fallen masonry and roof tiles is a plausible location for the trapped stretcher-bearer.",
+      "status": "reconstruction",
+      "sources": [
+        "wfa_guillemont"
+      ]
+    },
+    {
+      "id": "civilians",
+      "text": "French civilians had been moved out of the forward battle zone. No civilians should be in the front-line sector.",
+      "status": "reconstruction",
+      "sources": []
+    },
+    {
+      "id": "fiction_unit",
+      "text": "The battalion, its sector name, trench names, the farm, the stretcher-bearer, the wounded soldier, the diary and its owner are all game inventions.",
+      "status": "fiction",
+      "sources": []
+    },
+    {
+      "id": "fiction_time_traveller",
+      "text": "The time-traveller player, the scanner device and all mission objectives are fiction. The player never changes the documented course of the battle.",
+      "status": "fiction",
+      "sources": []
+    }
+  ],
+  "scanEntries": [
+    {
+      "id": "scan_brodie_helmet",
+      "title": "Steel Helmet (Brodie pattern)",
+      "text": "A shallow steel bowl, pressed from a single sheet, with a wide brim against shrapnel falling from above. The design was chosen in September 1915 and began as shared 'trench stores'. About a million were in service by July 1916, and it became the first helmet issued to every British soldier, whatever his rank.",
+      "status": "documented",
+      "sources": [
+        "nam_brodie",
+        "iwm_brodie_obj"
+      ]
+    },
+    {
+      "id": "scan_duckboard",
+      "text": "Slatted timber walkway laid on the trench floor, often over a sump pit that collected water. It kept boots out of the worst of the mud. In the autumn rains of 1916, many duckboards sank or floated.",
+      "title": "Duckboard",
+      "status": "documented",
+      "sources": [
+        "wfa_terms",
+        "iwm_duckboard_obj"
+      ]
+    },
+    {
+      "id": "scan_field_telephone",
+      "title": "Field Telephone (D Mk III)",
+      "text": "The standard British field telephone, in a leather or wooden case. A buzzer and Morse key let signallers tap out messages when voice was drowned by noise on the line. Its thin cable was easily cut by shellfire, and signallers followed it by hand to find and mend breaks.",
+      "status": "documented",
+      "sources": [
+        "iwm_signalling_story",
+        "dva_signallers"
+      ]
+    },
+    {
+      "id": "scan_message_form",
+      "title": "Message Form (Army Form C.2121)",
+      "text": "A 'Messages and Signals' form torn from a pad or field message book (Army Book 153). It has boxes for sender, addressee, time and text. When telephone lines were down, a runner carried forms like this by hand.",
+      "status": "documented",
+      "sources": [
+        "royalsignals_forms",
+        "wartimecanada_ab153",
+        "cwm_communication"
+      ]
+    },
+    {
+      "id": "scan_periscope",
+      "title": "Trench Periscope",
+      "text": "A wooden box with two mirrors set at 45 degrees. A sentry could watch no man's land without lifting his head above the parapet, where a sniper might be waiting. Many were improvised, and British Army workshops in France began making them in mid-1916.",
+      "status": "documented",
+      "sources": [
+        "cwm_periscope",
+        "iwm_periscope_obj"
+      ]
+    },
+    {
+      "id": "scan_sandbag_parapet",
+      "title": "Sandbag Parapet",
+      "text": "Sacks about 18 inches by 12, filled with earth and stacked in courses along the front of the trench. Roughly two feet of packed earth would stop a rifle bullet. Rebuilding parapets after shelling was endless work.",
+      "status": "documented",
+      "sources": [
+        "iwm_voices_trench",
+        "frontlineulster_parapet",
+        "wfa_terms"
+      ]
+    },
+    {
+      "id": "scan_ph_helmet",
+      "title": "PH Gas Helmet",
+      "text": "A flannel hood soaked in phenate-hexamine, with glass eyepieces and a valve to breathe out through. Pulled over the head and tucked into the collar, it guarded against chlorine and phosgene. The new Small Box Respirator began to replace it from late 1916.",
+      "status": "documented",
+      "sources": [
+        "awm_ph",
+        "awm_sbr"
+      ]
+    },
+    {
+      "id": "scan_screw_picket",
+      "title": "Screw Picket and Barbed Wire",
+      "text": "A steel post with a corkscrew foot, twisted into the ground by hand with a stick. A wiring party could put up an entanglement at night without the noise of a mallet. Rows of pickets carried the barbed wire that slowed attackers under fire.",
+      "status": "documented",
+      "sources": [
+        "cwm_wire",
+        "awm_corkscrew"
+      ]
+    },
+    {
+      "id": "scan_stretcher",
+      "title": "Field Stretcher",
+      "text": "Canvas slung between two wooden poles, with folding iron spreaders and short feet. One wounded man could need four bearers. In narrow trenches and around sharp traverses, carrying a loaded stretcher was slow and exhausting, sometimes impossible.",
+      "status": "documented",
+      "sources": [
+        "iwm_stretcher_obj",
+        "awm_med_evac",
+        "tna_stretcher"
+      ]
+    },
+    {
+      "id": "scan_rap",
+      "title": "Regimental Aid Post",
+      "text": "The first link in the medical chain, often in a dugout or cellar near the front line. The battalion medical officer checked wounds and gave first treatment. Field Ambulance bearers then carried the wounded back to the Advanced Dressing Station.",
+      "status": "documented",
+      "sources": [
+        "ramc_chain",
+        "iwm_medicine"
+      ]
+    },
+    {
+      "id": "scan_gas_curtain",
+      "title": "Dugout Entrance and Gas Curtain",
+      "text": "Timber-framed steps lead down into the dugout. A blanket hangs across the doorway, let down when gas was reported, to slow the gas getting in. Below, men slept, ate and waited out bombardments by candlelight.",
+      "status": "documented",
+      "sources": [
+        "iwm_gas_chamber",
+        "wfa_terms",
+        "iwm_dugout_1916"
+      ]
+    },
+    {
+      "id": "scan_very_pistol",
+      "title": "Very Pistol and Flares",
+      "text": "A wide-barrelled signal pistol that fired coloured flares. At night, white Very lights hung over no man's land and lit it up for sentries. Coloured lights could signal for artillery support or other prearranged messages.",
+      "status": "documented",
+      "sources": [
+        "wfa_terms",
+        "cwm_raids"
+      ]
+    },
+    {
+      "id": "scan_corrugated_revetment",
+      "title": "Corrugated-Iron Revetment",
+      "text": "Sheets of corrugated iron held back by timber A-frames or stakes stop the trench walls from caving in. On the Somme, wet chalk and clay walls slumped quickly in the autumn rain without this support.",
+      "status": "documented",
+      "sources": [
+        "iwm_film_engineers",
+        "doyle_geology"
+      ]
+    },
+    {
+      "id": "scan_rum_jar",
+      "title": "Rum Jar (SRD)",
+      "text": "A one-gallon stoneware jar stamped 'SRD', enough for about 64 men. The daily rum ration of roughly 2.5 fluid ounces was issued under an officer's or NCO's eye, often at dawn stand-to. Soldiers joked that SRD meant 'Seldom Reaches Destination'.",
+      "status": "documented",
+      "sources": [
+        "nam_rumjar",
+        "wfa_rum"
+      ]
+    }
+  ]
+}
