@@ -10,8 +10,6 @@ from __future__ import annotations
 from collections import defaultdict
 
 import numpy as np
-from shapely.geometry import Polygon
-from shapely.strtree import STRtree
 
 from . import config as C
 from .geo import lonlat_to_utm
@@ -20,9 +18,9 @@ from .profile import grade_out
 
 ERROR_TYPES = {
     "joint_gap", "underpass_clearance", "overlap", "deck_elevation_missing",
-    "junction_trim_conflict", "junction_pad_invalid", "deck_from_terrain",
+    "deck_from_terrain", "height_conflict",
 }
-WARNING_TYPES = {"grade", "grade_change", "joint_kink", "open_edge", "grade_separation_indeterminate"}
+WARNING_TYPES = {"grade", "grade_change", "joint_kink", "junction_warp", "grade_separation_indeterminate"}
 MAX_JOINT_KINK = 0.03
 
 
@@ -47,9 +45,6 @@ def run_checks(inv, profiles: dict, build, blockers: dict[str, str]) -> dict[str
     for sid, p in profiles.items():
         for i in p.issues:
             issues[sid].append(i)
-
-    for i in build.issues:
-        issues[i["id"]].append(i)
 
     # Continuity at 2-way connections: both ribbons must end at the same height.
     for j in inv.junctions.values():
@@ -92,36 +87,32 @@ def run_checks(inv, profiles: dict, build, blockers: dict[str, str]) -> dict[str
                                     "clearance_m": round(clearance, 2),
                                     "min_m": C.MIN_UNDERPASS_CLEARANCE_M})
 
-    # Overlapping surfaces of different, non-adjacent segments at similar height.
-    polys, ids = [], []
-    for sid, meshes in build.meshes_by_segment.items():
-        surf = meshes[0]
-        v = np.asarray(surf.vertices)
-        n = len(v) // 2
-        if n < 2:
-            continue
-        ring = list(map(tuple, v[:n, :2])) + list(map(tuple, v[n:, :2][::-1]))
-        poly = Polygon(ring).buffer(0)
-        polys.append(poly)
-        ids.append(sid)
-    tree = STRtree(polys)
-    for i, pi in enumerate(polys):
-        for j in tree.query(pi, predicate="intersects"):
-            if j <= i:
+    # Surface issues: height conflicts inside a group are attributed to the nearby segments.
+    for i in build.issues:
+        for sid in i.get("segments", []):
+            issues[sid].append(i)
+
+    # Overlapping surfaces of different groups at similar height (outside abutment clip zones).
+    keys = sorted(build.footprints, key=str)
+    for a in range(len(keys)):
+        for b in range(a + 1, len(keys)):
+            fa, fb = build.footprints[keys[a]], build.footprints[keys[b]]
+            if fa.is_empty or fb.is_empty or not fa.intersects(fb):
                 continue
-            a, b = inv.segments[ids[i]], inv.segments[ids[j]]
-            if {a.from_node, a.to_node} & {b.from_node, b.to_node}:
-                continue
-            inter = pi.intersection(polys[j])
-            if inter.area < 0.5:
-                continue
-            c = inter.representative_point()
-            za, _ = _z_at(profiles[a.id], c.x, c.y)
-            zb, _ = _z_at(profiles[b.id], c.x, c.y)
-            if abs(za - zb) < 2.0:
-                for sid in (a.id, b.id):
-                    issues[sid].append({"type": "overlap", "other": b.id if sid == a.id else a.id,
-                                        "area_m2": round(inter.area, 1), "dz_m": round(abs(za - zb), 2)})
+            inter = fa.intersection(fb)
+            for part in getattr(inter, "geoms", [inter]):
+                if part.area < 0.5:
+                    continue
+                c = part.representative_point()
+                za, zb = build.heights[keys[a]](c.x, c.y), build.heights[keys[b]](c.x, c.y)
+                if abs(za - zb) < 2.0:
+                    near = []
+                    for k in (keys[a], keys[b]):
+                        g = build.groups[k]
+                        near += [g.seg_ids[i] for i in g.tree.query(c.buffer(15))]
+                    for sid in near:
+                        issues[sid].append({"type": "overlap", "groups": [str(keys[a]), str(keys[b])],
+                                            "area_m2": round(part.area, 1), "dz_m": round(abs(za - zb), 2)})
     return dict(issues)
 
 

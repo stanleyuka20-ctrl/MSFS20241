@@ -62,6 +62,9 @@ def write_package_content(package_root: Path, package_name: str, tiles: list[dic
     scene = src / "scene"
     lib.mkdir(parents=True, exist_ok=True)
     scene.mkdir(parents=True, exist_ok=True)
+    for f in list(lib.glob(f"{package_name}-*")) + [scene / f"{package_name}.xml"]:
+        if f.exists():
+            f.unlink()                           # remove previous build's generated files
     written = []
     for t in tiles:
         g = Path(t["gltf"])
@@ -77,3 +80,72 @@ def write_package_content(package_root: Path, package_name: str, tiles: list[dic
     p.write_text(placement_xml(tiles))
     written.append(p)
     return written
+
+
+def write_project_files(package_root: Path, package_name: str, title: str) -> list[Path]:
+    """Baseline project + package-definition XML (MSFS SDK project format as used by the SDK
+    scenery samples). UNVERIFIED for MSFS 2024 (verification item V1): existing files are
+    left untouched so a version corrected against the installed SDK is never overwritten."""
+    proj = package_root / f"{package_name}.xml"
+    pdef = package_root / "PackageDefinitions" / f"{package_name}.xml"
+    ci = package_root / "PackageDefinitions" / package_name / "ContentInfo"
+    ci.mkdir(parents=True, exist_ok=True)
+    out = []
+    if not proj.exists():
+        proj.write_text(f"""<?xml version="1.0" encoding="utf-8"?>
+<!-- BASELINE project file (MSFS SDK project format of the SDK scenery samples).
+     STATUS: UNVERIFIED for MSFS 2024 (V1). Diff against a project created by the installed
+     SDK's Project Editor and keep the SDK's version (this file is then never regenerated). -->
+<Project Version="2" Name="{package_name}" FolderName="Packages">
+    <OutputDirectory>.</OutputDirectory>
+    <TempOutputDirectory>_PackageInt</TempOutputDirectory>
+    <Packages>
+        <Package>PackageDefinitions\\{package_name}.xml</Package>
+    </Packages>
+</Project>
+""".replace("\\\\", "\\"))
+        out.append(proj)
+    if not pdef.exists():
+        pdef.write_text(f"""<?xml version="1.0" encoding="utf-8"?>
+<!-- BASELINE package definition. STATUS: UNVERIFIED for MSFS 2024 (V1). -->
+<AssetPackage Version="0.1.0">
+    <ItemSettings>
+        <ContentType>SCENERY</ContentType>
+        <Title>{title}</Title>
+        <Manufacturer>NYC Drivable Roads project</Manufacturer>
+        <Creator>nycroads</Creator>
+    </ItemSettings>
+    <Flags>
+        <VisibleInStore>false</VisibleInStore>
+        <CanBeReferenced>false</CanBeReferenced>
+    </Flags>
+    <AssetGroups>
+        <AssetGroup Name="ContentInfo">
+            <Type>ContentInfo</Type>
+            <Flags>
+                <FSXCompatibility>false</FSXCompatibility>
+            </Flags>
+            <AssetDir>PackageDefinitions\\{package_name}\\ContentInfo\\</AssetDir>
+            <OutputDir>ContentInfo\\{package_name}\\</OutputDir>
+        </AssetGroup>
+        <AssetGroup Name="{package_name}-modelLib">
+            <Type>ModelLib</Type>
+            <Flags>
+                <FSXCompatibility>false</FSXCompatibility>
+            </Flags>
+            <AssetDir>PackageSources\\modelLib\\{package_name}\\</AssetDir>
+            <OutputDir>scenery\\nycroads\\{package_name}-modelLib\\</OutputDir>
+        </AssetGroup>
+        <AssetGroup Name="{package_name}-scene">
+            <Type>BGL</Type>
+            <Flags>
+                <FSXCompatibility>false</FSXCompatibility>
+            </Flags>
+            <AssetDir>PackageSources\\scene\\</AssetDir>
+            <OutputDir>scenery\\nycroads\\{package_name}-scene\\</OutputDir>
+        </AssetGroup>
+    </AssetGroups>
+</AssetPackage>
+""".replace("\\\\", "\\"))
+        out.append(pdef)
+    return out

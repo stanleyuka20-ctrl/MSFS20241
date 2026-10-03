@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- BASELINE project file (MSFS SDK project format of the SDK scenery samples).
+     STATUS: UNVERIFIED for MSFS 2024 (V1). Diff against a project created by the installed
+     SDK's Project Editor and keep the SDK's version (this file is then never regenerated). -->
+<Project Version="2" Name="nycroads-g1-testpad" FolderName="Packages">
+    <OutputDirectory>.</OutputDirectory>
+    <TempOutputDirectory>_PackageInt</TempOutputDirectory>
+    <Packages>
+        <Package>PackageDefinitions\nycroads-g1-testpad.xml</Package>
+    </Packages>
+</Project>

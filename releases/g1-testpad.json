@@ -1,0 +1,38 @@
+{
+ "_about": "Gate G1 test pad (DESIGNED layout on real terrain at Floyd Bennett Field). Purpose: prove that the chosen player vehicle can accelerate, brake, steer, reverse, hill-start, cross a raised deck and pass beneath it on generated surfaces, BEFORE the demo route is trusted. Not part of the road inventory or coverage.",
+ "release": "g1-testpad",
+ "package_name": "nycroads-g1-testpad",
+ "osm": [
+  "data/testpad/testpad_osm.json"
+ ],
+ "testpad": {
+  "lat0": 40.593,
+  "lon0": -73.894
+ },
+ "crossings": "data/testpad/crossings.json",
+ "id_registry": "data/id_registry_g1.json",
+ "dem": {
+  "path": "data/dem/g1_dem.tif",
+  "z_units": "m",
+  "datum": "NAVD88",
+  "usgs_project": "NY_CMPG_2013"
+ },
+ "inventory_bbox": [
+  40.5915,
+  -73.8975,
+  40.5945,
+  -73.8905
+ ],
+ "vertical_reference": "data/vertical_reference.json",
+ "deck_controls": "data/testpad/deck_controls.json",
+ "status": "data/status_g1.json",
+ "orientation_marker_at": [
+  -73.897,
+  40.593
+ ],
+ "package_root": "package/nycroads-g1-testpad",
+ "build_dir": "build/g1-testpad",
+ "coverage_dir": "coverage/g1-testpad",
+ "inventory_dir": "build/inventory-g1",
+ "demo": true
+}

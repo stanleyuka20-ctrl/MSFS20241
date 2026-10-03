@@ -65,20 +65,35 @@ the simulator's vertical datum is *not* confirmed (V7).
 ### Bridge decks
 
 Deck heights come only from explicit **deck controls** (lidar bridge-deck
-class, engineering data, or a filtered first-return DSM) or — for spans
-≤ 60 m that are not named major crossings — from interpolation between land
-abutments. The deck stage has no access to the DEM. A deck without adequate
-controls is reported **blocked**, not guessed. Decks continue the grade of
-their approaches so joints have no kink (tested).
+class 17, class-1 gap fill only between class-17 controls and within 1 m of
+their line, engineering data) or — for spans ≤ 60 m that are not named major
+crossings — from interpolation between land abutments. The deck stage has no
+access to the DEM. Interpolation through controls is shape-preserving (no
+invented humps). A deck is **blocked** when controls are missing, inconsistent
+(> 10 % between neighbours), or leave a long unmeasured run (> 120 m inside,
+> 60 m uncontrolled segment, > 30 m at a free end). Measured decks set their
+abutment heights and the approaches continue the deck grade.
 
-### Junctions and seams
+### Surfaces, junctions and seams (revised in R1)
 
-Ribbons are trimmed back from intersections; a junction pad is triangulated
-from the trimmed ribbon end vertices themselves, so the surfaces share
-vertices exactly (tested: no gaps, no overlapping coplanar faces, no
-z-fighting). At two-way joins both ribbons use one mitred end normal.
-Markings follow the surface at +2 cm and use a draw-order extension rather
-than a large offset (no floating lines).
+R0's per-node junction pads failed on real NYC junction clusters. R1 builds one
+continuous surface per level (`surface.py`): the union of all road footprints
+of a ground layer, of each bridge deck, or of each raised ground piece;
+roads overlapping a non-adjacent road are split along the Voronoi midline;
+same-level overlaps between surfaces go to the higher-priority surface. The
+footprint is triangulated (constrained Delaunay, no Steiner points) per
+250 m cell; vertex height is a deterministic function of position (blend of
+centreline profiles), so cells and tiles share identical seam vertices
+(tested). Height disagreements inside a surface are reported (> 1 m = error).
+Markings follow the profiles at +2 cm with a draw-order extension.
+
+### Ground heights (revised in R1)
+
+Bare-earth DEMs remove every structure; in NYC many streets OSM does not tag
+as bridges are carried over trenches and tunnel approaches. Ground roads
+therefore use classified lidar road-surface returns (class 2; class 17 only
+when continuous with the street's own ground, which rejects overpasses), with
+the DEM as a continuity-checked fallback (`lidarsurface.py`).
 
 ### Tiling and LOD
 
@@ -91,6 +106,8 @@ multi-LOD model is not confirmed (V11), so R0 emits a single LOD; visual LODs
 LOD (e.g. the same collision node in each LOD file).
 
 ## Verification register
+
+Evidence is recorded in [verification/REGISTER.md](verification/REGISTER.md); procedures in [09](09-windows-handoff.md#3-gate-v--verify-the-sdk-assumptions-v1v12).
 
 Each item must be checked on the simulator host against the installed SDK
 (local docs, sample projects, and an editor-saved file), with the result,

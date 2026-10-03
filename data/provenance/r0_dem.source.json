@@ -1,0 +1,21 @@
+{
+ "product": "USGS 3DEP 1 m DEM, project NY_CMPG_2013",
+ "tiles": [
+  "x58y451",
+  "x58y452",
+  "x59y451",
+  "x59y452"
+ ],
+ "source": "s3://prd-tnm/StagedProducts/Elevation/1m/Projects/NY_CMPG_2013/TIFF/",
+ "crs": "EPSG:26918 (NAD83 / UTM 18N)",
+ "vertical": "NAVD88, metres (from tile metadata USGS_one_meter_x58y452_NY_CMPG_2013_meta.xml)",
+ "surface": "bare earth",
+ "collection": "2013-08-06 to 2014-04-21",
+ "license": "public domain (USGS 3DEP)",
+ "crop_bounds_utm": [
+  586893.9414889629,
+  4508690.317264814,
+  590159.0523984482,
+  4512268.857031311
+ ]
+}

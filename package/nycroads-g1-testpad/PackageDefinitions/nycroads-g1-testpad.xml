@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- BASELINE package definition. STATUS: UNVERIFIED for MSFS 2024 (V1). -->
+<AssetPackage Version="0.1.0">
+    <ItemSettings>
+        <ContentType>SCENERY</ContentType>
+        <Title>NYC Drivable Roads - nycroads-g1-testpad (test build)</Title>
+        <Manufacturer>NYC Drivable Roads project</Manufacturer>
+        <Creator>nycroads</Creator>
+    </ItemSettings>
+    <Flags>
+        <VisibleInStore>false</VisibleInStore>
+        <CanBeReferenced>false</CanBeReferenced>
+    </Flags>
+    <AssetGroups>
+        <AssetGroup Name="ContentInfo">
+            <Type>ContentInfo</Type>
+            <Flags>
+                <FSXCompatibility>false</FSXCompatibility>
+            </Flags>
+            <AssetDir>PackageDefinitions\nycroads-g1-testpad\ContentInfo\</AssetDir>
+            <OutputDir>ContentInfo\nycroads-g1-testpad\</OutputDir>
+        </AssetGroup>
+        <AssetGroup Name="nycroads-g1-testpad-modelLib">
+            <Type>ModelLib</Type>
+            <Flags>
+                <FSXCompatibility>false</FSXCompatibility>
+            </Flags>
+            <AssetDir>PackageSources\modelLib\nycroads-g1-testpad\</AssetDir>
+            <OutputDir>scenery\nycroads\nycroads-g1-testpad-modelLib\</OutputDir>
+        </AssetGroup>
+        <AssetGroup Name="nycroads-g1-testpad-scene">
+            <Type>BGL</Type>
+            <Flags>
+                <FSXCompatibility>false</FSXCompatibility>
+            </Flags>
+            <AssetDir>PackageSources\scene\</AssetDir>
+            <OutputDir>scenery\nycroads\nycroads-g1-testpad-scene\</OutputDir>
+        </AssetGroup>
+    </AssetGroups>
+</AssetPackage>

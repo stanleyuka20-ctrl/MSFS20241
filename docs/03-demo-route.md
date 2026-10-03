@@ -1,5 +1,14 @@
 # 03 — Demonstration route (Release 0 / Gate G1)
 
+> **R1 result (2026-10-03):** confirmed on real data — all five required
+> features are present in the Pulaski Bridge corridor (`build/r0-demo/demo_acceptance.json`);
+> 377 segments generated with 0 geometry errors. Data steps below were run with
+> Overture (instead of Overpass, which is blocked in the cloud container) and
+> USGS 3DEP DEM + EPT lidar. Results and findings: [r1/README.md](r1/README.md);
+> concrete test locations: [r1/r0-demo/TEST_PLAN.md](r1/r0-demo/TEST_PLAN.md);
+> before the demo, prove the vehicle on the test pad
+> ([r1/g1-testpad/TEST_PLAN.md](r1/g1-testpad/TEST_PLAN.md)).
+
 ## Choice: Pulaski Bridge corridor (Greenpoint, Brooklyn ↔ Long Island City, Queens)
 
 Why this corridor: a compact (~1.5 × 1.2 km) area with an ordinary street

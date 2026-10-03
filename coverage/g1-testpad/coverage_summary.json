@@ -1,0 +1,20 @@
+{
+ "by_borough": {
+  "unassigned": {
+   "geometry_verified": {
+    "segments": 8,
+    "km": 1.0
+   }
+  }
+ },
+ "totals": {
+  "geometry_verified": {
+   "segments": 8,
+   "km": 1.0,
+   "pct_km": 100.0
+  }
+ },
+ "bridge_deck_status": {
+  "BRG-580df1189f": "geometry_verified"
+ }
+}

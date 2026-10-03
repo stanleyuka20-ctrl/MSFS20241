@@ -5,23 +5,27 @@ Simulator 2024 so the player can drive a controllable ground vehicle across
 all five boroughs on continuous, physically supported surfaces — delivered in
 measured releases with an auditable inventory and test evidence.
 
-> **Current release: R0 — toolchain and demonstration-route definition.**
-> Nothing has been tested in the simulator yet, no package has been compiled
-> and no real NYC data has been processed. See [STATUS.md](STATUS.md) for
-> exactly what is done, tested, unfinished and blocked, and
-> [docs/00](docs/00-environment-inspection.md) for why.
+> **Current release: R1 — real-data demonstration route (Pulaski Bridge corridor)
+> and Gate-G1 test pad, generated with zero offline geometry errors; package
+> sources committed.** Nothing has been compiled with the SDK, loaded in MSFS 2024
+> or driven yet: those steps need the Windows simulator host —
+> follow [docs/09-windows-handoff.md](docs/09-windows-handoff.md).
+> Status, coverage (0 km driven of 11,115.4 km) and blockers: [STATUS.md](STATUS.md).
+> What R1 found in the real data: [docs/r1/README.md](docs/r1/README.md).
 
 ## How it works
 
 1. **Inventory** — OSM roads inside the borough boundaries become segments,
    junctions, bridge decks, ramps and grade separations with stable IDs. This
    is the denominator for "every road".
-2. **Heights** — ground roads follow a despiked, smoothed bare-earth DEM
-   anchored at junctions; bridge decks use explicit deck controls (lidar
-   bridge-deck class / engineering data) and never the terrain or water below.
-3. **Surfaces** — road ribbons, watertight junction pads, skirts, deck slabs
-   and barriers; a separate collision node per 1 km tile model; placement at
-   absolute altitude.
+2. **Heights** — ground roads follow the lidar-measured road surface (USGS
+   classified lidar; class-17 returns only where continuous with the street,
+   never an overpass above), with the bare-earth DEM as fallback; bridge decks
+   use measured controls (lidar bridge-deck class) and never the terrain or
+   water below; unmeasured deck stretches are blocked, not extrapolated.
+3. **Surfaces** — one continuous, watertight surface per level (ground layer,
+   each deck, raised ramps), skirts/walls, deck slabs and barriers; a separate
+   collision node per 1 km tile model; placement at absolute altitude.
 4. **Checks** — offline geometry checks (gaps, kinks, clearances, overlaps).
    These are *not* driving tests.
 5. **Driving evidence** — SimConnect telemetry from a human driving the
@@ -34,7 +38,7 @@ measured releases with an auditable inventory and test evidence.
 
 ```bash
 pip install -e ".[dem,dev]"
-python -m pytest                     # offline tests on a synthetic network
+python -m pytest                     # offline tests (synthetic fixtures)
 ```
 
 Then follow [docs/03 — demonstration route](docs/03-demo-route.md).
@@ -52,6 +56,9 @@ Then follow [docs/03 — demonstration route](docs/03-demo-route.md).
 | [06 Test protocol](docs/06-test-protocol.md) | statuses, checks, telemetry, screenshots, performance |
 | [07 Build / install / remove](docs/07-build-install.md) | |
 | [08 Roadmap](docs/08-roadmap.md) | releases R0–R7 |
+| [09 Windows handoff](docs/09-windows-handoff.md) | **next steps on the simulator host** |
+| [R1 report](docs/r1/README.md) | real data used, findings, demo result, test plans |
+| [Verification register](docs/verification/REGISTER.md) | V1–V12 evidence |
 
 ## Repository layout
 
@@ -60,7 +67,9 @@ src/nycroads/      pipeline + test tooling (Python)
 tests/             offline tests; tests/synthetic.py is a SYNTHETIC network, not NYC
 config/            msfs_gltf.json — every MSFS-specific glTF name, pending verification
 data/              crossings, tunnels, boundary policy, deck controls, vertical reference
-releases/          release configs (r0-demo.json)
+releases/          release configs (r0-demo, g1-testpad, citywide-inventory)
+build/<release>/   committed build reports + road profiles (used by telemetry analysis)
+coverage/          coverage tables (citywide map regenerated locally)
 package/           MSFS project/package source per release
 tools/             Windows scripts: host inspection, package build
 vehicle/           vehicle target specification

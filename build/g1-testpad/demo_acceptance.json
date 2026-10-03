@@ -1,0 +1,35 @@
+{
+ "street_and_intersection": {
+  "pass": true,
+  "examples": [
+   "JCT-d1a0d9c794"
+  ]
+ },
+ "slope": {
+  "pass": false,
+  "examples": []
+ },
+ "bridge": {
+  "pass": true,
+  "examples": [
+   {
+    "deck": "BRG-580df1189f",
+    "name": "Testpad Bridge",
+    "profiled": true
+   }
+  ],
+  "note": "a deck without elevation controls does not count (see blocked list)"
+ },
+ "underpass": {
+  "pass": true,
+  "examples": [
+   "GSX-6776c76fe4"
+  ]
+ },
+ "transition": {
+  "pass": false,
+  "count": 0,
+  "examples": []
+ },
+ "all_pass": false
+}

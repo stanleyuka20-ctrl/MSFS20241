@@ -11,7 +11,8 @@ the real code paths (UTM / ENU transforms) are exercised. Layout:
   Street E   (residential, tunnel)   short tunnel stub
   plus excluded ways: a driveway and a footway
 
-DEM: 5 m plain; valley to 0 m around (300, 0); 6 % hill on Street B; a 4 m
+DEM: 5 m plain; valley to 0 m around (300, 0); 1 m approach embankments on
+Avenue C either side of the bridge; 6 % hill on Street B; a 4 m
 one-sample spike on Street A at x=-100 (a photogrammetry/DEM artefact).
 """
 from __future__ import annotations
@@ -42,6 +43,8 @@ def terrain(x, y):
     z -= 5.0 * np.exp(-((x - 300) / 60) ** 2) * np.exp(-(y / 50) ** 2)          # valley under bridge
     hill = (np.abs(x) < 25) & (y > 0)
     z += np.where(hill, 0.06 * np.clip(y, 0, 100), 0.0)                          # 6 % hill on Street B
+    emb = (np.abs(x - 300) < 12) & (np.abs(y) >= 100) & (np.abs(y) < 200)
+    z += np.where(emb, 1.0 * (1 - (np.abs(y) - 100) / 100), 0.0)                 # approach embankments
     spike = (np.abs(x + 100) < 2.6) & (np.abs(y) < 2.6)
     z += np.where(spike, 4.0, 0.0)                                               # artefact
     return z
@@ -102,9 +105,11 @@ CROSSINGS = [{"id": "XS-TEST", "name": "Synthetic Test Bridge", "osm_name_patter
 
 
 def deck_controls():
-    return {"XS-TEST": [DeckControl(*ll(300, -60), 7.0, "synthetic"),
+    return {"XS-TEST": [DeckControl(*ll(300, -95), 6.1, "synthetic"),
+                        DeckControl(*ll(300, -60), 7.0, "synthetic"),
                         DeckControl(*ll(300, 0), 8.0, "synthetic"),
-                        DeckControl(*ll(300, 60), 7.0, "synthetic")]}
+                        DeckControl(*ll(300, 60), 7.0, "synthetic"),
+                        DeckControl(*ll(300, 95), 6.1, "synthetic")]}
 
 
 def vref():

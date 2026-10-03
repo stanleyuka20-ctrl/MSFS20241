@@ -1,0 +1,210 @@
+# Driving test plan - r0-demo
+
+Generated from build `B20261003T075819Z` by `nycroads test-plan`. Coordinates are WGS84; heights are the generated road surface in the current simulator height reference (UNVERIFIED until V7 calibration).
+
+## D1
+
+**Do:** spawn and wait 10 s
+
+```json
+{
+ "start": {
+  "lat": 40.7419811,
+  "lon": -73.9536827,
+  "heading_deg": 54.3,
+  "surface_alt_m": 4.06
+ },
+ "segment": "SEG-f3e72a7383",
+ "name": "Jackson Avenue"
+}
+```
+
+## D2
+
+**Do:** accelerate to ~40 km/h along the street, brake to a stop before its end
+
+```json
+{
+ "start": {
+  "lat": 40.7419811,
+  "lon": -73.9536827,
+  "heading_deg": 54.3,
+  "surface_alt_m": 4.06
+ },
+ "segments": [
+  "SEG-f3e72a7383"
+ ],
+ "length_m": 105.61
+}
+```
+
+## D4
+
+**Do:** from the D2 stop, reverse 30 m
+
+```json
+{
+ "segments": [
+  "SEG-f3e72a7383"
+ ]
+}
+```
+
+## D3
+
+**Do:** approach the intersection on every arm in its permitted direction; turn left, right and go straight from each
+
+```json
+{
+ "junction": "JCT-91a36dfa92",
+ "lat": 40.7424742,
+ "lon": -73.9527543,
+ "arms": [
+  {
+   "segment": "SEG-3e14af6a95",
+   "name": "50th Avenue",
+   "oneway": "both"
+  },
+  {
+   "segment": "SEG-f3e72a7383",
+   "name": "Jackson Avenue",
+   "oneway": "both"
+  },
+  {
+   "segment": "SEG-29f03f01b7",
+   "name": "Jackson Avenue",
+   "oneway": "both"
+  },
+  {
+   "segment": "SEG-c155261bec",
+   "name": "50th Avenue",
+   "oneway": "forward"
+  }
+ ]
+}
+```
+
+## D5
+
+**Do:** start below the steep part, stop on it, hold 10 s with brakes, release, hill start
+
+```json
+{
+ "segment": "SEG-67a95a27b4",
+ "name": "Pulaski Bridge",
+ "max_grade": 0.052,
+ "stop_point": {
+  "lat": 40.742893,
+  "lon": -73.9516169,
+  "heading_deg": 133.7,
+  "surface_alt_m": 6.56
+ }
+}
+```
+
+## D6
+
+**Do:** start ~150 m before the deck on its approach, drive approach -> deck -> exit without stopping, then repeat with a stop on the steepest part
+
+```json
+{
+ "crossing": "Pulaski Bridge",
+ "runs": [
+  {
+   "deck": "BRG-e491520cfe",
+   "segment": "SEG-235569dc30",
+   "direction": "forward",
+   "deck_start": {
+    "lat": 40.7423497,
+    "lon": -73.9516211,
+    "heading_deg": 193.6,
+    "surface_alt_m": 9.56
+   },
+   "crown_alt_m": 16.41
+  },
+  {
+   "deck": "BRG-b1bf00eab9",
+   "segment": "SEG-ea9b621139",
+   "direction": "forward",
+   "deck_start": {
+    "lat": 40.7367336,
+    "lon": -73.9527648,
+    "heading_deg": 352.2,
+    "surface_alt_m": 7.42
+   },
+   "crown_alt_m": 16.41
+  }
+ ]
+}
+```
+
+## D7
+
+**Do:** drive beneath the structure in each permitted direction
+
+```json
+{
+ "grade_separation": "GSX-8c0b7373ee",
+ "lower": "SEG-39ae7586e6",
+ "lower_name": "Clay Street",
+ "upper": "SEG-235569dc30",
+ "upper_name": "Pulaski Bridge",
+ "start": {
+  "lat": 40.7367955,
+  "lon": -73.9530852,
+  "heading_deg": 82.3,
+  "surface_alt_m": 2.34
+ },
+ "all_candidates": [
+  "GSX-8c0b7373ee",
+  "GSX-95dd3125be",
+  "GSX-2136a1a063",
+  "GSX-6a2390ea2a",
+  "GSX-6396eb72a9",
+  "GSX-410b14db3e",
+  "GSX-590757710d",
+  "GSX-aeb8d87f1c",
+  "GSX-05851529e9",
+  "GSX-82f2f9862a",
+  "GSX-b57ef6f427",
+  "GSX-f07031cd3e",
+  "GSX-b6344f1f55",
+  "GSX-5c92c4d0ac",
+  "GSX-9aa5a4ce33",
+  "GSX-afb419baab",
+  "GSX-3f41af9493",
+  "GSX-21494b8cb5",
+  "GSX-0996206c63",
+  "GSX-56025f2322",
+  "GSX-b5bffb6edf",
+  "GSX-573fe08a85",
+  "GSX-1724087af4",
+  "GSX-97bc8c28d5",
+  "GSX-d40c15924b",
+  "GSX-be51eff0ea",
+  "GSX-89ed7f7ff0"
+ ]
+}
+```
+
+## D8
+
+**Do:** drive from the generated road across this junction into default scenery and back; record any visible step or gap at the hand-over
+
+```json
+{
+ "junction": "JCT-70350765b9",
+ "lat": 40.7428732,
+ "lon": -73.9586943,
+ "segment": "SEG-26950d81c8",
+ "name": "51st Avenue"
+}
+```
+
+## D9
+
+**Do:** one continuous recording of >= 20 min covering D2-D8 with no recovery
+
+## D10
+
+**Do:** restart the simulator; repeat D3, D6 and D7 with `--after-restart`

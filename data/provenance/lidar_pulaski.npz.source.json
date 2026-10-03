@@ -1,0 +1,12 @@
+{
+ "dataset": "usgs-lidar-public/NY_NewYorkCity (EPT)",
+ "crs": "EPSG:3857 horizontal",
+ "box": [
+  -8232495.434463486,
+  4973505.46520411,
+  -8232162.989440299,
+  4974492.261442042
+ ],
+ "nodes": 69,
+ "license": "public domain (USGS 3DEP)"
+}

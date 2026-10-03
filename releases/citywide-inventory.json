@@ -1,0 +1,13 @@
+{
+ "_about": "Inventory-only configuration over all five boroughs + GWB NJ extension (no geometry build). Produces the citywide coverage denominator.",
+ "release": "citywide-inventory",
+ "package_name": "nycroads-inventory",
+ "overture_segments": "data/raw/overture_segments_nyc.parquet",
+ "overture_divisions": "data/raw/overture_division_area_nyc.parquet",
+ "extensions": "data/extensions.geojson",
+ "crossings": "data/crossings.json",
+ "id_registry": "data/id_registry.json",
+ "status": "data/status.json",
+ "coverage_dir": "coverage/citywide",
+ "inventory_dir": "build/inventory-citywide"
+}

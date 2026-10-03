@@ -1,0 +1,3222 @@
+{
+ "build_id": "B20261003T075819Z",
+ "package": "nycroads-r0-demo",
+ "selected_segments": 386,
+ "generated_segments": 377,
+ "surface_groups": 7,
+ "blocked": {
+  "BRG-f282f29383": "deck segment SEG-2ee7481101 (236 m) has no lidar deck returns - needs deck controls",
+  "SEG-2ee7481101": "deck BRG-f282f29383: deck segment SEG-2ee7481101 (236 m) has no lidar deck returns - needs deck controls",
+  "SEG-976d40a8d8": "deck BRG-f282f29383: deck segment SEG-2ee7481101 (236 m) has no lidar deck returns - needs deck controls",
+  "SEG-9b85b2c241": "deck BRG-f282f29383: deck segment SEG-2ee7481101 (236 m) has no lidar deck returns - needs deck controls",
+  "BRG-9debabd00c": "deck end unmeasured for 360 m (segment SEG-d52b64f15e) - needs deck controls",
+  "SEG-d52b64f15e": "deck BRG-9debabd00c: deck end unmeasured for 360 m (segment SEG-d52b64f15e) - needs deck controls",
+  "SEG-0f5a60616e": "tunnel: separate feasibility task (docs/01-project-boundary.md#tunnels)",
+  "SEG-528603fe87": "tunnel: separate feasibility task (docs/01-project-boundary.md#tunnels)",
+  "SEG-59778e5d32": "tunnel: separate feasibility task (docs/01-project-boundary.md#tunnels)",
+  "SEG-5cfbb5cdaa": "tunnel: separate feasibility task (docs/01-project-boundary.md#tunnels)",
+  "SEG-b81fe5c300": "tunnel: separate feasibility task (docs/01-project-boundary.md#tunnels)",
+  "SEG-2998d2c819": "excluded: Queens-Midtown Tunnel open-cut approach (LIE descends into the trench toward the tunnel portal; split-level ramps share OSM nodes). Part of the tunnel feasibility task (docs/01#tunnels); not generated.",
+  "SEG-3d3b5f6170": "excluded: Queens-Midtown Tunnel open-cut approach (LIE descends into the trench toward the tunnel portal; split-level ramps share OSM nodes). Part of the tunnel feasibility task (docs/01#tunnels); not generated.",
+  "SEG-50fb44fe4b": "excluded: Queens-Midtown Tunnel open-cut approach (LIE descends into the trench toward the tunnel portal; split-level ramps share OSM nodes). Part of the tunnel feasibility task (docs/01#tunnels); not generated.",
+  "SEG-d672a747ab": "excluded: Queens-Midtown Tunnel open-cut approach (LIE descends into the trench toward the tunnel portal; split-level ramps share OSM nodes). Part of the tunnel feasibility task (docs/01#tunnels); not generated.",
+  "SEG-ca5ad5c480": "excluded: Queens-Midtown Tunnel open-cut approach (LIE descends into the trench toward the tunnel portal; split-level ramps share OSM nodes). Part of the tunnel feasibility task (docs/01#tunnels); not generated.",
+  "SEG-cfb338cd3a": "excluded: Queens-Midtown Tunnel open-cut approach (LIE descends into the trench toward the tunnel portal; split-level ramps share OSM nodes). Part of the tunnel feasibility task (docs/01#tunnels); not generated.",
+  "SEG-879d17ef07": "excluded: Queens-Midtown Tunnel open-cut approach (LIE descends into the trench toward the tunnel portal; split-level ramps share OSM nodes). Part of the tunnel feasibility task (docs/01#tunnels); not generated.",
+  "SEG-c656c6cedb": "excluded: Queens-Midtown Tunnel open-cut approach (LIE descends into the trench toward the tunnel portal; split-level ramps share OSM nodes). Part of the tunnel feasibility task (docs/01#tunnels); not generated.",
+  "SEG-2aceb063a1": "excluded: Queens-Midtown Tunnel open-cut approach (LIE descends into the trench toward the tunnel portal; split-level ramps share OSM nodes). Part of the tunnel feasibility task (docs/01#tunnels); not generated."
+ },
+ "segments_with_errors": [
+  "SEG-2ee7481101",
+  "SEG-976d40a8d8",
+  "SEG-9b85b2c241",
+  "SEG-d52b64f15e"
+ ],
+ "issues": {
+  "BRG-f282f29383": [
+   {
+    "type": "deck_elevation_missing",
+    "detail": "deck segment SEG-2ee7481101 (236 m) has no lidar deck returns - needs deck controls"
+   }
+  ],
+  "SEG-2ee7481101": [
+   {
+    "type": "deck_elevation_missing",
+    "deck": "BRG-f282f29383"
+   }
+  ],
+  "SEG-976d40a8d8": [
+   {
+    "type": "deck_elevation_missing",
+    "deck": "BRG-f282f29383"
+   }
+  ],
+  "SEG-9b85b2c241": [
+   {
+    "type": "deck_elevation_missing",
+    "deck": "BRG-f282f29383"
+   }
+  ],
+  "BRG-9debabd00c": [
+   {
+    "type": "deck_elevation_missing",
+    "detail": "deck end unmeasured for 360 m (segment SEG-d52b64f15e) - needs deck controls"
+   }
+  ],
+  "SEG-d52b64f15e": [
+   {
+    "type": "deck_elevation_missing",
+    "deck": "BRG-9debabd00c"
+   }
+  ],
+  "SEG-1b0ae44ba9": [
+   {
+    "type": "grade_change",
+    "station_m": 15.0,
+    "value": 0.02,
+    "limit": 0.02
+   },
+   {
+    "type": "grade_change",
+    "station_m": 20.0,
+    "value": 0.0204,
+    "limit": 0.02
+   }
+  ],
+  "SEG-877a669853": [
+   {
+    "type": "grade",
+    "station_m": 20.0,
+    "value": -0.1782,
+    "limit": 0.15
+   },
+   {
+    "type": "grade",
+    "station_m": 25.0,
+    "value": -0.2246,
+    "limit": 0.15
+   },
+   {
+    "type": "grade",
+    "station_m": 30.0,
+    "value": -0.2301,
+    "limit": 0.15
+   },
+   {
+    "type": "grade_change",
+    "station_m": 10.0,
+    "value": 0.0309,
+    "limit": 0.02
+   },
+   {
+    "type": "grade_change",
+    "station_m": 15.0,
+    "value": 0.0767,
+    "limit": 0.02
+   },
+   {
+    "type": "grade_change",
+    "station_m": 20.0,
+    "value": 0.0822,
+    "limit": 0.02
+   },
+   {
+    "type": "grade_change",
+    "station_m": 25.0,
+    "value": 0.0464,
+    "limit": 0.02
+   }
+  ],
+  "SEG-cb365c0f42": [
+   {
+    "type": "grade_change",
+    "station_m": 185.0,
+    "value": 0.0225,
+    "limit": 0.02
+   }
+  ],
+  "SEG-d87a7bb850": [
+   {
+    "type": "grade",
+    "station_m": 65.0,
+    "value": -0.0602,
+    "limit": 0.06
+   },
+   {
+    "type": "grade",
+    "station_m": 70.0,
+    "value": -0.0605,
+    "limit": 0.06
+   }
+  ],
+  "SEG-7c7a3d9b0e": [
+   {
+    "type": "joint_kink",
+    "junction": "JCT-29cec31288",
+    "grade_change": 0.0411
+   }
+  ],
+  "SEG-bacb844854": [
+   {
+    "type": "joint_kink",
+    "junction": "JCT-29cec31288",
+    "grade_change": 0.0411
+   }
+  ],
+  "SEG-9287c7d6cf": [
+   {
+    "id": "ground:0",
+    "type": "junction_warp",
+    "x": 588443.5,
+    "y": 4510477.3,
+    "dz_m": 0.31,
+    "segments": [
+     "SEG-9287c7d6cf",
+     "SEG-3cd3a047ce",
+     "SEG-de549ade29",
+     "SEG-b60d80837a"
+    ]
+   },
+   {
+    "id": "ground:0",
+    "type": "junction_warp",
+    "x": 588443.7,
+    "y": 4510477.3,
+    "dz_m": 0.3,
+    "segments": [
+     "SEG-9287c7d6cf",
+     "SEG-3cd3a047ce",
+     "SEG-de549ade29",
+     "SEG-b60d80837a"
+    ]
+   }
+  ],
+  "SEG-3cd3a047ce": [
+   {
+    "id": "ground:0",
+    "type": "junction_warp",
+    "x": 588443.5,
+    "y": 4510477.3,
+    "dz_m": 0.31,
+    "segments": [
+     "SEG-9287c7d6cf",
+     "SEG-3cd3a047ce",
+     "SEG-de549ade29",
+     "SEG-b60d80837a"
+    ]
+   },
+   {
+    "id": "ground:0",
+    "type": "junction_warp",
+    "x": 588443.7,
+    "y": 4510477.3,
+    "dz_m": 0.3,
+    "segments": [
+     "SEG-9287c7d6cf",
+     "SEG-3cd3a047ce",
+     "SEG-de549ade29",
+     "SEG-b60d80837a"
+    ]
+   }
+  ],
+  "SEG-de549ade29": [
+   {
+    "id": "ground:0",
+    "type": "junction_warp",
+    "x": 588443.5,
+    "y": 4510477.3,
+    "dz_m": 0.31,
+    "segments": [
+     "SEG-9287c7d6cf",
+     "SEG-3cd3a047ce",
+     "SEG-de549ade29",
+     "SEG-b60d80837a"
+    ]
+   },
+   {
+    "id": "ground:0",
+    "type": "junction_warp",
+    "x": 588443.7,
+    "y": 4510477.3,
+    "dz_m": 0.3,
+    "segments": [
+     "SEG-9287c7d6cf",
+     "SEG-3cd3a047ce",
+     "SEG-de549ade29",
+     "SEG-b60d80837a"
+    ]
+   }
+  ],
+  "SEG-b60d80837a": [
+   {
+    "id": "ground:0",
+    "type": "junction_warp",
+    "x": 588443.5,
+    "y": 4510477.3,
+    "dz_m": 0.31,
+    "segments": [
+     "SEG-9287c7d6cf",
+     "SEG-3cd3a047ce",
+     "SEG-de549ade29",
+     "SEG-b60d80837a"
+    ]
+   },
+   {
+    "id": "ground:0",
+    "type": "junction_warp",
+    "x": 588443.7,
+    "y": 4510477.3,
+    "dz_m": 0.3,
+    "segments": [
+     "SEG-9287c7d6cf",
+     "SEG-3cd3a047ce",
+     "SEG-de549ade29",
+     "SEG-b60d80837a"
+    ]
+   }
+  ],
+  "SEG-e05ca671fe": [
+   {
+    "id": "ground:0",
+    "type": "junction_warp",
+    "x": 588487.6,
+    "y": 4510609.6,
+    "dz_m": 0.33,
+    "segments": [
+     "SEG-e05ca671fe",
+     "SEG-744a3b8237",
+     "SEG-06a58104fe",
+     "SEG-bc6b36d6b2",
+     "SEG-9d50aff2a9",
+     "SEG-0f3ec38f5d"
+    ]
+   },
+   {
+    "id": "ground:0",
+    "type": "junction_warp",
+    "x": 588489.0,
+    "y": 4510615.0,
+    "dz_m": 0.4,
+    "segments": [
+     "SEG-e05ca671fe",
+     "SEG-744a3b8237",
+     "SEG-06a58104fe",
+     "SEG-bc6b36d6b2",
+     "SEG-9d50aff2a9",
+     "SEG-0f3ec38f5d"
+    ]
+   },
+   {
+    "id": "ground:0",
+    "type": "junction_warp",
+    "x": 588487.3,
+    "y": 4510609.1,
+    "dz_m": 0.31,
+    "segments": [
+     "SEG-e05ca671fe",
+     "SEG-744a3b8237",
+     "SEG-06a58104fe",
+     "SEG-bc6b36d6b2",
+     "SEG-9d50aff2a9",
+     "SEG-0f3ec38f5d"
+    ]
+   }
+  ],
+  "SEG-744a3b8237": [
+   {
+    "id": "ground:0",
+    "type": "junction_warp",
+    "x": 588487.6,
+    "y": 4510609.6,
+    "dz_m": 0.33,
+    "segments": [
+     "SEG-e05ca671fe",
+     "SEG-744a3b8237",
+     "SEG-06a58104fe",
+     "SEG-bc6b36d6b2",
+     "SEG-9d50aff2a9",
+     "SEG-0f3ec38f5d"
+    ]
+   },
+   {
+    "id": "ground:0",
+    "type": "junction_warp",
+    "x": 588489.0,
+    "y": 4510615.0,
+    "dz_m": 0.4,
+    "segments": [
+     "SEG-e05ca671fe",
+     "SEG-744a3b8237",
+     "SEG-06a58104fe",
+     "SEG-bc6b36d6b2",
+     "SEG-9d50aff2a9",
+     "SEG-0f3ec38f5d"
+    ]
+   },
+   {
+    "id": "ground:0",
+    "type": "junction_warp",
+    "x": 588487.3,
+    "y": 4510609.1,
+    "dz_m": 0.31,
+    "segments": [
+     "SEG-e05ca671fe",
+     "SEG-744a3b8237",
+     "SEG-06a58104fe",
+     "SEG-bc6b36d6b2",
+     "SEG-9d50aff2a9",
+     "SEG-0f3ec38f5d"
+    ]
+   }
+  ],
+  "SEG-06a58104fe": [
+   {
+    "id": "ground:0",
+    "type": "junction_warp",
+    "x": 588487.6,
+    "y": 4510609.6,
+    "dz_m": 0.33,
+    "segments": [
+     "SEG-e05ca671fe",
+     "SEG-744a3b8237",
+     "SEG-06a58104fe",
+     "SEG-bc6b36d6b2",
+     "SEG-9d50aff2a9",
+     "SEG-0f3ec38f5d"
+    ]
+   },
+   {
+    "id": "ground:0",
+    "type": "junction_warp",
+    "x": 588489.0,
+    "y": 4510615.0,
+    "dz_m": 0.4,
+    "segments": [
+     "SEG-e05ca671fe",
+     "SEG-744a3b8237",
+     "SEG-06a58104fe",
+     "SEG-bc6b36d6b2",
+     "SEG-9d50aff2a9",
+     "SEG-0f3ec38f5d"
+    ]
+   },
+   {
+    "id": "ground:0",
+    "type": "junction_warp",
+    "x": 588487.3,
+    "y": 4510609.1,
+    "dz_m": 0.31,
+    "segments": [
+     "SEG-e05ca671fe",
+     "SEG-744a3b8237",
+     "SEG-06a58104fe",
+     "SEG-bc6b36d6b2",
+     "SEG-9d50aff2a9",
+     "SEG-0f3ec38f5d"
+    ]
+   }
+  ],
+  "SEG-bc6b36d6b2": [
+   {
+    "id": "ground:0",
+    "type": "junction_warp",
+    "x": 588487.6,
+    "y": 4510609.6,
+    "dz_m": 0.33,
+    "segments": [
+     "SEG-e05ca671fe",
+     "SEG-744a3b8237",
+     "SEG-06a58104fe",
+     "SEG-bc6b36d6b2",
+     "SEG-9d50aff2a9",
+     "SEG-0f3ec38f5d"
+    ]
+   },
+   {
+    "id": "ground:0",
+    "type": "junction_warp",
+    "x": 588489.0,
+    "y": 4510615.0,
+    "dz_m": 0.4,
+    "segments": [
+     "SEG-e05ca671fe",
+     "SEG-744a3b8237",
+     "SEG-06a58104fe",
+     "SEG-bc6b36d6b2",
+     "SEG-9d50aff2a9",
+     "SEG-0f3ec38f5d"
+    ]
+   },
+   {
+    "id": "ground:0",
+    "type": "junction_warp",
+    "x": 588487.3,
+    "y": 4510609.1,
+    "dz_m": 0.31,
+    "segments": [
+     "SEG-e05ca671fe",
+     "SEG-744a3b8237",
+     "SEG-06a58104fe",
+     "SEG-bc6b36d6b2",
+     "SEG-9d50aff2a9",
+     "SEG-0f3ec38f5d"
+    ]
+   }
+  ],
+  "SEG-9d50aff2a9": [
+   {
+    "id": "ground:0",
+    "type": "junction_warp",
+    "x": 588487.6,
+    "y": 4510609.6,
+    "dz_m": 0.33,
+    "segments": [
+     "SEG-e05ca671fe",
+     "SEG-744a3b8237",
+     "SEG-06a58104fe",
+     "SEG-bc6b36d6b2",
+     "SEG-9d50aff2a9",
+     "SEG-0f3ec38f5d"
+    ]
+   },
+   {
+    "id": "ground:0",
+    "type": "junction_warp",
+    "x": 588489.0,
+    "y": 4510615.0,
+    "dz_m": 0.4,
+    "segments": [
+     "SEG-e05ca671fe",
+     "SEG-744a3b8237",
+     "SEG-06a58104fe",
+     "SEG-bc6b36d6b2",
+     "SEG-9d50aff2a9",
+     "SEG-0f3ec38f5d"
+    ]
+   },
+   {
+    "id": "ground:0",
+    "type": "junction_warp",
+    "x": 588487.3,
+    "y": 4510609.1,
+    "dz_m": 0.31,
+    "segments": [
+     "SEG-e05ca671fe",
+     "SEG-744a3b8237",
+     "SEG-06a58104fe",
+     "SEG-bc6b36d6b2",
+     "SEG-9d50aff2a9",
+     "SEG-0f3ec38f5d"
+    ]
+   }
+  ],
+  "SEG-0f3ec38f5d": [
+   {
+    "id": "ground:0",
+    "type": "junction_warp",
+    "x": 588487.6,
+    "y": 4510609.6,
+    "dz_m": 0.33,
+    "segments": [
+     "SEG-e05ca671fe",
+     "SEG-744a3b8237",
+     "SEG-06a58104fe",
+     "SEG-bc6b36d6b2",
+     "SEG-9d50aff2a9",
+     "SEG-0f3ec38f5d"
+    ]
+   },
+   {
+    "id": "ground:0",
+    "type": "junction_warp",
+    "x": 588489.0,
+    "y": 4510615.0,
+    "dz_m": 0.4,
+    "segments": [
+     "SEG-e05ca671fe",
+     "SEG-744a3b8237",
+     "SEG-06a58104fe",
+     "SEG-bc6b36d6b2",
+     "SEG-9d50aff2a9",
+     "SEG-0f3ec38f5d"
+    ]
+   },
+   {
+    "id": "ground:0",
+    "type": "junction_warp",
+    "x": 588487.3,
+    "y": 4510609.1,
+    "dz_m": 0.31,
+    "segments": [
+     "SEG-e05ca671fe",
+     "SEG-744a3b8237",
+     "SEG-06a58104fe",
+     "SEG-bc6b36d6b2",
+     "SEG-9d50aff2a9",
+     "SEG-0f3ec38f5d"
+    ]
+   }
+  ],
+  "SEG-07109f2bb4": [
+   {
+    "id": "ground:0",
+    "type": "junction_warp",
+    "x": 588659.6,
+    "y": 4510876.9,
+    "dz_m": 0.34,
+    "segments": [
+     "SEG-07109f2bb4",
+     "SEG-b97fd37143"
+    ]
+   }
+  ],
+  "SEG-b97fd37143": [
+   {
+    "id": "ground:0",
+    "type": "junction_warp",
+    "x": 588659.6,
+    "y": 4510876.9,
+    "dz_m": 0.34,
+    "segments": [
+     "SEG-07109f2bb4",
+     "SEG-b97fd37143"
+    ]
+   }
+  ],
+  "SEG-c21849dd83": [
+   {
+    "id": "ground:0",
+    "type": "junction_warp",
+    "x": 588745.7,
+    "y": 4510856.7,
+    "dz_m": 0.36,
+    "segments": [
+     "SEG-c21849dd83",
+     "SEG-f237227023",
+     "SEG-0338aec18d"
+    ]
+   }
+  ],
+  "SEG-f237227023": [
+   {
+    "id": "ground:0",
+    "type": "junction_warp",
+    "x": 588745.7,
+    "y": 4510856.7,
+    "dz_m": 0.36,
+    "segments": [
+     "SEG-c21849dd83",
+     "SEG-f237227023",
+     "SEG-0338aec18d"
+    ]
+   }
+  ],
+  "SEG-0338aec18d": [
+   {
+    "id": "ground:0",
+    "type": "junction_warp",
+    "x": 588745.7,
+    "y": 4510856.7,
+    "dz_m": 0.36,
+    "segments": [
+     "SEG-c21849dd83",
+     "SEG-f237227023",
+     "SEG-0338aec18d"
+    ]
+   }
+  ]
+ },
+ "tiles": {
+  "nycroads-r0-demo-T18N-0587-4509": {
+   "triangles_visual": 41,
+   "triangles_collision": 41,
+   "vertices": 262,
+   "lat": 40.73178795941661,
+   "lon": -73.96378851895604,
+   "alt_m": 3.0
+  },
+  "nycroads-r0-demo-T18N-0587-4510": {
+   "triangles_visual": 834,
+   "triangles_collision": 300,
+   "vertices": 3514,
+   "lat": 40.74079513506734,
+   "lon": -73.9636487413865,
+   "alt_m": 1.0
+  },
+  "nycroads-r0-demo-T18N-0587-4511": {
+   "triangles_visual": 3,
+   "triangles_collision": 3,
+   "vertices": 24,
+   "lat": 40.74980229621945,
+   "lon": -73.96350890058334,
+   "alt_m": 3.0
+  },
+  "nycroads-r0-demo-T18N-0588-4509": {
+   "triangles_visual": 4380,
+   "triangles_collision": 1178,
+   "vertices": 16984,
+   "lat": 40.731681046784665,
+   "lon": -73.9519479774815,
+   "alt_m": -1.0
+  },
+  "nycroads-r0-demo-T18N-0588-4510": {
+   "triangles_visual": 37677,
+   "triangles_collision": 14536,
+   "vertices": 158624,
+   "lat": 40.74068818866316,
+   "lon": -73.95180660341572,
+   "alt_m": 0.0
+  },
+  "nycroads-r0-demo-T18N-0588-4511": {
+   "triangles_visual": 5509,
+   "triangles_collision": 1374,
+   "vertices": 21006,
+   "lat": 40.74969531603404,
+   "lon": -73.9516651653944,
+   "alt_m": 0.0
+  },
+  "nycroads-r0-demo-T18N-0589-4509": {
+   "triangles_visual": 957,
+   "triangles_collision": 189,
+   "vertices": 3512,
+   "lat": 40.73157291980001,
+   "lon": -73.94010749992972,
+   "alt_m": 1.0
+  },
+  "nycroads-r0-demo-T18N-0589-4510": {
+   "triangles_visual": 1462,
+   "triangles_collision": 452,
+   "vertices": 5880,
+   "lat": 40.740580027522775,
+   "lon": -73.93996452940051,
+   "alt_m": 1.0
+  },
+  "nycroads-r0-demo-T18N-0589-4511": {
+   "triangles_visual": 844,
+   "triangles_collision": 283,
+   "vertices": 3498,
+   "lat": 40.74958712072882,
+   "lon": -73.93982149419381,
+   "alt_m": 3.0
+  }
+ },
+ "vertical_reference": {
+  "method": "calibrated_offset",
+  "verified": false
+ },
+ "msfs_gltf_config_verified": false,
+ "start_locations": [
+  {
+   "id": "START-SEG-03db92ee44",
+   "segment": "SEG-03db92ee44",
+   "lat": 40.7350634,
+   "lon": -73.9523608,
+   "surface_alt_m": 2.9,
+   "heading_deg": 356.5,
+   "name": "McGuinness Boulevard"
+  },
+  {
+   "id": "START-SEG-040a06bf27",
+   "segment": "SEG-040a06bf27",
+   "lat": 40.7456021,
+   "lon": -73.9556298,
+   "surface_alt_m": 2.82,
+   "heading_deg": 193.4,
+   "name": "5th Street"
+  },
+  {
+   "id": "START-SEG-07109f2bb4",
+   "segment": "SEG-07109f2bb4",
+   "lat": 40.7438035,
+   "lon": -73.9502885,
+   "surface_alt_m": 4.92,
+   "heading_deg": 234.3,
+   "name": "Jackson Avenue"
+  },
+  {
+   "id": "START-SEG-079041f59f",
+   "segment": "SEG-079041f59f",
+   "lat": 40.737702,
+   "lon": -73.9558899,
+   "surface_alt_m": 3.73,
+   "heading_deg": 233.1,
+   "name": "Commercial Street"
+  },
+  {
+   "id": "START-SEG-079cb57006",
+   "segment": "SEG-079cb57006",
+   "lat": 40.7452691,
+   "lon": -73.9469669,
+   "surface_alt_m": 3.4,
+   "heading_deg": 62.0,
+   "name": "Jackson Avenue"
+  },
+  {
+   "id": "START-SEG-08572403b4",
+   "segment": "SEG-08572403b4",
+   "lat": 40.736461,
+   "lon": -73.9566275,
+   "surface_alt_m": 4.64,
+   "heading_deg": 82.2,
+   "name": "Clay Street"
+  },
+  {
+   "id": "START-SEG-0984050947",
+   "segment": "SEG-0984050947",
+   "lat": 40.7379988,
+   "lon": -73.9520906,
+   "surface_alt_m": 1.98,
+   "heading_deg": 301.4,
+   "name": ""
+  },
+  {
+   "id": "START-SEG-0ecbdccd84",
+   "segment": "SEG-0ecbdccd84",
+   "lat": 40.7403473,
+   "lon": -73.9475273,
+   "surface_alt_m": 2.59,
+   "heading_deg": 193.5,
+   "name": "23rd Street"
+  },
+  {
+   "id": "START-SEG-0f3ec38f5d",
+   "segment": "SEG-0f3ec38f5d",
+   "lat": 40.7419422,
+   "lon": -73.951919,
+   "surface_alt_m": 3.48,
+   "heading_deg": 193.6,
+   "name": "11th Street"
+  },
+  {
+   "id": "START-SEG-101d163d66",
+   "segment": "SEG-101d163d66",
+   "lat": 40.7372306,
+   "lon": -73.9558017,
+   "surface_alt_m": 3.92,
+   "heading_deg": 82.3,
+   "name": "Box Street"
+  },
+  {
+   "id": "START-SEG-11d6c81876",
+   "segment": "SEG-11d6c81876",
+   "lat": 40.7343987,
+   "lon": -73.9522614,
+   "surface_alt_m": 3.01,
+   "heading_deg": 350.3,
+   "name": "McGuinness Boulevard"
+  },
+  {
+   "id": "START-SEG-1299a43be7",
+   "segment": "SEG-1299a43be7",
+   "lat": 40.7448269,
+   "lon": -73.9497023,
+   "surface_alt_m": 3.47,
+   "heading_deg": 284.0,
+   "name": "47th Avenue"
+  },
+  {
+   "id": "START-SEG-13e4dd1f08",
+   "segment": "SEG-13e4dd1f08",
+   "lat": 40.7446988,
+   "lon": -73.9509374,
+   "surface_alt_m": 3.53,
+   "heading_deg": 193.4,
+   "name": "11th Street"
+  },
+  {
+   "id": "START-SEG-1474eeea95",
+   "segment": "SEG-1474eeea95",
+   "lat": 40.7413724,
+   "lon": -73.9541958,
+   "surface_alt_m": 3.35,
+   "heading_deg": 328.5,
+   "name": ""
+  },
+  {
+   "id": "START-SEG-14def2b16d",
+   "segment": "SEG-14def2b16d",
+   "lat": 40.7407488,
+   "lon": -73.94985,
+   "surface_alt_m": 2.5,
+   "heading_deg": 192.8,
+   "name": "21st Street"
+  },
+  {
+   "id": "START-SEG-16ed43e957",
+   "segment": "SEG-16ed43e957",
+   "lat": 40.7447787,
+   "lon": -73.9461022,
+   "surface_alt_m": 3.1,
+   "heading_deg": 151.5,
+   "name": "Crane Street"
+  },
+  {
+   "id": "START-SEG-172ea3722e",
+   "segment": "SEG-172ea3722e",
+   "lat": 40.7404986,
+   "lon": -73.946266,
+   "surface_alt_m": 2.77,
+   "heading_deg": 283.7,
+   "name": "51st Avenue"
+  },
+  {
+   "id": "START-SEG-186a69752e",
+   "segment": "SEG-186a69752e",
+   "lat": 40.7375532,
+   "lon": -73.9515508,
+   "surface_alt_m": 1.66,
+   "heading_deg": 111.1,
+   "name": ""
+  },
+  {
+   "id": "START-SEG-189ed763ed",
+   "segment": "SEG-189ed763ed",
+   "lat": 40.7453789,
+   "lon": -73.9525437,
+   "surface_alt_m": 4.1,
+   "heading_deg": 283.6,
+   "name": "47th Avenue"
+  },
+  {
+   "id": "START-SEG-193488a7b6",
+   "segment": "SEG-193488a7b6",
+   "lat": 40.7462517,
+   "lon": -73.9554127,
+   "surface_alt_m": 2.87,
+   "heading_deg": 193.9,
+   "name": "5th Street"
+  },
+  {
+   "id": "START-SEG-19b718aa2e",
+   "segment": "SEG-19b718aa2e",
+   "lat": 40.7368289,
+   "lon": -73.9506434,
+   "surface_alt_m": 2.36,
+   "heading_deg": 112.2,
+   "name": "Paidge Avenue"
+  },
+  {
+   "id": "START-SEG-19d241927a",
+   "segment": "SEG-19d241927a",
+   "lat": 40.7433822,
+   "lon": -73.9574123,
+   "surface_alt_m": 2.42,
+   "heading_deg": 103.5,
+   "name": "50th Avenue"
+  },
+  {
+   "id": "START-SEG-1b0ae44ba9",
+   "segment": "SEG-1b0ae44ba9",
+   "lat": 40.7367887,
+   "lon": -73.9581018,
+   "surface_alt_m": 3.95,
+   "heading_deg": 323.9,
+   "name": ""
+  },
+  {
+   "id": "START-SEG-1c2bbb563e",
+   "segment": "SEG-1c2bbb563e",
+   "lat": 40.7429593,
+   "lon": -73.9552335,
+   "surface_alt_m": 3.88,
+   "heading_deg": 103.9,
+   "name": "50th Avenue"
+  },
+  {
+   "id": "START-SEG-1c3f09eeeb",
+   "segment": "SEG-1c3f09eeeb",
+   "lat": 40.7470254,
+   "lon": -73.9477591,
+   "surface_alt_m": 4.11,
+   "heading_deg": 193.8,
+   "name": "21st Street"
+  },
+  {
+   "id": "START-SEG-1ca00dbac2",
+   "segment": "SEG-1ca00dbac2",
+   "lat": 40.7437353,
+   "lon": -73.9554622,
+   "surface_alt_m": 3.59,
+   "heading_deg": 103.5,
+   "name": "49th Avenue"
+  },
+  {
+   "id": "START-SEG-1dec650710",
+   "segment": "SEG-1dec650710",
+   "lat": 40.7373265,
+   "lon": -73.9573503,
+   "surface_alt_m": 2.91,
+   "heading_deg": 52.7,
+   "name": ""
+  },
+  {
+   "id": "START-SEG-206e8af36a",
+   "segment": "SEG-206e8af36a",
+   "lat": 40.7475802,
+   "lon": -73.9444617,
+   "surface_alt_m": 4.67,
+   "heading_deg": 283.6,
+   "name": "44th Drive"
+  },
+  {
+   "id": "START-SEG-216841da1f",
+   "segment": "SEG-216841da1f",
+   "lat": 40.7379153,
+   "lon": -73.9522291,
+   "surface_alt_m": 1.78,
+   "heading_deg": 284.9,
+   "name": ""
+  },
+  {
+   "id": "START-SEG-21e08c02bf",
+   "segment": "SEG-21e08c02bf",
+   "lat": 40.7434872,
+   "lon": -73.9512115,
+   "surface_alt_m": 5.92,
+   "heading_deg": 8.4,
+   "name": "11th Street"
+  },
+  {
+   "id": "START-SEG-236a6c85ee",
+   "segment": "SEG-236a6c85ee",
+   "lat": 40.7450271,
+   "lon": -73.9545375,
+   "surface_alt_m": 4.16,
+   "heading_deg": 103.7,
+   "name": "47th Road"
+  },
+  {
+   "id": "START-SEG-2384302b82",
+   "segment": "SEG-2384302b82",
+   "lat": 40.7343365,
+   "lon": -73.9524173,
+   "surface_alt_m": 2.96,
+   "heading_deg": 167.2,
+   "name": "McGuinness Boulevard"
+  },
+  {
+   "id": "START-SEG-23e1f05de1",
+   "segment": "SEG-23e1f05de1",
+   "lat": 40.7452333,
+   "lon": -73.9575661,
+   "surface_alt_m": 3.52,
+   "heading_deg": 214.9,
+   "name": "Center Boulevard"
+  },
+  {
+   "id": "START-SEG-2415716264",
+   "segment": "SEG-2415716264",
+   "lat": 40.7414342,
+   "lon": -73.9437149,
+   "surface_alt_m": 3.37,
+   "heading_deg": 103.6,
+   "name": "49th Avenue"
+  },
+  {
+   "id": "START-SEG-26950d81c8",
+   "segment": "SEG-26950d81c8",
+   "lat": 40.7426909,
+   "lon": -73.9577617,
+   "surface_alt_m": 1.86,
+   "heading_deg": 283.7,
+   "name": "51st Avenue"
+  },
+  {
+   "id": "START-SEG-27006131c5",
+   "segment": "SEG-27006131c5",
+   "lat": 40.7378416,
+   "lon": -73.9554267,
+   "surface_alt_m": 4.27,
+   "heading_deg": 9.7,
+   "name": "Manhattan Avenue"
+  },
+  {
+   "id": "START-SEG-270988d0e9",
+   "segment": "SEG-270988d0e9",
+   "lat": 40.740244,
+   "lon": -73.9563693,
+   "surface_alt_m": 2.4,
+   "heading_deg": 89.9,
+   "name": "54th Avenue"
+  },
+  {
+   "id": "START-SEG-28d1ed2786",
+   "segment": "SEG-28d1ed2786",
+   "lat": 40.7366958,
+   "lon": -73.9541328,
+   "surface_alt_m": 3.56,
+   "heading_deg": 82.2,
+   "name": "Clay Street"
+  },
+  {
+   "id": "START-SEG-298a59b72f",
+   "segment": "SEG-298a59b72f",
+   "lat": 40.741053,
+   "lon": -73.9531775,
+   "surface_alt_m": 3.62,
+   "heading_deg": 103.5,
+   "name": "Borden Avenue"
+  },
+  {
+   "id": "START-SEG-2b62a6137a",
+   "segment": "SEG-2b62a6137a",
+   "lat": 40.7355204,
+   "lon": -73.9550994,
+   "surface_alt_m": 4.82,
+   "heading_deg": 352.1,
+   "name": "Manhattan Avenue"
+  },
+  {
+   "id": "START-SEG-2e8972d640",
+   "segment": "SEG-2e8972d640",
+   "lat": 40.7429223,
+   "lon": -73.9514579,
+   "surface_alt_m": 6.72,
+   "heading_deg": 185.5,
+   "name": "Pulaski Bridge"
+  },
+  {
+   "id": "START-SEG-2ea7efef12",
+   "segment": "SEG-2ea7efef12",
+   "lat": 40.7475018,
+   "lon": -73.9499087,
+   "surface_alt_m": 3.3,
+   "heading_deg": 13.4,
+   "name": "11th Street"
+  },
+  {
+   "id": "START-SEG-2ec0cb177b",
+   "segment": "SEG-2ec0cb177b",
+   "lat": 40.7359761,
+   "lon": -73.9540839,
+   "surface_alt_m": 3.9,
+   "heading_deg": 262.2,
+   "name": "Dupont Street"
+  },
+  {
+   "id": "START-SEG-31391db259",
+   "segment": "SEG-31391db259",
+   "lat": 40.7352984,
+   "lon": -73.9502505,
+   "surface_alt_m": 3.95,
+   "heading_deg": 298.1,
+   "name": ""
+  },
+  {
+   "id": "START-SEG-3196338389",
+   "segment": "SEG-3196338389",
+   "lat": 40.7356795,
+   "lon": -73.952901,
+   "surface_alt_m": 3.18,
+   "heading_deg": 172.1,
+   "name": "McGuinness Boulevard"
+  },
+  {
+   "id": "START-SEG-344d07c7f5",
+   "segment": "SEG-344d07c7f5",
+   "lat": 40.7439134,
+   "lon": -73.9565236,
+   "surface_alt_m": 2.46,
+   "heading_deg": 103.9,
+   "name": "49th Avenue"
+  },
+  {
+   "id": "START-SEG-34b4aad08c",
+   "segment": "SEG-34b4aad08c",
+   "lat": 40.7372393,
+   "lon": -73.952709,
+   "surface_alt_m": 1.93,
+   "heading_deg": 352.0,
+   "name": "McGuinness Boulevard"
+  },
+  {
+   "id": "START-SEG-34bfacb477",
+   "segment": "SEG-34bfacb477",
+   "lat": 40.7459331,
+   "lon": -73.9452567,
+   "surface_alt_m": 4.28,
+   "heading_deg": 62.0,
+   "name": "Jackson Avenue"
+  },
+  {
+   "id": "START-SEG-351084a5fd",
+   "segment": "SEG-351084a5fd",
+   "lat": 40.7431089,
+   "lon": -73.9516723,
+   "surface_alt_m": 5.79,
+   "heading_deg": 233.7,
+   "name": "Jackson Avenue"
+  },
+  {
+   "id": "START-SEG-39ec250278",
+   "segment": "SEG-39ec250278",
+   "lat": 40.7441548,
+   "lon": -73.9561155,
+   "surface_alt_m": 2.16,
+   "heading_deg": 193.7,
+   "name": "5th Street"
+  },
+  {
+   "id": "START-SEG-3ab8de2cdd",
+   "segment": "SEG-3ab8de2cdd",
+   "lat": 40.735285,
+   "lon": -73.9447915,
+   "surface_alt_m": 2.44,
+   "heading_deg": 23.7,
+   "name": "North Henry Street"
+  },
+  {
+   "id": "START-SEG-3b611cc247",
+   "segment": "SEG-3b611cc247",
+   "lat": 40.7449943,
+   "lon": -73.9484361,
+   "surface_alt_m": 3.17,
+   "heading_deg": 193.2,
+   "name": "21st Street"
+  },
+  {
+   "id": "START-SEG-3cab81b4a8",
+   "segment": "SEG-3cab81b4a8",
+   "lat": 40.7371444,
+   "lon": -73.9566922,
+   "surface_alt_m": 3.39,
+   "heading_deg": 81.5,
+   "name": "Box Street"
+  },
+  {
+   "id": "START-SEG-3cd3a047ce",
+   "segment": "SEG-3cd3a047ce",
+   "lat": 40.7406066,
+   "lon": -73.9535249,
+   "surface_alt_m": 1.96,
+   "heading_deg": 97.7,
+   "name": "53rd Avenue"
+  },
+  {
+   "id": "START-SEG-3d2e7f073b",
+   "segment": "SEG-3d2e7f073b",
+   "lat": 40.7347535,
+   "lon": -73.9518445,
+   "surface_alt_m": 2.96,
+   "heading_deg": 262.3,
+   "name": "Freeman Street"
+  },
+  {
+   "id": "START-SEG-3e14af6a95",
+   "segment": "SEG-3e14af6a95",
+   "lat": 40.7424636,
+   "lon": -73.9525497,
+   "surface_alt_m": 4.67,
+   "heading_deg": 284.2,
+   "name": "50th Avenue"
+  },
+  {
+   "id": "START-SEG-3fa9cb2992",
+   "segment": "SEG-3fa9cb2992",
+   "lat": 40.7451571,
+   "lon": -73.9533256,
+   "surface_alt_m": 4.26,
+   "heading_deg": 193.5,
+   "name": "Vernon Boulevard"
+  },
+  {
+   "id": "START-SEG-3fb1ffe89d",
+   "segment": "SEG-3fb1ffe89d",
+   "lat": 40.7459698,
+   "lon": -73.9517971,
+   "surface_alt_m": 3.72,
+   "heading_deg": 103.5,
+   "name": "46th Road"
+  },
+  {
+   "id": "START-SEG-412f8c235c",
+   "segment": "SEG-412f8c235c",
+   "lat": 40.7440071,
+   "lon": -73.9511711,
+   "surface_alt_m": 4.72,
+   "heading_deg": 194.1,
+   "name": "11th Street"
+  },
+  {
+   "id": "START-SEG-41e10600fc",
+   "segment": "SEG-41e10600fc",
+   "lat": 40.7462941,
+   "lon": -73.948004,
+   "surface_alt_m": 4.08,
+   "heading_deg": 193.6,
+   "name": "21st Street"
+  },
+  {
+   "id": "START-SEG-4312a39c44",
+   "segment": "SEG-4312a39c44",
+   "lat": 40.7348728,
+   "lon": -73.9505749,
+   "surface_alt_m": 3.23,
+   "heading_deg": 262.3,
+   "name": "Freeman Street"
+  },
+  {
+   "id": "START-SEG-43f695dfd4",
+   "segment": "SEG-43f695dfd4",
+   "lat": 40.7371163,
+   "lon": -73.9515489,
+   "surface_alt_m": 2.43,
+   "heading_deg": 111.8,
+   "name": "Paidge Avenue"
+  },
+  {
+   "id": "START-SEG-442216fc06",
+   "segment": "SEG-442216fc06",
+   "lat": 40.7357188,
+   "lon": -73.9568363,
+   "surface_alt_m": 4.8,
+   "heading_deg": 262.3,
+   "name": "Dupont Street"
+  },
+  {
+   "id": "START-SEG-4499807b01",
+   "segment": "SEG-4499807b01",
+   "lat": 40.7421285,
+   "lon": -73.9578269,
+   "surface_alt_m": 2.11,
+   "heading_deg": 251.1,
+   "name": "Borden Avenue"
+  },
+  {
+   "id": "START-SEG-44d35b1aed",
+   "segment": "SEG-44d35b1aed",
+   "lat": 40.7411157,
+   "lon": -73.9459505,
+   "surface_alt_m": 2.79,
+   "heading_deg": 103.3,
+   "name": "50th Avenue"
+  },
+  {
+   "id": "START-SEG-498d25812a",
+   "segment": "SEG-498d25812a",
+   "lat": 40.7367104,
+   "lon": -73.9576792,
+   "surface_alt_m": 3.44,
+   "heading_deg": 53.8,
+   "name": "Commercial Street"
+  },
+  {
+   "id": "START-SEG-4a117f2f21",
+   "segment": "SEG-4a117f2f21",
+   "lat": 40.7480462,
+   "lon": -73.9567224,
+   "surface_alt_m": 3.05,
+   "heading_deg": 161.0,
+   "name": "Center Boulevard"
+  },
+  {
+   "id": "START-SEG-4bd014d27c",
+   "segment": "SEG-4bd014d27c",
+   "lat": 40.7419869,
+   "lon": -73.9503006,
+   "surface_alt_m": 4.23,
+   "heading_deg": 283.9,
+   "name": "50th Avenue"
+  },
+  {
+   "id": "START-SEG-4e328536ce",
+   "segment": "SEG-4e328536ce",
+   "lat": 40.7477266,
+   "lon": -73.9475253,
+   "surface_alt_m": 4.94,
+   "heading_deg": 193.7,
+   "name": "21st Street"
+  },
+  {
+   "id": "START-SEG-5146dfd1bf",
+   "segment": "SEG-5146dfd1bf",
+   "lat": 40.7453793,
+   "lon": -73.9506079,
+   "surface_alt_m": 3.22,
+   "heading_deg": 13.4,
+   "name": "11th Street"
+  },
+  {
+   "id": "START-SEG-517ed04662",
+   "segment": "SEG-517ed04662",
+   "lat": 40.7357718,
+   "lon": -73.952474,
+   "surface_alt_m": 2.85,
+   "heading_deg": 352.4,
+   "name": "McGuinness Boulevard"
+  },
+  {
+   "id": "START-SEG-518236cbf4",
+   "segment": "SEG-518236cbf4",
+   "lat": 40.7400568,
+   "lon": -73.9521761,
+   "surface_alt_m": 2.01,
+   "heading_deg": 194.2,
+   "name": "11th Street"
+  },
+  {
+   "id": "START-SEG-52884cbc4d",
+   "segment": "SEG-52884cbc4d",
+   "lat": 40.7460687,
+   "lon": -73.9503808,
+   "surface_alt_m": 3.33,
+   "heading_deg": 13.4,
+   "name": "11th Street"
+  },
+  {
+   "id": "START-SEG-529ae1a3d0",
+   "segment": "SEG-529ae1a3d0",
+   "lat": 40.7448687,
+   "lon": -73.9558746,
+   "surface_alt_m": 2.74,
+   "heading_deg": 193.7,
+   "name": "5th Street"
+  },
+  {
+   "id": "START-SEG-536b007204",
+   "segment": "SEG-536b007204",
+   "lat": 40.7355618,
+   "lon": -73.950863,
+   "surface_alt_m": 3.25,
+   "heading_deg": 82.1,
+   "name": "Eagle Street"
+  },
+  {
+   "id": "START-SEG-557b244aef",
+   "segment": "SEG-557b244aef",
+   "lat": 40.7345738,
+   "lon": -73.9512311,
+   "surface_alt_m": 3.37,
+   "heading_deg": 225.0,
+   "name": ""
+  },
+  {
+   "id": "START-SEG-56668556f9",
+   "segment": "SEG-56668556f9",
+   "lat": 40.7459222,
+   "lon": -73.9439663,
+   "surface_alt_m": 4.87,
+   "heading_deg": 241.1,
+   "name": ""
+  },
+  {
+   "id": "START-SEG-56986ef785",
+   "segment": "SEG-56986ef785",
+   "lat": 40.7451577,
+   "lon": -73.9513968,
+   "surface_alt_m": 3.57,
+   "heading_deg": 283.4,
+   "name": "47th Avenue"
+  },
+  {
+   "id": "START-SEG-570c801f2a",
+   "segment": "SEG-570c801f2a",
+   "lat": 40.7348258,
+   "lon": -73.9549857,
+   "surface_alt_m": 4.46,
+   "heading_deg": 352.3,
+   "name": "Manhattan Avenue"
+  },
+  {
+   "id": "START-SEG-5717ba61de",
+   "segment": "SEG-5717ba61de",
+   "lat": 40.7428199,
+   "lon": -73.9520761,
+   "surface_alt_m": 5.43,
+   "heading_deg": 55.5,
+   "name": "Jackson Avenue"
+  },
+  {
+   "id": "START-SEG-59fcd48036",
+   "segment": "SEG-59fcd48036",
+   "lat": 40.7375273,
+   "lon": -73.9521364,
+   "surface_alt_m": 2.02,
+   "heading_deg": 23.5,
+   "name": ""
+  },
+  {
+   "id": "START-SEG-5a09636c6d",
+   "segment": "SEG-5a09636c6d",
+   "lat": 40.7430628,
+   "lon": -73.9515838,
+   "surface_alt_m": 6.17,
+   "heading_deg": 56.3,
+   "name": "Jackson Avenue"
+  },
+  {
+   "id": "START-SEG-5af28148c4",
+   "segment": "SEG-5af28148c4",
+   "lat": 40.7351647,
+   "lon": -73.9527607,
+   "surface_alt_m": 2.99,
+   "heading_deg": 143.6,
+   "name": "McGuinness Boulevard"
+  },
+  {
+   "id": "START-SEG-5f939f92ce",
+   "segment": "SEG-5f939f92ce",
+   "lat": 40.7430429,
+   "lon": -73.9540328,
+   "surface_alt_m": 5.04,
+   "heading_deg": 193.5,
+   "name": "Vernon Boulevard"
+  },
+  {
+   "id": "START-SEG-62172c7e80",
+   "segment": "SEG-62172c7e80",
+   "lat": 40.7471179,
+   "lon": -73.9539178,
+   "surface_alt_m": 2.53,
+   "heading_deg": 283.5,
+   "name": "46th Avenue"
+  },
+  {
+   "id": "START-SEG-62ef3d0d77",
+   "segment": "SEG-62ef3d0d77",
+   "lat": 40.7469664,
+   "lon": -73.9564227,
+   "surface_alt_m": 4.2,
+   "heading_deg": 190.2,
+   "name": "Center Boulevard"
+  },
+  {
+   "id": "START-SEG-66845a7e81",
+   "segment": "SEG-66845a7e81",
+   "lat": 40.7467626,
+   "lon": -73.9445046,
+   "surface_alt_m": 4.62,
+   "heading_deg": 283.8,
+   "name": "45th Avenue"
+  },
+  {
+   "id": "START-SEG-67f34b65e4",
+   "segment": "SEG-67f34b65e4",
+   "lat": 40.7351596,
+   "lon": -73.94993,
+   "surface_alt_m": 3.8,
+   "heading_deg": 352.5,
+   "name": "Provost Street"
+  },
+  {
+   "id": "START-SEG-684efe26e5",
+   "segment": "SEG-684efe26e5",
+   "lat": 40.7445758,
+   "lon": -73.9582414,
+   "surface_alt_m": 2.96,
+   "heading_deg": 222.5,
+   "name": "Center Boulevard"
+  },
+  {
+   "id": "START-SEG-6881aafca5",
+   "segment": "SEG-6881aafca5",
+   "lat": 40.7449978,
+   "lon": -73.9451908,
+   "surface_alt_m": 2.79,
+   "heading_deg": 152.4,
+   "name": "Davis Street"
+  },
+  {
+   "id": "START-SEG-6a644347b4",
+   "segment": "SEG-6a644347b4",
+   "lat": 40.7340847,
+   "lon": -73.9549337,
+   "surface_alt_m": 4.54,
+   "heading_deg": 172.2,
+   "name": "Manhattan Avenue"
+  },
+  {
+   "id": "START-SEG-6b47ac778b",
+   "segment": "SEG-6b47ac778b",
+   "lat": 40.743207,
+   "lon": -73.9527218,
+   "surface_alt_m": 5.44,
+   "heading_deg": 103.8,
+   "name": "49th Avenue"
+  },
+  {
+   "id": "START-SEG-6b7ff7541c",
+   "segment": "SEG-6b7ff7541c",
+   "lat": 40.7336454,
+   "lon": -73.9435555,
+   "surface_alt_m": 3.66,
+   "heading_deg": 127.1,
+   "name": "North Henry Street"
+  },
+  {
+   "id": "START-SEG-6bbae0831a",
+   "segment": "SEG-6bbae0831a",
+   "lat": 40.7441479,
+   "lon": -73.9577145,
+   "surface_alt_m": 1.94,
+   "heading_deg": 103.6,
+   "name": "49th Avenue"
+  },
+  {
+   "id": "START-SEG-6c88e493da",
+   "segment": "SEG-6c88e493da",
+   "lat": 40.743069,
+   "lon": -73.9511367,
+   "surface_alt_m": 6.3,
+   "heading_deg": 8.4,
+   "name": ""
+  },
+  {
+   "id": "START-SEG-6e94ac4e7a",
+   "segment": "SEG-6e94ac4e7a",
+   "lat": 40.7434984,
+   "lon": -73.9542283,
+   "surface_alt_m": 5.17,
+   "heading_deg": 103.5,
+   "name": "49th Avenue"
+  },
+  {
+   "id": "START-SEG-6f81dcd130",
+   "segment": "SEG-6f81dcd130",
+   "lat": 40.7369236,
+   "lon": -73.9517607,
+   "surface_alt_m": 2.2,
+   "heading_deg": 81.9,
+   "name": "Clay Street"
+  },
+  {
+   "id": "START-SEG-73049559e3",
+   "segment": "SEG-73049559e3",
+   "lat": 40.7382557,
+   "lon": -73.9555178,
+   "surface_alt_m": 4.47,
+   "heading_deg": 192.2,
+   "name": "Manhattan Avenue"
+  },
+  {
+   "id": "START-SEG-73d60cff7f",
+   "segment": "SEG-73d60cff7f",
+   "lat": 40.7442376,
+   "lon": -73.9548649,
+   "surface_alt_m": 4.14,
+   "heading_deg": 103.6,
+   "name": "48th Avenue"
+  },
+  {
+   "id": "START-SEG-742a58a913",
+   "segment": "SEG-742a58a913",
+   "lat": 40.7457882,
+   "lon": -73.9470349,
+   "surface_alt_m": 3.69,
+   "heading_deg": 283.5,
+   "name": "46th Avenue"
+  },
+  {
+   "id": "START-SEG-744a3b8237",
+   "segment": "SEG-744a3b8237",
+   "lat": 40.7417713,
+   "lon": -73.9528804,
+   "surface_alt_m": 3.38,
+   "heading_deg": 278.1,
+   "name": "51st Avenue"
+  },
+  {
+   "id": "START-SEG-74c5ef3c63",
+   "segment": "SEG-74c5ef3c63",
+   "lat": 40.7371476,
+   "lon": -73.9531438,
+   "surface_alt_m": 2.14,
+   "heading_deg": 172.1,
+   "name": "McGuinness Boulevard"
+  },
+  {
+   "id": "START-SEG-75f46bcd67",
+   "segment": "SEG-75f46bcd67",
+   "lat": 40.7416312,
+   "lon": -73.9544778,
+   "surface_alt_m": 3.47,
+   "heading_deg": 194.3,
+   "name": "Vernon Boulevard"
+  },
+  {
+   "id": "START-SEG-76a1be2d86",
+   "segment": "SEG-76a1be2d86",
+   "lat": 40.7448451,
+   "lon": -73.9480672,
+   "surface_alt_m": 3.36,
+   "heading_deg": 62.9,
+   "name": "Jackson Avenue"
+  },
+  {
+   "id": "START-SEG-7778b663dd",
+   "segment": "SEG-7778b663dd",
+   "lat": 40.7475945,
+   "lon": -73.9487546,
+   "surface_alt_m": 3.78,
+   "heading_deg": 283.9,
+   "name": "45th Avenue"
+  },
+  {
+   "id": "START-SEG-785c75ffcc",
+   "segment": "SEG-785c75ffcc",
+   "lat": 40.747463,
+   "lon": -73.9500053,
+   "surface_alt_m": 3.25,
+   "heading_deg": 193.8,
+   "name": "11th Street"
+  },
+  {
+   "id": "START-SEG-7b2a3e12e6",
+   "segment": "SEG-7b2a3e12e6",
+   "lat": 40.73974,
+   "lon": -73.9464138,
+   "surface_alt_m": 2.74,
+   "heading_deg": 103.7,
+   "name": "Borden Avenue"
+  },
+  {
+   "id": "START-SEG-7b62f773b7",
+   "segment": "SEG-7b62f773b7",
+   "lat": 40.7457137,
+   "lon": -73.9458451,
+   "surface_alt_m": 3.78,
+   "heading_deg": 62.2,
+   "name": "Jackson Avenue"
+  },
+  {
+   "id": "START-SEG-7c7a3d9b0e",
+   "segment": "SEG-7c7a3d9b0e",
+   "lat": 40.7348238,
+   "lon": -73.9497416,
+   "surface_alt_m": 4.5,
+   "heading_deg": 172.3,
+   "name": ""
+  },
+  {
+   "id": "START-SEG-7dacf76988",
+   "segment": "SEG-7dacf76988",
+   "lat": 40.7472807,
+   "lon": -73.9452165,
+   "surface_alt_m": 4.65,
+   "heading_deg": 193.8,
+   "name": "23rd Street"
+  },
+  {
+   "id": "START-SEG-7ddf68b0ad",
+   "segment": "SEG-7ddf68b0ad",
+   "lat": 40.741833,
+   "lon": -73.9495883,
+   "surface_alt_m": 5.23,
+   "heading_deg": 312.0,
+   "name": "50th Avenue"
+  },
+  {
+   "id": "START-SEG-7f51dbefa3",
+   "segment": "SEG-7f51dbefa3",
+   "lat": 40.7438934,
+   "lon": -73.9524966,
+   "surface_alt_m": 5.07,
+   "heading_deg": 283.6,
+   "name": "48th Avenue"
+  },
+  {
+   "id": "START-SEG-812224cc22",
+   "segment": "SEG-812224cc22",
+   "lat": 40.7378795,
+   "lon": -73.9532602,
+   "surface_alt_m": 1.74,
+   "heading_deg": 177.5,
+   "name": "McGuinness Boulevard"
+  },
+  {
+   "id": "START-SEG-81705c0d9a",
+   "segment": "SEG-81705c0d9a",
+   "lat": 40.7342662,
+   "lon": -73.9570805,
+   "surface_alt_m": 4.05,
+   "heading_deg": 262.1,
+   "name": "Freeman Street"
+  },
+  {
+   "id": "START-SEG-82087e1bce",
+   "segment": "SEG-82087e1bce",
+   "lat": 40.7350041,
+   "lon": -73.9567061,
+   "surface_alt_m": 5.34,
+   "heading_deg": 82.6,
+   "name": "Eagle Street"
+  },
+  {
+   "id": "START-SEG-825933023f",
+   "segment": "SEG-825933023f",
+   "lat": 40.7480554,
+   "lon": -73.9511501,
+   "surface_alt_m": 2.84,
+   "heading_deg": 283.6,
+   "name": "45th Avenue"
+  },
+  {
+   "id": "START-SEG-837e657149",
+   "segment": "SEG-837e657149",
+   "lat": 40.7446439,
+   "lon": -73.9563785,
+   "surface_alt_m": 2.41,
+   "heading_deg": 283.7,
+   "name": "48th Avenue"
+  },
+  {
+   "id": "START-SEG-83f3c7c4b4",
+   "segment": "SEG-83f3c7c4b4",
+   "lat": 40.7419248,
+   "lon": -73.9493946,
+   "surface_alt_m": 5.57,
+   "heading_deg": 13.1,
+   "name": "21st Street"
+  },
+  {
+   "id": "START-SEG-859781af96",
+   "segment": "SEG-859781af96",
+   "lat": 40.7445191,
+   "lon": -73.9563155,
+   "surface_alt_m": 2.36,
+   "heading_deg": 103.6,
+   "name": "48th Avenue"
+  },
+  {
+   "id": "START-SEG-87b2a81bd5",
+   "segment": "SEG-87b2a81bd5",
+   "lat": 40.7333722,
+   "lon": -73.9495077,
+   "surface_alt_m": 4.53,
+   "heading_deg": 172.3,
+   "name": ""
+  },
+  {
+   "id": "START-SEG-88400329b6",
+   "segment": "SEG-88400329b6",
+   "lat": 40.7434337,
+   "lon": -73.9513527,
+   "surface_alt_m": 6.02,
+   "heading_deg": 190.0,
+   "name": "11th Street"
+  },
+  {
+   "id": "START-SEG-88be21c3ea",
+   "segment": "SEG-88be21c3ea",
+   "lat": 40.7374341,
+   "lon": -73.9525482,
+   "surface_alt_m": 1.8,
+   "heading_deg": 111.7,
+   "name": "Paidge Avenue"
+  },
+  {
+   "id": "START-SEG-8c3774fc34",
+   "segment": "SEG-8c3774fc34",
+   "lat": 40.7352707,
+   "lon": -73.9538988,
+   "surface_alt_m": 3.68,
+   "heading_deg": 82.2,
+   "name": "Eagle Street"
+  },
+  {
+   "id": "START-SEG-8cd1d1c782",
+   "segment": "SEG-8cd1d1c782",
+   "lat": 40.7418309,
+   "lon": -73.9578777,
+   "surface_alt_m": 2.17,
+   "heading_deg": 131.4,
+   "name": "Borden Avenue"
+  },
+  {
+   "id": "START-SEG-8d62605918",
+   "segment": "SEG-8d62605918",
+   "lat": 40.7423485,
+   "lon": -73.9542448,
+   "surface_alt_m": 4.36,
+   "heading_deg": 193.1,
+   "name": "Vernon Boulevard"
+  },
+  {
+   "id": "START-SEG-8e701aa9b4",
+   "segment": "SEG-8e701aa9b4",
+   "lat": 40.7398988,
+   "lon": -73.9452205,
+   "surface_alt_m": 2.8,
+   "heading_deg": 194.1,
+   "name": "25th Street"
+  },
+  {
+   "id": "START-SEG-8ef0074679",
+   "segment": "SEG-8ef0074679",
+   "lat": 40.7464325,
+   "lon": -73.9465791,
+   "surface_alt_m": 4.36,
+   "heading_deg": 103.9,
+   "name": "45th Road"
+  },
+  {
+   "id": "START-SEG-8f2b1858df",
+   "segment": "SEG-8f2b1858df",
+   "lat": 40.7341218,
+   "lon": -73.9508859,
+   "surface_alt_m": 3.01,
+   "heading_deg": 82.2,
+   "name": "Green Street"
+  },
+  {
+   "id": "START-SEG-8fc0ca6c9a",
+   "segment": "SEG-8fc0ca6c9a",
+   "lat": 40.7372529,
+   "lon": -73.9505586,
+   "surface_alt_m": 1.33,
+   "heading_deg": 84.1,
+   "name": ""
+  },
+  {
+   "id": "START-SEG-91061bb8f0",
+   "segment": "SEG-91061bb8f0",
+   "lat": 40.7450624,
+   "lon": -73.9441835,
+   "surface_alt_m": 3.57,
+   "heading_deg": 151.7,
+   "name": "Pearson Street"
+  },
+  {
+   "id": "START-SEG-918983e5b6",
+   "segment": "SEG-918983e5b6",
+   "lat": 40.7379783,
+   "lon": -73.9567083,
+   "surface_alt_m": 2.55,
+   "heading_deg": 321.0,
+   "name": ""
+  },
+  {
+   "id": "START-SEG-926074acbd",
+   "segment": "SEG-926074acbd",
+   "lat": 40.7338767,
+   "lon": -73.9497187,
+   "surface_alt_m": 3.85,
+   "heading_deg": 352.0,
+   "name": "Provost Street"
+  },
+  {
+   "id": "START-SEG-9287c7d6cf",
+   "segment": "SEG-9287c7d6cf",
+   "lat": 40.7401308,
+   "lon": -73.9525626,
+   "surface_alt_m": 1.66,
+   "heading_deg": 193.5,
+   "name": "11th Street"
+  },
+  {
+   "id": "START-SEG-93bc5006dd",
+   "segment": "SEG-93bc5006dd",
+   "lat": 40.7420872,
+   "lon": -73.9494737,
+   "surface_alt_m": 5.87,
+   "heading_deg": 223.6,
+   "name": "21st Street"
+  },
+  {
+   "id": "START-SEG-94f35ba377",
+   "segment": "SEG-94f35ba377",
+   "lat": 40.7426538,
+   "lon": -73.9447241,
+   "surface_alt_m": 4.49,
+   "heading_deg": 61.6,
+   "name": "Skillman Avenue"
+  },
+  {
+   "id": "START-SEG-951bc2a28b",
+   "segment": "SEG-951bc2a28b",
+   "lat": 40.7481634,
+   "lon": -73.9497684,
+   "surface_alt_m": 3.3,
+   "heading_deg": 193.7,
+   "name": "11th Street"
+  },
+  {
+   "id": "START-SEG-97148526e1",
+   "segment": "SEG-97148526e1",
+   "lat": 40.7360011,
+   "lon": -73.9500654,
+   "surface_alt_m": 3.03,
+   "heading_deg": 352.2,
+   "name": "Provost Street"
+  },
+  {
+   "id": "START-SEG-97c1cc3f78",
+   "segment": "SEG-97c1cc3f78",
+   "lat": 40.7435298,
+   "lon": -73.9563274,
+   "surface_alt_m": 2.61,
+   "heading_deg": 193.9,
+   "name": "5th Street"
+  },
+  {
+   "id": "START-SEG-97deab4deb",
+   "segment": "SEG-97deab4deb",
+   "lat": 40.7409818,
+   "lon": -73.9473138,
+   "surface_alt_m": 3.13,
+   "heading_deg": 193.9,
+   "name": "23rd Street"
+  },
+  {
+   "id": "START-SEG-98ab6c88c5",
+   "segment": "SEG-98ab6c88c5",
+   "lat": 40.7418315,
+   "lon": -73.9539371,
+   "surface_alt_m": 3.87,
+   "heading_deg": 50.5,
+   "name": "Jackson Avenue"
+  },
+  {
+   "id": "START-SEG-98e9d486af",
+   "segment": "SEG-98e9d486af",
+   "lat": 40.7469526,
+   "lon": -73.9551808,
+   "surface_alt_m": 2.4,
+   "heading_deg": 193.8,
+   "name": "5th Street"
+  },
+  {
+   "id": "START-SEG-99a6983d78",
+   "segment": "SEG-99a6983d78",
+   "lat": 40.7374064,
+   "lon": -73.9542519,
+   "surface_alt_m": 3.2,
+   "heading_deg": 82.3,
+   "name": "Box Street"
+  },
+  {
+   "id": "START-SEG-9b6a389110",
+   "segment": "SEG-9b6a389110",
+   "lat": 40.7421283,
+   "lon": -73.9567878,
+   "surface_alt_m": 2.6,
+   "heading_deg": 193.0,
+   "name": "5th Street"
+  },
+  {
+   "id": "START-SEG-9b909940ea",
+   "segment": "SEG-9b909940ea",
+   "lat": 40.7447259,
+   "lon": -73.9573899,
+   "surface_alt_m": 2.92,
+   "heading_deg": 103.4,
+   "name": "48th Avenue"
+  },
+  {
+   "id": "START-SEG-9bdf13e05b",
+   "segment": "SEG-9bdf13e05b",
+   "lat": 40.7381106,
+   "lon": -73.9543461,
+   "surface_alt_m": 2.55,
+   "heading_deg": 262.4,
+   "name": "Ash Street"
+  },
+  {
+   "id": "START-SEG-9d880f93dc",
+   "segment": "SEG-9d880f93dc",
+   "lat": 40.7422584,
+   "lon": -73.9555483,
+   "surface_alt_m": 3.33,
+   "heading_deg": 283.7,
+   "name": "51st Avenue"
+  },
+  {
+   "id": "START-SEG-9d8993b55a",
+   "segment": "SEG-9d8993b55a",
+   "lat": 40.7426724,
+   "lon": -73.9516948,
+   "surface_alt_m": 5.19,
+   "heading_deg": 185.1,
+   "name": "11th Street"
+  },
+  {
+   "id": "START-SEG-9eabb70df9",
+   "segment": "SEG-9eabb70df9",
+   "lat": 40.7362295,
+   "lon": -73.9513906,
+   "surface_alt_m": 2.81,
+   "heading_deg": 262.1,
+   "name": "Dupont Street"
+  },
+  {
+   "id": "START-SEG-9f0c3571c6",
+   "segment": "SEG-9f0c3571c6",
+   "lat": 40.7345787,
+   "lon": -73.9537469,
+   "surface_alt_m": 3.63,
+   "heading_deg": 262.3,
+   "name": "Freeman Street"
+  },
+  {
+   "id": "START-SEG-9f9e12779a",
+   "segment": "SEG-9f9e12779a",
+   "lat": 40.7462071,
+   "lon": -73.944807,
+   "surface_alt_m": 4.66,
+   "heading_deg": 241.4,
+   "name": "Jackson Avenue"
+  },
+  {
+   "id": "START-SEG-a27462cd18",
+   "segment": "SEG-a27462cd18",
+   "lat": 40.7466641,
+   "lon": -73.9515597,
+   "surface_alt_m": 3.08,
+   "heading_deg": 283.3,
+   "name": "46th Avenue"
+  },
+  {
+   "id": "START-SEG-a4d55ed778",
+   "segment": "SEG-a4d55ed778",
+   "lat": 40.7364388,
+   "lon": -73.949397,
+   "surface_alt_m": 1.76,
+   "heading_deg": 111.6,
+   "name": "Paidge Avenue"
+  },
+  {
+   "id": "START-SEG-a5cd0e1a47",
+   "segment": "SEG-a5cd0e1a47",
+   "lat": 40.7471543,
+   "lon": -73.9465086,
+   "surface_alt_m": 4.77,
+   "heading_deg": 283.7,
+   "name": "45th Avenue"
+  },
+  {
+   "id": "START-SEG-a639545044",
+   "segment": "SEG-a639545044",
+   "lat": 40.7445641,
+   "lon": -73.9521458,
+   "surface_alt_m": 3.4,
+   "heading_deg": 103.5,
+   "name": "47th Road"
+  },
+  {
+   "id": "START-SEG-a7b2c82e5a",
+   "segment": "SEG-a7b2c82e5a",
+   "lat": 40.7342779,
+   "lon": -73.9441049,
+   "surface_alt_m": 2.28,
+   "heading_deg": 307.6,
+   "name": "Kingsland Avenue"
+  },
+  {
+   "id": "START-SEG-a7e2e2ef5b",
+   "segment": "SEG-a7e2e2ef5b",
+   "lat": 40.7406354,
+   "lon": -73.9510063,
+   "surface_alt_m": 2.46,
+   "heading_deg": 103.8,
+   "name": "Borden Avenue"
+  },
+  {
+   "id": "START-SEG-a97b297650",
+   "segment": "SEG-a97b297650",
+   "lat": 40.7480972,
+   "lon": -73.9448741,
+   "surface_alt_m": 4.89,
+   "heading_deg": 14.0,
+   "name": "23rd Street"
+  },
+  {
+   "id": "START-SEG-ab941d51f2",
+   "segment": "SEG-ab941d51f2",
+   "lat": 40.7467738,
+   "lon": -73.9502383,
+   "surface_alt_m": 3.43,
+   "heading_deg": 193.7,
+   "name": "11th Street"
+  },
+  {
+   "id": "START-SEG-ac83e794ab",
+   "segment": "SEG-ac83e794ab",
+   "lat": 40.7339504,
+   "lon": -73.9444838,
+   "surface_alt_m": 3.79,
+   "heading_deg": 82.7,
+   "name": ""
+  },
+  {
+   "id": "START-SEG-acf9c949e2",
+   "segment": "SEG-acf9c949e2",
+   "lat": 40.742203,
+   "lon": -73.9540547,
+   "surface_alt_m": 4.15,
+   "heading_deg": 11.8,
+   "name": "Vernon Boulevard"
+  },
+  {
+   "id": "START-SEG-ae20975808",
+   "segment": "SEG-ae20975808",
+   "lat": 40.7453798,
+   "lon": -73.9564922,
+   "surface_alt_m": 3.3,
+   "heading_deg": 103.6,
+   "name": "47th Road"
+  },
+  {
+   "id": "START-SEG-af7788afee",
+   "segment": "SEG-af7788afee",
+   "lat": 40.7365738,
+   "lon": -73.9501566,
+   "surface_alt_m": 2.55,
+   "heading_deg": 354.8,
+   "name": "Provost Street"
+  },
+  {
+   "id": "START-SEG-aff4f9162a",
+   "segment": "SEG-aff4f9162a",
+   "lat": 40.7406788,
+   "lon": -73.9436397,
+   "surface_alt_m": 2.77,
+   "heading_deg": 103.4,
+   "name": "50th Avenue"
+  },
+  {
+   "id": "START-SEG-b230815aba",
+   "segment": "SEG-b230815aba",
+   "lat": 40.7358287,
+   "lon": -73.9527334,
+   "surface_alt_m": 3.6,
+   "heading_deg": 172.0,
+   "name": "Pulaski Bridge"
+  },
+  {
+   "id": "START-SEG-b2eb503982",
+   "segment": "SEG-b2eb503982",
+   "lat": 40.7393079,
+   "lon": -73.9441676,
+   "surface_alt_m": 2.79,
+   "heading_deg": 103.4,
+   "name": "Borden Avenue"
+  },
+  {
+   "id": "START-SEG-b380b43fa3",
+   "segment": "SEG-b380b43fa3",
+   "lat": 40.7428465,
+   "lon": -73.9565488,
+   "surface_alt_m": 2.73,
+   "heading_deg": 193.6,
+   "name": "5th Street"
+  },
+  {
+   "id": "START-SEG-b3cd27ae87",
+   "segment": "SEG-b3cd27ae87",
+   "lat": 40.7468833,
+   "lon": -73.9488915,
+   "surface_alt_m": 4.04,
+   "heading_deg": 103.5,
+   "name": "45th Road"
+  },
+  {
+   "id": "START-SEG-b4c153c172",
+   "segment": "SEG-b4c153c172",
+   "lat": 40.7456435,
+   "lon": -73.9482208,
+   "surface_alt_m": 3.89,
+   "heading_deg": 193.3,
+   "name": "21st Street"
+  },
+  {
+   "id": "START-SEG-b4f8965a86",
+   "segment": "SEG-b4f8965a86",
+   "lat": 40.742623,
+   "lon": -73.9499051,
+   "surface_alt_m": 6.83,
+   "heading_deg": 102.8,
+   "name": "49th Avenue"
+  },
+  {
+   "id": "START-SEG-b60d80837a",
+   "segment": "SEG-b60d80837a",
+   "lat": 40.7406501,
+   "lon": -73.9523897,
+   "surface_alt_m": 2.35,
+   "heading_deg": 193.5,
+   "name": "11th Street"
+  },
+  {
+   "id": "START-SEG-b97fd37143",
+   "segment": "SEG-b97fd37143",
+   "lat": 40.7441992,
+   "lon": -73.9502659,
+   "surface_alt_m": 3.49,
+   "heading_deg": 104.1,
+   "name": "47th Road"
+  },
+  {
+   "id": "START-SEG-ba9ae372cc",
+   "segment": "SEG-ba9ae372cc",
+   "lat": 40.7425038,
+   "lon": -73.952368,
+   "surface_alt_m": 4.64,
+   "heading_deg": 338.8,
+   "name": ""
+  },
+  {
+   "id": "START-SEG-bacb844854",
+   "segment": "SEG-bacb844854",
+   "lat": 40.7359446,
+   "lon": -73.9491108,
+   "surface_alt_m": 4.21,
+   "heading_deg": 82.3,
+   "name": ""
+  },
+  {
+   "id": "START-SEG-bafa92f89b",
+   "segment": "SEG-bafa92f89b",
+   "lat": 40.7457201,
+   "lon": -73.9543258,
+   "surface_alt_m": 3.25,
+   "heading_deg": 283.7,
+   "name": "47th Avenue"
+  },
+  {
+   "id": "START-SEG-bca1f90cc2",
+   "segment": "SEG-bca1f90cc2",
+   "lat": 40.7405864,
+   "lon": -73.9449866,
+   "surface_alt_m": 2.72,
+   "heading_deg": 193.6,
+   "name": "25th Street"
+  },
+  {
+   "id": "START-SEG-bee79ec63e",
+   "segment": "SEG-bee79ec63e",
+   "lat": 40.7379229,
+   "lon": -73.9528211,
+   "surface_alt_m": 1.66,
+   "heading_deg": 352.3,
+   "name": "McGuinness Boulevard"
+  },
+  {
+   "id": "START-SEG-c3172567b2",
+   "segment": "SEG-c3172567b2",
+   "lat": 40.7462791,
+   "lon": -73.9443846,
+   "surface_alt_m": 5.04,
+   "heading_deg": 61.6,
+   "name": "Jackson Avenue"
+  },
+  {
+   "id": "START-SEG-c4dc97b264",
+   "segment": "SEG-c4dc97b264",
+   "lat": 40.745388,
+   "lon": -73.9507073,
+   "surface_alt_m": 3.3,
+   "heading_deg": 193.7,
+   "name": "11th Street"
+  },
+  {
+   "id": "START-SEG-c52be981ac",
+   "segment": "SEG-c52be981ac",
+   "lat": 40.7417902,
+   "lon": -73.9472592,
+   "surface_alt_m": 2.94,
+   "heading_deg": 12.0,
+   "name": ""
+  },
+  {
+   "id": "START-SEG-c53c2c87c2",
+   "segment": "SEG-c53c2c87c2",
+   "lat": 40.7479174,
+   "lon": -73.9461886,
+   "surface_alt_m": 5.54,
+   "heading_deg": 283.4,
+   "name": "44th Drive"
+  },
+  {
+   "id": "START-SEG-c55bdbc48e",
+   "segment": "SEG-c55bdbc48e",
+   "lat": 40.7365224,
+   "lon": -73.9525924,
+   "surface_alt_m": 2.21,
+   "heading_deg": 352.5,
+   "name": "McGuinness Boulevard"
+  },
+  {
+   "id": "START-SEG-c65efd4dd5",
+   "segment": "SEG-c65efd4dd5",
+   "lat": 40.7400401,
+   "lon": -73.9439005,
+   "surface_alt_m": 2.87,
+   "heading_deg": 283.5,
+   "name": "51st Avenue"
+  },
+  {
+   "id": "START-SEG-c7dd47a73b",
+   "segment": "SEG-c7dd47a73b",
+   "lat": 40.7462102,
+   "lon": -73.9492188,
+   "surface_alt_m": 4.28,
+   "heading_deg": 283.7,
+   "name": "46th Avenue"
+  },
+  {
+   "id": "START-SEG-c8149efbdf",
+   "segment": "SEG-c8149efbdf",
+   "lat": 40.7371117,
+   "lon": -73.9577287,
+   "surface_alt_m": 2.89,
+   "heading_deg": 143.7,
+   "name": ""
+  },
+  {
+   "id": "START-SEG-ca43aa3b66",
+   "segment": "SEG-ca43aa3b66",
+   "lat": 40.7474825,
+   "lon": -73.9557942,
+   "surface_alt_m": 2.79,
+   "heading_deg": 283.8,
+   "name": "46th Avenue"
+  },
+  {
+   "id": "START-SEG-cb365c0f42",
+   "segment": "SEG-cb365c0f42",
+   "lat": 40.7464098,
+   "lon": -73.9540732,
+   "surface_alt_m": 3.08,
+   "heading_deg": 103.7,
+   "name": "46th Road"
+  },
+  {
+   "id": "START-SEG-cbebc3e86f",
+   "segment": "SEG-cbebc3e86f",
+   "lat": 40.7396557,
+   "lon": -73.9526086,
+   "surface_alt_m": 1.63,
+   "heading_deg": 103.4,
+   "name": "11th Street"
+  },
+  {
+   "id": "START-SEG-cbf29ddf1a",
+   "segment": "SEG-cbf29ddf1a",
+   "lat": 40.7382223,
+   "lon": -73.9529156,
+   "surface_alt_m": 1.63,
+   "heading_deg": 289.6,
+   "name": "McGuinness Boulevard"
+  },
+  {
+   "id": "START-SEG-cc3ee3eb01",
+   "segment": "SEG-cc3ee3eb01",
+   "lat": 40.7443869,
+   "lon": -73.9491772,
+   "surface_alt_m": 3.55,
+   "heading_deg": 234.5,
+   "name": "Jackson Avenue"
+  },
+  {
+   "id": "START-SEG-cdba966929",
+   "segment": "SEG-cdba966929",
+   "lat": 40.7350593,
+   "lon": -73.9472443,
+   "surface_alt_m": 4.31,
+   "heading_deg": 172.3,
+   "name": ""
+  },
+  {
+   "id": "START-SEG-ce3efbc7ba",
+   "segment": "SEG-ce3efbc7ba",
+   "lat": 40.7473431,
+   "lon": -73.9512743,
+   "surface_alt_m": 2.99,
+   "heading_deg": 103.5,
+   "name": "45th Road"
+  },
+  {
+   "id": "START-SEG-cfab151efd",
+   "segment": "SEG-cfab151efd",
+   "lat": 40.7443515,
+   "lon": -73.9548735,
+   "surface_alt_m": 4.09,
+   "heading_deg": 283.6,
+   "name": "48th Avenue"
+  },
+  {
+   "id": "START-SEG-d20fec41ef",
+   "segment": "SEG-d20fec41ef",
+   "lat": 40.7384079,
+   "lon": -73.9520424,
+   "surface_alt_m": 2.04,
+   "heading_deg": 213.0,
+   "name": ""
+  },
+  {
+   "id": "START-SEG-d2af95f02f",
+   "segment": "SEG-d2af95f02f",
+   "lat": 40.744692,
+   "lon": -73.9508377,
+   "surface_alt_m": 3.4,
+   "heading_deg": 13.4,
+   "name": "11th Street"
+  },
+  {
+   "id": "START-SEG-d39dd4f198",
+   "segment": "SEG-d39dd4f198",
+   "lat": 40.7436024,
+   "lon": -73.9510006,
+   "surface_alt_m": 5.7,
+   "heading_deg": 284.4,
+   "name": "48th Avenue"
+  },
+  {
+   "id": "START-SEG-d410770116",
+   "segment": "SEG-d410770116",
+   "lat": 40.7458486,
+   "lon": -73.953095,
+   "surface_alt_m": 3.59,
+   "heading_deg": 193.6,
+   "name": "Vernon Boulevard"
+  },
+  {
+   "id": "START-SEG-d590fd5d82",
+   "segment": "SEG-d590fd5d82",
+   "lat": 40.7448371,
+   "lon": -73.9573712,
+   "surface_alt_m": 2.89,
+   "heading_deg": 283.7,
+   "name": "48th Avenue"
+  },
+  {
+   "id": "START-SEG-d70e869c9a",
+   "segment": "SEG-d70e869c9a",
+   "lat": 40.7356324,
+   "lon": -73.9525846,
+   "surface_alt_m": 3.16,
+   "heading_deg": 352.2,
+   "name": "Pulaski Bridge"
+  },
+  {
+   "id": "START-SEG-d7a28152cb",
+   "segment": "SEG-d7a28152cb",
+   "lat": 40.7341987,
+   "lon": -73.9482713,
+   "surface_alt_m": 4.77,
+   "heading_deg": 123.8,
+   "name": ""
+  },
+  {
+   "id": "START-SEG-d940425cf7",
+   "segment": "SEG-d940425cf7",
+   "lat": 40.7460746,
+   "lon": -73.9561457,
+   "surface_alt_m": 3.65,
+   "heading_deg": 283.6,
+   "name": "47th Avenue"
+  },
+  {
+   "id": "START-SEG-d9d30bfa0e",
+   "segment": "SEG-d9d30bfa0e",
+   "lat": 40.7426265,
+   "lon": -73.953541,
+   "surface_alt_m": 4.92,
+   "heading_deg": 103.6,
+   "name": "50th Avenue"
+  },
+  {
+   "id": "START-SEG-d9e93b8236",
+   "segment": "SEG-d9e93b8236",
+   "lat": 40.736438,
+   "lon": -73.9530265,
+   "surface_alt_m": 2.77,
+   "heading_deg": 172.1,
+   "name": "McGuinness Boulevard"
+  },
+  {
+   "id": "START-SEG-db456ee8bb",
+   "segment": "SEG-db456ee8bb",
+   "lat": 40.7378137,
+   "lon": -73.9509588,
+   "surface_alt_m": 1.37,
+   "heading_deg": 254.0,
+   "name": ""
+  },
+  {
+   "id": "START-SEG-dd6880ae7c",
+   "segment": "SEG-dd6880ae7c",
+   "lat": 40.7467625,
+   "lon": -73.9501523,
+   "surface_alt_m": 3.51,
+   "heading_deg": 13.4,
+   "name": "11th Street"
+  },
+  {
+   "id": "START-SEG-dfe116a95e",
+   "segment": "SEG-dfe116a95e",
+   "lat": 40.7400757,
+   "lon": -73.9512437,
+   "surface_alt_m": 2.15,
+   "heading_deg": 120.1,
+   "name": "53rd Avenue"
+  },
+  {
+   "id": "START-SEG-e07c7cfcce",
+   "segment": "SEG-e07c7cfcce",
+   "lat": 40.7343679,
+   "lon": -73.9448509,
+   "surface_alt_m": 2.82,
+   "heading_deg": 83.2,
+   "name": "North Henry Street"
+  },
+  {
+   "id": "START-SEG-e34d3bae99",
+   "segment": "SEG-e34d3bae99",
+   "lat": 40.7455692,
+   "lon": -73.9574759,
+   "surface_alt_m": 3.44,
+   "heading_deg": 103.1,
+   "name": "47th Road"
+  },
+  {
+   "id": "START-SEG-e4b5a98d85",
+   "segment": "SEG-e4b5a98d85",
+   "lat": 40.7454866,
+   "lon": -73.9492905,
+   "surface_alt_m": 3.93,
+   "heading_deg": 103.6,
+   "name": "46th Road"
+  },
+  {
+   "id": "START-SEG-e6362e030a",
+   "segment": "SEG-e6362e030a",
+   "lat": 40.7345842,
+   "lon": -73.9498367,
+   "surface_alt_m": 3.74,
+   "heading_deg": 352.2,
+   "name": "Provost Street"
+  },
+  {
+   "id": "START-SEG-e7064bd80f",
+   "segment": "SEG-e7064bd80f",
+   "lat": 40.7372374,
+   "lon": -73.9567764,
+   "surface_alt_m": 3.32,
+   "heading_deg": 236.9,
+   "name": "Commercial Street"
+  },
+  {
+   "id": "START-SEG-e834848c40",
+   "segment": "SEG-e834848c40",
+   "lat": 40.7439871,
+   "lon": -73.9510665,
+   "surface_alt_m": 4.62,
+   "heading_deg": 13.2,
+   "name": "11th Street"
+  },
+  {
+   "id": "START-SEG-e8fd479ef5",
+   "segment": "SEG-e8fd479ef5",
+   "lat": 40.7381933,
+   "lon": -73.9571646,
+   "surface_alt_m": 2.92,
+   "heading_deg": 232.4,
+   "name": ""
+  },
+  {
+   "id": "START-SEG-e9cf244086",
+   "segment": "SEG-e9cf244086",
+   "lat": 40.7481902,
+   "lon": -73.9496788,
+   "surface_alt_m": 3.41,
+   "heading_deg": 13.6,
+   "name": "11th Street"
+  },
+  {
+   "id": "START-SEG-ea8c2fbddf",
+   "segment": "SEG-ea8c2fbddf",
+   "lat": 40.7406003,
+   "lon": -73.9584661,
+   "surface_alt_m": 1.58,
+   "heading_deg": 103.6,
+   "name": "54th Avenue"
+  },
+  {
+   "id": "START-SEG-eac56279e9",
+   "segment": "SEG-eac56279e9",
+   "lat": 40.7427836,
+   "lon": -73.9507177,
+   "surface_alt_m": 6.37,
+   "heading_deg": 106.4,
+   "name": ""
+  },
+  {
+   "id": "START-SEG-eac66d0dd0",
+   "segment": "SEG-eac66d0dd0",
+   "lat": 40.7451807,
+   "lon": -73.9477276,
+   "surface_alt_m": 3.11,
+   "heading_deg": 104.9,
+   "name": "46th Road"
+  },
+  {
+   "id": "START-SEG-ec57f0bef8",
+   "segment": "SEG-ec57f0bef8",
+   "lat": 40.7402017,
+   "lon": -73.9487773,
+   "surface_alt_m": 2.63,
+   "heading_deg": 103.8,
+   "name": "Borden Avenue"
+  },
+  {
+   "id": "START-SEG-ec5a33974e",
+   "segment": "SEG-ec5a33974e",
+   "lat": 40.7459271,
+   "lon": -73.956913,
+   "surface_alt_m": 4.11,
+   "heading_deg": 215.1,
+   "name": "Center Boulevard"
+  },
+  {
+   "id": "START-SEG-ef054b3f57",
+   "segment": "SEG-ef054b3f57",
+   "lat": 40.7460798,
+   "lon": -73.9504733,
+   "surface_alt_m": 3.34,
+   "heading_deg": 193.7,
+   "name": "11th Street"
+  },
+  {
+   "id": "START-SEG-ef82b87cf9",
+   "segment": "SEG-ef82b87cf9",
+   "lat": 40.7428501,
+   "lon": -73.9531461,
+   "surface_alt_m": 4.82,
+   "heading_deg": 284.0,
+   "name": ""
+  },
+  {
+   "id": "START-SEG-f0a9e4ea06",
+   "segment": "SEG-f0a9e4ea06",
+   "lat": 40.7412644,
+   "lon": -73.9447603,
+   "surface_alt_m": 2.41,
+   "heading_deg": 193.7,
+   "name": "25th Street"
+  },
+  {
+   "id": "START-SEG-f0d20236fe",
+   "segment": "SEG-f0d20236fe",
+   "lat": 40.7471884,
+   "lon": -73.9526436,
+   "surface_alt_m": 2.62,
+   "heading_deg": 193.6,
+   "name": "Vernon Boulevard"
+  },
+  {
+   "id": "START-SEG-f11ae23096",
+   "segment": "SEG-f11ae23096",
+   "lat": 40.7369017,
+   "lon": -73.955326,
+   "surface_alt_m": 4.35,
+   "heading_deg": 352.2,
+   "name": "Manhattan Avenue"
+  },
+  {
+   "id": "START-SEG-f30a3c1f33",
+   "segment": "SEG-f30a3c1f33",
+   "lat": 40.7344311,
+   "lon": -73.9553566,
+   "surface_alt_m": 4.38,
+   "heading_deg": 262.3,
+   "name": "Freeman Street"
+  },
+  {
+   "id": "START-SEG-f352dd8d54",
+   "segment": "SEG-f352dd8d54",
+   "lat": 40.7479688,
+   "lon": -73.9523846,
+   "surface_alt_m": 2.69,
+   "heading_deg": 193.5,
+   "name": "Vernon Boulevard"
+  },
+  {
+   "id": "START-SEG-f3a641446c",
+   "segment": "SEG-f3a641446c",
+   "lat": 40.7465407,
+   "lon": -73.9528633,
+   "surface_alt_m": 2.92,
+   "heading_deg": 193.3,
+   "name": "Vernon Boulevard"
+  },
+  {
+   "id": "START-SEG-f3e72a7383",
+   "segment": "SEG-f3e72a7383",
+   "lat": 40.7422187,
+   "lon": -73.9531784,
+   "surface_alt_m": 4.44,
+   "heading_deg": 54.3,
+   "name": "Jackson Avenue"
+  },
+  {
+   "id": "START-SEG-f4a9c1ff10",
+   "segment": "SEG-f4a9c1ff10",
+   "lat": 40.7377967,
+   "lon": -73.9579812,
+   "surface_alt_m": 2.37,
+   "heading_deg": 143.4,
+   "name": ""
+  },
+  {
+   "id": "START-SEG-f61fb6d215",
+   "segment": "SEG-f61fb6d215",
+   "lat": 40.7415521,
+   "lon": -73.9556935,
+   "surface_alt_m": 3.36,
+   "heading_deg": 103.6,
+   "name": "Borden Avenue"
+  },
+  {
+   "id": "START-SEG-f7d9dada6b",
+   "segment": "SEG-f7d9dada6b",
+   "lat": 40.7409358,
+   "lon": -73.9485206,
+   "surface_alt_m": 2.92,
+   "heading_deg": 283.5,
+   "name": "51st Avenue"
+  },
+  {
+   "id": "START-SEG-fb5c1bcdd4",
+   "segment": "SEG-fb5c1bcdd4",
+   "lat": 40.7398178,
+   "lon": -73.958124,
+   "surface_alt_m": 2.35,
+   "heading_deg": 104.2,
+   "name": "Malt Drive"
+  },
+  {
+   "id": "START-SEG-fbce73b938",
+   "segment": "SEG-fbce73b938",
+   "lat": 40.7481071,
+   "lon": -73.9554381,
+   "surface_alt_m": 1.96,
+   "heading_deg": 117.2,
+   "name": "North Basin Road"
+  },
+  {
+   "id": "START-SEG-fc6e473255",
+   "segment": "SEG-fc6e473255",
+   "lat": 40.7336156,
+   "lon": -73.9469982,
+   "surface_alt_m": 3.9,
+   "heading_deg": 172.1,
+   "name": ""
+  },
+  {
+   "id": "START-SEG-fcafd6bd9f",
+   "segment": "SEG-fcafd6bd9f",
+   "lat": 40.7362786,
+   "lon": -73.9552234,
+   "surface_alt_m": 4.9,
+   "heading_deg": 352.2,
+   "name": "Manhattan Avenue"
+  },
+  {
+   "id": "START-SEG-fe03a78734",
+   "segment": "SEG-fe03a78734",
+   "lat": 40.7369636,
+   "lon": -73.9572088,
+   "surface_alt_m": 3.34,
+   "heading_deg": 54.1,
+   "name": "Commercial Street"
+  },
+  {
+   "id": "START-SEG-feb3fb3e71",
+   "segment": "SEG-feb3fb3e71",
+   "lat": 40.7465328,
+   "lon": -73.9454633,
+   "surface_alt_m": 4.67,
+   "heading_deg": 193.1,
+   "name": "23rd Street"
+  },
+  {
+   "id": "START-SEG-feed22b531",
+   "segment": "SEG-feed22b531",
+   "lat": 40.7354413,
+   "lon": -73.9521229,
+   "surface_alt_m": 2.79,
+   "heading_deg": 82.3,
+   "name": "Eagle Street"
+  }
+ ],
+ "_generated": [
+  "SEG-0138dd50bc",
+  "SEG-027d375d99",
+  "SEG-02f1a8ac7c",
+  "SEG-0338aec18d",
+  "SEG-03db92ee44",
+  "SEG-040a06bf27",
+  "SEG-0534c8ffdf",
+  "SEG-06a58104fe",
+  "SEG-07109f2bb4",
+  "SEG-079041f59f",
+  "SEG-079cb57006",
+  "SEG-08572403b4",
+  "SEG-0984050947",
+  "SEG-0abec55623",
+  "SEG-0c17fd5075",
+  "SEG-0dd164aaf3",
+  "SEG-0e2f96a331",
+  "SEG-0ecbdccd84",
+  "SEG-0f3ec38f5d",
+  "SEG-0f54a001a0",
+  "SEG-0f572fc878",
+  "SEG-101d163d66",
+  "SEG-10e96bf818",
+  "SEG-117fad1c3e",
+  "SEG-11d6c81876",
+  "SEG-1299a43be7",
+  "SEG-13655811ba",
+  "SEG-13e4dd1f08",
+  "SEG-1474eeea95",
+  "SEG-14c0f2044a",
+  "SEG-14def2b16d",
+  "SEG-153f723017",
+  "SEG-16ed43e957",
+  "SEG-172ea3722e",
+  "SEG-17638d2505",
+  "SEG-186a69752e",
+  "SEG-186b73e082",
+  "SEG-189ed763ed",
+  "SEG-193488a7b6",
+  "SEG-19b718aa2e",
+  "SEG-19d241927a",
+  "SEG-1b0ae44ba9",
+  "SEG-1c2bbb563e",
+  "SEG-1c3f09eeeb",
+  "SEG-1ca00dbac2",
+  "SEG-1d653508fd",
+  "SEG-1dec650710",
+  "SEG-1e7a275e11",
+  "SEG-206e8af36a",
+  "SEG-20b6eb8126",
+  "SEG-2123c4f6f1",
+  "SEG-216841da1f",
+  "SEG-21e08c02bf",
+  "SEG-235569dc30",
+  "SEG-236a6c85ee",
+  "SEG-2384302b82",
+  "SEG-23e1f05de1",
+  "SEG-2415716264",
+  "SEG-26950d81c8",
+  "SEG-27006131c5",
+  "SEG-270988d0e9",
+  "SEG-28d1ed2786",
+  "SEG-298a59b72f",
+  "SEG-29f03f01b7",
+  "SEG-2a3c718c5d",
+  "SEG-2b30835d99",
+  "SEG-2b62a6137a",
+  "SEG-2e8972d640",
+  "SEG-2ea7efef12",
+  "SEG-2eaf23dd37",
+  "SEG-2ec0cb177b",
+  "SEG-3073ebe9ce",
+  "SEG-30fcfd9aff",
+  "SEG-31391db259",
+  "SEG-3196338389",
+  "SEG-323d0678c6",
+  "SEG-344d07c7f5",
+  "SEG-34b4aad08c",
+  "SEG-34bfacb477",
+  "SEG-350618bf68",
+  "SEG-351084a5fd",
+  "SEG-37062f0dba",
+  "SEG-38dc682a17",
+  "SEG-39ae7586e6",
+  "SEG-39ec250278",
+  "SEG-3ab8de2cdd",
+  "SEG-3b611cc247",
+  "SEG-3c095fd648",
+  "SEG-3c7dcb5146",
+  "SEG-3cab81b4a8",
+  "SEG-3cd3a047ce",
+  "SEG-3d2e7f073b",
+  "SEG-3dbfec4645",
+  "SEG-3dd175483f",
+  "SEG-3e14af6a95",
+  "SEG-3fa9cb2992",
+  "SEG-3fb1ffe89d",
+  "SEG-412f8c235c",
+  "SEG-41e10600fc",
+  "SEG-4312a39c44",
+  "SEG-43dddacebc",
+  "SEG-43f695dfd4",
+  "SEG-442216fc06",
+  "SEG-4499807b01",
+  "SEG-44acf80ee2",
+  "SEG-44d35b1aed",
+  "SEG-451528e103",
+  "SEG-4840b1471a",
+  "SEG-498d25812a",
+  "SEG-4a117f2f21",
+  "SEG-4bd014d27c",
+  "SEG-4e0a984db4",
+  "SEG-4e328536ce",
+  "SEG-4ef5a32df4",
+  "SEG-50743ce799",
+  "SEG-513d8c4e91",
+  "SEG-5146dfd1bf",
+  "SEG-517ed04662",
+  "SEG-518236cbf4",
+  "SEG-51aa877bb3",
+  "SEG-52884cbc4d",
+  "SEG-529ae1a3d0",
+  "SEG-536b007204",
+  "SEG-53ea6a6c1f",
+  "SEG-557b244aef",
+  "SEG-56668556f9",
+  "SEG-56986ef785",
+  "SEG-56f0c34121",
+  "SEG-570c801f2a",
+  "SEG-5717ba61de",
+  "SEG-59fcd48036",
+  "SEG-5a09636c6d",
+  "SEG-5af28148c4",
+  "SEG-5bfcc79dbd",
+  "SEG-5de43fbf97",
+  "SEG-5e5b7c6c8e",
+  "SEG-5ee927e4aa",
+  "SEG-5f939f92ce",
+  "SEG-60338392b6",
+  "SEG-61c3f917db",
+  "SEG-62172c7e80",
+  "SEG-62ef3d0d77",
+  "SEG-66845a7e81",
+  "SEG-67a95a27b4",
+  "SEG-67f34b65e4",
+  "SEG-684efe26e5",
+  "SEG-6881aafca5",
+  "SEG-69851f6093",
+  "SEG-699c712a5a",
+  "SEG-69ed8a03da",
+  "SEG-6a644347b4",
+  "SEG-6b47ac778b",
+  "SEG-6b7ff7541c",
+  "SEG-6bbae0831a",
+  "SEG-6c88e493da",
+  "SEG-6e94ac4e7a",
+  "SEG-6f1ab2abaf",
+  "SEG-6f81dcd130",
+  "SEG-701cf21c43",
+  "SEG-73049559e3",
+  "SEG-73d60cff7f",
+  "SEG-742a58a913",
+  "SEG-744a3b8237",
+  "SEG-74c5ef3c63",
+  "SEG-75f46bcd67",
+  "SEG-76a1be2d86",
+  "SEG-7778b663dd",
+  "SEG-785c75ffcc",
+  "SEG-79b75eed4d",
+  "SEG-7b2a3e12e6",
+  "SEG-7b62f773b7",
+  "SEG-7c7a3d9b0e",
+  "SEG-7d06126a60",
+  "SEG-7d2bb05e22",
+  "SEG-7dacf76988",
+  "SEG-7ddf68b0ad",
+  "SEG-7ded34102e",
+  "SEG-7f51dbefa3",
+  "SEG-7f525d3cef",
+  "SEG-812224cc22",
+  "SEG-81705c0d9a",
+  "SEG-82087e1bce",
+  "SEG-825933023f",
+  "SEG-837e657149",
+  "SEG-83f3c7c4b4",
+  "SEG-859781af96",
+  "SEG-86489ab47e",
+  "SEG-877a669853",
+  "SEG-87b2a81bd5",
+  "SEG-88400329b6",
+  "SEG-88be21c3ea",
+  "SEG-892dedbf32",
+  "SEG-89aa1aa19a",
+  "SEG-8af7da0c5d",
+  "SEG-8befbe6837",
+  "SEG-8c3774fc34",
+  "SEG-8cd1d1c782",
+  "SEG-8d5b6fc902",
+  "SEG-8d62605918",
+  "SEG-8e4d31b02d",
+  "SEG-8e701aa9b4",
+  "SEG-8ef0074679",
+  "SEG-8f2b1858df",
+  "SEG-8fc0ca6c9a",
+  "SEG-91061bb8f0",
+  "SEG-918983e5b6",
+  "SEG-926074acbd",
+  "SEG-9287c7d6cf",
+  "SEG-93bc5006dd",
+  "SEG-9476e1fc37",
+  "SEG-94f35ba377",
+  "SEG-951bc2a28b",
+  "SEG-962b13b1b4",
+  "SEG-96b99a3d38",
+  "SEG-97148526e1",
+  "SEG-97918f39dc",
+  "SEG-97c1cc3f78",
+  "SEG-97deab4deb",
+  "SEG-98ab6c88c5",
+  "SEG-98e9d486af",
+  "SEG-99a6983d78",
+  "SEG-9a1f2008a5",
+  "SEG-9a290bf7e1",
+  "SEG-9aa2fc0df5",
+  "SEG-9ae459d1fc",
+  "SEG-9b6a389110",
+  "SEG-9b909940ea",
+  "SEG-9bdf13e05b",
+  "SEG-9beb42ed90",
+  "SEG-9c511c760d",
+  "SEG-9d50aff2a9",
+  "SEG-9d880f93dc",
+  "SEG-9d8993b55a",
+  "SEG-9eabb70df9",
+  "SEG-9f0c3571c6",
+  "SEG-9f9e12779a",
+  "SEG-a27462cd18",
+  "SEG-a41f45bc1b",
+  "SEG-a42965092c",
+  "SEG-a4d55ed778",
+  "SEG-a540838d05",
+  "SEG-a54364062d",
+  "SEG-a5cd0e1a47",
+  "SEG-a639545044",
+  "SEG-a7b2c82e5a",
+  "SEG-a7cb5efc19",
+  "SEG-a7e2e2ef5b",
+  "SEG-a849d36fcc",
+  "SEG-a97b297650",
+  "SEG-a994c04fac",
+  "SEG-ab941d51f2",
+  "SEG-ac83e794ab",
+  "SEG-acf9c949e2",
+  "SEG-ae20975808",
+  "SEG-ae6f5e26e4",
+  "SEG-af638c5479",
+  "SEG-af7788afee",
+  "SEG-aff4f9162a",
+  "SEG-b017252b9b",
+  "SEG-b0e42dd742",
+  "SEG-b1909fb7c7",
+  "SEG-b22010ea15",
+  "SEG-b230815aba",
+  "SEG-b2eb503982",
+  "SEG-b380b43fa3",
+  "SEG-b3cd27ae87",
+  "SEG-b424d8a5f7",
+  "SEG-b4c153c172",
+  "SEG-b4f8965a86",
+  "SEG-b5569aea56",
+  "SEG-b60d80837a",
+  "SEG-b6e84e4a47",
+  "SEG-b93824fe8b",
+  "SEG-b97fd37143",
+  "SEG-ba9ae372cc",
+  "SEG-bacb844854",
+  "SEG-bacde3eafe",
+  "SEG-badf7d483c",
+  "SEG-bafa92f89b",
+  "SEG-bc6b36d6b2",
+  "SEG-bca1f90cc2",
+  "SEG-bee79ec63e",
+  "SEG-c155261bec",
+  "SEG-c21849dd83",
+  "SEG-c3172567b2",
+  "SEG-c4dc97b264",
+  "SEG-c52be981ac",
+  "SEG-c53b023157",
+  "SEG-c53c2c87c2",
+  "SEG-c55bdbc48e",
+  "SEG-c65efd4dd5",
+  "SEG-c7dd47a73b",
+  "SEG-c809653069",
+  "SEG-c8149efbdf",
+  "SEG-c954a325df",
+  "SEG-ca43aa3b66",
+  "SEG-caf05bb9c3",
+  "SEG-cb365c0f42",
+  "SEG-cbebc3e86f",
+  "SEG-cbf29ddf1a",
+  "SEG-cc3ee3eb01",
+  "SEG-cdba966929",
+  "SEG-ce3efbc7ba",
+  "SEG-cfab151efd",
+  "SEG-cfce7bee94",
+  "SEG-d15172f3d6",
+  "SEG-d1da409313",
+  "SEG-d20fec41ef",
+  "SEG-d2af95f02f",
+  "SEG-d39dd4f198",
+  "SEG-d410770116",
+  "SEG-d590fd5d82",
+  "SEG-d70e869c9a",
+  "SEG-d7a28152cb",
+  "SEG-d87a7bb850",
+  "SEG-d940425cf7",
+  "SEG-d9d30bfa0e",
+  "SEG-d9e93b8236",
+  "SEG-db456ee8bb",
+  "SEG-dbd8e95a81",
+  "SEG-dca4638e64",
+  "SEG-dd6880ae7c",
+  "SEG-ddc3e70285",
+  "SEG-de549ade29",
+  "SEG-dfe116a95e",
+  "SEG-e05ca671fe",
+  "SEG-e07c7cfcce",
+  "SEG-e1175caa4a",
+  "SEG-e1b0c54fa8",
+  "SEG-e2259337d9",
+  "SEG-e2f679b362",
+  "SEG-e34d3bae99",
+  "SEG-e4b5a98d85",
+  "SEG-e620952d85",
+  "SEG-e6362e030a",
+  "SEG-e653779e6f",
+  "SEG-e6f697db7e",
+  "SEG-e7064bd80f",
+  "SEG-e834848c40",
+  "SEG-e8fd479ef5",
+  "SEG-e9cf244086",
+  "SEG-ea8c2fbddf",
+  "SEG-ea9b621139",
+  "SEG-eac56279e9",
+  "SEG-eac66d0dd0",
+  "SEG-eb3378fdfe",
+  "SEG-ec29edada1",
+  "SEG-ec57f0bef8",
+  "SEG-ec5a33974e",
+  "SEG-ef054b3f57",
+  "SEG-ef82b87cf9",
+  "SEG-f0a9e4ea06",
+  "SEG-f0d20236fe",
+  "SEG-f11ae23096",
+  "SEG-f1f9cf32cf",
+  "SEG-f237227023",
+  "SEG-f25fde853c",
+  "SEG-f30a3c1f33",
+  "SEG-f352dd8d54",
+  "SEG-f3a641446c",
+  "SEG-f3e72a7383",
+  "SEG-f4a9c1ff10",
+  "SEG-f5bccee9ce",
+  "SEG-f61fb6d215",
+  "SEG-f6cc5a182b",
+  "SEG-f7d9dada6b",
+  "SEG-f8719232bf",
+  "SEG-fb071a2015",
+  "SEG-fb5c1bcdd4",
+  "SEG-fbce73b938",
+  "SEG-fc6e473255",
+  "SEG-fcafd6bd9f",
+  "SEG-fcc0b7b217",
+  "SEG-fce21bb71d",
+  "SEG-fe03a78734",
+  "SEG-feb3fb3e71",
+  "SEG-feed22b531"
+ ]
+}

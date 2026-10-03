@@ -87,3 +87,9 @@ def test_bridge_straddling_boundary_is_dropped_whole():
     assert not [s for s in inv.segments.values() if s.bridge]
     kinds = {j.kind for j in inv.junctions.values()}
     assert "boundary_bridge_cut" in kinds
+
+
+def test_summary_km_matches_segment_lengths(inv):
+    s = inv.summary()["segments_by_scope_borough"]
+    total = sum(v["km"] for v in s.values())
+    assert abs(total - sum(seg.length_m for seg in inv.segments.values()) / 1000) < 0.002

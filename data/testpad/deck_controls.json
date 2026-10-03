@@ -1,0 +1,448 @@
+{
+ "_about": "DESIGN heights of the G1 test-pad deck (not measured; this structure does not exist).",
+ "XS-TESTPAD": {
+  "name": "Testpad Bridge",
+  "controls": [
+   {
+    "lon": -73.89376368,
+    "lat": 40.59299774,
+    "z_sim_m": 3.97,
+    "z_native_m": 3.97,
+    "native_datum": "NAVD88",
+    "source": "design:g1-testpad",
+    "n_points": 0,
+    "spread_m": 0.0
+   },
+   {
+    "lon": -73.89370461,
+    "lat": 40.59299717,
+    "z_sim_m": 3.998,
+    "z_native_m": 3.998,
+    "native_datum": "NAVD88",
+    "source": "design:g1-testpad",
+    "n_points": 0,
+    "spread_m": 0.0
+   },
+   {
+    "lon": -73.89364553,
+    "lat": 40.59299661,
+    "z_sim_m": 4.089,
+    "z_native_m": 4.089,
+    "native_datum": "NAVD88",
+    "source": "design:g1-testpad",
+    "n_points": 0,
+    "spread_m": 0.0
+   },
+   {
+    "lon": -73.89358645,
+    "lat": 40.59299604,
+    "z_sim_m": 4.242,
+    "z_native_m": 4.242,
+    "native_datum": "NAVD88",
+    "source": "design:g1-testpad",
+    "n_points": 0,
+    "spread_m": 0.0
+   },
+   {
+    "lon": -73.89352737,
+    "lat": 40.59299547,
+    "z_sim_m": 4.458,
+    "z_native_m": 4.458,
+    "native_datum": "NAVD88",
+    "source": "design:g1-testpad",
+    "n_points": 0,
+    "spread_m": 0.0
+   },
+   {
+    "lon": -73.89346829,
+    "lat": 40.59299491,
+    "z_sim_m": 4.705,
+    "z_native_m": 4.705,
+    "native_datum": "NAVD88",
+    "source": "design:g1-testpad",
+    "n_points": 0,
+    "spread_m": 0.0
+   },
+   {
+    "lon": -73.89340921,
+    "lat": 40.59299434,
+    "z_sim_m": 4.952,
+    "z_native_m": 4.952,
+    "native_datum": "NAVD88",
+    "source": "design:g1-testpad",
+    "n_points": 0,
+    "spread_m": 0.0
+   },
+   {
+    "lon": -73.89335013,
+    "lat": 40.59299378,
+    "z_sim_m": 5.199,
+    "z_native_m": 5.199,
+    "native_datum": "NAVD88",
+    "source": "design:g1-testpad",
+    "n_points": 0,
+    "spread_m": 0.0
+   },
+   {
+    "lon": -73.89329105,
+    "lat": 40.59299321,
+    "z_sim_m": 5.446,
+    "z_native_m": 5.446,
+    "native_datum": "NAVD88",
+    "source": "design:g1-testpad",
+    "n_points": 0,
+    "spread_m": 0.0
+   },
+   {
+    "lon": -73.89323197,
+    "lat": 40.59299264,
+    "z_sim_m": 5.693,
+    "z_native_m": 5.693,
+    "native_datum": "NAVD88",
+    "source": "design:g1-testpad",
+    "n_points": 0,
+    "spread_m": 0.0
+   },
+   {
+    "lon": -73.8931729,
+    "lat": 40.59299208,
+    "z_sim_m": 5.94,
+    "z_native_m": 5.94,
+    "native_datum": "NAVD88",
+    "source": "design:g1-testpad",
+    "n_points": 0,
+    "spread_m": 0.0
+   },
+   {
+    "lon": -73.89311382,
+    "lat": 40.59299151,
+    "z_sim_m": 6.187,
+    "z_native_m": 6.187,
+    "native_datum": "NAVD88",
+    "source": "design:g1-testpad",
+    "n_points": 0,
+    "spread_m": 0.0
+   },
+   {
+    "lon": -73.89305474,
+    "lat": 40.59299094,
+    "z_sim_m": 6.434,
+    "z_native_m": 6.434,
+    "native_datum": "NAVD88",
+    "source": "design:g1-testpad",
+    "n_points": 0,
+    "spread_m": 0.0
+   },
+   {
+    "lon": -73.89299566,
+    "lat": 40.59299038,
+    "z_sim_m": 6.681,
+    "z_native_m": 6.681,
+    "native_datum": "NAVD88",
+    "source": "design:g1-testpad",
+    "n_points": 0,
+    "spread_m": 0.0
+   },
+   {
+    "lon": -73.89293658,
+    "lat": 40.59298981,
+    "z_sim_m": 6.928,
+    "z_native_m": 6.928,
+    "native_datum": "NAVD88",
+    "source": "design:g1-testpad",
+    "n_points": 0,
+    "spread_m": 0.0
+   },
+   {
+    "lon": -73.8928775,
+    "lat": 40.59298925,
+    "z_sim_m": 7.175,
+    "z_native_m": 7.175,
+    "native_datum": "NAVD88",
+    "source": "design:g1-testpad",
+    "n_points": 0,
+    "spread_m": 0.0
+   },
+   {
+    "lon": -73.89281842,
+    "lat": 40.59298868,
+    "z_sim_m": 7.422,
+    "z_native_m": 7.422,
+    "native_datum": "NAVD88",
+    "source": "design:g1-testpad",
+    "n_points": 0,
+    "spread_m": 0.0
+   },
+   {
+    "lon": -73.89275934,
+    "lat": 40.59298811,
+    "z_sim_m": 7.669,
+    "z_native_m": 7.669,
+    "native_datum": "NAVD88",
+    "source": "design:g1-testpad",
+    "n_points": 0,
+    "spread_m": 0.0
+   },
+   {
+    "lon": -73.89270026,
+    "lat": 40.59298755,
+    "z_sim_m": 7.916,
+    "z_native_m": 7.916,
+    "native_datum": "NAVD88",
+    "source": "design:g1-testpad",
+    "n_points": 0,
+    "spread_m": 0.0
+   },
+   {
+    "lon": -73.89264118,
+    "lat": 40.59298698,
+    "z_sim_m": 8.163,
+    "z_native_m": 8.163,
+    "native_datum": "NAVD88",
+    "source": "design:g1-testpad",
+    "n_points": 0,
+    "spread_m": 0.0
+   },
+   {
+    "lon": -73.89258211,
+    "lat": 40.59298641,
+    "z_sim_m": 8.389,
+    "z_native_m": 8.389,
+    "native_datum": "NAVD88",
+    "source": "design:g1-testpad",
+    "n_points": 0,
+    "spread_m": 0.0
+   },
+   {
+    "lon": -73.89252303,
+    "lat": 40.59298585,
+    "z_sim_m": 8.573,
+    "z_native_m": 8.573,
+    "native_datum": "NAVD88",
+    "source": "design:g1-testpad",
+    "n_points": 0,
+    "spread_m": 0.0
+   },
+   {
+    "lon": -73.89246395,
+    "lat": 40.59298528,
+    "z_sim_m": 8.716,
+    "z_native_m": 8.716,
+    "native_datum": "NAVD88",
+    "source": "design:g1-testpad",
+    "n_points": 0,
+    "spread_m": 0.0
+   },
+   {
+    "lon": -73.89240487,
+    "lat": 40.59298471,
+    "z_sim_m": 8.817,
+    "z_native_m": 8.817,
+    "native_datum": "NAVD88",
+    "source": "design:g1-testpad",
+    "n_points": 0,
+    "spread_m": 0.0
+   },
+   {
+    "lon": -73.89234579,
+    "lat": 40.59298415,
+    "z_sim_m": 8.877,
+    "z_native_m": 8.877,
+    "native_datum": "NAVD88",
+    "source": "design:g1-testpad",
+    "n_points": 0,
+    "spread_m": 0.0
+   },
+   {
+    "lon": -73.89228671,
+    "lat": 40.59298358,
+    "z_sim_m": 8.894,
+    "z_native_m": 8.894,
+    "native_datum": "NAVD88",
+    "source": "design:g1-testpad",
+    "n_points": 0,
+    "spread_m": 0.0
+   },
+   {
+    "lon": -73.89222763,
+    "lat": 40.59298301,
+    "z_sim_m": 8.891,
+    "z_native_m": 8.891,
+    "native_datum": "NAVD88",
+    "source": "design:g1-testpad",
+    "n_points": 0,
+    "spread_m": 0.0
+   },
+   {
+    "lon": -73.89216855,
+    "lat": 40.59298245,
+    "z_sim_m": 8.87,
+    "z_native_m": 8.87,
+    "native_datum": "NAVD88",
+    "source": "design:g1-testpad",
+    "n_points": 0,
+    "spread_m": 0.0
+   },
+   {
+    "lon": -73.89210947,
+    "lat": 40.59298188,
+    "z_sim_m": 8.757,
+    "z_native_m": 8.757,
+    "native_datum": "NAVD88",
+    "source": "design:g1-testpad",
+    "n_points": 0,
+    "spread_m": 0.0
+   },
+   {
+    "lon": -73.8920504,
+    "lat": 40.59298131,
+    "z_sim_m": 8.544,
+    "z_native_m": 8.544,
+    "native_datum": "NAVD88",
+    "source": "design:g1-testpad",
+    "n_points": 0,
+    "spread_m": 0.0
+   },
+   {
+    "lon": -73.89199132,
+    "lat": 40.59298075,
+    "z_sim_m": 8.231,
+    "z_native_m": 8.231,
+    "native_datum": "NAVD88",
+    "source": "design:g1-testpad",
+    "n_points": 0,
+    "spread_m": 0.0
+   },
+   {
+    "lon": -73.89193224,
+    "lat": 40.59298018,
+    "z_sim_m": 7.836,
+    "z_native_m": 7.836,
+    "native_datum": "NAVD88",
+    "source": "design:g1-testpad",
+    "n_points": 0,
+    "spread_m": 0.0
+   },
+   {
+    "lon": -73.89187316,
+    "lat": 40.59297961,
+    "z_sim_m": 7.433,
+    "z_native_m": 7.433,
+    "native_datum": "NAVD88",
+    "source": "design:g1-testpad",
+    "n_points": 0,
+    "spread_m": 0.0
+   },
+   {
+    "lon": -73.89181408,
+    "lat": 40.59297905,
+    "z_sim_m": 7.03,
+    "z_native_m": 7.03,
+    "native_datum": "NAVD88",
+    "source": "design:g1-testpad",
+    "n_points": 0,
+    "spread_m": 0.0
+   },
+   {
+    "lon": -73.891755,
+    "lat": 40.59297848,
+    "z_sim_m": 6.627,
+    "z_native_m": 6.627,
+    "native_datum": "NAVD88",
+    "source": "design:g1-testpad",
+    "n_points": 0,
+    "spread_m": 0.0
+   },
+   {
+    "lon": -73.89169592,
+    "lat": 40.59297791,
+    "z_sim_m": 6.224,
+    "z_native_m": 6.224,
+    "native_datum": "NAVD88",
+    "source": "design:g1-testpad",
+    "n_points": 0,
+    "spread_m": 0.0
+   },
+   {
+    "lon": -73.89163684,
+    "lat": 40.59297735,
+    "z_sim_m": 5.821,
+    "z_native_m": 5.821,
+    "native_datum": "NAVD88",
+    "source": "design:g1-testpad",
+    "n_points": 0,
+    "spread_m": 0.0
+   },
+   {
+    "lon": -73.89157777,
+    "lat": 40.59297678,
+    "z_sim_m": 5.418,
+    "z_native_m": 5.418,
+    "native_datum": "NAVD88",
+    "source": "design:g1-testpad",
+    "n_points": 0,
+    "spread_m": 0.0
+   },
+   {
+    "lon": -73.89151869,
+    "lat": 40.59297621,
+    "z_sim_m": 5.015,
+    "z_native_m": 5.015,
+    "native_datum": "NAVD88",
+    "source": "design:g1-testpad",
+    "n_points": 0,
+    "spread_m": 0.0
+   },
+   {
+    "lon": -73.89145961,
+    "lat": 40.59297565,
+    "z_sim_m": 4.613,
+    "z_native_m": 4.613,
+    "native_datum": "NAVD88",
+    "source": "design:g1-testpad",
+    "n_points": 0,
+    "spread_m": 0.0
+   },
+   {
+    "lon": -73.89140053,
+    "lat": 40.59297508,
+    "z_sim_m": 4.27,
+    "z_native_m": 4.27,
+    "native_datum": "NAVD88",
+    "source": "design:g1-testpad",
+    "n_points": 0,
+    "spread_m": 0.0
+   },
+   {
+    "lon": -73.89134145,
+    "lat": 40.59297451,
+    "z_sim_m": 4.027,
+    "z_native_m": 4.027,
+    "native_datum": "NAVD88",
+    "source": "design:g1-testpad",
+    "n_points": 0,
+    "spread_m": 0.0
+   },
+   {
+    "lon": -73.89128237,
+    "lat": 40.59297394,
+    "z_sim_m": 3.884,
+    "z_native_m": 3.884,
+    "native_datum": "NAVD88",
+    "source": "design:g1-testpad",
+    "n_points": 0,
+    "spread_m": 0.0
+   },
+   {
+    "lon": -73.89122329,
+    "lat": 40.59297338,
+    "z_sim_m": 3.84,
+    "z_native_m": 3.84,
+    "native_datum": "NAVD88",
+    "source": "design:g1-testpad",
+    "n_points": 0,
+    "spread_m": 0.0
+   }
+  ]
+ }
+}

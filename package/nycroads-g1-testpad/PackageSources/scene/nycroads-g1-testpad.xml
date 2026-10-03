@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FSData version="9.0">
+    <SceneryObject displayName="nycroads-g1-testpad-T18N-0593-4494" lat="40.596022014" lon="-73.894978500" alt="2.000" pitch="0.000000" bank="0.000000" heading="0.000000" imageComplexity="VERY_SPARSE" altitudeIsAgl="FALSE" snapToGround="FALSE" snapToNormal="FALSE">
+        <LibraryObject name="{4DBF01DE-2C75-57B3-8559-1770E7A6463B}" scale="1.000000"/>
+    </SceneryObject>
+</FSData>

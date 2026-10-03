@@ -1,25 +1,70 @@
 {
-  "_about": "Release 0 demonstration route: Pulaski Bridge corridor (Greenpoint, Brooklyn <-> Long Island City, Queens). The bbox is an APPROXIMATE selection window; 'nycroads build' writes build/r0-demo/demo_acceptance.json saying whether the real data inside it contains every required feature. If a criterion fails, adjust the bbox or switch to a fallback candidate.",
-  "release": "r0-demo",
-  "package_name": "nycroads-r0-demo",
-  "osm": ["data/raw/roads_r0.json"],
-  "boroughs": "data/raw/boroughs.json",
-  "extensions": "data/extensions.geojson",
-  "crossings": "data/crossings.json",
-  "id_registry": "data/id_registry.json",
-  "dem": {"path": "data/dem/r0_dem.tif", "z_units": "ftUS", "datum": "NAVD88"},
-  "vertical_reference": "data/vertical_reference.json",
-  "deck_controls": "data/deck_controls.json",
-  "status": "data/status.json",
-  "bbox": [40.7340, -73.9580, 40.7480, -73.9440],
-  "fetch_bbox": [40.7300, -73.9650, 40.7520, -73.9380],
-  "demo": true,
-  "orientation_marker_at": null,
-  "package_root": "package/nycroads-r0-demo",
-  "build_dir": "build/r0-demo",
-  "coverage_dir": "coverage/r0-demo",
-  "fallback_candidates": [
-    {"name": "Hamilton Avenue Bridge / Gowanus Expressway area, Brooklyn", "why": "short bascule bridge, streets beneath an elevated expressway, ramps"},
-    {"name": "Queens Plaza / Queensboro Bridge Queens approach", "why": "roads beneath elevated subway structure and bridge ramps (larger, multi-level: harder)"}
-  ]
+ "_about": "Release 0 demonstration route: Pulaski Bridge corridor (Greenpoint, Brooklyn <-> Long Island City, Queens). Road data: Overture Maps 2026-09-23.1 transportation (OSM-derived, ODbL). 'bbox' is the build selection; 'inventory_bbox' is a larger read window so roads leaving the build are known (transitions). 'nycroads build' writes build/r0-demo/demo_acceptance.json with the result of each required-feature check on the real data.",
+ "release": "r0-demo",
+ "package_name": "nycroads-r0-demo",
+ "overture_segments": "data/raw/overture_segments_nyc.parquet",
+ "overture_divisions": "data/raw/overture_division_area_nyc.parquet",
+ "inventory_bbox": [
+  40.725,
+  -73.97,
+  40.756,
+  -73.933
+ ],
+ "extensions": "data/extensions.geojson",
+ "crossings": "data/crossings.json",
+ "id_registry": "data/id_registry_r0.json",
+ "dem": {
+  "path": "data/dem/r0_dem.tif",
+  "z_units": "m",
+  "datum": "NAVD88",
+  "product": "USGS 3DEP 1m DEM, project NY_CMPG_2013 (tiles x58y451, x58y452, x59y451, x59y452)"
+ },
+ "vertical_reference": "data/vertical_reference.json",
+ "deck_controls": "data/deck_controls.json",
+ "status": "data/status.json",
+ "bbox": [
+  40.734,
+  -73.958,
+  40.748,
+  -73.944
+ ],
+ "fetch_bbox": [
+  40.73,
+  -73.965,
+  40.752,
+  -73.938
+ ],
+ "demo": true,
+ "orientation_marker_at": null,
+ "package_root": "package/nycroads-r0-demo",
+ "build_dir": "build/r0-demo",
+ "coverage_dir": "coverage/r0-demo",
+ "fallback_candidates": [
+  {
+   "name": "Hamilton Avenue Bridge / Gowanus Expressway area, Brooklyn",
+   "why": "short bascule bridge, streets beneath an elevated expressway, ramps"
+  },
+  {
+   "name": "Queens Plaza / Queensboro Bridge Queens approach",
+   "why": "roads beneath elevated subway structure and bridge ramps (larger, multi-level: harder)"
+  }
+ ],
+ "lidar_surface": "data/raw/lidar_r0_surface.npz",
+ "excluded_segments": [
+  {
+   "reason": "Queens-Midtown Tunnel open-cut approach (LIE descends into the trench toward the tunnel portal; split-level ramps share OSM nodes). Part of the tunnel feasibility task (docs/01#tunnels); not generated.",
+   "ids": [
+    "SEG-2998d2c819",
+    "SEG-3d3b5f6170",
+    "SEG-50fb44fe4b",
+    "SEG-d672a747ab",
+    "SEG-ca5ad5c480",
+    "SEG-cfb338cd3a",
+    "SEG-879d17ef07",
+    "SEG-c656c6cedb",
+    "SEG-2aceb063a1"
+   ]
+  }
+ ],
+ "inventory_dir": "build/inventory-r0"
 }

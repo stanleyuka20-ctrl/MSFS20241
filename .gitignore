@@ -3,17 +3,22 @@ __pycache__/
 *.egg-info/
 .pytest_cache/
 .venv/
-# Large / re-downloadable inputs. Keep provenance records (*.source.json), not the data itself.
+# Large / re-downloadable inputs. Provenance records are copied to data/provenance/ (tracked).
 data/raw/
 data/dem/
-# Generated outputs (reproducible from source + inputs)
-build/
-package/_PackageInt/
-package/Packages/
+# Generated outputs (reproducible from source + inputs). Build reports and profiles of the
+# packaged releases ARE committed: telemetry analysis and recovery read them.
+build/*
+!build/r0-demo/
+!build/g1-testpad/
+build/*/models/
+# SDK build outputs on the simulator host
+package/*/_PackageInt/
+package/*/Packages/
 # Local telemetry logs are committed only via tests/results/ after review
 telemetry/*.csv
-# Generated package content (rebuilt by `nycroads build`)
-package/*/PackageSources/modelLib/*/*.gltf
-package/*/PackageSources/modelLib/*/*.bin
-package/*/PackageSources/modelLib/*/*.xml
-package/*/PackageSources/scene/nycroads-*.xml
+# NOTE: generated content under package/*/PackageSources IS committed: it is what the SDK
+# compiles on the simulator host. Regenerate it with `nycroads build`.
+# Citywide artefacts too large for git (regenerate: nycroads inventory/coverage --release releases/citywide-inventory.json)
+data/id_registry.json
+coverage/citywide/coverage.geojson

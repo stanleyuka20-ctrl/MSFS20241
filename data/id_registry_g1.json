@@ -1,0 +1,116 @@
+{
+ "9001:8100000001:8100000007:0": {
+  "id": "SEG-2bb7307404",
+  "kind": "segment",
+  "match": "8100000001:8100000007:7",
+  "retired": false
+ },
+ "9001:8100000007:8100000013:6": {
+  "id": "SEG-5a2eadf48a",
+  "kind": "segment",
+  "match": "8100000007:8100000013:7",
+  "retired": false
+ },
+ "9002:8100000007:8100000025:6": {
+  "id": "SEG-d95a6777cd",
+  "kind": "segment",
+  "match": "8100000007:8100000025:7",
+  "retired": false
+ },
+ "9002:8100000014:8100000007:0": {
+  "id": "SEG-e89ad91427",
+  "kind": "segment",
+  "match": "8100000007:8100000014:7",
+  "retired": false
+ },
+ "9003:8100000013:8100000028:0": {
+  "id": "SEG-1a474d4c6d",
+  "kind": "segment",
+  "match": "8100000013:8100000028:4",
+  "retired": false
+ },
+ "9004:8100000028:8100000050:0": {
+  "id": "SEG-428ba0402c",
+  "kind": "segment",
+  "match": "8100000028:8100000050:23",
+  "retired": false
+ },
+ "9005:8100000050:8100000052:0": {
+  "id": "SEG-5e1ec45e22",
+  "kind": "segment",
+  "match": "8100000050:8100000052:3",
+  "retired": false
+ },
+ "9006:8100000053:8100000065:0": {
+  "id": "SEG-5745db4b01",
+  "kind": "segment",
+  "match": "8100000053:8100000065:13",
+  "retired": false
+ },
+ "deck:9004": {
+  "id": "BRG-580df1189f",
+  "kind": "bridge_deck",
+  "match": "deck:21ef8dca69",
+  "retired": false
+ },
+ "node:8100000001": {
+  "id": "JCT-21ef259f7f",
+  "kind": "junction",
+  "match": "node:8100000001",
+  "retired": false
+ },
+ "node:8100000007": {
+  "id": "JCT-d1a0d9c794",
+  "kind": "junction",
+  "match": "node:8100000007",
+  "retired": false
+ },
+ "node:8100000013": {
+  "id": "JCT-845ce0fef9",
+  "kind": "junction",
+  "match": "node:8100000013",
+  "retired": false
+ },
+ "node:8100000014": {
+  "id": "JCT-f17e5b990a",
+  "kind": "junction",
+  "match": "node:8100000014",
+  "retired": false
+ },
+ "node:8100000025": {
+  "id": "JCT-e50b96415e",
+  "kind": "junction",
+  "match": "node:8100000025",
+  "retired": false
+ },
+ "node:8100000028": {
+  "id": "JCT-8244658570",
+  "kind": "junction",
+  "match": "node:8100000028",
+  "retired": false
+ },
+ "node:8100000050": {
+  "id": "JCT-9306e7a5cb",
+  "kind": "junction",
+  "match": "node:8100000050",
+  "retired": false
+ },
+ "node:8100000052": {
+  "id": "JCT-f714abbc0b",
+  "kind": "junction",
+  "match": "node:8100000052",
+  "retired": false
+ },
+ "node:8100000053": {
+  "id": "JCT-dfb25bc0ac",
+  "kind": "junction",
+  "match": "node:8100000053",
+  "retired": false
+ },
+ "node:8100000065": {
+  "id": "JCT-fbcd48d873",
+  "kind": "junction",
+  "match": "node:8100000065",
+  "retired": false
+ }
+}

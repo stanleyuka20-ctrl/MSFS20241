@@ -1,0 +1,17 @@
+{
+ "dataset": "s3://usgs-lidar-public/NY_NewYorkCity (EPT, USGS 3DEP, public domain)",
+ "survey": "2013-14 (same survey as DEM NY_CMPG_2013; verified: class-2 vs DEM median diff 0.000 m, MAD 0.010 m)",
+ "classes_kept": [
+  2,
+  17
+ ],
+ "crs": "EPSG:32618 (x,y stored as offsets from origin)",
+ "vertical": "NAVD88 metres (empirical match with DEM)",
+ "bbox_swne": [
+  40.725,
+  -73.97,
+  40.756,
+  -73.933
+ ],
+ "points": 26847114
+}

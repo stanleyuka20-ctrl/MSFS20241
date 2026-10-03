@@ -27,6 +27,16 @@ can add the denied hosts above to the environment's network allow-list
 (cloud environment settings → Network access → Custom). Otherwise run the
 `fetch` steps on the simulator host.
 
+## A2. Development container, second session (2026-10-03, R1)
+
+Same container type: Linux, no Windows/MSFS/SDK, no access to the user's PC or
+Community folder. The network policy still denies OSM/Overpass, NYC Open Data,
+USGS web APIs and the MSFS documentation, **but these public AWS buckets are
+reachable**: `overturemaps-us-west-2` (Overture Maps), `prd-tnm` (USGS 3DEP
+DEMs), `usgs-lidar-public` (USGS 3DEP EPT lidar), `noaa-nos-coastal-lidar-pds`.
+R1 used them for all real data (docs/r1/README.md). Everything that needs the
+simulator remains undone; see docs/09.
+
 ## B. Simulator host (to be run before any build — gate G0)
 
 Run the read-only inspection script from the repository root:

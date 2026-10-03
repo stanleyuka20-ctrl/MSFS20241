@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FSData version="9.0">
+    <SceneryObject displayName="nycroads-r0-demo-T18N-0587-4509" lat="40.731787959" lon="-73.963788519" alt="3.000" pitch="0.000000" bank="0.000000" heading="0.000000" imageComplexity="VERY_SPARSE" altitudeIsAgl="FALSE" snapToGround="FALSE" snapToNormal="FALSE">
+        <LibraryObject name="{E0B76201-CC8B-5B07-892E-CF7C647D66B2}" scale="1.000000"/>
+    </SceneryObject>
+    <SceneryObject displayName="nycroads-r0-demo-T18N-0587-4510" lat="40.740795135" lon="-73.963648741" alt="1.000" pitch="0.000000" bank="0.000000" heading="0.000000" imageComplexity="VERY_SPARSE" altitudeIsAgl="FALSE" snapToGround="FALSE" snapToNormal="FALSE">
+        <LibraryObject name="{E20450FC-EB2E-5AE0-B3F1-67347E50EFBF}" scale="1.000000"/>
+    </SceneryObject>
+    <SceneryObject displayName="nycroads-r0-demo-T18N-0587-4511" lat="40.749802296" lon="-73.963508901" alt="3.000" pitch="0.000000" bank="0.000000" heading="0.000000" imageComplexity="VERY_SPARSE" altitudeIsAgl="FALSE" snapToGround="FALSE" snapToNormal="FALSE">
+        <LibraryObject name="{A6D5E7B7-3229-5F52-95F9-3935DDCA5284}" scale="1.000000"/>
+    </SceneryObject>
+    <SceneryObject displayName="nycroads-r0-demo-T18N-0588-4509" lat="40.731681047" lon="-73.951947977" alt="-1.000" pitch="0.000000" bank="0.000000" heading="0.000000" imageComplexity="VERY_SPARSE" altitudeIsAgl="FALSE" snapToGround="FALSE" snapToNormal="FALSE">
+        <LibraryObject name="{F1F6B21D-CEF2-5053-927B-A4220DAB3A16}" scale="1.000000"/>
+    </SceneryObject>
+    <SceneryObject displayName="nycroads-r0-demo-T18N-0588-4510" lat="40.740688189" lon="-73.951806603" alt="0.000" pitch="0.000000" bank="0.000000" heading="0.000000" imageComplexity="VERY_SPARSE" altitudeIsAgl="FALSE" snapToGround="FALSE" snapToNormal="FALSE">
+        <LibraryObject name="{413252EE-BEFD-532D-808B-692CDC9AFC1C}" scale="1.000000"/>
+    </SceneryObject>
+    <SceneryObject displayName="nycroads-r0-demo-T18N-0588-4511" lat="40.749695316" lon="-73.951665165" alt="0.000" pitch="0.000000" bank="0.000000" heading="0.000000" imageComplexity="VERY_SPARSE" altitudeIsAgl="FALSE" snapToGround="FALSE" snapToNormal="FALSE">
+        <LibraryObject name="{1932B2F4-8413-5A37-8B39-B0396179B5FD}" scale="1.000000"/>
+    </SceneryObject>
+    <SceneryObject displayName="nycroads-r0-demo-T18N-0589-4509" lat="40.731572920" lon="-73.940107500" alt="1.000" pitch="0.000000" bank="0.000000" heading="0.000000" imageComplexity="VERY_SPARSE" altitudeIsAgl="FALSE" snapToGround="FALSE" snapToNormal="FALSE">
+        <LibraryObject name="{3D841254-0CC6-546C-8C85-3D297536DFC1}" scale="1.000000"/>
+    </SceneryObject>
+    <SceneryObject displayName="nycroads-r0-demo-T18N-0589-4510" lat="40.740580028" lon="-73.939964529" alt="1.000" pitch="0.000000" bank="0.000000" heading="0.000000" imageComplexity="VERY_SPARSE" altitudeIsAgl="FALSE" snapToGround="FALSE" snapToNormal="FALSE">
+        <LibraryObject name="{7F41F50F-939C-50B8-9E0D-EC588F4DB2BA}" scale="1.000000"/>
+    </SceneryObject>
+    <SceneryObject displayName="nycroads-r0-demo-T18N-0589-4511" lat="40.749587121" lon="-73.939821494" alt="3.000" pitch="0.000000" bank="0.000000" heading="0.000000" imageComplexity="VERY_SPARSE" altitudeIsAgl="FALSE" snapToGround="FALSE" snapToNormal="FALSE">
+        <LibraryObject name="{DC2F994F-639D-56ED-9DD5-6D7EBBE4EBFE}" scale="1.000000"/>
+    </SceneryObject>
+</FSData>

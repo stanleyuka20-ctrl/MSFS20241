@@ -1,0 +1,4938 @@
+{
+ "objects": {
+  "SEG-3b611cc247": {
+   "build": {
+    "build_id": "B20261003T075819Z",
+    "generated": true,
+    "current": true,
+    "errors": [],
+    "warnings": []
+   },
+   "drives": [],
+   "blocked": null
+  },
+  "SEG-13e4dd1f08": {
+   "build": {
+    "build_id": "B20261003T075819Z",
+    "generated": true,
+    "current": true,
+    "errors": [],
+    "warnings": []
+   },
+   "drives": [],
+   "blocked": null
+  },
+  "SEG-b6e84e4a47": {
+   "build": {
+    "build_id": "B20261003T075819Z",
+    "generated": true,
+    "current": true,
+    "errors": [],
+    "warnings": []
+   },
+   "drives": [],
+   "blocked": null
+  },
+  "SEG-c155261bec": {
+   "build": {
+    "build_id": "B20261003T075819Z",
+    "generated": true,
+    "current": true,
+    "errors": [],
+    "warnings": []
+   },
+   "drives": [],
+   "blocked": null
+  },
+  "SEG-1ca00dbac2": {
+   "build": {
+    "build_id": "B20261003T075819Z",
+    "generated": true,
+    "current": true,
+    "errors": [],
+    "warnings": []
+   },
+   "drives": [],
+   "blocked": null
+  },
+  "SEG-93bc5006dd": {
+   "build": {
+    "build_id": "B20261003T075819Z",
+    "generated": true,
+    "current": true,
+    "errors": [],
+    "warnings": []
+   },
+   "drives": [],
+   "blocked": null
+  },
+  "SEG-2b62a6137a": {
+   "build": {
+    "build_id": "B20261003T075819Z",
+    "generated": true,
+    "current": true,
+    "errors": [],
+    "warnings": []
+   },
+   "drives": [],
+   "blocked": null
+  },
+  "BRG-9debabd00c": {
+   "build": {
+    "build_id": "B20261003T075819Z",
+    "generated": false,
+    "current": true,
+    "errors": [
+     {
+      "type": "deck_elevation_missing",
+      "detail": "deck end unmeasured for 360 m (segment SEG-d52b64f15e) - needs deck controls"
+     }
+    ],
+    "warnings": []
+   },
+   "drives": [],
+   "blocked": "deck end unmeasured for 360 m (segment SEG-d52b64f15e) - needs deck controls"
+  },
+  "SEG-9287c7d6cf": {
+   "build": {
+    "build_id": "B20261003T075819Z",
+    "generated": true,
+    "current": true,
+    "errors": [],
+    "warnings": [
+     {
+      "id": "ground:0",
+      "type": "junction_warp",
+      "x": 588443.5,
+      "y": 4510477.3,
+      "dz_m": 0.31,
+      "segments": [
+       "SEG-9287c7d6cf",
+       "SEG-3cd3a047ce",
+       "SEG-de549ade29",
+       "SEG-b60d80837a"
+      ]
+     },
+     {
+      "id": "ground:0",
+      "type": "junction_warp",
+      "x": 588443.7,
+      "y": 4510477.3,
+      "dz_m": 0.3,
+      "segments": [
+       "SEG-9287c7d6cf",
+       "SEG-3cd3a047ce",
+       "SEG-de549ade29",
+       "SEG-b60d80837a"
+      ]
+     }
+    ]
+   },
+   "drives": [],
+   "blocked": null
+  },
+  "SEG-4e328536ce": {
+   "build": {
+    "build_id": "B20261003T075819Z",
+    "generated": true,
+    "current": true,
+    "errors": [],
+    "warnings": []
+   },
+   "drives": [],
+   "blocked": null
+  },
+  "BRG-f282f29383": {
+   "build": {
+    "build_id": "B20261003T075819Z",
+    "generated": false,
+    "current": true,
+    "errors": [
+     {
+      "type": "deck_elevation_missing",
+      "detail": "deck segment SEG-2ee7481101 (236 m) has no lidar deck returns - needs deck controls"
+     }
+    ],
+    "warnings": []
+   },
+   "drives": [],
+   "blocked": "deck segment SEG-2ee7481101 (236 m) has no lidar deck returns - needs deck controls"
+  },
+  "SEG-96b99a3d38": {
+   "build": {
+    "build_id": "B20261003T075819Z",
+    "generated": true,
+    "current": true,
+    "errors": [],
+    "warnings": []
+   },
+   "drives": [],
+   "blocked": null
+  },
+  "SEG-7b2a3e12e6": {
+   "build": {
+    "build_id": "B20261003T075819Z",
+    "generated": true,
+    "current": true,
+    "errors": [],
+    "warnings": []
+   },
+   "drives": [],
+   "blocked": null
+  },
+  "SEG-e6362e030a": {
+   "build": {
+    "build_id": "B20261003T075819Z",
+    "generated": true,
+    "current": true,
+    "errors": [],
+    "warnings": []
+   },
+   "drives": [],
+   "blocked": null
+  },
+  "SEG-6bbae0831a": {
+   "build": {
+    "build_id": "B20261003T075819Z",
+    "generated": true,
+    "current": true,
+    "errors": [],
+    "warnings": []
+   },
+   "drives": [],
+   "blocked": null
+  },
+  "SEG-0338aec18d": {
+   "build": {
+    "build_id": "B20261003T075819Z",
+    "generated": true,
+    "current": true,
+    "errors": [],
+    "warnings": [
+     {
+      "id": "ground:0",
+      "type": "junction_warp",
+      "x": 588745.7,
+      "y": 4510856.7,
+      "dz_m": 0.36,
+      "segments": [
+       "SEG-c21849dd83",
+       "SEG-f237227023",
+       "SEG-0338aec18d"
+      ]
+     }
+    ]
+   },
+   "drives": [],
+   "blocked": null
+  },
+  "SEG-39ae7586e6": {
+   "build": {
+    "build_id": "B20261003T075819Z",
+    "generated": true,
+    "current": true,
+    "errors": [],
+    "warnings": []
+   },
+   "drives": [],
+   "blocked": null
+  },
+  "SEG-a97b297650": {
+   "build": {
+    "build_id": "B20261003T075819Z",
+    "generated": true,
+    "current": true,
+    "errors": [],
+    "warnings": []
+   },
+   "drives": [],
+   "blocked": null
+  },
+  "SEG-66845a7e81": {
+   "build": {
+    "build_id": "B20261003T075819Z",
+    "generated": true,
+    "current": true,
+    "errors": [],
+    "warnings": []
+   },
+   "drives": [],
+   "blocked": null
+  },
+  "SEG-699c712a5a": {
+   "build": {
+    "build_id": "B20261003T075819Z",
+    "generated": true,
+    "current": true,
+    "errors": [],
+    "warnings": []
+   },
+   "drives": [],
+   "blocked": null
+  },
+  "SEG-6f81dcd130": {
+   "build": {
+    "build_id": "B20261003T075819Z",
+    "generated": true,
+    "current": true,
+    "errors": [],
+    "warnings": []
+   },
+   "drives": [],
+   "blocked": null
+  },
+  "SEG-44d35b1aed": {
+   "build": {
+    "build_id": "B20261003T075819Z",
+    "generated": true,
+    "current": true,
+    "errors": [],
+    "warnings": []
+   },
+   "drives": [],
+   "blocked": null
+  },
+  "SEG-1e7a275e11": {
+   "build": {
+    "build_id": "B20261003T075819Z",
+    "generated": true,
+    "current": true,
+    "errors": [],
+    "warnings": []
+   },
+   "drives": [],
+   "blocked": null
+  },
+  "SEG-67a95a27b4": {
+   "build": {
+    "build_id": "B20261003T075819Z",
+    "generated": true,
+    "current": true,
+    "errors": [],
+    "warnings": []
+   },
+   "drives": [],
+   "blocked": null
+  },
+  "SEG-442216fc06": {
+   "build": {
+    "build_id": "B20261003T075819Z",
+    "generated": true,
+    "current": true,
+    "errors": [],
+    "warnings": []
+   },
+   "drives": [],
+   "blocked": null
+  },
+  "SEG-a994c04fac": {
+   "build": {
+    "build_id": "B20261003T075819Z",
+    "generated": true,
+    "current": true,
+    "errors": [],
+    "warnings": []
+   },
+   "drives": [],
+   "blocked": null
+  },
+  "SEG-6a644347b4": {
+   "build": {
+    "build_id": "B20261003T075819Z",
+    "generated": true,
+    "current": true,
+    "errors": [],
+    "warnings": []
+   },
+   "drives": [],
+   "blocked": null
+  },
+  "SEG-14def2b16d": {
+   "build": {
+    "build_id": "B20261003T075819Z",
+    "generated": true,
+    "current": true,
+    "errors": [],
+    "warnings": []
+   },
+   "drives": [],
+   "blocked": null
+  },
+  "SEG-59778e5d32": {
+   "build": {
+    "build_id": "B20261003T075819Z",
+    "generated": false,
+    "current": true,
+    "errors": [],
+    "warnings": []
+   },
+   "drives": [],
+   "blocked": "tunnel: separate feasibility task (docs/01-project-boundary.md#tunnels)"
+  },
+  "SEG-926074acbd": {
+   "build": {
+    "build_id": "B20261003T075819Z",
+    "generated": true,
+    "current": true,
+    "errors": [],
+    "warnings": []
+   },
+   "drives": [],
+   "blocked": null
+  },
+  "SEG-cbebc3e86f": {
+   "build": {
+    "build_id": "B20261003T075819Z",
+    "generated": true,
+    "current": true,
+    "errors": [],
+    "warnings": []
+   },
+   "drives": [],
+   "blocked": null
+  },
+  "SEG-c3172567b2": {
+   "build": {
+    "build_id": "B20261003T075819Z",
+    "generated": true,
+    "current": true,
+    "errors": [],
+    "warnings": []
+   },
+   "drives": [],
+   "blocked": null
+  },
+  "SEG-193488a7b6": {
+   "build": {
+    "build_id": "B20261003T075819Z",
+    "generated": true,
+    "current": true,
+    "errors": [],
+    "warnings": []
+   },
+   "drives": [],
+   "blocked": null
+  },
+  "SEG-9f9e12779a": {
+   "build": {
+    "build_id": "B20261003T075819Z",
+    "generated": true,
+    "current": true,
+    "errors": [],
+    "warnings": []
+   },
+   "drives": [],
+   "blocked": null
+  },
+  "SEG-270988d0e9": {
+   "build": {
+    "build_id": "B20261003T075819Z",
+    "generated": true,
+    "current": true,
+    "errors": [],
+    "warnings": []
+   },
+   "drives": [],
+   "blocked": null
+  },
+  "SEG-570c801f2a": {
+   "build": {
+    "build_id": "B20261003T075819Z",
+    "generated": true,
+    "current": true,
+    "errors": [],
+    "warnings": []
+   },
+   "drives": [],
+   "blocked": null
+  },
+  "SEG-53ea6a6c1f": {
+   "build": {
+    "build_id": "B20261003T075819Z",
+    "generated": true,
+    "current": true,
+    "errors": [],
+    "warnings": []
+   },
+   "drives": [],
+   "blocked": null
+  },
+  "SEG-ef82b87cf9": {
+   "build": {
+    "build_id": "B20261003T075819Z",
+    "generated": true,
+    "current": true,
+    "errors": [],
+    "warnings": []
+   },
+   "drives": [],
+   "blocked": null
+  },
+  "SEG-badf7d483c": {
+   "build": {
+    "build_id": "B20261003T075819Z",
+    "generated": true,
+    "current": true,
+    "errors": [],
+    "warnings": []
+   },
+   "drives": [],
+   "blocked": null
+  },
+  "SEG-9f0c3571c6": {
+   "build": {
+    "build_id": "B20261003T075819Z",
+    "generated": true,
+    "current": true,
+    "errors": [],
+    "warnings": []
+   },
+   "drives": [],
+   "blocked": null
+  },
+  "SEG-8c3774fc34": {
+   "build": {
+    "build_id": "B20261003T075819Z",
+    "generated": true,
+    "current": true,
+    "errors": [],
+    "warnings": []
+   },
+   "drives": [],
+   "blocked": null
+  },
+  "SEG-825933023f": {
+   "build": {
+    "build_id": "B20261003T075819Z",
+    "generated": true,
+    "current": true,
+    "errors": [],
+    "warnings": []
+   },
+   "drives": [],
+   "blocked": null
+  },
+  "SEG-b4c153c172": {
+   "build": {
+    "build_id": "B20261003T075819Z",
+    "generated": true,
+    "current": true,
+    "errors": [],
+    "warnings": []
+   },
+   "drives": [],
+   "blocked": null
+  },
+  "SEG-61c3f917db": {
+   "build": {
+    "build_id": "B20261003T075819Z",
+    "generated": true,
+    "current": true,
+    "errors": [],
+    "warnings": []
+   },
+   "drives": [],
+   "blocked": null
+  },
+  "SEG-027d375d99": {
+   "build": {
+    "build_id": "B20261003T075819Z",
+    "generated": true,
+    "current": true,
+    "errors": [],
+    "warnings": []
+   },
+   "drives": [],
+   "blocked": null
+  },
+  "SEG-3dd175483f": {
+   "build": {
+    "build_id": "B20261003T075819Z",
+    "generated": true,
+    "current": true,
+    "errors": [],
+    "warnings": []
+   },
+   "drives": [],
+   "blocked": null
+  },
+  "SEG-951bc2a28b": {
+   "build": {
+    "build_id": "B20261003T075819Z",
+    "generated": true,
+    "current": true,
+    "errors": [],
+    "warnings": []
+   },
+   "drives": [],
+   "blocked": null
+  },
+  "SEG-50fb44fe4b": {
+   "build": {
+    "build_id": "B20261003T075819Z",
+    "generated": false,
+    "current": true,
+    "errors": [],
+    "warnings": []
+   },
+   "drives": [],
+   "blocked": "excluded: Queens-Midtown Tunnel open-cut approach (LIE descends into the trench toward the tunnel portal; split-level ramps share OSM nodes). Part of the tunnel feasibility task (docs/01#tunnels); not generated."
+  },
+  "SEG-69ed8a03da": {
+   "build": {
+    "build_id": "B20261003T075819Z",
+    "generated": true,
+    "current": true,
+    "errors": [],
+    "warnings": []
+   },
+   "drives": [],
+   "blocked": null
+  },
+  "SEG-5e5b7c6c8e": {
+   "build": {
+    "build_id": "B20261003T075819Z",
+    "generated": true,
+    "current": true,
+    "errors": [],
+    "warnings": []
+   },
+   "drives": [],
+   "blocked": null
+  },
+  "SEG-9b85b2c241": {
+   "build": {
+    "build_id": "B20261003T075819Z",
+    "generated": false,
+    "current": true,
+    "errors": [
+     {
+      "type": "deck_elevation_missing",
+      "deck": "BRG-f282f29383"
+     }
+    ],
+    "warnings": []
+   },
+   "drives": [],
+   "blocked": "deck BRG-f282f29383: deck segment SEG-2ee7481101 (236 m) has no lidar deck returns - needs deck controls"
+  },
+  "SEG-f0a9e4ea06": {
+   "build": {
+    "build_id": "B20261003T075819Z",
+    "generated": true,
+    "current": true,
+    "errors": [],
+    "warnings": []
+   },
+   "drives": [],
+   "blocked": null
+  },
+  "SEG-b93824fe8b": {
+   "build": {
+    "build_id": "B20261003T075819Z",
+    "generated": true,
+    "current": true,
+    "errors": [],
+    "warnings": []
+   },
+   "drives": [],
+   "blocked": null
+  },
+  "SEG-19d241927a": {
+   "build": {
+    "build_id": "B20261003T075819Z",
+    "generated": true,
+    "current": true,
+    "errors": [],
+    "warnings": []
+   },
+   "drives": [],
+   "blocked": null
+  },
+  "SEG-117fad1c3e": {
+   "build": {
+    "build_id": "B20261003T075819Z",
+    "generated": true,
+    "current": true,
+    "errors": [],
+    "warnings": []
+   },
+   "drives": [],
+   "blocked": null
+  },
+  "SEG-17638d2505": {
+   "build": {
+    "build_id": "B20261003T075819Z",
+    "generated": true,
+    "current": true,
+    "errors": [],
+    "warnings": []
+   },
+   "drives": [],
+   "blocked": null
+  },
+  "SEG-5de43fbf97": {
+   "build": {
+    "build_id": "B20261003T075819Z",
+    "generated": true,
+    "current": true,
+    "errors": [],
+    "warnings": []
+   },
+   "drives": [],
+   "blocked": null
+  },
+  "SEG-b4f8965a86": {
+   "build": {
+    "build_id": "B20261003T075819Z",
+    "generated": true,
+    "current": true,
+    "errors": [],
+    "warnings": []
+   },
+   "drives": [],
+   "blocked": null
+  },
+  "SEG-3fa9cb2992": {
+   "build": {
+    "build_id": "B20261003T075819Z",
+    "generated": true,
+    "current": true,
+    "errors": [],
+    "warnings": []
+   },
+   "drives": [],
+   "blocked": null
+  },
+  "SEG-7c7a3d9b0e": {
+   "build": {
+    "build_id": "B20261003T075819Z",
+    "generated": true,
+    "current": true,
+    "errors": [],
+    "warnings": [
+     {
+      "type": "joint_kink",
+      "junction": "JCT-29cec31288",
+      "grade_change": 0.0411
+     }
+    ]
+   },
+   "drives": [],
+   "blocked": null
+  },
+  "SEG-536b007204": {
+   "build": {
+    "build_id": "B20261003T075819Z",
+    "generated": true,
+    "current": true,
+    "errors": [],
+    "warnings": []
+   },
+   "drives": [],
+   "blocked": null
+  },
+  "SEG-73049559e3": {
+   "build": {
+    "build_id": "B20261003T075819Z",
+    "generated": true,
+    "current": true,
+    "errors": [],
+    "warnings": []
+   },
+   "drives": [],
+   "blocked": null
+  },
+  "SEG-38dc682a17": {
+   "build": {
+    "build_id": "B20261003T075819Z",
+    "generated": true,
+    "current": true,
+    "errors": [],
+    "warnings": []
+   },
+   "drives": [],
+   "blocked": null
+  },
+  "SEG-8d5b6fc902": {
+   "build": {
+    "build_id": "B20261003T075819Z",
+    "generated": true,
+    "current": true,
+    "errors": [],
+    "warnings": []
+   },
+   "drives": [],
+   "blocked": null
+  },
+  "SEG-529ae1a3d0": {
+   "build": {
+    "build_id": "B20261003T075819Z",
+    "generated": true,
+    "current": true,
+    "errors": [],
+    "warnings": []
+   },
+   "drives": [],
+   "blocked": null
+  },
+  "SEG-67f34b65e4": {
+   "build": {
+    "build_id": "B20261003T075819Z",
+    "generated": true,
+    "current": true,
+    "errors": [],
+    "warnings": []
+   },
+   "drives": [],
+   "blocked": null
+  },
+  "SEG-8befbe6837": {
+   "build": {
+    "build_id": "B20261003T075819Z",
+    "generated": true,
+    "current": true,
+    "errors": [],
+    "warnings": []
+   },
+   "drives": [],
+   "blocked": null
+  },
+  "SEG-3073ebe9ce": {
+   "build": {
+    "build_id": "B20261003T075819Z",
+    "generated": true,
+    "current": true,
+    "errors": [],
+    "warnings": []
+   },
+   "drives": [],
+   "blocked": null
+  },
+  "SEG-6b47ac778b": {
+   "build": {
+    "build_id": "B20261003T075819Z",
+    "generated": true,
+    "current": true,
+    "errors": [],
+    "warnings": []
+   },
+   "drives": [],
+   "blocked": null
+  },
+  "SEG-86489ab47e": {
+   "build": {
+    "build_id": "B20261003T075819Z",
+    "generated": true,
+    "current": true,
+    "errors": [],
+    "warnings": []
+   },
+   "drives": [],
+   "blocked": null
+  },
+  "SEG-517ed04662": {
+   "build": {
+    "build_id": "B20261003T075819Z",
+    "generated": true,
+    "current": true,
+    "errors": [],
+    "warnings": []
+   },
+   "drives": [],
+   "blocked": null
+  },
+  "SEG-3cd3a047ce": {
+   "build": {
+    "build_id": "B20261003T075819Z",
+    "generated": true,
+    "current": true,
+    "errors": [],
+    "warnings": [
+     {
+      "id": "ground:0",
+      "type": "junction_warp",
+      "x": 588443.5,
+      "y": 4510477.3,
+      "dz_m": 0.31,
+      "segments": [
+       "SEG-9287c7d6cf",
+       "SEG-3cd3a047ce",
+       "SEG-de549ade29",
+       "SEG-b60d80837a"
+      ]
+     },
+     {
+      "id": "ground:0",
+      "type": "junction_warp",
+      "x": 588443.7,
+      "y": 4510477.3,
+      "dz_m": 0.3,
+      "segments": [
+       "SEG-9287c7d6cf",
+       "SEG-3cd3a047ce",
+       "SEG-de549ade29",
+       "SEG-b60d80837a"
+      ]
+     }
+    ]
+   },
+   "drives": [],
+   "blocked": null
+  },
+  "SEG-98ab6c88c5": {
+   "build": {
+    "build_id": "B20261003T075819Z",
+    "generated": true,
+    "current": true,
+    "errors": [],
+    "warnings": []
+   },
+   "drives": [],
+   "blocked": null
+  },
+  "SEG-82087e1bce": {
+   "build": {
+    "build_id": "B20261003T075819Z",
+    "generated": true,
+    "current": true,
+    "errors": [],
+    "warnings": []
+   },
+   "drives": [],
+   "blocked": null
+  },
+  "SEG-ca5ad5c480": {
+   "build": {
+    "build_id": "B20261003T075819Z",
+    "generated": false,
+    "current": true,
+    "errors": [],
+    "warnings": []
+   },
+   "drives": [],
+   "blocked": "excluded: Queens-Midtown Tunnel open-cut approach (LIE descends into the trench toward the tunnel portal; split-level ramps share OSM nodes). Part of the tunnel feasibility task (docs/01#tunnels); not generated."
+  },
+  "SEG-153f723017": {
+   "build": {
+    "build_id": "B20261003T075819Z",
+    "generated": true,
+    "current": true,
+    "errors": [],
+    "warnings": []
+   },
+   "drives": [],
+   "blocked": null
+  },
+  "SEG-af7788afee": {
+   "build": {
+    "build_id": "B20261003T075819Z",
+    "generated": true,
+    "current": true,
+    "errors": [],
+    "warnings": []
+   },
+   "drives": [],
+   "blocked": null
+  },
+  "SEG-216841da1f": {
+   "build": {
+    "build_id": "B20261003T075819Z",
+    "generated": true,
+    "current": true,
+    "errors": [],
+    "warnings": []
+   },
+   "drives": [],
+   "blocked": null
+  },
+  "SEG-d9e93b8236": {
+   "build": {
+    "build_id": "B20261003T075819Z",
+    "generated": true,
+    "current": true,
+    "errors": [],
+    "warnings": []
+   },
+   "drives": [],
+   "blocked": null
+  },
+  "SEG-e34d3bae99": {
+   "build": {
+    "build_id": "B20261003T075819Z",
+    "generated": true,
+    "current": true,
+    "errors": [],
+    "warnings": []
+   },
+   "drives": [],
+   "blocked": null
+  },
+  "SEG-7d06126a60": {
+   "build": {
+    "build_id": "B20261003T075819Z",
+    "generated": true,
+    "current": true,
+    "errors": [],
+    "warnings": []
+   },
+   "drives": [],
+   "blocked": null
+  },
+  "SEG-4ef5a32df4": {
+   "build": {
+    "build_id": "B20261003T075819Z",
+    "generated": true,
+    "current": true,
+    "errors": [],
+    "warnings": []
+   },
+   "drives": [],
+   "blocked": null
+  },
+  "SEG-88be21c3ea": {
+   "build": {
+    "build_id": "B20261003T075819Z",
+    "generated": true,
+    "current": true,
+    "errors": [],
+    "warnings": []
+   },
+   "drives": [],
+   "blocked": null
+  },
+  "SEG-bacb844854": {
+   "build": {
+    "build_id": "B20261003T075819Z",
+    "generated": true,
+    "current": true,
+    "errors": [],
+    "warnings": [
+     {
+      "type": "joint_kink",
+      "junction": "JCT-29cec31288",
+      "grade_change": 0.0411
+     }
+    ]
+   },
+   "drives": [],
+   "blocked": null
+  },
+  "SEG-8fc0ca6c9a": {
+   "build": {
+    "build_id": "B20261003T075819Z",
+    "generated": true,
+    "current": true,
+    "errors": [],
+    "warnings": []
+   },
+   "drives": [],
+   "blocked": null
+  },
+  "SEG-28d1ed2786": {
+   "build": {
+    "build_id": "B20261003T075819Z",
+    "generated": true,
+    "current": true,
+    "errors": [],
+    "warnings": []
+   },
+   "drives": [],
+   "blocked": null
+  },
+  "SEG-6c88e493da": {
+   "build": {
+    "build_id": "B20261003T075819Z",
+    "generated": true,
+    "current": true,
+    "errors": [],
+    "warnings": []
+   },
+   "drives": [],
+   "blocked": null
+  },
+  "SEG-7778b663dd": {
+   "build": {
+    "build_id": "B20261003T075819Z",
+    "generated": true,
+    "current": true,
+    "errors": [],
+    "warnings": []
+   },
+   "drives": [],
+   "blocked": null
+  },
+  "SEG-2aceb063a1": {
+   "build": {
+    "build_id": "B20261003T075819Z",
+    "generated": false,
+    "current": true,
+    "errors": [],
+    "warnings": []
+   },
+   "drives": [],
+   "blocked": "excluded: Queens-Midtown Tunnel open-cut approach (LIE descends into the trench toward the tunnel portal; split-level ramps share OSM nodes). Part of the tunnel feasibility task (docs/01#tunnels); not generated."
+  },
+  "SEG-bacde3eafe": {
+   "build": {
+    "build_id": "B20261003T075819Z",
+    "generated": true,
+    "current": true,
+    "errors": [],
+    "warnings": []
+   },
+   "drives": [],
+   "blocked": null
+  },
+  "SEG-a5cd0e1a47": {
+   "build": {
+    "build_id": "B20261003T075819Z",
+    "generated": true,
+    "current": true,
+    "errors": [],
+    "warnings": []
+   },
+   "drives": [],
+   "blocked": null
+  },
+  "SEG-3fb1ffe89d": {
+   "build": {
+    "build_id": "B20261003T075819Z",
+    "generated": true,
+    "current": true,
+    "errors": [],
+    "warnings": []
+   },
+   "drives": [],
+   "blocked": null
+  },
+  "SEG-5cfbb5cdaa": {
+   "build": {
+    "build_id": "B20261003T075819Z",
+    "generated": false,
+    "current": true,
+    "errors": [],
+    "warnings": []
+   },
+   "drives": [],
+   "blocked": "tunnel: separate feasibility task (docs/01-project-boundary.md#tunnels)"
+  },
+  "SEG-e834848c40": {
+   "build": {
+    "build_id": "B20261003T075819Z",
+    "generated": true,
+    "current": true,
+    "errors": [],
+    "warnings": []
+   },
+   "drives": [],
+   "blocked": null
+  },
+  "SEG-2998d2c819": {
+   "build": {
+    "build_id": "B20261003T075819Z",
+    "generated": false,
+    "current": true,
+    "errors": [],
+    "warnings": []
+   },
+   "drives": [],
+   "blocked": "excluded: Queens-Midtown Tunnel open-cut approach (LIE descends into the trench toward the tunnel portal; split-level ramps share OSM nodes). Part of the tunnel feasibility task (docs/01#tunnels); not generated."
+  },
+  "SEG-4499807b01": {
+   "build": {
+    "build_id": "B20261003T075819Z",
+    "generated": true,
+    "current": true,
+    "errors": [],
+    "warnings": []
+   },
+   "drives": [],
+   "blocked": null
+  },
+  "SEG-de549ade29": {
+   "build": {
+    "build_id": "B20261003T075819Z",
+    "generated": true,
+    "current": true,
+    "errors": [],
+    "warnings": [
+     {
+      "id": "ground:0",
+      "type": "junction_warp",
+      "x": 588443.5,
+      "y": 4510477.3,
+      "dz_m": 0.31,
+      "segments": [
+       "SEG-9287c7d6cf",
+       "SEG-3cd3a047ce",
+       "SEG-de549ade29",
+       "SEG-b60d80837a"
+      ]
+     },
+     {
+      "id": "ground:0",
+      "type": "junction_warp",
+      "x": 588443.7,
+      "y": 4510477.3,
+      "dz_m": 0.3,
+      "segments": [
+       "SEG-9287c7d6cf",
+       "SEG-3cd3a047ce",
+       "SEG-de549ade29",
+       "SEG-b60d80837a"
+      ]
+     }
+    ]
+   },
+   "drives": [],
+   "blocked": null
+  },
+  "SEG-10e96bf818": {
+   "build": {
+    "build_id": "B20261003T075819Z",
+    "generated": true,
+    "current": true,
+    "errors": [],
+    "warnings": []
+   },
+   "drives": [],
+   "blocked": null
+  },
+  "SEG-684efe26e5": {
+   "build": {
+    "build_id": "B20261003T075819Z",
+    "generated": true,
+    "current": true,
+    "errors": [],
+    "warnings": []
+   },
+   "drives": [],
+   "blocked": null
+  },
+  "SEG-8af7da0c5d": {
+   "build": {
+    "build_id": "B20261003T075819Z",
+    "generated": true,
+    "current": true,
+    "errors": [],
+    "warnings": []
+   },
+   "drives": [],
+   "blocked": null
+  },
+  "SEG-d1da409313": {
+   "build": {
+    "build_id": "B20261003T075819Z",
+    "generated": true,
+    "current": true,
+    "errors": [],
+    "warnings": []
+   },
+   "drives": [],
+   "blocked": null
+  },
+  "SEG-a7b2c82e5a": {
+   "build": {
+    "build_id": "B20261003T075819Z",
+    "generated": true,
+    "current": true,
+    "errors": [],
+    "warnings": []
+   },
+   "drives": [],
+   "blocked": null
+  },
+  "SEG-b017252b9b": {
+   "build": {
+    "build_id": "B20261003T075819Z",
+    "generated": true,
+    "current": true,
+    "errors": [],
+    "warnings": []
+   },
+   "drives": [],
+   "blocked": null
+  },
+  "SEG-f5bccee9ce": {
+   "build": {
+    "build_id": "B20261003T075819Z",
+    "generated": true,
+    "current": true,
+    "errors": [],
+    "warnings": []
+   },
+   "drives": [],
+   "blocked": null
+  },
+  "SEG-742a58a913": {
+   "build": {
+    "build_id": "B20261003T075819Z",
+    "generated": true,
+    "current": true,
+    "errors": [],
+    "warnings": []
+   },
+   "drives": [],
+   "blocked": null
+  },
+  "SEG-d52b64f15e": {
+   "build": {
+    "build_id": "B20261003T075819Z",
+    "generated": false,
+    "current": true,
+    "errors": [
+     {
+      "type": "deck_elevation_missing",
+      "deck": "BRG-9debabd00c"
+     }
+    ],
+    "warnings": []
+   },
+   "drives": [],
+   "blocked": "deck BRG-9debabd00c: deck end unmeasured for 360 m (segment SEG-d52b64f15e) - needs deck controls"
+  },
+  "SEG-56f0c34121": {
+   "build": {
+    "build_id": "B20261003T075819Z",
+    "generated": true,
+    "current": true,
+    "errors": [],
+    "warnings": []
+   },
+   "drives": [],
+   "blocked": null
+  },
+  "SEG-b3cd27ae87": {
+   "build": {
+    "build_id": "B20261003T075819Z",
+    "generated": true,
+    "current": true,
+    "errors": [],
+    "warnings": []
+   },
+   "drives": [],
+   "blocked": null
+  },
+  "SEG-f7d9dada6b": {
+   "build": {
+    "build_id": "B20261003T075819Z",
+    "generated": true,
+    "current": true,
+    "errors": [],
+    "warnings": []
+   },
+   "drives": [],
+   "blocked": null
+  },
+  "SEG-cfab151efd": {
+   "build": {
+    "build_id": "B20261003T075819Z",
+    "generated": true,
+    "current": true,
+    "errors": [],
+    "warnings": []
+   },
+   "drives": [],
+   "blocked": null
+  },
+  "SEG-3196338389": {
+   "build": {
+    "build_id": "B20261003T075819Z",
+    "generated": true,
+    "current": true,
+    "errors": [],
+    "warnings": []
+   },
+   "drives": [],
+   "blocked": null
+  },
+  "SEG-877a669853": {
+   "build": {
+    "build_id": "B20261003T075819Z",
+    "generated": true,
+    "current": true,
+    "errors": [],
+    "warnings": [
+     {
+      "type": "grade",
+      "station_m": 20.0,
+      "value": -0.1782,
+      "limit": 0.15
+     },
+     {
+      "type": "grade",
+      "station_m": 25.0,
+      "value": -0.2246,
+      "limit": 0.15
+     },
+     {
+      "type": "grade",
+      "station_m": 30.0,
+      "value": -0.2301,
+      "limit": 0.15
+     },
+     {
+      "type": "grade_change",
+      "station_m": 10.0,
+      "value": 0.0309,
+      "limit": 0.02
+     },
+     {
+      "type": "grade_change",
+      "station_m": 15.0,
+      "value": 0.0767,
+      "limit": 0.02
+     },
+     {
+      "type": "grade_change",
+      "station_m": 20.0,
+      "value": 0.0822,
+      "limit": 0.02
+     },
+     {
+      "type": "grade_change",
+      "station_m": 25.0,
+      "value": 0.0464,
+      "limit": 0.02
+     }
+    ]
+   },
+   "drives": [],
+   "blocked": null
+  },
+  "SEG-7b62f773b7": {
+   "build": {
+    "build_id": "B20261003T075819Z",
+    "generated": true,
+    "current": true,
+    "errors": [],
+    "warnings": []
+   },
+   "drives": [],
+   "blocked": null
+  },
+  "SEG-dbd8e95a81": {
+   "build": {
+    "build_id": "B20261003T075819Z",
+    "generated": true,
+    "current": true,
+    "errors": [],
+    "warnings": []
+   },
+   "drives": [],
+   "blocked": null
+  },
+  "SEG-98e9d486af": {
+   "build": {
+    "build_id": "B20261003T075819Z",
+    "generated": true,
+    "current": true,
+    "errors": [],
+    "warnings": []
+   },
+   "drives": [],
+   "blocked": null
+  },
+  "SEG-39ec250278": {
+   "build": {
+    "build_id": "B20261003T075819Z",
+    "generated": true,
+    "current": true,
+    "errors": [],
+    "warnings": []
+   },
+   "drives": [],
+   "blocked": null
+  },
+  "SEG-bc6b36d6b2": {
+   "build": {
+    "build_id": "B20261003T075819Z",
+    "generated": true,
+    "current": true,
+    "errors": [],
+    "warnings": [
+     {
+      "id": "ground:0",
+      "type": "junction_warp",
+      "x": 588487.6,
+      "y": 4510609.6,
+      "dz_m": 0.33,
+      "segments": [
+       "SEG-e05ca671fe",
+       "SEG-744a3b8237",
+       "SEG-06a58104fe",
+       "SEG-bc6b36d6b2",
+       "SEG-9d50aff2a9",
+       "SEG-0f3ec38f5d"
+      ]
+     },
+     {
+      "id": "ground:0",
+      "type": "junction_warp",
+      "x": 588489.0,
+      "y": 4510615.0,
+      "dz_m": 0.4,
+      "segments": [
+       "SEG-e05ca671fe",
+       "SEG-744a3b8237",
+       "SEG-06a58104fe",
+       "SEG-bc6b36d6b2",
+       "SEG-9d50aff2a9",
+       "SEG-0f3ec38f5d"
+      ]
+     },
+     {
+      "id": "ground:0",
+      "type": "junction_warp",
+      "x": 588487.3,
+      "y": 4510609.1,
+      "dz_m": 0.31,
+      "segments": [
+       "SEG-e05ca671fe",
+       "SEG-744a3b8237",
+       "SEG-06a58104fe",
+       "SEG-bc6b36d6b2",
+       "SEG-9d50aff2a9",
+       "SEG-0f3ec38f5d"
+      ]
+     }
+    ]
+   },
+   "drives": [],
+   "blocked": null
+  },
+  "SEG-d15172f3d6": {
+   "build": {
+    "build_id": "B20261003T075819Z",
+    "generated": true,
+    "current": true,
+    "errors": [],
+    "warnings": []
+   },
+   "drives": [],
+   "blocked": null
+  },
+  "SEG-d2af95f02f": {
+   "build": {
+    "build_id": "B20261003T075819Z",
+    "generated": true,
+    "current": true,
+    "errors": [],
+    "warnings": []
+   },
+   "drives": [],
+   "blocked": null
+  },
+  "SEG-97c1cc3f78": {
+   "build": {
+    "build_id": "B20261003T075819Z",
+    "generated": true,
+    "current": true,
+    "errors": [],
+    "warnings": []
+   },
+   "drives": [],
+   "blocked": null
+  },
+  "SEG-cdba966929": {
+   "build": {
+    "build_id": "B20261003T075819Z",
+    "generated": true,
+    "current": true,
+    "errors": [],
+    "warnings": []
+   },
+   "drives": [],
+   "blocked": null
+  },
+  "SEG-62ef3d0d77": {
+   "build": {
+    "build_id": "B20261003T075819Z",
+    "generated": true,
+    "current": true,
+    "errors": [],
+    "warnings": []
+   },
+   "drives": [],
+   "blocked": null
+  },
+  "SEG-0f54a001a0": {
+   "build": {
+    "build_id": "B20261003T075819Z",
+    "generated": true,
+    "current": true,
+    "errors": [],
+    "warnings": []
+   },
+   "drives": [],
+   "blocked": null
+  },
+  "SEG-4312a39c44": {
+   "build": {
+    "build_id": "B20261003T075819Z",
+    "generated": true,
+    "current": true,
+    "errors": [],
+    "warnings": []
+   },
+   "drives": [],
+   "blocked": null
+  },
+  "SEG-a540838d05": {
+   "build": {
+    "build_id": "B20261003T075819Z",
+    "generated": true,
+    "current": true,
+    "errors": [],
+    "warnings": []
+   },
+   "drives": [],
+   "blocked": null
+  },
+  "SEG-4a117f2f21": {
+   "build": {
+    "build_id": "B20261003T075819Z",
+    "generated": true,
+    "current": true,
+    "errors": [],
+    "warnings": []
+   },
+   "drives": [],
+   "blocked": null
+  },
+  "SEG-a41f45bc1b": {
+   "build": {
+    "build_id": "B20261003T075819Z",
+    "generated": true,
+    "current": true,
+    "errors": [],
+    "warnings": []
+   },
+   "drives": [],
+   "blocked": null
+  },
+  "SEG-079cb57006": {
+   "build": {
+    "build_id": "B20261003T075819Z",
+    "generated": true,
+    "current": true,
+    "errors": [],
+    "warnings": []
+   },
+   "drives": [],
+   "blocked": null
+  },
+  "SEG-8d62605918": {
+   "build": {
+    "build_id": "B20261003T075819Z",
+    "generated": true,
+    "current": true,
+    "errors": [],
+    "warnings": []
+   },
+   "drives": [],
+   "blocked": null
+  },
+  "SEG-b380b43fa3": {
+   "build": {
+    "build_id": "B20261003T075819Z",
+    "generated": true,
+    "current": true,
+    "errors": [],
+    "warnings": []
+   },
+   "drives": [],
+   "blocked": null
+  },
+  "SEG-1c2bbb563e": {
+   "build": {
+    "build_id": "B20261003T075819Z",
+    "generated": true,
+    "current": true,
+    "errors": [],
+    "warnings": []
+   },
+   "drives": [],
+   "blocked": null
+  },
+  "SEG-3c7dcb5146": {
+   "build": {
+    "build_id": "B20261003T075819Z",
+    "generated": true,
+    "current": true,
+    "errors": [],
+    "warnings": []
+   },
+   "drives": [],
+   "blocked": null
+  },
+  "SEG-b5569aea56": {
+   "build": {
+    "build_id": "B20261003T075819Z",
+    "generated": true,
+    "current": true,
+    "errors": [],
+    "warnings": []
+   },
+   "drives": [],
+   "blocked": null
+  },
+  "SEG-c8149efbdf": {
+   "build": {
+    "build_id": "B20261003T075819Z",
+    "generated": true,
+    "current": true,
+    "errors": [],
+    "warnings": []
+   },
+   "drives": [],
+   "blocked": null
+  },
+  "SEG-6f1ab2abaf": {
+   "build": {
+    "build_id": "B20261003T075819Z",
+    "generated": true,
+    "current": true,
+    "errors": [],
+    "warnings": []
+   },
+   "drives": [],
+   "blocked": null
+  },
+  "SEG-8ef0074679": {
+   "build": {
+    "build_id": "B20261003T075819Z",
+    "generated": true,
+    "current": true,
+    "errors": [],
+    "warnings": []
+   },
+   "drives": [],
+   "blocked": null
+  },
+  "SEG-fc6e473255": {
+   "build": {
+    "build_id": "B20261003T075819Z",
+    "generated": true,
+    "current": true,
+    "errors": [],
+    "warnings": []
+   },
+   "drives": [],
+   "blocked": null
+  },
+  "SEG-2ea7efef12": {
+   "build": {
+    "build_id": "B20261003T075819Z",
+    "generated": true,
+    "current": true,
+    "errors": [],
+    "warnings": []
+   },
+   "drives": [],
+   "blocked": null
+  },
+  "SEG-b1909fb7c7": {
+   "build": {
+    "build_id": "B20261003T075819Z",
+    "generated": true,
+    "current": true,
+    "errors": [],
+    "warnings": []
+   },
+   "drives": [],
+   "blocked": null
+  },
+  "SEG-0f572fc878": {
+   "build": {
+    "build_id": "B20261003T075819Z",
+    "generated": true,
+    "current": true,
+    "errors": [],
+    "warnings": []
+   },
+   "drives": [],
+   "blocked": null
+  },
+  "SEG-23e1f05de1": {
+   "build": {
+    "build_id": "B20261003T075819Z",
+    "generated": true,
+    "current": true,
+    "errors": [],
+    "warnings": []
+   },
+   "drives": [],
+   "blocked": null
+  },
+  "SEG-ea8c2fbddf": {
+   "build": {
+    "build_id": "B20261003T075819Z",
+    "generated": true,
+    "current": true,
+    "errors": [],
+    "warnings": []
+   },
+   "drives": [],
+   "blocked": null
+  },
+  "SEG-8f2b1858df": {
+   "build": {
+    "build_id": "B20261003T075819Z",
+    "generated": true,
+    "current": true,
+    "errors": [],
+    "warnings": []
+   },
+   "drives": [],
+   "blocked": null
+  },
+  "SEG-513d8c4e91": {
+   "build": {
+    "build_id": "B20261003T075819Z",
+    "generated": true,
+    "current": true,
+    "errors": [],
+    "warnings": []
+   },
+   "drives": [],
+   "blocked": null
+  },
+  "SEG-a7e2e2ef5b": {
+   "build": {
+    "build_id": "B20261003T075819Z",
+    "generated": true,
+    "current": true,
+    "errors": [],
+    "warnings": []
+   },
+   "drives": [],
+   "blocked": null
+  },
+  "SEG-34b4aad08c": {
+   "build": {
+    "build_id": "B20261003T075819Z",
+    "generated": true,
+    "current": true,
+    "errors": [],
+    "warnings": []
+   },
+   "drives": [],
+   "blocked": null
+  },
+  "SEG-6881aafca5": {
+   "build": {
+    "build_id": "B20261003T075819Z",
+    "generated": true,
+    "current": true,
+    "errors": [],
+    "warnings": []
+   },
+   "drives": [],
+   "blocked": null
+  },
+  "SEG-c656c6cedb": {
+   "build": {
+    "build_id": "B20261003T075819Z",
+    "generated": false,
+    "current": true,
+    "errors": [],
+    "warnings": []
+   },
+   "drives": [],
+   "blocked": "excluded: Queens-Midtown Tunnel open-cut approach (LIE descends into the trench toward the tunnel portal; split-level ramps share OSM nodes). Part of the tunnel feasibility task (docs/01#tunnels); not generated."
+  },
+  "SEG-189ed763ed": {
+   "build": {
+    "build_id": "B20261003T075819Z",
+    "generated": true,
+    "current": true,
+    "errors": [],
+    "warnings": []
+   },
+   "drives": [],
+   "blocked": null
+  },
+  "SEG-5a09636c6d": {
+   "build": {
+    "build_id": "B20261003T075819Z",
+    "generated": true,
+    "current": true,
+    "errors": [],
+    "warnings": []
+   },
+   "drives": [],
+   "blocked": null
+  },
+  "SEG-56668556f9": {
+   "build": {
+    "build_id": "B20261003T075819Z",
+    "generated": true,
+    "current": true,
+    "errors": [],
+    "warnings": []
+   },
+   "drives": [],
+   "blocked": null
+  },
+  "SEG-518236cbf4": {
+   "build": {
+    "build_id": "B20261003T075819Z",
+    "generated": true,
+    "current": true,
+    "errors": [],
+    "warnings": []
+   },
+   "drives": [],
+   "blocked": null
+  },
+  "SEG-94f35ba377": {
+   "build": {
+    "build_id": "B20261003T075819Z",
+    "generated": true,
+    "current": true,
+    "errors": [],
+    "warnings": []
+   },
+   "drives": [],
+   "blocked": null
+  },
+  "SEG-5717ba61de": {
+   "build": {
+    "build_id": "B20261003T075819Z",
+    "generated": true,
+    "current": true,
+    "errors": [],
+    "warnings": []
+   },
+   "drives": [],
+   "blocked": null
+  },
+  "SEG-a42965092c": {
+   "build": {
+    "build_id": "B20261003T075819Z",
+    "generated": true,
+    "current": true,
+    "errors": [],
+    "warnings": []
+   },
+   "drives": [],
+   "blocked": null
+  },
+  "SEG-e2f679b362": {
+   "build": {
+    "build_id": "B20261003T075819Z",
+    "generated": true,
+    "current": true,
+    "errors": [],
+    "warnings": []
+   },
+   "drives": [],
+   "blocked": null
+  },
+  "SEG-0c17fd5075": {
+   "build": {
+    "build_id": "B20261003T075819Z",
+    "generated": true,
+    "current": true,
+    "errors": [],
+    "warnings": []
+   },
+   "drives": [],
+   "blocked": null
+  },
+  "SEG-c52be981ac": {
+   "build": {
+    "build_id": "B20261003T075819Z",
+    "generated": true,
+    "current": true,
+    "errors": [],
+    "warnings": []
+   },
+   "drives": [],
+   "blocked": null
+  },
+  "SEG-b60d80837a": {
+   "build": {
+    "build_id": "B20261003T075819Z",
+    "generated": true,
+    "current": true,
+    "errors": [],
+    "warnings": [
+     {
+      "id": "ground:0",
+      "type": "junction_warp",
+      "x": 588443.5,
+      "y": 4510477.3,
+      "dz_m": 0.31,
+      "segments": [
+       "SEG-9287c7d6cf",
+       "SEG-3cd3a047ce",
+       "SEG-de549ade29",
+       "SEG-b60d80837a"
+      ]
+     },
+     {
+      "id": "ground:0",
+      "type": "junction_warp",
+      "x": 588443.7,
+      "y": 4510477.3,
+      "dz_m": 0.3,
+      "segments": [
+       "SEG-9287c7d6cf",
+       "SEG-3cd3a047ce",
+       "SEG-de549ade29",
+       "SEG-b60d80837a"
+      ]
+     }
+    ]
+   },
+   "drives": [],
+   "blocked": null
+  },
+  "SEG-a4d55ed778": {
+   "build": {
+    "build_id": "B20261003T075819Z",
+    "generated": true,
+    "current": true,
+    "errors": [],
+    "warnings": []
+   },
+   "drives": [],
+   "blocked": null
+  },
+  "SEG-e8fd479ef5": {
+   "build": {
+    "build_id": "B20261003T075819Z",
+    "generated": true,
+    "current": true,
+    "errors": [],
+    "warnings": []
+   },
+   "drives": [],
+   "blocked": null
+  },
+  "SEG-c55bdbc48e": {
+   "build": {
+    "build_id": "B20261003T075819Z",
+    "generated": true,
+    "current": true,
+    "errors": [],
+    "warnings": []
+   },
+   "drives": [],
+   "blocked": null
+  },
+  "SEG-a27462cd18": {
+   "build": {
+    "build_id": "B20261003T075819Z",
+    "generated": true,
+    "current": true,
+    "errors": [],
+    "warnings": []
+   },
+   "drives": [],
+   "blocked": null
+  },
+  "SEG-75f46bcd67": {
+   "build": {
+    "build_id": "B20261003T075819Z",
+    "generated": true,
+    "current": true,
+    "errors": [],
+    "warnings": []
+   },
+   "drives": [],
+   "blocked": null
+  },
+  "SEG-9c511c760d": {
+   "build": {
+    "build_id": "B20261003T075819Z",
+    "generated": true,
+    "current": true,
+    "errors": [],
+    "warnings": []
+   },
+   "drives": [],
+   "blocked": null
+  },
+  "SEG-51aa877bb3": {
+   "build": {
+    "build_id": "B20261003T075819Z",
+    "generated": true,
+    "current": true,
+    "errors": [],
+    "warnings": []
+   },
+   "drives": [],
+   "blocked": null
+  },
+  "SEG-918983e5b6": {
+   "build": {
+    "build_id": "B20261003T075819Z",
+    "generated": true,
+    "current": true,
+    "errors": [],
+    "warnings": []
+   },
+   "drives": [],
+   "blocked": null
+  },
+  "SEG-99a6983d78": {
+   "build": {
+    "build_id": "B20261003T075819Z",
+    "generated": true,
+    "current": true,
+    "errors": [],
+    "warnings": []
+   },
+   "drives": [],
+   "blocked": null
+  },
+  "SEG-2a3c718c5d": {
+   "build": {
+    "build_id": "B20261003T075819Z",
+    "generated": true,
+    "current": true,
+    "errors": [],
+    "warnings": []
+   },
+   "drives": [],
+   "blocked": null
+  },
+  "SEG-2b30835d99": {
+   "build": {
+    "build_id": "B20261003T075819Z",
+    "generated": true,
+    "current": true,
+    "errors": [],
+    "warnings": []
+   },
+   "drives": [],
+   "blocked": null
+  },
+  "SEG-aff4f9162a": {
+   "build": {
+    "build_id": "B20261003T075819Z",
+    "generated": true,
+    "current": true,
+    "errors": [],
+    "warnings": []
+   },
+   "drives": [],
+   "blocked": null
+  },
+  "SEG-5146dfd1bf": {
+   "build": {
+    "build_id": "B20261003T075819Z",
+    "generated": true,
+    "current": true,
+    "errors": [],
+    "warnings": []
+   },
+   "drives": [],
+   "blocked": null
+  },
+  "SEG-2415716264": {
+   "build": {
+    "build_id": "B20261003T075819Z",
+    "generated": true,
+    "current": true,
+    "errors": [],
+    "warnings": []
+   },
+   "drives": [],
+   "blocked": null
+  },
+  "SEG-dca4638e64": {
+   "build": {
+    "build_id": "B20261003T075819Z",
+    "generated": true,
+    "current": true,
+    "errors": [],
+    "warnings": []
+   },
+   "drives": [],
+   "blocked": null
+  },
+  "SEG-b81fe5c300": {
+   "build": {
+    "build_id": "B20261003T075819Z",
+    "generated": false,
+    "current": true,
+    "errors": [],
+    "warnings": []
+   },
+   "drives": [],
+   "blocked": "tunnel: separate feasibility task (docs/01-project-boundary.md#tunnels)"
+  },
+  "SEG-cfce7bee94": {
+   "build": {
+    "build_id": "B20261003T075819Z",
+    "generated": true,
+    "current": true,
+    "errors": [],
+    "warnings": []
+   },
+   "drives": [],
+   "blocked": null
+  },
+  "SEG-d87a7bb850": {
+   "build": {
+    "build_id": "B20261003T075819Z",
+    "generated": true,
+    "current": true,
+    "errors": [],
+    "warnings": [
+     {
+      "type": "grade",
+      "station_m": 65.0,
+      "value": -0.0602,
+      "limit": 0.06
+     },
+     {
+      "type": "grade",
+      "station_m": 70.0,
+      "value": -0.0605,
+      "limit": 0.06
+     }
+    ]
+   },
+   "drives": [],
+   "blocked": null
+  },
+  "SEG-34bfacb477": {
+   "build": {
+    "build_id": "B20261003T075819Z",
+    "generated": true,
+    "current": true,
+    "errors": [],
+    "warnings": []
+   },
+   "drives": [],
+   "blocked": null
+  },
+  "SEG-81705c0d9a": {
+   "build": {
+    "build_id": "B20261003T075819Z",
+    "generated": true,
+    "current": true,
+    "errors": [],
+    "warnings": []
+   },
+   "drives": [],
+   "blocked": null
+  },
+  "SEG-c4dc97b264": {
+   "build": {
+    "build_id": "B20261003T075819Z",
+    "generated": true,
+    "current": true,
+    "errors": [],
+    "warnings": []
+   },
+   "drives": [],
+   "blocked": null
+  },
+  "SEG-feed22b531": {
+   "build": {
+    "build_id": "B20261003T075819Z",
+    "generated": true,
+    "current": true,
+    "errors": [],
+    "warnings": []
+   },
+   "drives": [],
+   "blocked": null
+  },
+  "SEG-27006131c5": {
+   "build": {
+    "build_id": "B20261003T075819Z",
+    "generated": true,
+    "current": true,
+    "errors": [],
+    "warnings": []
+   },
+   "drives": [],
+   "blocked": null
+  },
+  "SEG-5bfcc79dbd": {
+   "build": {
+    "build_id": "B20261003T075819Z",
+    "generated": true,
+    "current": true,
+    "errors": [],
+    "warnings": []
+   },
+   "drives": [],
+   "blocked": null
+  },
+  "SEG-91061bb8f0": {
+   "build": {
+    "build_id": "B20261003T075819Z",
+    "generated": true,
+    "current": true,
+    "errors": [],
+    "warnings": []
+   },
+   "drives": [],
+   "blocked": null
+  },
+  "SEG-e1175caa4a": {
+   "build": {
+    "build_id": "B20261003T075819Z",
+    "generated": true,
+    "current": true,
+    "errors": [],
+    "warnings": []
+   },
+   "drives": [],
+   "blocked": null
+  },
+  "SEG-43f695dfd4": {
+   "build": {
+    "build_id": "B20261003T075819Z",
+    "generated": true,
+    "current": true,
+    "errors": [],
+    "warnings": []
+   },
+   "drives": [],
+   "blocked": null
+  },
+  "SEG-56986ef785": {
+   "build": {
+    "build_id": "B20261003T075819Z",
+    "generated": true,
+    "current": true,
+    "errors": [],
+    "warnings": []
+   },
+   "drives": [],
+   "blocked": null
+  },
+  "SEG-6e94ac4e7a": {
+   "build": {
+    "build_id": "B20261003T075819Z",
+    "generated": true,
+    "current": true,
+    "errors": [],
+    "warnings": []
+   },
+   "drives": [],
+   "blocked": null
+  },
+  "SEG-fb5c1bcdd4": {
+   "build": {
+    "build_id": "B20261003T075819Z",
+    "generated": true,
+    "current": true,
+    "errors": [],
+    "warnings": []
+   },
+   "drives": [],
+   "blocked": null
+  },
+  "SEG-ef054b3f57": {
+   "build": {
+    "build_id": "B20261003T075819Z",
+    "generated": true,
+    "current": true,
+    "errors": [],
+    "warnings": []
+   },
+   "drives": [],
+   "blocked": null
+  },
+  "SEG-344d07c7f5": {
+   "build": {
+    "build_id": "B20261003T075819Z",
+    "generated": true,
+    "current": true,
+    "errors": [],
+    "warnings": []
+   },
+   "drives": [],
+   "blocked": null
+  },
+  "SEG-7f51dbefa3": {
+   "build": {
+    "build_id": "B20261003T075819Z",
+    "generated": true,
+    "current": true,
+    "errors": [],
+    "warnings": []
+   },
+   "drives": [],
+   "blocked": null
+  },
+  "SEG-172ea3722e": {
+   "build": {
+    "build_id": "B20261003T075819Z",
+    "generated": true,
+    "current": true,
+    "errors": [],
+    "warnings": []
+   },
+   "drives": [],
+   "blocked": null
+  },
+  "SEG-89aa1aa19a": {
+   "build": {
+    "build_id": "B20261003T075819Z",
+    "generated": true,
+    "current": true,
+    "errors": [],
+    "warnings": []
+   },
+   "drives": [],
+   "blocked": null
+  },
+  "SEG-e620952d85": {
+   "build": {
+    "build_id": "B20261003T075819Z",
+    "generated": true,
+    "current": true,
+    "errors": [],
+    "warnings": []
+   },
+   "drives": [],
+   "blocked": null
+  },
+  "SEG-e1b0c54fa8": {
+   "build": {
+    "build_id": "B20261003T075819Z",
+    "generated": true,
+    "current": true,
+    "errors": [],
+    "warnings": []
+   },
+   "drives": [],
+   "blocked": null
+  },
+  "SEG-14c0f2044a": {
+   "build": {
+    "build_id": "B20261003T075819Z",
+    "generated": true,
+    "current": true,
+    "errors": [],
+    "warnings": []
+   },
+   "drives": [],
+   "blocked": null
+  },
+  "SEG-b0e42dd742": {
+   "build": {
+    "build_id": "B20261003T075819Z",
+    "generated": true,
+    "current": true,
+    "errors": [],
+    "warnings": []
+   },
+   "drives": [],
+   "blocked": null
+  },
+  "SEG-235569dc30": {
+   "build": {
+    "build_id": "B20261003T075819Z",
+    "generated": true,
+    "current": true,
+    "errors": [],
+    "warnings": []
+   },
+   "drives": [],
+   "blocked": null
+  },
+  "SEG-9b909940ea": {
+   "build": {
+    "build_id": "B20261003T075819Z",
+    "generated": true,
+    "current": true,
+    "errors": [],
+    "warnings": []
+   },
+   "drives": [],
+   "blocked": null
+  },
+  "SEG-19b718aa2e": {
+   "build": {
+    "build_id": "B20261003T075819Z",
+    "generated": true,
+    "current": true,
+    "errors": [],
+    "warnings": []
+   },
+   "drives": [],
+   "blocked": null
+  },
+  "SEG-3d2e7f073b": {
+   "build": {
+    "build_id": "B20261003T075819Z",
+    "generated": true,
+    "current": true,
+    "errors": [],
+    "warnings": []
+   },
+   "drives": [],
+   "blocked": null
+  },
+  "SEG-9d8993b55a": {
+   "build": {
+    "build_id": "B20261003T075819Z",
+    "generated": true,
+    "current": true,
+    "errors": [],
+    "warnings": []
+   },
+   "drives": [],
+   "blocked": null
+  },
+  "SEG-812224cc22": {
+   "build": {
+    "build_id": "B20261003T075819Z",
+    "generated": true,
+    "current": true,
+    "errors": [],
+    "warnings": []
+   },
+   "drives": [],
+   "blocked": null
+  },
+  "SEG-2ee7481101": {
+   "build": {
+    "build_id": "B20261003T075819Z",
+    "generated": false,
+    "current": true,
+    "errors": [
+     {
+      "type": "deck_elevation_missing",
+      "deck": "BRG-f282f29383"
+     }
+    ],
+    "warnings": []
+   },
+   "drives": [],
+   "blocked": "deck BRG-f282f29383: deck segment SEG-2ee7481101 (236 m) has no lidar deck returns - needs deck controls"
+  },
+  "SEG-eb3378fdfe": {
+   "build": {
+    "build_id": "B20261003T075819Z",
+    "generated": true,
+    "current": true,
+    "errors": [],
+    "warnings": []
+   },
+   "drives": [],
+   "blocked": null
+  },
+  "SEG-30fcfd9aff": {
+   "build": {
+    "build_id": "B20261003T075819Z",
+    "generated": true,
+    "current": true,
+    "errors": [],
+    "warnings": []
+   },
+   "drives": [],
+   "blocked": null
+  },
+  "SEG-2e8972d640": {
+   "build": {
+    "build_id": "B20261003T075819Z",
+    "generated": true,
+    "current": true,
+    "errors": [],
+    "warnings": []
+   },
+   "drives": [],
+   "blocked": null
+  },
+  "SEG-a54364062d": {
+   "build": {
+    "build_id": "B20261003T075819Z",
+    "generated": true,
+    "current": true,
+    "errors": [],
+    "warnings": []
+   },
+   "drives": [],
+   "blocked": null
+  },
+  "SEG-236a6c85ee": {
+   "build": {
+    "build_id": "B20261003T075819Z",
+    "generated": true,
+    "current": true,
+    "errors": [],
+    "warnings": []
+   },
+   "drives": [],
+   "blocked": null
+  },
+  "SEG-74c5ef3c63": {
+   "build": {
+    "build_id": "B20261003T075819Z",
+    "generated": true,
+    "current": true,
+    "errors": [],
+    "warnings": []
+   },
+   "drives": [],
+   "blocked": null
+  },
+  "SEG-fbce73b938": {
+   "build": {
+    "build_id": "B20261003T075819Z",
+    "generated": true,
+    "current": true,
+    "errors": [],
+    "warnings": []
+   },
+   "drives": [],
+   "blocked": null
+  },
+  "SEG-298a59b72f": {
+   "build": {
+    "build_id": "B20261003T075819Z",
+    "generated": true,
+    "current": true,
+    "errors": [],
+    "warnings": []
+   },
+   "drives": [],
+   "blocked": null
+  },
+  "SEG-50743ce799": {
+   "build": {
+    "build_id": "B20261003T075819Z",
+    "generated": true,
+    "current": true,
+    "errors": [],
+    "warnings": []
+   },
+   "drives": [],
+   "blocked": null
+  },
+  "SEG-837e657149": {
+   "build": {
+    "build_id": "B20261003T075819Z",
+    "generated": true,
+    "current": true,
+    "errors": [],
+    "warnings": []
+   },
+   "drives": [],
+   "blocked": null
+  },
+  "SEG-0534c8ffdf": {
+   "build": {
+    "build_id": "B20261003T075819Z",
+    "generated": true,
+    "current": true,
+    "errors": [],
+    "warnings": []
+   },
+   "drives": [],
+   "blocked": null
+  },
+  "SEG-cc3ee3eb01": {
+   "build": {
+    "build_id": "B20261003T075819Z",
+    "generated": true,
+    "current": true,
+    "errors": [],
+    "warnings": []
+   },
+   "drives": [],
+   "blocked": null
+  },
+  "SEG-fcafd6bd9f": {
+   "build": {
+    "build_id": "B20261003T075819Z",
+    "generated": true,
+    "current": true,
+    "errors": [],
+    "warnings": []
+   },
+   "drives": [],
+   "blocked": null
+  },
+  "SEG-b230815aba": {
+   "build": {
+    "build_id": "B20261003T075819Z",
+    "generated": true,
+    "current": true,
+    "errors": [],
+    "warnings": []
+   },
+   "drives": [],
+   "blocked": null
+  },
+  "SEG-03db92ee44": {
+   "build": {
+    "build_id": "B20261003T075819Z",
+    "generated": true,
+    "current": true,
+    "errors": [],
+    "warnings": []
+   },
+   "drives": [],
+   "blocked": null
+  },
+  "SEG-fce21bb71d": {
+   "build": {
+    "build_id": "B20261003T075819Z",
+    "generated": true,
+    "current": true,
+    "errors": [],
+    "warnings": []
+   },
+   "drives": [],
+   "blocked": null
+  },
+  "SEG-87b2a81bd5": {
+   "build": {
+    "build_id": "B20261003T075819Z",
+    "generated": true,
+    "current": true,
+    "errors": [],
+    "warnings": []
+   },
+   "drives": [],
+   "blocked": null
+  },
+  "SEG-a849d36fcc": {
+   "build": {
+    "build_id": "B20261003T075819Z",
+    "generated": true,
+    "current": true,
+    "errors": [],
+    "warnings": []
+   },
+   "drives": [],
+   "blocked": null
+  },
+  "SEG-498d25812a": {
+   "build": {
+    "build_id": "B20261003T075819Z",
+    "generated": true,
+    "current": true,
+    "errors": [],
+    "warnings": []
+   },
+   "drives": [],
+   "blocked": null
+  },
+  "SEG-a639545044": {
+   "build": {
+    "build_id": "B20261003T075819Z",
+    "generated": true,
+    "current": true,
+    "errors": [],
+    "warnings": []
+   },
+   "drives": [],
+   "blocked": null
+  },
+  "SEG-e653779e6f": {
+   "build": {
+    "build_id": "B20261003T075819Z",
+    "generated": true,
+    "current": true,
+    "errors": [],
+    "warnings": []
+   },
+   "drives": [],
+   "blocked": null
+  },
+  "SEG-ce3efbc7ba": {
+   "build": {
+    "build_id": "B20261003T075819Z",
+    "generated": true,
+    "current": true,
+    "errors": [],
+    "warnings": []
+   },
+   "drives": [],
+   "blocked": null
+  },
+  "SEG-892dedbf32": {
+   "build": {
+    "build_id": "B20261003T075819Z",
+    "generated": true,
+    "current": true,
+    "errors": [],
+    "warnings": []
+   },
+   "drives": [],
+   "blocked": null
+  },
+  "SEG-69851f6093": {
+   "build": {
+    "build_id": "B20261003T075819Z",
+    "generated": true,
+    "current": true,
+    "errors": [],
+    "warnings": []
+   },
+   "drives": [],
+   "blocked": null
+  },
+  "SEG-dfe116a95e": {
+   "build": {
+    "build_id": "B20261003T075819Z",
+    "generated": true,
+    "current": true,
+    "errors": [],
+    "warnings": []
+   },
+   "drives": [],
+   "blocked": null
+  },
+  "SEG-3d3b5f6170": {
+   "build": {
+    "build_id": "B20261003T075819Z",
+    "generated": false,
+    "current": true,
+    "errors": [],
+    "warnings": []
+   },
+   "drives": [],
+   "blocked": "excluded: Queens-Midtown Tunnel open-cut approach (LIE descends into the trench toward the tunnel portal; split-level ramps share OSM nodes). Part of the tunnel feasibility task (docs/01#tunnels); not generated."
+  },
+  "SEG-0dd164aaf3": {
+   "build": {
+    "build_id": "B20261003T075819Z",
+    "generated": true,
+    "current": true,
+    "errors": [],
+    "warnings": []
+   },
+   "drives": [],
+   "blocked": null
+  },
+  "SEG-e05ca671fe": {
+   "build": {
+    "build_id": "B20261003T075819Z",
+    "generated": true,
+    "current": true,
+    "errors": [],
+    "warnings": [
+     {
+      "id": "ground:0",
+      "type": "junction_warp",
+      "x": 588487.6,
+      "y": 4510609.6,
+      "dz_m": 0.33,
+      "segments": [
+       "SEG-e05ca671fe",
+       "SEG-744a3b8237",
+       "SEG-06a58104fe",
+       "SEG-bc6b36d6b2",
+       "SEG-9d50aff2a9",
+       "SEG-0f3ec38f5d"
+      ]
+     },
+     {
+      "id": "ground:0",
+      "type": "junction_warp",
+      "x": 588489.0,
+      "y": 4510615.0,
+      "dz_m": 0.4,
+      "segments": [
+       "SEG-e05ca671fe",
+       "SEG-744a3b8237",
+       "SEG-06a58104fe",
+       "SEG-bc6b36d6b2",
+       "SEG-9d50aff2a9",
+       "SEG-0f3ec38f5d"
+      ]
+     },
+     {
+      "id": "ground:0",
+      "type": "junction_warp",
+      "x": 588487.3,
+      "y": 4510609.1,
+      "dz_m": 0.31,
+      "segments": [
+       "SEG-e05ca671fe",
+       "SEG-744a3b8237",
+       "SEG-06a58104fe",
+       "SEG-bc6b36d6b2",
+       "SEG-9d50aff2a9",
+       "SEG-0f3ec38f5d"
+      ]
+     }
+    ]
+   },
+   "drives": [],
+   "blocked": null
+  },
+  "SEG-101d163d66": {
+   "build": {
+    "build_id": "B20261003T075819Z",
+    "generated": true,
+    "current": true,
+    "errors": [],
+    "warnings": []
+   },
+   "drives": [],
+   "blocked": null
+  },
+  "SEG-3e14af6a95": {
+   "build": {
+    "build_id": "B20261003T075819Z",
+    "generated": true,
+    "current": true,
+    "errors": [],
+    "warnings": []
+   },
+   "drives": [],
+   "blocked": null
+  },
+  "SEG-ec5a33974e": {
+   "build": {
+    "build_id": "B20261003T075819Z",
+    "generated": true,
+    "current": true,
+    "errors": [],
+    "warnings": []
+   },
+   "drives": [],
+   "blocked": null
+  },
+  "SEG-e6f697db7e": {
+   "build": {
+    "build_id": "B20261003T075819Z",
+    "generated": true,
+    "current": true,
+    "errors": [],
+    "warnings": []
+   },
+   "drives": [],
+   "blocked": null
+  },
+  "SEG-1299a43be7": {
+   "build": {
+    "build_id": "B20261003T075819Z",
+    "generated": true,
+    "current": true,
+    "errors": [],
+    "warnings": []
+   },
+   "drives": [],
+   "blocked": null
+  },
+  "SEG-9bdf13e05b": {
+   "build": {
+    "build_id": "B20261003T075819Z",
+    "generated": true,
+    "current": true,
+    "errors": [],
+    "warnings": []
+   },
+   "drives": [],
+   "blocked": null
+  },
+  "SEG-31391db259": {
+   "build": {
+    "build_id": "B20261003T075819Z",
+    "generated": true,
+    "current": true,
+    "errors": [],
+    "warnings": []
+   },
+   "drives": [],
+   "blocked": null
+  },
+  "SEG-f6cc5a182b": {
+   "build": {
+    "build_id": "B20261003T075819Z",
+    "generated": true,
+    "current": true,
+    "errors": [],
+    "warnings": []
+   },
+   "drives": [],
+   "blocked": null
+  },
+  "SEG-557b244aef": {
+   "build": {
+    "build_id": "B20261003T075819Z",
+    "generated": true,
+    "current": true,
+    "errors": [],
+    "warnings": []
+   },
+   "drives": [],
+   "blocked": null
+  },
+  "SEG-859781af96": {
+   "build": {
+    "build_id": "B20261003T075819Z",
+    "generated": true,
+    "current": true,
+    "errors": [],
+    "warnings": []
+   },
+   "drives": [],
+   "blocked": null
+  },
+  "SEG-5f939f92ce": {
+   "build": {
+    "build_id": "B20261003T075819Z",
+    "generated": true,
+    "current": true,
+    "errors": [],
+    "warnings": []
+   },
+   "drives": [],
+   "blocked": null
+  },
+  "SEG-9a1f2008a5": {
+   "build": {
+    "build_id": "B20261003T075819Z",
+    "generated": true,
+    "current": true,
+    "errors": [],
+    "warnings": []
+   },
+   "drives": [],
+   "blocked": null
+  },
+  "SEG-b424d8a5f7": {
+   "build": {
+    "build_id": "B20261003T075819Z",
+    "generated": true,
+    "current": true,
+    "errors": [],
+    "warnings": []
+   },
+   "drives": [],
+   "blocked": null
+  },
+  "SEG-3c095fd648": {
+   "build": {
+    "build_id": "B20261003T075819Z",
+    "generated": true,
+    "current": true,
+    "errors": [],
+    "warnings": []
+   },
+   "drives": [],
+   "blocked": null
+  },
+  "SEG-206e8af36a": {
+   "build": {
+    "build_id": "B20261003T075819Z",
+    "generated": true,
+    "current": true,
+    "errors": [],
+    "warnings": []
+   },
+   "drives": [],
+   "blocked": null
+  },
+  "SEG-1d653508fd": {
+   "build": {
+    "build_id": "B20261003T075819Z",
+    "generated": true,
+    "current": true,
+    "errors": [],
+    "warnings": []
+   },
+   "drives": [],
+   "blocked": null
+  },
+  "SEG-1b0ae44ba9": {
+   "build": {
+    "build_id": "B20261003T075819Z",
+    "generated": true,
+    "current": true,
+    "errors": [],
+    "warnings": [
+     {
+      "type": "grade_change",
+      "station_m": 15.0,
+      "value": 0.02,
+      "limit": 0.02
+     },
+     {
+      "type": "grade_change",
+      "station_m": 20.0,
+      "value": 0.0204,
+      "limit": 0.02
+     }
+    ]
+   },
+   "drives": [],
+   "blocked": null
+  },
+  "SEG-ae20975808": {
+   "build": {
+    "build_id": "B20261003T075819Z",
+    "generated": true,
+    "current": true,
+    "errors": [],
+    "warnings": []
+   },
+   "drives": [],
+   "blocked": null
+  },
+  "SEG-f352dd8d54": {
+   "build": {
+    "build_id": "B20261003T075819Z",
+    "generated": true,
+    "current": true,
+    "errors": [],
+    "warnings": []
+   },
+   "drives": [],
+   "blocked": null
+  },
+  "SEG-350618bf68": {
+   "build": {
+    "build_id": "B20261003T075819Z",
+    "generated": true,
+    "current": true,
+    "errors": [],
+    "warnings": []
+   },
+   "drives": [],
+   "blocked": null
+  },
+  "SEG-7ded34102e": {
+   "build": {
+    "build_id": "B20261003T075819Z",
+    "generated": true,
+    "current": true,
+    "errors": [],
+    "warnings": []
+   },
+   "drives": [],
+   "blocked": null
+  },
+  "SEG-4e0a984db4": {
+   "build": {
+    "build_id": "B20261003T075819Z",
+    "generated": true,
+    "current": true,
+    "errors": [],
+    "warnings": []
+   },
+   "drives": [],
+   "blocked": null
+  },
+  "SEG-97918f39dc": {
+   "build": {
+    "build_id": "B20261003T075819Z",
+    "generated": true,
+    "current": true,
+    "errors": [],
+    "warnings": []
+   },
+   "drives": [],
+   "blocked": null
+  },
+  "SEG-0e2f96a331": {
+   "build": {
+    "build_id": "B20261003T075819Z",
+    "generated": true,
+    "current": true,
+    "errors": [],
+    "warnings": []
+   },
+   "drives": [],
+   "blocked": null
+  },
+  "SEG-e7064bd80f": {
+   "build": {
+    "build_id": "B20261003T075819Z",
+    "generated": true,
+    "current": true,
+    "errors": [],
+    "warnings": []
+   },
+   "drives": [],
+   "blocked": null
+  },
+  "SEG-c53c2c87c2": {
+   "build": {
+    "build_id": "B20261003T075819Z",
+    "generated": true,
+    "current": true,
+    "errors": [],
+    "warnings": []
+   },
+   "drives": [],
+   "blocked": null
+  },
+  "SEG-88400329b6": {
+   "build": {
+    "build_id": "B20261003T075819Z",
+    "generated": true,
+    "current": true,
+    "errors": [],
+    "warnings": []
+   },
+   "drives": [],
+   "blocked": null
+  },
+  "SEG-62172c7e80": {
+   "build": {
+    "build_id": "B20261003T075819Z",
+    "generated": true,
+    "current": true,
+    "errors": [],
+    "warnings": []
+   },
+   "drives": [],
+   "blocked": null
+  },
+  "SEG-d70e869c9a": {
+   "build": {
+    "build_id": "B20261003T075819Z",
+    "generated": true,
+    "current": true,
+    "errors": [],
+    "warnings": []
+   },
+   "drives": [],
+   "blocked": null
+  },
+  "SEG-08572403b4": {
+   "build": {
+    "build_id": "B20261003T075819Z",
+    "generated": true,
+    "current": true,
+    "errors": [],
+    "warnings": []
+   },
+   "drives": [],
+   "blocked": null
+  },
+  "SEG-13655811ba": {
+   "build": {
+    "build_id": "B20261003T075819Z",
+    "generated": true,
+    "current": true,
+    "errors": [],
+    "warnings": []
+   },
+   "drives": [],
+   "blocked": null
+  },
+  "SEG-6b7ff7541c": {
+   "build": {
+    "build_id": "B20261003T075819Z",
+    "generated": true,
+    "current": true,
+    "errors": [],
+    "warnings": []
+   },
+   "drives": [],
+   "blocked": null
+  },
+  "SEG-f0d20236fe": {
+   "build": {
+    "build_id": "B20261003T075819Z",
+    "generated": true,
+    "current": true,
+    "errors": [],
+    "warnings": []
+   },
+   "drives": [],
+   "blocked": null
+  },
+  "SEG-76a1be2d86": {
+   "build": {
+    "build_id": "B20261003T075819Z",
+    "generated": true,
+    "current": true,
+    "errors": [],
+    "warnings": []
+   },
+   "drives": [],
+   "blocked": null
+  },
+  "SEG-040a06bf27": {
+   "build": {
+    "build_id": "B20261003T075819Z",
+    "generated": true,
+    "current": true,
+    "errors": [],
+    "warnings": []
+   },
+   "drives": [],
+   "blocked": null
+  },
+  "SEG-bafa92f89b": {
+   "build": {
+    "build_id": "B20261003T075819Z",
+    "generated": true,
+    "current": true,
+    "errors": [],
+    "warnings": []
+   },
+   "drives": [],
+   "blocked": null
+  },
+  "SEG-0138dd50bc": {
+   "build": {
+    "build_id": "B20261003T075819Z",
+    "generated": true,
+    "current": true,
+    "errors": [],
+    "warnings": []
+   },
+   "drives": [],
+   "blocked": null
+  },
+  "SEG-d9d30bfa0e": {
+   "build": {
+    "build_id": "B20261003T075819Z",
+    "generated": true,
+    "current": true,
+    "errors": [],
+    "warnings": []
+   },
+   "drives": [],
+   "blocked": null
+  },
+  "SEG-feb3fb3e71": {
+   "build": {
+    "build_id": "B20261003T075819Z",
+    "generated": true,
+    "current": true,
+    "errors": [],
+    "warnings": []
+   },
+   "drives": [],
+   "blocked": null
+  },
+  "SEG-07109f2bb4": {
+   "build": {
+    "build_id": "B20261003T075819Z",
+    "generated": true,
+    "current": true,
+    "errors": [],
+    "warnings": [
+     {
+      "id": "ground:0",
+      "type": "junction_warp",
+      "x": 588659.6,
+      "y": 4510876.9,
+      "dz_m": 0.34,
+      "segments": [
+       "SEG-07109f2bb4",
+       "SEG-b97fd37143"
+      ]
+     }
+    ]
+   },
+   "drives": [],
+   "blocked": null
+  },
+  "SEG-e4b5a98d85": {
+   "build": {
+    "build_id": "B20261003T075819Z",
+    "generated": true,
+    "current": true,
+    "errors": [],
+    "warnings": []
+   },
+   "drives": [],
+   "blocked": null
+  },
+  "SEG-c7dd47a73b": {
+   "build": {
+    "build_id": "B20261003T075819Z",
+    "generated": true,
+    "current": true,
+    "errors": [],
+    "warnings": []
+   },
+   "drives": [],
+   "blocked": null
+  },
+  "SEG-079041f59f": {
+   "build": {
+    "build_id": "B20261003T075819Z",
+    "generated": true,
+    "current": true,
+    "errors": [],
+    "warnings": []
+   },
+   "drives": [],
+   "blocked": null
+  },
+  "SEG-ac83e794ab": {
+   "build": {
+    "build_id": "B20261003T075819Z",
+    "generated": true,
+    "current": true,
+    "errors": [],
+    "warnings": []
+   },
+   "drives": [],
+   "blocked": null
+  },
+  "SEG-83f3c7c4b4": {
+   "build": {
+    "build_id": "B20261003T075819Z",
+    "generated": true,
+    "current": true,
+    "errors": [],
+    "warnings": []
+   },
+   "drives": [],
+   "blocked": null
+  },
+  "SEG-73d60cff7f": {
+   "build": {
+    "build_id": "B20261003T075819Z",
+    "generated": true,
+    "current": true,
+    "errors": [],
+    "warnings": []
+   },
+   "drives": [],
+   "blocked": null
+  },
+  "SEG-2384302b82": {
+   "build": {
+    "build_id": "B20261003T075819Z",
+    "generated": true,
+    "current": true,
+    "errors": [],
+    "warnings": []
+   },
+   "drives": [],
+   "blocked": null
+  },
+  "SEG-9a290bf7e1": {
+   "build": {
+    "build_id": "B20261003T075819Z",
+    "generated": true,
+    "current": true,
+    "errors": [],
+    "warnings": []
+   },
+   "drives": [],
+   "blocked": null
+  },
+  "SEG-cb365c0f42": {
+   "build": {
+    "build_id": "B20261003T075819Z",
+    "generated": true,
+    "current": true,
+    "errors": [],
+    "warnings": [
+     {
+      "type": "grade_change",
+      "station_m": 185.0,
+      "value": 0.0225,
+      "limit": 0.02
+     }
+    ]
+   },
+   "drives": [],
+   "blocked": null
+  },
+  "SEG-f1f9cf32cf": {
+   "build": {
+    "build_id": "B20261003T075819Z",
+    "generated": true,
+    "current": true,
+    "errors": [],
+    "warnings": []
+   },
+   "drives": [],
+   "blocked": null
+  },
+  "SEG-c809653069": {
+   "build": {
+    "build_id": "B20261003T075819Z",
+    "generated": true,
+    "current": true,
+    "errors": [],
+    "warnings": []
+   },
+   "drives": [],
+   "blocked": null
+  },
+  "SEG-26950d81c8": {
+   "build": {
+    "build_id": "B20261003T075819Z",
+    "generated": true,
+    "current": true,
+    "errors": [],
+    "warnings": []
+   },
+   "drives": [],
+   "blocked": null
+  },
+  "SEG-323d0678c6": {
+   "build": {
+    "build_id": "B20261003T075819Z",
+    "generated": true,
+    "current": true,
+    "errors": [],
+    "warnings": []
+   },
+   "drives": [],
+   "blocked": null
+  },
+  "SEG-3cab81b4a8": {
+   "build": {
+    "build_id": "B20261003T075819Z",
+    "generated": true,
+    "current": true,
+    "errors": [],
+    "warnings": []
+   },
+   "drives": [],
+   "blocked": null
+  },
+  "SEG-962b13b1b4": {
+   "build": {
+    "build_id": "B20261003T075819Z",
+    "generated": true,
+    "current": true,
+    "errors": [],
+    "warnings": []
+   },
+   "drives": [],
+   "blocked": null
+  },
+  "SEG-af638c5479": {
+   "build": {
+    "build_id": "B20261003T075819Z",
+    "generated": true,
+    "current": true,
+    "errors": [],
+    "warnings": []
+   },
+   "drives": [],
+   "blocked": null
+  },
+  "SEG-186b73e082": {
+   "build": {
+    "build_id": "B20261003T075819Z",
+    "generated": true,
+    "current": true,
+    "errors": [],
+    "warnings": []
+   },
+   "drives": [],
+   "blocked": null
+  },
+  "SEG-4bd014d27c": {
+   "build": {
+    "build_id": "B20261003T075819Z",
+    "generated": true,
+    "current": true,
+    "errors": [],
+    "warnings": []
+   },
+   "drives": [],
+   "blocked": null
+  },
+  "SEG-2ec0cb177b": {
+   "build": {
+    "build_id": "B20261003T075819Z",
+    "generated": true,
+    "current": true,
+    "errors": [],
+    "warnings": []
+   },
+   "drives": [],
+   "blocked": null
+  },
+  "SEG-52884cbc4d": {
+   "build": {
+    "build_id": "B20261003T075819Z",
+    "generated": true,
+    "current": true,
+    "errors": [],
+    "warnings": []
+   },
+   "drives": [],
+   "blocked": null
+  },
+  "SEG-f3e72a7383": {
+   "build": {
+    "build_id": "B20261003T075819Z",
+    "generated": true,
+    "current": true,
+    "errors": [],
+    "warnings": []
+   },
+   "drives": [],
+   "blocked": null
+  },
+  "SEG-44acf80ee2": {
+   "build": {
+    "build_id": "B20261003T075819Z",
+    "generated": true,
+    "current": true,
+    "errors": [],
+    "warnings": []
+   },
+   "drives": [],
+   "blocked": null
+  },
+  "SEG-37062f0dba": {
+   "build": {
+    "build_id": "B20261003T075819Z",
+    "generated": true,
+    "current": true,
+    "errors": [],
+    "warnings": []
+   },
+   "drives": [],
+   "blocked": null
+  },
+  "SEG-c53b023157": {
+   "build": {
+    "build_id": "B20261003T075819Z",
+    "generated": true,
+    "current": true,
+    "errors": [],
+    "warnings": []
+   },
+   "drives": [],
+   "blocked": null
+  },
+  "SEG-8cd1d1c782": {
+   "build": {
+    "build_id": "B20261003T075819Z",
+    "generated": true,
+    "current": true,
+    "errors": [],
+    "warnings": []
+   },
+   "drives": [],
+   "blocked": null
+  },
+  "SEG-ae6f5e26e4": {
+   "build": {
+    "build_id": "B20261003T075819Z",
+    "generated": true,
+    "current": true,
+    "errors": [],
+    "warnings": []
+   },
+   "drives": [],
+   "blocked": null
+  },
+  "SEG-f3a641446c": {
+   "build": {
+    "build_id": "B20261003T075819Z",
+    "generated": true,
+    "current": true,
+    "errors": [],
+    "warnings": []
+   },
+   "drives": [],
+   "blocked": null
+  },
+  "SEG-ec57f0bef8": {
+   "build": {
+    "build_id": "B20261003T075819Z",
+    "generated": true,
+    "current": true,
+    "errors": [],
+    "warnings": []
+   },
+   "drives": [],
+   "blocked": null
+  },
+  "SEG-16ed43e957": {
+   "build": {
+    "build_id": "B20261003T075819Z",
+    "generated": true,
+    "current": true,
+    "errors": [],
+    "warnings": []
+   },
+   "drives": [],
+   "blocked": null
+  },
+  "SEG-f237227023": {
+   "build": {
+    "build_id": "B20261003T075819Z",
+    "generated": true,
+    "current": true,
+    "errors": [],
+    "warnings": [
+     {
+      "id": "ground:0",
+      "type": "junction_warp",
+      "x": 588745.7,
+      "y": 4510856.7,
+      "dz_m": 0.36,
+      "segments": [
+       "SEG-c21849dd83",
+       "SEG-f237227023",
+       "SEG-0338aec18d"
+      ]
+     }
+    ]
+   },
+   "drives": [],
+   "blocked": null
+  },
+  "SEG-d940425cf7": {
+   "build": {
+    "build_id": "B20261003T075819Z",
+    "generated": true,
+    "current": true,
+    "errors": [],
+    "warnings": []
+   },
+   "drives": [],
+   "blocked": null
+  },
+  "SEG-2eaf23dd37": {
+   "build": {
+    "build_id": "B20261003T075819Z",
+    "generated": true,
+    "current": true,
+    "errors": [],
+    "warnings": []
+   },
+   "drives": [],
+   "blocked": null
+  },
+  "SEG-0f5a60616e": {
+   "build": {
+    "build_id": "B20261003T075819Z",
+    "generated": false,
+    "current": true,
+    "errors": [],
+    "warnings": []
+   },
+   "drives": [],
+   "blocked": "tunnel: separate feasibility task (docs/01-project-boundary.md#tunnels)"
+  },
+  "SEG-b2eb503982": {
+   "build": {
+    "build_id": "B20261003T075819Z",
+    "generated": true,
+    "current": true,
+    "errors": [],
+    "warnings": []
+   },
+   "drives": [],
+   "blocked": null
+  },
+  "SEG-b22010ea15": {
+   "build": {
+    "build_id": "B20261003T075819Z",
+    "generated": true,
+    "current": true,
+    "errors": [],
+    "warnings": []
+   },
+   "drives": [],
+   "blocked": null
+  },
+  "SEG-3ab8de2cdd": {
+   "build": {
+    "build_id": "B20261003T075819Z",
+    "generated": true,
+    "current": true,
+    "errors": [],
+    "warnings": []
+   },
+   "drives": [],
+   "blocked": null
+  },
+  "SEG-c954a325df": {
+   "build": {
+    "build_id": "B20261003T075819Z",
+    "generated": true,
+    "current": true,
+    "errors": [],
+    "warnings": []
+   },
+   "drives": [],
+   "blocked": null
+  },
+  "SEG-d410770116": {
+   "build": {
+    "build_id": "B20261003T075819Z",
+    "generated": true,
+    "current": true,
+    "errors": [],
+    "warnings": []
+   },
+   "drives": [],
+   "blocked": null
+  },
+  "SEG-eac56279e9": {
+   "build": {
+    "build_id": "B20261003T075819Z",
+    "generated": true,
+    "current": true,
+    "errors": [],
+    "warnings": []
+   },
+   "drives": [],
+   "blocked": null
+  },
+  "SEG-7dacf76988": {
+   "build": {
+    "build_id": "B20261003T075819Z",
+    "generated": true,
+    "current": true,
+    "errors": [],
+    "warnings": []
+   },
+   "drives": [],
+   "blocked": null
+  },
+  "SEG-d39dd4f198": {
+   "build": {
+    "build_id": "B20261003T075819Z",
+    "generated": true,
+    "current": true,
+    "errors": [],
+    "warnings": []
+   },
+   "drives": [],
+   "blocked": null
+  },
+  "SEG-9aa2fc0df5": {
+   "build": {
+    "build_id": "B20261003T075819Z",
+    "generated": true,
+    "current": true,
+    "errors": [],
+    "warnings": []
+   },
+   "drives": [],
+   "blocked": null
+  },
+  "SEG-db456ee8bb": {
+   "build": {
+    "build_id": "B20261003T075819Z",
+    "generated": true,
+    "current": true,
+    "errors": [],
+    "warnings": []
+   },
+   "drives": [],
+   "blocked": null
+  },
+  "SEG-ec29edada1": {
+   "build": {
+    "build_id": "B20261003T075819Z",
+    "generated": true,
+    "current": true,
+    "errors": [],
+    "warnings": []
+   },
+   "drives": [],
+   "blocked": null
+  },
+  "SEG-60338392b6": {
+   "build": {
+    "build_id": "B20261003T075819Z",
+    "generated": true,
+    "current": true,
+    "errors": [],
+    "warnings": []
+   },
+   "drives": [],
+   "blocked": null
+  },
+  "SEG-9d880f93dc": {
+   "build": {
+    "build_id": "B20261003T075819Z",
+    "generated": true,
+    "current": true,
+    "errors": [],
+    "warnings": []
+   },
+   "drives": [],
+   "blocked": null
+  },
+  "SEG-1c3f09eeeb": {
+   "build": {
+    "build_id": "B20261003T075819Z",
+    "generated": true,
+    "current": true,
+    "errors": [],
+    "warnings": []
+   },
+   "drives": [],
+   "blocked": null
+  },
+  "SEG-59fcd48036": {
+   "build": {
+    "build_id": "B20261003T075819Z",
+    "generated": true,
+    "current": true,
+    "errors": [],
+    "warnings": []
+   },
+   "drives": [],
+   "blocked": null
+  },
+  "SEG-fcc0b7b217": {
+   "build": {
+    "build_id": "B20261003T075819Z",
+    "generated": true,
+    "current": true,
+    "errors": [],
+    "warnings": []
+   },
+   "drives": [],
+   "blocked": null
+  },
+  "SEG-e07c7cfcce": {
+   "build": {
+    "build_id": "B20261003T075819Z",
+    "generated": true,
+    "current": true,
+    "errors": [],
+    "warnings": []
+   },
+   "drives": [],
+   "blocked": null
+  },
+  "SEG-e9cf244086": {
+   "build": {
+    "build_id": "B20261003T075819Z",
+    "generated": true,
+    "current": true,
+    "errors": [],
+    "warnings": []
+   },
+   "drives": [],
+   "blocked": null
+  },
+  "SEG-f4a9c1ff10": {
+   "build": {
+    "build_id": "B20261003T075819Z",
+    "generated": true,
+    "current": true,
+    "errors": [],
+    "warnings": []
+   },
+   "drives": [],
+   "blocked": null
+  },
+  "SEG-ca43aa3b66": {
+   "build": {
+    "build_id": "B20261003T075819Z",
+    "generated": true,
+    "current": true,
+    "errors": [],
+    "warnings": []
+   },
+   "drives": [],
+   "blocked": null
+  },
+  "SEG-c65efd4dd5": {
+   "build": {
+    "build_id": "B20261003T075819Z",
+    "generated": true,
+    "current": true,
+    "errors": [],
+    "warnings": []
+   },
+   "drives": [],
+   "blocked": null
+  },
+  "SEG-d590fd5d82": {
+   "build": {
+    "build_id": "B20261003T075819Z",
+    "generated": true,
+    "current": true,
+    "errors": [],
+    "warnings": []
+   },
+   "drives": [],
+   "blocked": null
+  },
+  "SEG-eac66d0dd0": {
+   "build": {
+    "build_id": "B20261003T075819Z",
+    "generated": true,
+    "current": true,
+    "errors": [],
+    "warnings": []
+   },
+   "drives": [],
+   "blocked": null
+  },
+  "SEG-caf05bb9c3": {
+   "build": {
+    "build_id": "B20261003T075819Z",
+    "generated": true,
+    "current": true,
+    "errors": [],
+    "warnings": []
+   },
+   "drives": [],
+   "blocked": null
+  },
+  "SEG-fb071a2015": {
+   "build": {
+    "build_id": "B20261003T075819Z",
+    "generated": true,
+    "current": true,
+    "errors": [],
+    "warnings": []
+   },
+   "drives": [],
+   "blocked": null
+  },
+  "SEG-4840b1471a": {
+   "build": {
+    "build_id": "B20261003T075819Z",
+    "generated": true,
+    "current": true,
+    "errors": [],
+    "warnings": []
+   },
+   "drives": [],
+   "blocked": null
+  },
+  "SEG-41e10600fc": {
+   "build": {
+    "build_id": "B20261003T075819Z",
+    "generated": true,
+    "current": true,
+    "errors": [],
+    "warnings": []
+   },
+   "drives": [],
+   "blocked": null
+  },
+  "SEG-7ddf68b0ad": {
+   "build": {
+    "build_id": "B20261003T075819Z",
+    "generated": true,
+    "current": true,
+    "errors": [],
+    "warnings": []
+   },
+   "drives": [],
+   "blocked": null
+  },
+  "SEG-20b6eb8126": {
+   "build": {
+    "build_id": "B20261003T075819Z",
+    "generated": true,
+    "current": true,
+    "errors": [],
+    "warnings": []
+   },
+   "drives": [],
+   "blocked": null
+  },
+  "SEG-7f525d3cef": {
+   "build": {
+    "build_id": "B20261003T075819Z",
+    "generated": true,
+    "current": true,
+    "errors": [],
+    "warnings": []
+   },
+   "drives": [],
+   "blocked": null
+  },
+  "SEG-f25fde853c": {
+   "build": {
+    "build_id": "B20261003T075819Z",
+    "generated": true,
+    "current": true,
+    "errors": [],
+    "warnings": []
+   },
+   "drives": [],
+   "blocked": null
+  },
+  "SEG-9beb42ed90": {
+   "build": {
+    "build_id": "B20261003T075819Z",
+    "generated": true,
+    "current": true,
+    "errors": [],
+    "warnings": []
+   },
+   "drives": [],
+   "blocked": null
+  },
+  "SEG-0f3ec38f5d": {
+   "build": {
+    "build_id": "B20261003T075819Z",
+    "generated": true,
+    "current": true,
+    "errors": [],
+    "warnings": [
+     {
+      "id": "ground:0",
+      "type": "junction_warp",
+      "x": 588487.6,
+      "y": 4510609.6,
+      "dz_m": 0.33,
+      "segments": [
+       "SEG-e05ca671fe",
+       "SEG-744a3b8237",
+       "SEG-06a58104fe",
+       "SEG-bc6b36d6b2",
+       "SEG-9d50aff2a9",
+       "SEG-0f3ec38f5d"
+      ]
+     },
+     {
+      "id": "ground:0",
+      "type": "junction_warp",
+      "x": 588489.0,
+      "y": 4510615.0,
+      "dz_m": 0.4,
+      "segments": [
+       "SEG-e05ca671fe",
+       "SEG-744a3b8237",
+       "SEG-06a58104fe",
+       "SEG-bc6b36d6b2",
+       "SEG-9d50aff2a9",
+       "SEG-0f3ec38f5d"
+      ]
+     },
+     {
+      "id": "ground:0",
+      "type": "junction_warp",
+      "x": 588487.3,
+      "y": 4510609.1,
+      "dz_m": 0.31,
+      "segments": [
+       "SEG-e05ca671fe",
+       "SEG-744a3b8237",
+       "SEG-06a58104fe",
+       "SEG-bc6b36d6b2",
+       "SEG-9d50aff2a9",
+       "SEG-0f3ec38f5d"
+      ]
+     }
+    ]
+   },
+   "drives": [],
+   "blocked": null
+  },
+  "SEG-0abec55623": {
+   "build": {
+    "build_id": "B20261003T075819Z",
+    "generated": true,
+    "current": true,
+    "errors": [],
+    "warnings": []
+   },
+   "drives": [],
+   "blocked": null
+  },
+  "SEG-1474eeea95": {
+   "build": {
+    "build_id": "B20261003T075819Z",
+    "generated": true,
+    "current": true,
+    "errors": [],
+    "warnings": []
+   },
+   "drives": [],
+   "blocked": null
+  },
+  "SEG-8e701aa9b4": {
+   "build": {
+    "build_id": "B20261003T075819Z",
+    "generated": true,
+    "current": true,
+    "errors": [],
+    "warnings": []
+   },
+   "drives": [],
+   "blocked": null
+  },
+  "SEG-879d17ef07": {
+   "build": {
+    "build_id": "B20261003T075819Z",
+    "generated": false,
+    "current": true,
+    "errors": [],
+    "warnings": []
+   },
+   "drives": [],
+   "blocked": "excluded: Queens-Midtown Tunnel open-cut approach (LIE descends into the trench toward the tunnel portal; split-level ramps share OSM nodes). Part of the tunnel feasibility task (docs/01#tunnels); not generated."
+  },
+  "SEG-21e08c02bf": {
+   "build": {
+    "build_id": "B20261003T075819Z",
+    "generated": true,
+    "current": true,
+    "errors": [],
+    "warnings": []
+   },
+   "drives": [],
+   "blocked": null
+  },
+  "SEG-bee79ec63e": {
+   "build": {
+    "build_id": "B20261003T075819Z",
+    "generated": true,
+    "current": true,
+    "errors": [],
+    "warnings": []
+   },
+   "drives": [],
+   "blocked": null
+  },
+  "SEG-11d6c81876": {
+   "build": {
+    "build_id": "B20261003T075819Z",
+    "generated": true,
+    "current": true,
+    "errors": [],
+    "warnings": []
+   },
+   "drives": [],
+   "blocked": null
+  },
+  "SEG-9ae459d1fc": {
+   "build": {
+    "build_id": "B20261003T075819Z",
+    "generated": true,
+    "current": true,
+    "errors": [],
+    "warnings": []
+   },
+   "drives": [],
+   "blocked": null
+  },
+  "SEG-e2259337d9": {
+   "build": {
+    "build_id": "B20261003T075819Z",
+    "generated": true,
+    "current": true,
+    "errors": [],
+    "warnings": []
+   },
+   "drives": [],
+   "blocked": null
+  },
+  "SEG-bca1f90cc2": {
+   "build": {
+    "build_id": "B20261003T075819Z",
+    "generated": true,
+    "current": true,
+    "errors": [],
+    "warnings": []
+   },
+   "drives": [],
+   "blocked": null
+  },
+  "SEG-79b75eed4d": {
+   "build": {
+    "build_id": "B20261003T075819Z",
+    "generated": true,
+    "current": true,
+    "errors": [],
+    "warnings": []
+   },
+   "drives": [],
+   "blocked": null
+  },
+  "SEG-b97fd37143": {
+   "build": {
+    "build_id": "B20261003T075819Z",
+    "generated": true,
+    "current": true,
+    "errors": [],
+    "warnings": [
+     {
+      "id": "ground:0",
+      "type": "junction_warp",
+      "x": 588659.6,
+      "y": 4510876.9,
+      "dz_m": 0.34,
+      "segments": [
+       "SEG-07109f2bb4",
+       "SEG-b97fd37143"
+      ]
+     }
+    ]
+   },
+   "drives": [],
+   "blocked": null
+  },
+  "SEG-f30a3c1f33": {
+   "build": {
+    "build_id": "B20261003T075819Z",
+    "generated": true,
+    "current": true,
+    "errors": [],
+    "warnings": []
+   },
+   "drives": [],
+   "blocked": null
+  },
+  "SEG-9d50aff2a9": {
+   "build": {
+    "build_id": "B20261003T075819Z",
+    "generated": true,
+    "current": true,
+    "errors": [],
+    "warnings": [
+     {
+      "id": "ground:0",
+      "type": "junction_warp",
+      "x": 588487.6,
+      "y": 4510609.6,
+      "dz_m": 0.33,
+      "segments": [
+       "SEG-e05ca671fe",
+       "SEG-744a3b8237",
+       "SEG-06a58104fe",
+       "SEG-bc6b36d6b2",
+       "SEG-9d50aff2a9",
+       "SEG-0f3ec38f5d"
+      ]
+     },
+     {
+      "id": "ground:0",
+      "type": "junction_warp",
+      "x": 588489.0,
+      "y": 4510615.0,
+      "dz_m": 0.4,
+      "segments": [
+       "SEG-e05ca671fe",
+       "SEG-744a3b8237",
+       "SEG-06a58104fe",
+       "SEG-bc6b36d6b2",
+       "SEG-9d50aff2a9",
+       "SEG-0f3ec38f5d"
+      ]
+     },
+     {
+      "id": "ground:0",
+      "type": "junction_warp",
+      "x": 588487.3,
+      "y": 4510609.1,
+      "dz_m": 0.31,
+      "segments": [
+       "SEG-e05ca671fe",
+       "SEG-744a3b8237",
+       "SEG-06a58104fe",
+       "SEG-bc6b36d6b2",
+       "SEG-9d50aff2a9",
+       "SEG-0f3ec38f5d"
+      ]
+     }
+    ]
+   },
+   "drives": [],
+   "blocked": null
+  },
+  "SEG-0984050947": {
+   "build": {
+    "build_id": "B20261003T075819Z",
+    "generated": true,
+    "current": true,
+    "errors": [],
+    "warnings": []
+   },
+   "drives": [],
+   "blocked": null
+  },
+  "SEG-c21849dd83": {
+   "build": {
+    "build_id": "B20261003T075819Z",
+    "generated": true,
+    "current": true,
+    "errors": [],
+    "warnings": [
+     {
+      "id": "ground:0",
+      "type": "junction_warp",
+      "x": 588745.7,
+      "y": 4510856.7,
+      "dz_m": 0.36,
+      "segments": [
+       "SEG-c21849dd83",
+       "SEG-f237227023",
+       "SEG-0338aec18d"
+      ]
+     }
+    ]
+   },
+   "drives": [],
+   "blocked": null
+  },
+  "SEG-97148526e1": {
+   "build": {
+    "build_id": "B20261003T075819Z",
+    "generated": true,
+    "current": true,
+    "errors": [],
+    "warnings": []
+   },
+   "drives": [],
+   "blocked": null
+  },
+  "SEG-528603fe87": {
+   "build": {
+    "build_id": "B20261003T075819Z",
+    "generated": false,
+    "current": true,
+    "errors": [],
+    "warnings": []
+   },
+   "drives": [],
+   "blocked": "tunnel: separate feasibility task (docs/01-project-boundary.md#tunnels)"
+  },
+  "SEG-d672a747ab": {
+   "build": {
+    "build_id": "B20261003T075819Z",
+    "generated": false,
+    "current": true,
+    "errors": [],
+    "warnings": []
+   },
+   "drives": [],
+   "blocked": "excluded: Queens-Midtown Tunnel open-cut approach (LIE descends into the trench toward the tunnel portal; split-level ramps share OSM nodes). Part of the tunnel feasibility task (docs/01#tunnels); not generated."
+  },
+  "SEG-a7cb5efc19": {
+   "build": {
+    "build_id": "B20261003T075819Z",
+    "generated": true,
+    "current": true,
+    "errors": [],
+    "warnings": []
+   },
+   "drives": [],
+   "blocked": null
+  },
+  "SEG-7d2bb05e22": {
+   "build": {
+    "build_id": "B20261003T075819Z",
+    "generated": true,
+    "current": true,
+    "errors": [],
+    "warnings": []
+   },
+   "drives": [],
+   "blocked": null
+  },
+  "SEG-ea9b621139": {
+   "build": {
+    "build_id": "B20261003T075819Z",
+    "generated": true,
+    "current": true,
+    "errors": [],
+    "warnings": []
+   },
+   "drives": [],
+   "blocked": null
+  },
+  "SEG-701cf21c43": {
+   "build": {
+    "build_id": "B20261003T075819Z",
+    "generated": true,
+    "current": true,
+    "errors": [],
+    "warnings": []
+   },
+   "drives": [],
+   "blocked": null
+  },
+  "SEG-0ecbdccd84": {
+   "build": {
+    "build_id": "B20261003T075819Z",
+    "generated": true,
+    "current": true,
+    "errors": [],
+    "warnings": []
+   },
+   "drives": [],
+   "blocked": null
+  },
+  "SEG-8e4d31b02d": {
+   "build": {
+    "build_id": "B20261003T075819Z",
+    "generated": true,
+    "current": true,
+    "errors": [],
+    "warnings": []
+   },
+   "drives": [],
+   "blocked": null
+  },
+  "SEG-f8719232bf": {
+   "build": {
+    "build_id": "B20261003T075819Z",
+    "generated": true,
+    "current": true,
+    "errors": [],
+    "warnings": []
+   },
+   "drives": [],
+   "blocked": null
+  },
+  "SEG-1dec650710": {
+   "build": {
+    "build_id": "B20261003T075819Z",
+    "generated": true,
+    "current": true,
+    "errors": [],
+    "warnings": []
+   },
+   "drives": [],
+   "blocked": null
+  },
+  "SEG-d20fec41ef": {
+   "build": {
+    "build_id": "B20261003T075819Z",
+    "generated": true,
+    "current": true,
+    "errors": [],
+    "warnings": []
+   },
+   "drives": [],
+   "blocked": null
+  },
+  "SEG-43dddacebc": {
+   "build": {
+    "build_id": "B20261003T075819Z",
+    "generated": true,
+    "current": true,
+    "errors": [],
+    "warnings": []
+   },
+   "drives": [],
+   "blocked": null
+  },
+  "SEG-3dbfec4645": {
+   "build": {
+    "build_id": "B20261003T075819Z",
+    "generated": true,
+    "current": true,
+    "errors": [],
+    "warnings": []
+   },
+   "drives": [],
+   "blocked": null
+  },
+  "SEG-ddc3e70285": {
+   "build": {
+    "build_id": "B20261003T075819Z",
+    "generated": true,
+    "current": true,
+    "errors": [],
+    "warnings": []
+   },
+   "drives": [],
+   "blocked": null
+  },
+  "SEG-186a69752e": {
+   "build": {
+    "build_id": "B20261003T075819Z",
+    "generated": true,
+    "current": true,
+    "errors": [],
+    "warnings": []
+   },
+   "drives": [],
+   "blocked": null
+  },
+  "SEG-f61fb6d215": {
+   "build": {
+    "build_id": "B20261003T075819Z",
+    "generated": true,
+    "current": true,
+    "errors": [],
+    "warnings": []
+   },
+   "drives": [],
+   "blocked": null
+  },
+  "SEG-97deab4deb": {
+   "build": {
+    "build_id": "B20261003T075819Z",
+    "generated": true,
+    "current": true,
+    "errors": [],
+    "warnings": []
+   },
+   "drives": [],
+   "blocked": null
+  },
+  "SEG-06a58104fe": {
+   "build": {
+    "build_id": "B20261003T075819Z",
+    "generated": true,
+    "current": true,
+    "errors": [],
+    "warnings": [
+     {
+      "id": "ground:0",
+      "type": "junction_warp",
+      "x": 588487.6,
+      "y": 4510609.6,
+      "dz_m": 0.33,
+      "segments": [
+       "SEG-e05ca671fe",
+       "SEG-744a3b8237",
+       "SEG-06a58104fe",
+       "SEG-bc6b36d6b2",
+       "SEG-9d50aff2a9",
+       "SEG-0f3ec38f5d"
+      ]
+     },
+     {
+      "id": "ground:0",
+      "type": "junction_warp",
+      "x": 588489.0,
+      "y": 4510615.0,
+      "dz_m": 0.4,
+      "segments": [
+       "SEG-e05ca671fe",
+       "SEG-744a3b8237",
+       "SEG-06a58104fe",
+       "SEG-bc6b36d6b2",
+       "SEG-9d50aff2a9",
+       "SEG-0f3ec38f5d"
+      ]
+     },
+     {
+      "id": "ground:0",
+      "type": "junction_warp",
+      "x": 588487.3,
+      "y": 4510609.1,
+      "dz_m": 0.31,
+      "segments": [
+       "SEG-e05ca671fe",
+       "SEG-744a3b8237",
+       "SEG-06a58104fe",
+       "SEG-bc6b36d6b2",
+       "SEG-9d50aff2a9",
+       "SEG-0f3ec38f5d"
+      ]
+     }
+    ]
+   },
+   "drives": [],
+   "blocked": null
+  },
+  "SEG-2123c4f6f1": {
+   "build": {
+    "build_id": "B20261003T075819Z",
+    "generated": true,
+    "current": true,
+    "errors": [],
+    "warnings": []
+   },
+   "drives": [],
+   "blocked": null
+  },
+  "SEG-02f1a8ac7c": {
+   "build": {
+    "build_id": "B20261003T075819Z",
+    "generated": true,
+    "current": true,
+    "errors": [],
+    "warnings": []
+   },
+   "drives": [],
+   "blocked": null
+  },
+  "SEG-acf9c949e2": {
+   "build": {
+    "build_id": "B20261003T075819Z",
+    "generated": true,
+    "current": true,
+    "errors": [],
+    "warnings": []
+   },
+   "drives": [],
+   "blocked": null
+  },
+  "SEG-ab941d51f2": {
+   "build": {
+    "build_id": "B20261003T075819Z",
+    "generated": true,
+    "current": true,
+    "errors": [],
+    "warnings": []
+   },
+   "drives": [],
+   "blocked": null
+  },
+  "SEG-dd6880ae7c": {
+   "build": {
+    "build_id": "B20261003T075819Z",
+    "generated": true,
+    "current": true,
+    "errors": [],
+    "warnings": []
+   },
+   "drives": [],
+   "blocked": null
+  },
+  "SEG-351084a5fd": {
+   "build": {
+    "build_id": "B20261003T075819Z",
+    "generated": true,
+    "current": true,
+    "errors": [],
+    "warnings": []
+   },
+   "drives": [],
+   "blocked": null
+  },
+  "SEG-976d40a8d8": {
+   "build": {
+    "build_id": "B20261003T075819Z",
+    "generated": false,
+    "current": true,
+    "errors": [
+     {
+      "type": "deck_elevation_missing",
+      "deck": "BRG-f282f29383"
+     }
+    ],
+    "warnings": []
+   },
+   "drives": [],
+   "blocked": "deck BRG-f282f29383: deck segment SEG-2ee7481101 (236 m) has no lidar deck returns - needs deck controls"
+  },
+  "SEG-451528e103": {
+   "build": {
+    "build_id": "B20261003T075819Z",
+    "generated": true,
+    "current": true,
+    "errors": [],
+    "warnings": []
+   },
+   "drives": [],
+   "blocked": null
+  },
+  "SEG-cbf29ddf1a": {
+   "build": {
+    "build_id": "B20261003T075819Z",
+    "generated": true,
+    "current": true,
+    "errors": [],
+    "warnings": []
+   },
+   "drives": [],
+   "blocked": null
+  },
+  "SEG-744a3b8237": {
+   "build": {
+    "build_id": "B20261003T075819Z",
+    "generated": true,
+    "current": true,
+    "errors": [],
+    "warnings": [
+     {
+      "id": "ground:0",
+      "type": "junction_warp",
+      "x": 588487.6,
+      "y": 4510609.6,
+      "dz_m": 0.33,
+      "segments": [
+       "SEG-e05ca671fe",
+       "SEG-744a3b8237",
+       "SEG-06a58104fe",
+       "SEG-bc6b36d6b2",
+       "SEG-9d50aff2a9",
+       "SEG-0f3ec38f5d"
+      ]
+     },
+     {
+      "id": "ground:0",
+      "type": "junction_warp",
+      "x": 588489.0,
+      "y": 4510615.0,
+      "dz_m": 0.4,
+      "segments": [
+       "SEG-e05ca671fe",
+       "SEG-744a3b8237",
+       "SEG-06a58104fe",
+       "SEG-bc6b36d6b2",
+       "SEG-9d50aff2a9",
+       "SEG-0f3ec38f5d"
+      ]
+     },
+     {
+      "id": "ground:0",
+      "type": "junction_warp",
+      "x": 588487.3,
+      "y": 4510609.1,
+      "dz_m": 0.31,
+      "segments": [
+       "SEG-e05ca671fe",
+       "SEG-744a3b8237",
+       "SEG-06a58104fe",
+       "SEG-bc6b36d6b2",
+       "SEG-9d50aff2a9",
+       "SEG-0f3ec38f5d"
+      ]
+     }
+    ]
+   },
+   "drives": [],
+   "blocked": null
+  },
+  "SEG-9b6a389110": {
+   "build": {
+    "build_id": "B20261003T075819Z",
+    "generated": true,
+    "current": true,
+    "errors": [],
+    "warnings": []
+   },
+   "drives": [],
+   "blocked": null
+  },
+  "SEG-d7a28152cb": {
+   "build": {
+    "build_id": "B20261003T075819Z",
+    "generated": true,
+    "current": true,
+    "errors": [],
+    "warnings": []
+   },
+   "drives": [],
+   "blocked": null
+  },
+  "SEG-5ee927e4aa": {
+   "build": {
+    "build_id": "B20261003T075819Z",
+    "generated": true,
+    "current": true,
+    "errors": [],
+    "warnings": []
+   },
+   "drives": [],
+   "blocked": null
+  },
+  "SEG-9476e1fc37": {
+   "build": {
+    "build_id": "B20261003T075819Z",
+    "generated": true,
+    "current": true,
+    "errors": [],
+    "warnings": []
+   },
+   "drives": [],
+   "blocked": null
+  },
+  "SEG-ba9ae372cc": {
+   "build": {
+    "build_id": "B20261003T075819Z",
+    "generated": true,
+    "current": true,
+    "errors": [],
+    "warnings": []
+   },
+   "drives": [],
+   "blocked": null
+  },
+  "SEG-5af28148c4": {
+   "build": {
+    "build_id": "B20261003T075819Z",
+    "generated": true,
+    "current": true,
+    "errors": [],
+    "warnings": []
+   },
+   "drives": [],
+   "blocked": null
+  },
+  "SEG-29f03f01b7": {
+   "build": {
+    "build_id": "B20261003T075819Z",
+    "generated": true,
+    "current": true,
+    "errors": [],
+    "warnings": []
+   },
+   "drives": [],
+   "blocked": null
+  },
+  "SEG-cfb338cd3a": {
+   "build": {
+    "build_id": "B20261003T075819Z",
+    "generated": false,
+    "current": true,
+    "errors": [],
+    "warnings": []
+   },
+   "drives": [],
+   "blocked": "excluded: Queens-Midtown Tunnel open-cut approach (LIE descends into the trench toward the tunnel portal; split-level ramps share OSM nodes). Part of the tunnel feasibility task (docs/01#tunnels); not generated."
+  },
+  "SEG-f11ae23096": {
+   "build": {
+    "build_id": "B20261003T075819Z",
+    "generated": true,
+    "current": true,
+    "errors": [],
+    "warnings": []
+   },
+   "drives": [],
+   "blocked": null
+  },
+  "SEG-fe03a78734": {
+   "build": {
+    "build_id": "B20261003T075819Z",
+    "generated": true,
+    "current": true,
+    "errors": [],
+    "warnings": []
+   },
+   "drives": [],
+   "blocked": null
+  },
+  "SEG-9eabb70df9": {
+   "build": {
+    "build_id": "B20261003T075819Z",
+    "generated": true,
+    "current": true,
+    "errors": [],
+    "warnings": []
+   },
+   "drives": [],
+   "blocked": null
+  },
+  "SEG-412f8c235c": {
+   "build": {
+    "build_id": "B20261003T075819Z",
+    "generated": true,
+    "current": true,
+    "errors": [],
+    "warnings": []
+   },
+   "drives": [],
+   "blocked": null
+  },
+  "SEG-785c75ffcc": {
+   "build": {
+    "build_id": "B20261003T075819Z",
+    "generated": true,
+    "current": true,
+    "errors": [],
+    "warnings": []
+   },
+   "drives": [],
+   "blocked": null
+  }
+ },
+ "runs": [],
+ "updated_utc": "2026-10-03T07:58:28.728994+00:00"
+}

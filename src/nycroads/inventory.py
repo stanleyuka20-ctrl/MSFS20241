@@ -198,7 +198,9 @@ class Inventory:
         for s in self.segments.values():
             k = f"{s.scope}|{s.borough}"
             by[k]["segments"] += 1
-            by[k]["km"] = round(by[k]["km"] + s.length_m / 1000, 3)
+            by[k]["km"] += s.length_m / 1000      # round only once, at the end
+        for v in by.values():
+            v["km"] = round(v["km"], 3)
         kinds = defaultdict(int)
         for j in self.junctions.values():
             kinds[j.kind] += 1

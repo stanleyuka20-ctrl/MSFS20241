@@ -1,0 +1,90 @@
+{
+ "street_and_intersection": {
+  "pass": true,
+  "examples": [
+   "JCT-a7a3b12c79",
+   "JCT-b96f096c35",
+   "JCT-7e7fa72f18",
+   "JCT-87d5c30af1",
+   "JCT-24143cccdf"
+  ]
+ },
+ "slope": {
+  "pass": true,
+  "examples": [
+   [
+    "SEG-60338392b6",
+    0.048,
+    60.0
+   ],
+   [
+    "SEG-0338aec18d",
+    0.052,
+    50.3
+   ],
+   [
+    "SEG-9a290bf7e1",
+    0.042,
+    81.8
+   ],
+   [
+    "SEG-dca4638e64",
+    0.048,
+    30.0
+   ],
+   [
+    "SEG-c21849dd83",
+    0.049,
+    50.0
+   ]
+  ]
+ },
+ "bridge": {
+  "pass": true,
+  "examples": [
+   {
+    "deck": "BRG-e491520cfe",
+    "name": "Pulaski Bridge",
+    "profiled": true
+   },
+   {
+    "deck": "BRG-fefcd9a9f2",
+    "name": "49th Avenue",
+    "profiled": true
+   },
+   {
+    "deck": "BRG-e892c093f6",
+    "name": "21st Street",
+    "profiled": true
+   },
+   {
+    "deck": "BRG-b1bf00eab9",
+    "name": "Pulaski Bridge",
+    "profiled": true
+   }
+  ],
+  "note": "a deck without elevation controls does not count (see blocked list)"
+ },
+ "underpass": {
+  "pass": true,
+  "examples": [
+   "GSX-8c0b7373ee",
+   "GSX-95dd3125be",
+   "GSX-2136a1a063",
+   "GSX-6a2390ea2a",
+   "GSX-6396eb72a9"
+  ]
+ },
+ "transition": {
+  "pass": true,
+  "count": 46,
+  "examples": [
+   "JCT-0d6ddd7618",
+   "JCT-cf61fd09b9",
+   "JCT-affd677bf0",
+   "JCT-0df4dabfd4",
+   "JCT-c67747f7a2"
+  ]
+ },
+ "all_pass": true
+}

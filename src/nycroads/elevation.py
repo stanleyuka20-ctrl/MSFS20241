@@ -125,8 +125,11 @@ class DeckControl:
     source: str         # e.g. "lidar-class17", "survey", "drawing:<ref>"
 
 
-def load_deck_controls(path: Path) -> dict[str, list[DeckControl]]:
-    """deck/crossing id -> controls. File format: see data/deck_controls.json."""
+def load_deck_controls(path: Path, vref: "VerticalReference | None" = None) -> dict[str, list[DeckControl]]:
+    """deck/crossing id -> controls. File format: see data/deck_controls.json.
+
+    Controls with ``z_native_m`` are converted with ``vref`` (the current vertical
+    reference); others are taken as already in simulator reference."""
     if not Path(path).exists():
         return {}
     raw = json.loads(Path(path).read_text())
@@ -134,7 +137,13 @@ def load_deck_controls(path: Path) -> dict[str, list[DeckControl]]:
     for key, entry in raw.items():
         if key.startswith("_"):
             continue
-        out[key] = [DeckControl(**c) for c in entry.get("controls", [])]
+        cs = []
+        for c in entry.get("controls", []):
+            z = c["z_sim_m"]
+            if vref is not None and c.get("z_native_m") is not None:
+                z = float(vref.to_sim(c["lon"], c["lat"], c["z_native_m"])[0])
+            cs.append(DeckControl(c["lon"], c["lat"], z, c.get("source", "")))
+        out[key] = cs
     return out
 
 
@@ -159,14 +168,27 @@ def _line_utm(coords):
     return LineString([lonlat_to_utm(lon, lat) for lon, lat in coords])
 
 
-def junction_heights(inv, dem: DEM, vref: VerticalReference, radius_m: float = 3.0) -> dict[int, float]:
-    """Sim-reference height of every *ground-level* junction node (median over a small disk)."""
+def junction_heights(inv, dem: DEM, vref: VerticalReference, radius_m: float = 3.0,
+                     skip_nodes: set | None = None, lidar=None) -> dict[int, float]:
+    """Sim-reference height of every *ground-level* junction node (median over a small disk).
+
+    ``skip_nodes``: abutments of measured decks. A bare-earth DEM at an abutment
+    often already shows the ground under the structure, so those heights come
+    from the deck measurements instead."""
     out = {}
+    skip_nodes = skip_nodes or set()
     for j in inv.junctions.values():
+        if j.osm_node_id in skip_nodes:
+            continue
         segs = [inv.segments[s] for s in j.segment_ids]
         if not any(not (s.bridge or s.tunnel) for s in segs):
             continue  # purely elevated / buried junctions are set by the deck stage
         x, y = lonlat_to_utm(j.lon, j.lat)
+        if lidar is not None:
+            zl = lidar.point_surface(x, y, radius_m)
+            if zl is not None:
+                out[j.osm_node_id] = float(vref.to_sim(j.lon, j.lat, zl)[0])
+                continue
         ang = np.linspace(0, 2 * np.pi, 8, endpoint=False)
         xs = np.concatenate([[x], x + radius_m * np.cos(ang)])
         ys = np.concatenate([[y], y + radius_m * np.sin(ang)])
@@ -174,23 +196,58 @@ def junction_heights(inv, dem: DEM, vref: VerticalReference, radius_m: float = 3
         z = dem.sample(lon, lat)
         if np.all(np.isnan(z)):
             continue
-        out[j.osm_node_id] = float(vref.to_sim(j.lon, j.lat, np.nanmedian(z))[0])
+        zn = float(np.nanmedian(z))
+        if lidar is not None:
+            from .lidarsurface import dem_is_continuous
+            if not dem_is_continuous(lidar, x, y, zn):
+                continue   # DEM shows ground under a structure here; leave the node to the profiles
+        out[j.osm_node_id] = float(vref.to_sim(j.lon, j.lat, zn)[0])
     return out
 
 
-def ground_profile(seg, dem: DEM, vref: VerticalReference, node_h: dict[int, float]) -> Profile:
+ABUTMENT_DEM_MASK_M = 15.0
+
+
+def ground_profile(seg, dem: DEM, vref: VerticalReference, node_h: dict[int, float],
+                   measured_abutments: dict[int, float] | None = None, lidar=None) -> Profile:
+    """Ground road profile from the DEM.
+
+    ``measured_abutments``: node -> grade leaving the measured deck at that node
+    (moving away from the deck). DEM samples within ABUTMENT_DEM_MASK_M of such a
+    node are ignored and the profile continues the deck's grade there."""
+    measured_abutments = measured_abutments or {}
     line = _line_utm(seg.coords)
     s, xy = stations(line)
     lon, lat = utm_to_lonlat(xy[:, 0], xy[:, 1])
     z_native = dem.sample(lon, lat)
     z = vref.to_sim(lon, lat, z_native)
+    source = "dem+smoothing"
+    lidar_info = {}
+    if lidar is not None:
+        from .lidarsurface import choose_surface
+        g, dk = lidar.station_values(xy)
+        g = np.where(np.isfinite(g), vref.to_sim(lon, lat, np.nan_to_num(g)), np.nan)
+        dk = np.where(np.isfinite(dk), vref.to_sim(lon, lat, np.nan_to_num(dk)), np.nan)
+        z, src = choose_surface(s, g, dk, z, (node_h.get(seg.from_node), node_h.get(seg.to_node)),
+                                lidar.max_jump, lidar.ref_window)
+        lidar_info = {k: int((src == k).sum()) for k in set(src)}
+        source = "lidar+smoothing"
     anchors = {}
     if seg.from_node in node_h:
         anchors[0] = node_h[seg.from_node]
     if seg.to_node in node_h:
         anchors[len(s) - 1] = node_h[seg.to_node]
-    zs, info = smooth_profile(s, z, anchors)
-    return Profile(seg.id, s, xy, zs, "dem+smoothing", grade_issues(s, zs, seg.highway), info)
+    mask = np.ones(len(s), bool)
+    eg = {}
+    if seg.from_node in measured_abutments:
+        mask &= s > ABUTMENT_DEM_MASK_M
+        eg["start"] = measured_abutments[seg.from_node]
+    if seg.to_node in measured_abutments:
+        mask &= s < s[-1] - ABUTMENT_DEM_MASK_M
+        eg["end"] = -measured_abutments[seg.to_node]
+    zs, info = smooth_profile(s, z, anchors, data_mask=mask, end_grades=eg)
+    info.update({"stations_" + k: v for k, v in lidar_info.items()})
+    return Profile(seg.id, s, xy, zs, source, grade_issues(s, zs, seg.highway), info)
 
 
 def deck_profile(deck, inv, controls: list[DeckControl], node_h: dict[int, float],
@@ -212,6 +269,9 @@ def deck_profile(deck, inv, controls: list[DeckControl], node_h: dict[int, float
     if not controls and len(abut) < 2:
         return {}, "needs deck controls (fewer than two land abutments)"
     source = "deck_controls" if controls else "abutment_interpolation"
+    bad = _inconsistent_controls(controls)
+    if bad:
+        return {}, f"inconsistent deck controls ({bad}); possible overhead structure in lidar"
     ctrl_xy = np.array([lonlat_to_utm(c.lon, c.lat) for c in controls]) if controls else np.zeros((0, 2))
     def solve(seg, extra: dict[int, float]):
         line = _line_utm(seg.coords)
@@ -222,11 +282,13 @@ def deck_profile(deck, inv, controls: list[DeckControl], node_h: dict[int, float
                 anchors[idx] = abut[node]
             elif node in extra:
                 anchors[idx] = extra[node]
+        ctrl_idx = set()
         for c, cxy in zip(controls, ctrl_xy):
             d = np.hypot(xy[:, 0] - cxy[0], xy[:, 1] - cxy[1])
             k = int(np.argmin(d))
             if d[k] <= max(seg.width_m, 8.0):
                 anchors[k] = c.z_sim_m
+                ctrl_idx.add(k)
         if not anchors:
             return None
         # continue the approach grade across each abutment (sign flips: the
@@ -239,9 +301,31 @@ def deck_profile(deck, inv, controls: list[DeckControl], node_h: dict[int, float
         mask = np.zeros(len(s), bool)   # ignore all terrain data on the deck
         if len(anchors) == 1 and not eg:
             zs, info = np.full(len(s), list(anchors.values())[0]), {"despiked": 0, "ignored": len(s)}
+        elif len(anchors) >= 2 and controls:
+            # Shape-preserving interpolation through the measured controls: no invented
+            # humps or dips in gaps (a smoothing spline overshoots across long gaps).
+            from scipy.interpolate import PchipInterpolator
+            ks = sorted(anchors)
+            f = PchipInterpolator(s[ks], [anchors[k] for k in ks], extrapolate=True)
+            zs = f(s)
+            # beyond the outermost controls continue linearly (no curvature extrapolation)
+            for end, k0 in (("start", ks[0]), ("end", ks[-1])):
+                g = eg.get(end, float(f.derivative()(s[k0])))
+                rng = s < s[k0] if end == "start" else s > s[k0]
+                zs[rng] = anchors[k0] + g * (s[rng] - s[k0])
+            info = {"despiked": 0, "ignored": len(s)}
         else:
             zs, info = smooth_profile(s, np.full(len(s), np.nan), anchors, lam=50.0, data_mask=mask,
                                       end_grades=eg)
+        # measurement coverage, counted from MEASURED controls only (not node heights)
+        kc = sorted(ctrl_idx)
+        if kc:
+            gaps = np.diff(s[kc])
+            info.update({"controls": len(kc), "max_control_gap_m": float(gaps.max()) if len(gaps) else 0.0,
+                         "unmeasured_start_m": float(s[kc[0]]), "unmeasured_end_m": float(s[-1] - s[kc[-1]])})
+        else:
+            info.update({"controls": 0, "max_control_gap_m": float(s[-1]),
+                         "unmeasured_start_m": float(s[-1]), "unmeasured_end_m": float(s[-1])})
         return Profile(seg.id, s, xy, zs, source, grade_issues(s, zs, seg.highway), info)
 
     # Pass 1: each segment from its own anchors. Pass 2: pin interior deck nodes
@@ -264,9 +348,46 @@ def deck_profile(deck, inv, controls: list[DeckControl], node_h: dict[int, float
         p = solve(seg, interior)
         if p is None:
             return {}, f"segment {seg.id} on deck {deck.id} has no height anchor"
+        if controls:
+            reason = _coverage_blocker(seg, p.info, segs)
+            if reason:
+                return {}, reason + " - needs deck controls"
         out[seg.id] = p
     deck.elevation_source = source
     return out, None
+
+
+MAX_CONTROL_GRADE = 0.10
+MAX_UNMEASURED_DECK_END_M = 30.0      # at a free deck end (abutment / open end)
+MAX_UNMEASURED_DECK_GAP_M = 120.0      # inside a deck, between measured controls
+MAX_UNCONTROLLED_SEGMENT_M = 60.0      # deck segment with no measured control at all
+
+
+def _coverage_blocker(seg, info: dict, deck_segs) -> str | None:
+    """Reasons a measured deck may not be generated: long stretches with no measurement."""
+    if info["controls"] == 0 and info["max_control_gap_m"] > MAX_UNCONTROLLED_SEGMENT_M:
+        return f"deck segment {seg.id} ({info['max_control_gap_m']:.0f} m) has no lidar deck returns"
+    if info["max_control_gap_m"] > MAX_UNMEASURED_DECK_GAP_M:
+        return f"unmeasured gap of {info['max_control_gap_m']:.0f} m on deck segment {seg.id}"
+    for key, node in (("unmeasured_start_m", seg.from_node), ("unmeasured_end_m", seg.to_node)):
+        deck_degree = sum(node in (o.from_node, o.to_node) for o in deck_segs)
+        if deck_degree == 1 and info[key] > MAX_UNMEASURED_DECK_END_M:
+            return f"deck end unmeasured for {info[key]:.0f} m (segment {seg.id})"
+    return None
+
+
+def _inconsistent_controls(controls) -> str | None:
+    """Neighbouring controls (< 40 m apart) implying > 10 % grade are not plausible deck data."""
+    if len(controls) < 2:
+        return None
+    xy = np.array([lonlat_to_utm(c.lon, c.lat) for c in controls])
+    z = np.array([c.z_sim_m for c in controls])
+    for i in range(len(controls)):
+        d = np.hypot(xy[:, 0] - xy[i, 0], xy[:, 1] - xy[i, 1])
+        for j in np.where((d > 2.0) & (d < 40.0))[0]:
+            if abs(z[j] - z[i]) / d[j] > MAX_CONTROL_GRADE:
+                return f"{abs(z[j] - z[i]):.2f} m over {d[j]:.1f} m"
+    return None
 
 
 def deck_node_heights(profiles: dict, inv) -> dict[int, float]:

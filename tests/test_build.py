@@ -7,14 +7,14 @@ import synthetic as S
 
 from nycroads.demo import evaluate
 from nycroads.geo import ENUFrame
-from nycroads.meshgen import build_network
+from nycroads.surface import build_surfaces
 from nycroads.scenery import model_guid
 
 
 def test_build_outputs(built):
     rep = built["report"]
     assert rep["generated_segments"] > 0
-    assert rep["junction_pads"] >= 1
+    assert rep["surface_groups"] >= 2
     assert rep["segments_with_errors"] == [], json.dumps(rep["issues"], indent=1)[:2000]
     # tunnel is blocked, not generated
     assert any("tunnel" in v for v in rep["blocked"].values())
@@ -51,45 +51,57 @@ def test_demo_acceptance_on_fixture(built, inv):
     assert res["underpass"]["pass"]
 
 
-def test_junction_pad_is_watertight(built, inv):
-    net = build_network(inv, built["profiles"])
-    centre = [j for j in inv.junctions.values() if len(j.segment_ids) == 4][0]
-    pad = net.pads_by_junction[centre.id]
-    pad_pts = {tuple(np.round(v, 4)) for v in pad.vertices}
-    for sid in centre.segment_ids:
-        surf = net.meshes_by_segment[sid][0]
-        v = np.asarray(surf.vertices)
-        n = len(v) // 2
-        seg = inv.segments[sid]
-        idx = 0 if seg.from_node == centre.osm_node_id else n - 1
-        for p in (v[idx], v[n + idx]):
-            assert tuple(np.round(p, 4)) in pad_pts
+def _top_meshes(res):
+    return [m for _, m in res.meshes if m.collision and m.material in ("asphalt", "concrete_deck")]
 
 
-def test_connection_ends_share_vertices(built, inv):
-    net = build_network(inv, built["profiles"])
-    conn = [j for j in inv.junctions.values() if j.kind == "connection"
-            and all(s in net.meshes_by_segment for s in j.segment_ids)
-            and not any(inv.segments[s].bridge for s in j.segment_ids)][0]
-    ends = []
-    for sid in conn.segment_ids:
-        v = np.asarray(net.meshes_by_segment[sid][0].vertices)
-        n = len(v) // 2
-        idx = 0 if inv.segments[sid].from_node == conn.osm_node_id else n - 1
-        ends.append({tuple(np.round(v[idx], 3)), tuple(np.round(v[n + idx], 3))})
-    assert ends[0] == ends[1]
+def test_surface_has_no_overlaps_or_gaps(built, inv):
+    res = build_surfaces(inv, built["profiles"], cell_m=60.0)   # small cells: many internal cuts
+    tri_area = 0.0
+    for m in _top_meshes(res):
+        v = np.asarray(m.vertices)
+        for a, b, c in m.triangles:
+            (x1, y1), (x2, y2) = v[b, :2] - v[a, :2], v[c, :2] - v[a, :2]
+            tri_area += abs(x1 * y2 - y1 * x2) / 2
+    fp_area = sum(f.area for f in res.footprints.values())
+    assert abs(tri_area - fp_area) / fp_area < 0.005
+
+
+def test_surface_watertight_across_cells(built, inv):
+    """Every edge used by only one triangle must lie on the footprint boundary, never on a cell cut."""
+    from collections import Counter
+    from shapely.geometry import Point
+    res = build_surfaces(inv, built["profiles"], cell_m=60.0)
+    edges = Counter()
+    for m in _top_meshes(res):
+        v = [tuple(np.round(p[:2], 3)) for p in m.vertices]
+        for t in m.triangles:
+            for i, j in ((0, 1), (1, 2), (2, 0)):
+                edges[tuple(sorted((v[t[i]], v[t[j]])))] += 1
+    boundary = [f.boundary for f in res.footprints.values()]
+    for (p, q), n in edges.items():
+        if n == 1:
+            mid = Point((p[0] + q[0]) / 2, (p[1] + q[1]) / 2)
+            assert min(b.distance(mid) for b in boundary) < 0.01, (p, q)
+
+
+def test_surface_heights_follow_profiles(built, inv):
+    res = build_surfaces(inv, built["profiles"])
+    deck_key = next(k for k in res.groups if k[0] == "deck")
+    hf = res.heights[deck_key]
+    assert abs(hf(S.X0 + 300, S.Y0) - 8.0) < 0.05          # deck crown, not the valley floor (~0 m)
+    ground = res.heights[("ground", 0)]
+    assert abs(ground(S.X0 + 300, S.Y0 + 0.0) - (0.0 + 0.05)) < 0.3   # Street D in the valley under the deck
 
 
 def test_clearance_check_catches_low_deck(inv):
     from nycroads.pipeline import compute_profiles, select_segments
     from nycroads.checks import run_checks
     from nycroads.elevation import DeckControl
-    low = {"XS-TEST": [DeckControl(*S.ll(300, -60), 3.0, "t"), DeckControl(*S.ll(300, 0), 3.0, "t"),
-                       DeckControl(*S.ll(300, 60), 3.0, "t")]}
+    low = {"XS-TEST": [DeckControl(*S.ll(300, y), 3.0, "t") for y in (-95, -60, 0, 60, 95)]}
     sel = select_segments(inv, ids=list(inv.segments))
     profiles, blockers = compute_profiles(inv, sel, S.dem(), S.vref(), low)
-    net = build_network(inv, profiles)
-    issues = run_checks(inv, profiles, net, {})
+    issues = run_checks(inv, profiles, build_surfaces(inv, profiles), {})
     assert any(i["type"] == "underpass_clearance" for v in issues.values() for i in v)
 
 

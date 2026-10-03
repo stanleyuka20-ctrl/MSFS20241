@@ -47,7 +47,7 @@ def test_major_deck_without_controls_is_blocked(inv):
 
 def test_deck_continues_approach_grade_no_kink(built, inv):
     from nycroads.checks import run_checks
-    from nycroads.meshgen import build_network
+    from nycroads.surface import build_surfaces
     from nycroads.profile import grade_out
     pr = built["profiles"]
     deck = next(iter(inv.bridge_decks.values()))
@@ -60,19 +60,32 @@ def test_deck_continues_approach_grade_no_kink(built, inv):
                 g_deck = grade_out(pr[sid].s, pr[sid].z_sim, at_start)
                 g_app = grade_out(pr[o.id].s, pr[o.id].z_sim, o.from_node == node)
                 assert abs(g_deck + g_app) < 0.03
-    issues = run_checks(inv, pr, build_network(inv, pr), {})
+    issues = run_checks(inv, pr, build_surfaces(inv, pr), {})
     assert not any(i["type"] == "joint_kink" for v in issues.values() for i in v)
 
 
-def test_kink_check_detects_unblended_deck(inv):
+def test_kink_check_detects_grade_break_at_joint(built, inv):
+    """Two ground segments meet at the same height but with a 6 % grade break -> joint_kink."""
+    import copy
     from nycroads.checks import run_checks
-    from nycroads.meshgen import build_network
-    from nycroads.pipeline import compute_profiles, select_segments
-    sel = select_segments(inv, ids=list(inv.segments))
-    pr, _ = compute_profiles(inv, sel, S.dem(), S.vref(), S.deck_controls())
+    from nycroads.surface import build_surfaces
+    pr = dict(built["profiles"])
+    conn = [j for j in inv.junctions.values() if j.kind == "connection"
+            and all(s in pr and not inv.segments[s].bridge for s in j.segment_ids)][0]
+    sid = conn.segment_ids[1]
+    p = copy.copy(pr[sid])
+    at_start = inv.segments[sid].from_node == conn.osm_node_id
+    dist = p.s if at_start else p.s[-1] - p.s
+    p.z_sim = p.z_sim + 0.06 * dist          # same height at the joint, 6 % steeper leaving it
+    pr[sid] = p
+    issues = run_checks(inv, pr, build_surfaces(inv, pr), {})
+    assert any(i["type"] == "joint_kink" for v in issues.values() for i in v)
+
+
+def test_inconsistent_controls_block_deck(inv):
+    from nycroads.elevation import DeckControl
     deck = next(iter(inv.bridge_decks.values()))
     node_h = junction_heights(inv, S.dem(), S.vref())
-    raw, _ = deck_profile(deck, inv, S.deck_controls()["XS-TEST"], node_h, approach_grade_out=None)
-    pr.update(raw)
-    issues = run_checks(inv, pr, build_network(inv, pr), {})
-    assert any(i["type"] == "joint_kink" for v in issues.values() for i in v)
+    ctl = S.deck_controls()["XS-TEST"] + [DeckControl(*S.ll(300, 10), 14.0, "overhead structure")]
+    profs, reason = deck_profile(deck, inv, ctl, node_h)
+    assert profs == {} and "inconsistent deck controls" in reason

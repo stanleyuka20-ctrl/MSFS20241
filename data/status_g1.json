@@ -1,0 +1,114 @@
+{
+ "objects": {
+  "SEG-2bb7307404": {
+   "build": {
+    "build_id": "B20261003T075829Z",
+    "generated": true,
+    "current": true,
+    "errors": [],
+    "warnings": []
+   },
+   "drives": [],
+   "blocked": null
+  },
+  "SEG-5e1ec45e22": {
+   "build": {
+    "build_id": "B20261003T075829Z",
+    "generated": true,
+    "current": true,
+    "errors": [],
+    "warnings": [
+     {
+      "type": "grade_change",
+      "station_m": 5.0,
+      "value": 0.0252,
+      "limit": 0.02
+     }
+    ]
+   },
+   "drives": [],
+   "blocked": null
+  },
+  "SEG-428ba0402c": {
+   "build": {
+    "build_id": "B20261003T075829Z",
+    "generated": true,
+    "current": true,
+    "errors": [],
+    "warnings": [
+     {
+      "type": "grade_change",
+      "station_m": 145.0,
+      "value": 0.02,
+      "limit": 0.02
+     },
+     {
+      "type": "grade_change",
+      "station_m": 199.9999999993015,
+      "value": 0.02,
+      "limit": 0.02
+     }
+    ]
+   },
+   "drives": [],
+   "blocked": null
+  },
+  "SEG-d95a6777cd": {
+   "build": {
+    "build_id": "B20261003T075829Z",
+    "generated": true,
+    "current": true,
+    "errors": [],
+    "warnings": []
+   },
+   "drives": [],
+   "blocked": null
+  },
+  "SEG-5745db4b01": {
+   "build": {
+    "build_id": "B20261003T075829Z",
+    "generated": true,
+    "current": true,
+    "errors": [],
+    "warnings": []
+   },
+   "drives": [],
+   "blocked": null
+  },
+  "SEG-e89ad91427": {
+   "build": {
+    "build_id": "B20261003T075829Z",
+    "generated": true,
+    "current": true,
+    "errors": [],
+    "warnings": []
+   },
+   "drives": [],
+   "blocked": null
+  },
+  "SEG-5a2eadf48a": {
+   "build": {
+    "build_id": "B20261003T075829Z",
+    "generated": true,
+    "current": true,
+    "errors": [],
+    "warnings": []
+   },
+   "drives": [],
+   "blocked": null
+  },
+  "SEG-1a474d4c6d": {
+   "build": {
+    "build_id": "B20261003T075829Z",
+    "generated": true,
+    "current": true,
+    "errors": [],
+    "warnings": []
+   },
+   "drives": [],
+   "blocked": null
+  }
+ },
+ "runs": [],
+ "updated_utc": "2026-10-03T07:58:30.015619+00:00"
+}

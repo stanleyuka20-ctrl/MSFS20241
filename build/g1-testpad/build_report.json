@@ -1,0 +1,114 @@
+{
+ "build_id": "B20261003T075829Z",
+ "package": "nycroads-g1-testpad",
+ "selected_segments": 8,
+ "generated_segments": 8,
+ "surface_groups": 2,
+ "blocked": {},
+ "segments_with_errors": [],
+ "issues": {
+  "SEG-428ba0402c": [
+   {
+    "type": "grade_change",
+    "station_m": 145.0,
+    "value": 0.02,
+    "limit": 0.02
+   },
+   {
+    "type": "grade_change",
+    "station_m": 199.9999999993015,
+    "value": 0.02,
+    "limit": 0.02
+   }
+  ],
+  "SEG-5e1ec45e22": [
+   {
+    "type": "grade_change",
+    "station_m": 5.0,
+    "value": 0.0252,
+    "limit": 0.02
+   }
+  ]
+ },
+ "tiles": {
+  "nycroads-g1-testpad-T18N-0593-4494": {
+   "triangles_visual": 1800,
+   "triangles_collision": 628,
+   "vertices": 7446,
+   "lat": 40.596022013857976,
+   "lon": -73.89497849978869,
+   "alt_m": 2.0
+  }
+ },
+ "vertical_reference": {
+  "method": "calibrated_offset",
+  "verified": false
+ },
+ "msfs_gltf_config_verified": false,
+ "start_locations": [
+  {
+   "id": "START-SEG-1a474d4c6d",
+   "segment": "SEG-1a474d4c6d",
+   "lat": 40.5929741,
+   "lon": -73.8940004,
+   "surface_alt_m": 3.93,
+   "heading_deg": 90.0,
+   "name": "Testpad Bridge"
+  },
+  {
+   "id": "START-SEG-2bb7307404",
+   "segment": "SEG-2bb7307404",
+   "lat": 40.5929967,
+   "lon": -73.8963636,
+   "surface_alt_m": 3.72,
+   "heading_deg": 90.0,
+   "name": "Testpad Main"
+  },
+  {
+   "id": "START-SEG-5745db4b01",
+   "segment": "SEG-5745db4b01",
+   "lat": 40.5929827,
+   "lon": -73.8921937,
+   "surface_alt_m": 3.92,
+   "heading_deg": 0.0,
+   "name": "Testpad Underpass"
+  },
+  {
+   "id": "START-SEG-5a2eadf48a",
+   "segment": "SEG-5a2eadf48a",
+   "lat": 40.5929832,
+   "lon": -73.8949457,
+   "surface_alt_m": 3.84,
+   "heading_deg": 90.0,
+   "name": "Testpad Main"
+  },
+  {
+   "id": "START-SEG-d95a6777cd",
+   "segment": "SEG-d95a6777cd",
+   "lat": 40.5935559,
+   "lon": -73.8956113,
+   "surface_alt_m": 3.8,
+   "heading_deg": 360.0,
+   "name": "Testpad Cross"
+  },
+  {
+   "id": "START-SEG-e89ad91427",
+   "segment": "SEG-e89ad91427",
+   "lat": 40.5924751,
+   "lon": -73.8956291,
+   "surface_alt_m": 3.69,
+   "heading_deg": 0.0,
+   "name": "Testpad Cross"
+  }
+ ],
+ "_generated": [
+  "SEG-1a474d4c6d",
+  "SEG-2bb7307404",
+  "SEG-428ba0402c",
+  "SEG-5745db4b01",
+  "SEG-5a2eadf48a",
+  "SEG-5e1ec45e22",
+  "SEG-d95a6777cd",
+  "SEG-e89ad91427"
+ ]
+}

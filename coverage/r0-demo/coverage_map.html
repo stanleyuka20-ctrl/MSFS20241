@@ -1,0 +1,26 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>NYC Drivable Roads coverage</title>
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+<style>html,body,#map{height:100%;margin:0}
+.legend{background:#fff;padding:8px 10px;font:13px sans-serif;line-height:1.5}
+.legend i{display:inline-block;width:18px;height:4px;margin-right:6px;vertical-align:middle}</style>
+</head><body><div id="map"></div><script>
+// Open via a local web server next to coverage.geojson:  python -m http.server
+const COLORS={inventoried:'#9e9e9e',generated:'#ff9800',geometry_verified:'#2196f3',
+              driven:'#8bc34a',verified:'#1b5e20',blocked:'#d32f2f'};
+const map=L.map('map').setView([40.72,-73.95],12);
+L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png',{maxZoom:19,
+  attribution:'&copy; OpenStreetMap contributors (ODbL)'}).addTo(map);
+fetch('coverage.geojson').then(r=>r.json()).then(g=>{
+  L.geoJSON(g,{style:f=>({color:COLORS[f.properties.status]||'#000',
+     weight:f.properties.scope==='in_scope'?3:1.5,dashArray:f.properties.tunnel?'4 4':null}),
+   onEachFeature:(f,l)=>l.bindPopup(`<b>${f.properties.id}</b><br>${f.properties.name||''}<br>`+
+     `${f.properties.highway} · ${f.properties.borough}<br>status: <b>${f.properties.status}</b>`)}).addTo(map);
+});
+const lg=L.control({position:'bottomright'});
+lg.onAdd=()=>{const d=L.DomUtil.create('div','legend');
+  d.innerHTML=Object.entries(COLORS).map(([k,c])=>`<i style="background:${c}"></i>${k}`).join('<br>');return d;};
+lg.addTo(map);
+</script></body></html>

@@ -10,6 +10,9 @@ provider's current terms when downloading.
 | Data | Source | Licence / terms (verify at download) | Use |
 |---|---|---|---|
 | Road centrelines, attributes (`highway`, `lanes`, `width`, `oneway`, `layer`, `bridge`, `tunnel`) | OpenStreetMap via Overpass API | **ODbL 1.0**, attribution "© OpenStreetMap contributors" | Inventory, alignments, connectivity |
+| **Used in R1:** OSM road network as published by Overture Maps (transportation theme, release 2026-09-23.1, S3) | `s3://overturemaps-us-west-2` | **ODbL 1.0** — © OpenStreetMap contributors; Overture Maps Foundation | Inventory (no `lanes`; fractional bridge/tunnel/level rules) |
+| **Used in R1:** USGS 3DEP 1 m DEM, project NY_CMPG_2013 (NAVD88 m, 2013–14) | `s3://prd-tnm` | Public domain | Fallback ground heights, junctions where lidar is absent |
+| **Used in R1:** USGS 3DEP EPT lidar `NY_NewYorkCity` (classes 1, 2, 17; NAVD88 m verified against the DEM) | `s3://usgs-lidar-public` | Public domain | Road-surface heights, deck controls |
 | Borough boundaries | OSM admin relations (ODbL) or NYC Open Data *Borough Boundaries* | ODbL / NYC Open Data terms of use | Project boundary |
 | Official street centreline (cross-check) | NYC Dept. of City Planning **LION** (NYC Open Data) | NYC Open Data terms | Validate alignments / names; optional |
 | Bare-earth DEM | NYC Open Data **1 ft DEM** (2017 lidar-derived; NY State Plane Long Island, US survey feet, NAVD88) or **USGS 3DEP 1 m DEM** (UTM, metres, NAVD88) | NYC Open Data terms / USGS public domain | Ground-road profiles |

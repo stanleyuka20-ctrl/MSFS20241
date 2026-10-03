@@ -1,9 +1,2331 @@
 {
-  "_about": "Bridge-deck elevation control points, keyed by crossing ID (XS-*) or deck ID (BRG-*). Heights are in the SIMULATOR height reference (see data/vertical_reference.json) at the road surface centreline. NEVER derive these from terrain/water heights under the deck. Acceptable sources, best first: (1) ASPRS class 17 'bridge deck' lidar returns (e.g. NYC 2017 topobathymetric lidar, USGS 3DEP point clouds), median of returns within 1 m of the centreline; (2) published engineering drawings / clearance data; (3) first-return DSM sampled on the centreline with outlier rejection. Record the source per point. Major crossings require >= 2 controls; more for long or cambered spans (every ~100 m and at towers).",
-  "_example": {
-    "controls": [
-      {"lon": -73.0, "lat": 40.0, "z_sim_m": 0.0, "source": "lidar-class17:<tile id>"}
-    ]
-  },
-  "XS-PULASKI": {"controls": [], "status": "TODO: extract from lidar (docs/03-demo-route.md#deck-elevation)"}
+ "_about": "Bridge-deck elevation control points, keyed by crossing ID (XS-*) or deck ID (BRG-*). Heights are in the SIMULATOR height reference (see data/vertical_reference.json) at the road surface centreline. NEVER derive these from terrain/water heights under the deck. Acceptable sources, best first: (1) ASPRS class 17 'bridge deck' lidar returns (e.g. NYC 2017 topobathymetric lidar, USGS 3DEP point clouds), median of returns within 1 m of the centreline; (2) published engineering drawings / clearance data; (3) first-return DSM sampled on the centreline with outlier rejection. Record the source per point. Major crossings require >= 2 controls; more for long or cambered spans (every ~100 m and at towers). Controls carry z_native_m (authoritative, in native_datum) and z_sim_m (derived at extraction time; builds re-derive it from z_native_m with the current data/vertical_reference.json). Keys are deck IDs (BRG-*) from the inventory; a crossing ID (XS-*) key applies to all its decks.",
+ "_example": {
+  "controls": [
+   {
+    "lon": -73.0,
+    "lat": 40.0,
+    "z_sim_m": 0.0,
+    "source": "lidar-class17:<tile id>"
+   }
+  ]
+ },
+ "BRG-e491520cfe": {
+  "name": "Pulaski Bridge",
+  "crossing_id": "XS-PULASKI",
+  "deck_length_m": 640.4,
+  "controls": [
+   {
+    "lon": -73.9516211,
+    "lat": 40.7423497,
+    "z_sim_m": 9.56,
+    "z_native_m": 9.56,
+    "native_datum": "NAVD88",
+    "source": "lidar-class17:usgs-lidar-public/NY_NewYorkCity",
+    "n_points": 15,
+    "radius_m": 1.0,
+    "spread_m": 0.066
+   },
+   {
+    "lon": -73.95167961,
+    "lat": 40.74217513,
+    "z_sim_m": 10.4,
+    "z_native_m": 10.4,
+    "native_datum": "NAVD88",
+    "source": "lidar-class17:usgs-lidar-public/NY_NewYorkCity",
+    "n_points": 8,
+    "radius_m": 1.0,
+    "spread_m": 0.095
+   },
+   {
+    "lon": -73.95173811,
+    "lat": 40.74200055,
+    "z_sim_m": 11.13,
+    "z_native_m": 11.13,
+    "native_datum": "NAVD88",
+    "source": "lidar-class17:usgs-lidar-public/NY_NewYorkCity",
+    "n_points": 9,
+    "radius_m": 1.0,
+    "spread_m": 0.06
+   },
+   {
+    "lon": -73.95179662,
+    "lat": 40.74182598,
+    "z_sim_m": 11.93,
+    "z_native_m": 11.93,
+    "native_datum": "NAVD88",
+    "source": "lidar-class17:usgs-lidar-public/NY_NewYorkCity",
+    "n_points": 14,
+    "radius_m": 1.0,
+    "spread_m": 0.088
+   },
+   {
+    "lon": -73.95185512,
+    "lat": 40.74165141,
+    "z_sim_m": 12.695,
+    "z_native_m": 12.695,
+    "native_datum": "NAVD88",
+    "source": "lidar-class17:usgs-lidar-public/NY_NewYorkCity",
+    "n_points": 8,
+    "radius_m": 1.0,
+    "spread_m": 0.095
+   },
+   {
+    "lon": -73.95191363,
+    "lat": 40.74147683,
+    "z_sim_m": 13.5,
+    "z_native_m": 13.5,
+    "native_datum": "NAVD88",
+    "source": "lidar-class17:usgs-lidar-public/NY_NewYorkCity",
+    "n_points": 9,
+    "radius_m": 1.0,
+    "spread_m": 0.042
+   },
+   {
+    "lon": -73.95197213,
+    "lat": 40.74130226,
+    "z_sim_m": 14.275,
+    "z_native_m": 14.275,
+    "native_datum": "NAVD88",
+    "source": "lidar-class17:usgs-lidar-public/NY_NewYorkCity",
+    "n_points": 12,
+    "radius_m": 1.0,
+    "spread_m": 0.058
+   },
+   {
+    "lon": -73.95203064,
+    "lat": 40.74112769,
+    "z_sim_m": 15.01,
+    "z_native_m": 15.01,
+    "native_datum": "NAVD88",
+    "source": "lidar-class17:usgs-lidar-public/NY_NewYorkCity",
+    "n_points": 11,
+    "radius_m": 1.0,
+    "spread_m": 0.07
+   },
+   {
+    "lon": -73.95208914,
+    "lat": 40.74095311,
+    "z_sim_m": 15.445,
+    "z_native_m": 15.445,
+    "native_datum": "NAVD88",
+    "source": "lidar-class17:usgs-lidar-public/NY_NewYorkCity",
+    "n_points": 6,
+    "radius_m": 1.0,
+    "spread_m": 0.04
+   },
+   {
+    "lon": -73.95214765,
+    "lat": 40.74077854,
+    "z_sim_m": 15.52,
+    "z_native_m": 15.52,
+    "native_datum": "NAVD88",
+    "source": "lidar-class17:usgs-lidar-public/NY_NewYorkCity",
+    "n_points": 10,
+    "radius_m": 1.0,
+    "spread_m": 0.062
+   },
+   {
+    "lon": -73.95220576,
+    "lat": 40.74060389,
+    "z_sim_m": 15.645,
+    "z_native_m": 15.645,
+    "native_datum": "NAVD88",
+    "source": "lidar-class17:usgs-lidar-public/NY_NewYorkCity",
+    "n_points": 10,
+    "radius_m": 1.0,
+    "spread_m": 0.066
+   },
+   {
+    "lon": -73.95226311,
+    "lat": 40.7404291,
+    "z_sim_m": 15.72,
+    "z_native_m": 15.72,
+    "native_datum": "NAVD88",
+    "source": "lidar-class17:usgs-lidar-public/NY_NewYorkCity",
+    "n_points": 13,
+    "radius_m": 1.0,
+    "spread_m": 0.094
+   },
+   {
+    "lon": -73.95232046,
+    "lat": 40.7402543,
+    "z_sim_m": 15.82,
+    "z_native_m": 15.82,
+    "native_datum": "NAVD88",
+    "source": "lidar-class17:usgs-lidar-public/NY_NewYorkCity",
+    "n_points": 15,
+    "radius_m": 1.0,
+    "spread_m": 0.068
+   },
+   {
+    "lon": -73.95237795,
+    "lat": 40.74007953,
+    "z_sim_m": 15.94,
+    "z_native_m": 15.94,
+    "native_datum": "NAVD88",
+    "source": "lidar-class17:usgs-lidar-public/NY_NewYorkCity",
+    "n_points": 16,
+    "radius_m": 1.0,
+    "spread_m": 0.085
+   },
+   {
+    "lon": -73.95243631,
+    "lat": 40.73990493,
+    "z_sim_m": 16.02,
+    "z_native_m": 16.02,
+    "native_datum": "NAVD88",
+    "source": "lidar-class17:usgs-lidar-public/NY_NewYorkCity",
+    "n_points": 16,
+    "radius_m": 1.0,
+    "spread_m": 0.065
+   },
+   {
+    "lon": -73.95249466,
+    "lat": 40.73973033,
+    "z_sim_m": 16.13,
+    "z_native_m": 16.13,
+    "native_datum": "NAVD88",
+    "source": "lidar-class17:usgs-lidar-public/NY_NewYorkCity",
+    "n_points": 15,
+    "radius_m": 1.0,
+    "spread_m": 0.084
+   },
+   {
+    "lon": -73.952553,
+    "lat": 40.73955572,
+    "z_sim_m": 16.265,
+    "z_native_m": 16.265,
+    "native_datum": "NAVD88",
+    "source": "lidar-class1-gapfill:usgs-lidar-public/NY_NewYorkCity",
+    "n_points": 26,
+    "radius_m": 1.0,
+    "spread_m": 0.115,
+    "gap_fill": {
+     "class": [
+      1
+     ],
+     "dev_from_class17_line_m": 0.138
+    }
+   },
+   {
+    "lon": -73.95261129,
+    "lat": 40.73938111,
+    "z_sim_m": 16.37,
+    "z_native_m": 16.37,
+    "native_datum": "NAVD88",
+    "source": "lidar-class1-gapfill:usgs-lidar-public/NY_NewYorkCity",
+    "n_points": 27,
+    "radius_m": 1.0,
+    "spread_m": 0.212,
+    "gap_fill": {
+     "class": [
+      1
+     ],
+     "dev_from_class17_line_m": 0.247
+    }
+   },
+   {
+    "lon": -73.95266949,
+    "lat": 40.73920648,
+    "z_sim_m": 16.415,
+    "z_native_m": 16.415,
+    "native_datum": "NAVD88",
+    "source": "lidar-class1-gapfill:usgs-lidar-public/NY_NewYorkCity",
+    "n_points": 26,
+    "radius_m": 1.0,
+    "spread_m": 0.11,
+    "gap_fill": {
+     "class": [
+      1
+     ],
+     "dev_from_class17_line_m": 0.295
+    }
+   },
+   {
+    "lon": -73.95272771,
+    "lat": 40.73903185,
+    "z_sim_m": 16.34,
+    "z_native_m": 16.34,
+    "native_datum": "NAVD88",
+    "source": "lidar-class1-gapfill:usgs-lidar-public/NY_NewYorkCity",
+    "n_points": 26,
+    "radius_m": 1.0,
+    "spread_m": 0.095,
+    "gap_fill": {
+     "class": [
+      1
+     ],
+     "dev_from_class17_line_m": 0.223
+    }
+   },
+   {
+    "lon": -73.95278637,
+    "lat": 40.7388573,
+    "z_sim_m": 16.3,
+    "z_native_m": 16.3,
+    "native_datum": "NAVD88",
+    "source": "lidar-class1-gapfill:usgs-lidar-public/NY_NewYorkCity",
+    "n_points": 27,
+    "radius_m": 1.0,
+    "spread_m": 0.112,
+    "gap_fill": {
+     "class": [
+      1
+     ],
+     "dev_from_class17_line_m": 0.187
+    }
+   },
+   {
+    "lon": -73.95284502,
+    "lat": 40.73868276,
+    "z_sim_m": 16.11,
+    "z_native_m": 16.11,
+    "native_datum": "NAVD88",
+    "source": "lidar-class17:usgs-lidar-public/NY_NewYorkCity",
+    "n_points": 7,
+    "radius_m": 1.0,
+    "spread_m": 0.076
+   },
+   {
+    "lon": -73.95290368,
+    "lat": 40.73850822,
+    "z_sim_m": 15.45,
+    "z_native_m": 15.45,
+    "native_datum": "NAVD88",
+    "source": "lidar-class17:usgs-lidar-public/NY_NewYorkCity",
+    "n_points": 8,
+    "radius_m": 1.0,
+    "spread_m": 0.061
+   },
+   {
+    "lon": -73.95296227,
+    "lat": 40.73833366,
+    "z_sim_m": 14.75,
+    "z_native_m": 14.75,
+    "native_datum": "NAVD88",
+    "source": "lidar-class17:usgs-lidar-public/NY_NewYorkCity",
+    "n_points": 9,
+    "radius_m": 1.0,
+    "spread_m": 0.066
+   },
+   {
+    "lon": -73.95301216,
+    "lat": 40.73815758,
+    "z_sim_m": 13.92,
+    "z_native_m": 13.92,
+    "native_datum": "NAVD88",
+    "source": "lidar-class17:usgs-lidar-public/NY_NewYorkCity",
+    "n_points": 17,
+    "radius_m": 1.0,
+    "spread_m": 0.168
+   },
+   {
+    "lon": -73.9530425,
+    "lat": 40.73797908,
+    "z_sim_m": 13.2,
+    "z_native_m": 13.2,
+    "native_datum": "NAVD88",
+    "source": "lidar-class17:usgs-lidar-public/NY_NewYorkCity",
+    "n_points": 16,
+    "radius_m": 1.0,
+    "spread_m": 0.075
+   },
+   {
+    "lon": -73.95304533,
+    "lat": 40.73779903,
+    "z_sim_m": 12.39,
+    "z_native_m": 12.39,
+    "native_datum": "NAVD88",
+    "source": "lidar-class17:usgs-lidar-public/NY_NewYorkCity",
+    "n_points": 15,
+    "radius_m": 1.0,
+    "spread_m": 0.068
+   },
+   {
+    "lon": -73.9530309,
+    "lat": 40.73761932,
+    "z_sim_m": 11.6,
+    "z_native_m": 11.6,
+    "native_datum": "NAVD88",
+    "source": "lidar-class17:usgs-lidar-public/NY_NewYorkCity",
+    "n_points": 20,
+    "radius_m": 1.0,
+    "spread_m": 0.111
+   },
+   {
+    "lon": -73.95300316,
+    "lat": 40.7374404,
+    "z_sim_m": 10.79,
+    "z_native_m": 10.79,
+    "native_datum": "NAVD88",
+    "source": "lidar-class17:usgs-lidar-public/NY_NewYorkCity",
+    "n_points": 17,
+    "radius_m": 1.0,
+    "spread_m": 0.074
+   },
+   {
+    "lon": -73.95297358,
+    "lat": 40.73726166,
+    "z_sim_m": 9.88,
+    "z_native_m": 9.88,
+    "native_datum": "NAVD88",
+    "source": "lidar-class17:usgs-lidar-public/NY_NewYorkCity",
+    "n_points": 17,
+    "radius_m": 1.0,
+    "spread_m": 0.094
+   },
+   {
+    "lon": -73.9529438,
+    "lat": 40.73708293,
+    "z_sim_m": 9.06,
+    "z_native_m": 9.06,
+    "native_datum": "NAVD88",
+    "source": "lidar-class17:usgs-lidar-public/NY_NewYorkCity",
+    "n_points": 21,
+    "radius_m": 1.0,
+    "spread_m": 0.08
+   },
+   {
+    "lon": -73.95291403,
+    "lat": 40.7369042,
+    "z_sim_m": 8.29,
+    "z_native_m": 8.29,
+    "native_datum": "NAVD88",
+    "source": "lidar-class17:usgs-lidar-public/NY_NewYorkCity",
+    "n_points": 29,
+    "radius_m": 1.0,
+    "spread_m": 0.074
+   },
+   {
+    "lon": -73.95288425,
+    "lat": 40.73672548,
+    "z_sim_m": 7.48,
+    "z_native_m": 7.48,
+    "native_datum": "NAVD88",
+    "source": "lidar-class17:usgs-lidar-public/NY_NewYorkCity",
+    "n_points": 19,
+    "radius_m": 1.0,
+    "spread_m": 0.166
+   }
+  ],
+  "status": "33 controls from lidar"
+ },
+ "BRG-f282f29383": {
+  "name": "Long Island Expressway",
+  "crossing_id": null,
+  "deck_length_m": 1677.5,
+  "controls": [
+   {
+    "lon": -73.93769277,
+    "lat": 40.73809364,
+    "z_sim_m": 16.08,
+    "z_native_m": 16.08,
+    "native_datum": "NAVD88",
+    "source": "lidar-class17:usgs-lidar-public/NY_NewYorkCity",
+    "n_points": 31,
+    "radius_m": 1.0,
+    "spread_m": 0.07
+   },
+   {
+    "lon": -73.93792125,
+    "lat": 40.73814105,
+    "z_sim_m": 16.86,
+    "z_native_m": 16.86,
+    "native_datum": "NAVD88",
+    "source": "lidar-class17:usgs-lidar-public/NY_NewYorkCity",
+    "n_points": 15,
+    "radius_m": 1.0,
+    "spread_m": 0.196
+   },
+   {
+    "lon": -73.93814834,
+    "lat": 40.73819222,
+    "z_sim_m": 17.785,
+    "z_native_m": 17.785,
+    "native_datum": "NAVD88",
+    "source": "lidar-class17:usgs-lidar-public/NY_NewYorkCity",
+    "n_points": 14,
+    "radius_m": 1.0,
+    "spread_m": 0.11
+   },
+   {
+    "lon": -73.93837462,
+    "lat": 40.73824544,
+    "z_sim_m": 18.615,
+    "z_native_m": 18.615,
+    "native_datum": "NAVD88",
+    "source": "lidar-class17:usgs-lidar-public/NY_NewYorkCity",
+    "n_points": 8,
+    "radius_m": 1.0,
+    "spread_m": 0.171
+   },
+   {
+    "lon": -73.93859821,
+    "lat": 40.73830481,
+    "z_sim_m": 19.53,
+    "z_native_m": 19.53,
+    "native_datum": "NAVD88",
+    "source": "lidar-class17:usgs-lidar-public/NY_NewYorkCity",
+    "n_points": 8,
+    "radius_m": 1.0,
+    "spread_m": 0.121
+   },
+   {
+    "lon": -73.93881983,
+    "lat": 40.73836837,
+    "z_sim_m": 20.31,
+    "z_native_m": 20.31,
+    "native_datum": "NAVD88",
+    "source": "lidar-class17:usgs-lidar-public/NY_NewYorkCity",
+    "n_points": 5,
+    "radius_m": 1.0,
+    "spread_m": 0.082
+   },
+   {
+    "lon": -73.93903933,
+    "lat": 40.73843604,
+    "z_sim_m": 21.23,
+    "z_native_m": 21.23,
+    "native_datum": "NAVD88",
+    "source": "lidar-class17:usgs-lidar-public/NY_NewYorkCity",
+    "n_points": 7,
+    "radius_m": 1.0,
+    "spread_m": 0.182
+   },
+   {
+    "lon": -73.939258,
+    "lat": 40.73850519,
+    "z_sim_m": 22.045,
+    "z_native_m": 22.045,
+    "native_datum": "NAVD88",
+    "source": "lidar-class17:usgs-lidar-public/NY_NewYorkCity",
+    "n_points": 8,
+    "radius_m": 1.0,
+    "spread_m": 0.139
+   },
+   {
+    "lon": -73.93947379,
+    "lat": 40.73857944,
+    "z_sim_m": 22.87,
+    "z_native_m": 22.87,
+    "native_datum": "NAVD88",
+    "source": "lidar-class17:usgs-lidar-public/NY_NewYorkCity",
+    "n_points": 7,
+    "radius_m": 1.0,
+    "spread_m": 0.1
+   },
+   {
+    "lon": -73.93968682,
+    "lat": 40.73865818,
+    "z_sim_m": 23.73,
+    "z_native_m": 23.73,
+    "native_datum": "NAVD88",
+    "source": "lidar-class17:usgs-lidar-public/NY_NewYorkCity",
+    "n_points": 8,
+    "radius_m": 1.0,
+    "spread_m": 0.129
+   },
+   {
+    "lon": -73.93989753,
+    "lat": 40.73874044,
+    "z_sim_m": 24.525,
+    "z_native_m": 24.525,
+    "native_datum": "NAVD88",
+    "source": "lidar-class17:usgs-lidar-public/NY_NewYorkCity",
+    "n_points": 6,
+    "radius_m": 1.0,
+    "spread_m": 0.165
+   },
+   {
+    "lon": -73.94010604,
+    "lat": 40.73882588,
+    "z_sim_m": 25.33,
+    "z_native_m": 25.33,
+    "native_datum": "NAVD88",
+    "source": "lidar-class17:usgs-lidar-public/NY_NewYorkCity",
+    "n_points": 31,
+    "radius_m": 1.0,
+    "spread_m": 0.12
+   },
+   {
+    "lon": -73.94031349,
+    "lat": 40.73891282,
+    "z_sim_m": 26.22,
+    "z_native_m": 26.22,
+    "native_datum": "NAVD88",
+    "source": "lidar-class17:usgs-lidar-public/NY_NewYorkCity",
+    "n_points": 21,
+    "radius_m": 1.0,
+    "spread_m": 0.13
+   },
+   {
+    "lon": -73.94052064,
+    "lat": 40.73900017,
+    "z_sim_m": 27.07,
+    "z_native_m": 27.07,
+    "native_datum": "NAVD88",
+    "source": "lidar-class17:usgs-lidar-public/NY_NewYorkCity",
+    "n_points": 18,
+    "radius_m": 1.0,
+    "spread_m": 0.105
+   },
+   {
+    "lon": -73.94072779,
+    "lat": 40.73908752,
+    "z_sim_m": 27.92,
+    "z_native_m": 27.92,
+    "native_datum": "NAVD88",
+    "source": "lidar-class17:usgs-lidar-public/NY_NewYorkCity",
+    "n_points": 16,
+    "radius_m": 1.0,
+    "spread_m": 0.125
+   },
+   {
+    "lon": -73.94093494,
+    "lat": 40.73917487,
+    "z_sim_m": 28.76,
+    "z_native_m": 28.76,
+    "native_datum": "NAVD88",
+    "source": "lidar-class17:usgs-lidar-public/NY_NewYorkCity",
+    "n_points": 13,
+    "radius_m": 1.0,
+    "spread_m": 0.128
+   },
+   {
+    "lon": -73.94114209,
+    "lat": 40.73926222,
+    "z_sim_m": 29.56,
+    "z_native_m": 29.56,
+    "native_datum": "NAVD88",
+    "source": "lidar-class17:usgs-lidar-public/NY_NewYorkCity",
+    "n_points": 13,
+    "radius_m": 1.0,
+    "spread_m": 0.074
+   },
+   {
+    "lon": -73.94134924,
+    "lat": 40.73934957,
+    "z_sim_m": 30.4,
+    "z_native_m": 30.4,
+    "native_datum": "NAVD88",
+    "source": "lidar-class1-gapfill:usgs-lidar-public/NY_NewYorkCity",
+    "n_points": 19,
+    "radius_m": 1.0,
+    "spread_m": 0.152,
+    "gap_fill": {
+     "class": [
+      1
+     ],
+     "dev_from_class17_line_m": 0.7
+    }
+   },
+   {
+    "lon": -73.9419707,
+    "lat": 40.73961161,
+    "z_sim_m": 31.01,
+    "z_native_m": 31.01,
+    "native_datum": "NAVD88",
+    "source": "lidar-class1-gapfill:usgs-lidar-public/NY_NewYorkCity",
+    "n_points": 17,
+    "radius_m": 1.0,
+    "spread_m": 0.116,
+    "gap_fill": {
+     "class": [
+      1
+     ],
+     "dev_from_class17_line_m": 0.89
+    }
+   },
+   {
+    "lon": -73.94217785,
+    "lat": 40.73969896,
+    "z_sim_m": 30.26,
+    "z_native_m": 30.26,
+    "native_datum": "NAVD88",
+    "source": "lidar-class17:usgs-lidar-public/NY_NewYorkCity",
+    "n_points": 13,
+    "radius_m": 1.0,
+    "spread_m": 0.112
+   },
+   {
+    "lon": -73.94238501,
+    "lat": 40.7397863,
+    "z_sim_m": 29.45,
+    "z_native_m": 29.45,
+    "native_datum": "NAVD88",
+    "source": "lidar-class17:usgs-lidar-public/NY_NewYorkCity",
+    "n_points": 15,
+    "radius_m": 1.0,
+    "spread_m": 0.136
+   },
+   {
+    "lon": -73.94259216,
+    "lat": 40.73987365,
+    "z_sim_m": 28.645,
+    "z_native_m": 28.645,
+    "native_datum": "NAVD88",
+    "source": "lidar-class17:usgs-lidar-public/NY_NewYorkCity",
+    "n_points": 10,
+    "radius_m": 1.0,
+    "spread_m": 0.084
+   },
+   {
+    "lon": -73.94279932,
+    "lat": 40.73996099,
+    "z_sim_m": 27.8,
+    "z_native_m": 27.8,
+    "native_datum": "NAVD88",
+    "source": "lidar-class17:usgs-lidar-public/NY_NewYorkCity",
+    "n_points": 13,
+    "radius_m": 1.0,
+    "spread_m": 0.076
+   },
+   {
+    "lon": -73.94300647,
+    "lat": 40.74004834,
+    "z_sim_m": 27.03,
+    "z_native_m": 27.03,
+    "native_datum": "NAVD88",
+    "source": "lidar-class17:usgs-lidar-public/NY_NewYorkCity",
+    "n_points": 13,
+    "radius_m": 1.0,
+    "spread_m": 0.072
+   },
+   {
+    "lon": -73.94321363,
+    "lat": 40.74013569,
+    "z_sim_m": 26.21,
+    "z_native_m": 26.21,
+    "native_datum": "NAVD88",
+    "source": "lidar-class17:usgs-lidar-public/NY_NewYorkCity",
+    "n_points": 9,
+    "radius_m": 1.0,
+    "spread_m": 0.072
+   },
+   {
+    "lon": -73.94342078,
+    "lat": 40.74022303,
+    "z_sim_m": 25.39,
+    "z_native_m": 25.39,
+    "native_datum": "NAVD88",
+    "source": "lidar-class17:usgs-lidar-public/NY_NewYorkCity",
+    "n_points": 18,
+    "radius_m": 1.0,
+    "spread_m": 0.069
+   },
+   {
+    "lon": -73.94362794,
+    "lat": 40.74031037,
+    "z_sim_m": 24.6,
+    "z_native_m": 24.6,
+    "native_datum": "NAVD88",
+    "source": "lidar-class17:usgs-lidar-public/NY_NewYorkCity",
+    "n_points": 17,
+    "radius_m": 1.0,
+    "spread_m": 0.11
+   },
+   {
+    "lon": -73.94383512,
+    "lat": 40.74039769,
+    "z_sim_m": 23.82,
+    "z_native_m": 23.82,
+    "native_datum": "NAVD88",
+    "source": "lidar-class17:usgs-lidar-public/NY_NewYorkCity",
+    "n_points": 54,
+    "radius_m": 1.0,
+    "spread_m": 0.097
+   },
+   {
+    "lon": -73.94404446,
+    "lat": 40.74048193,
+    "z_sim_m": 23.145,
+    "z_native_m": 23.145,
+    "native_datum": "NAVD88",
+    "source": "lidar-class17:usgs-lidar-public/NY_NewYorkCity",
+    "n_points": 8,
+    "radius_m": 1.0,
+    "spread_m": 0.091
+   },
+   {
+    "lon": -73.94425735,
+    "lat": 40.74056089,
+    "z_sim_m": 22.48,
+    "z_native_m": 22.48,
+    "native_datum": "NAVD88",
+    "source": "lidar-class17:usgs-lidar-public/NY_NewYorkCity",
+    "n_points": 7,
+    "radius_m": 1.0,
+    "spread_m": 0.07
+   },
+   {
+    "lon": -73.94447229,
+    "lat": 40.74063656,
+    "z_sim_m": 21.87,
+    "z_native_m": 21.87,
+    "native_datum": "NAVD88",
+    "source": "lidar-class17:usgs-lidar-public/NY_NewYorkCity",
+    "n_points": 7,
+    "radius_m": 1.0,
+    "spread_m": 0.096
+   },
+   {
+    "lon": -73.94468997,
+    "lat": 40.74070755,
+    "z_sim_m": 21.27,
+    "z_native_m": 21.27,
+    "native_datum": "NAVD88",
+    "source": "lidar-class17:usgs-lidar-public/NY_NewYorkCity",
+    "n_points": 7,
+    "radius_m": 1.0,
+    "spread_m": 0.102
+   },
+   {
+    "lon": -73.94491057,
+    "lat": 40.74077313,
+    "z_sim_m": 20.7,
+    "z_native_m": 20.7,
+    "native_datum": "NAVD88",
+    "source": "lidar-class17:usgs-lidar-public/NY_NewYorkCity",
+    "n_points": 5,
+    "radius_m": 1.0,
+    "spread_m": 0.068
+   },
+   {
+    "lon": -73.94513346,
+    "lat": 40.74083405,
+    "z_sim_m": 20.1,
+    "z_native_m": 20.1,
+    "native_datum": "NAVD88",
+    "source": "lidar-class17:usgs-lidar-public/NY_NewYorkCity",
+    "n_points": 7,
+    "radius_m": 1.0,
+    "spread_m": 0.108
+   },
+   {
+    "lon": -73.94535929,
+    "lat": 40.74088835,
+    "z_sim_m": 19.465,
+    "z_native_m": 19.465,
+    "native_datum": "NAVD88",
+    "source": "lidar-class17:usgs-lidar-public/NY_NewYorkCity",
+    "n_points": 6,
+    "radius_m": 1.0,
+    "spread_m": 0.13
+   },
+   {
+    "lon": -73.94558677,
+    "lat": 40.74093851,
+    "z_sim_m": 18.875,
+    "z_native_m": 18.875,
+    "native_datum": "NAVD88",
+    "source": "lidar-class17:usgs-lidar-public/NY_NewYorkCity",
+    "n_points": 8,
+    "radius_m": 1.0,
+    "spread_m": 0.055
+   },
+   {
+    "lon": -73.94581522,
+    "lat": 40.74098607,
+    "z_sim_m": 18.26,
+    "z_native_m": 18.26,
+    "native_datum": "NAVD88",
+    "source": "lidar-class1-gapfill:usgs-lidar-public/NY_NewYorkCity",
+    "n_points": 13,
+    "radius_m": 1.0,
+    "spread_m": 0.112,
+    "gap_fill": {
+     "class": [
+      1
+     ],
+     "dev_from_class17_line_m": -0.226
+    }
+   },
+   {
+    "lon": -73.9460446,
+    "lat": 40.74103101,
+    "z_sim_m": 17.64,
+    "z_native_m": 17.64,
+    "native_datum": "NAVD88",
+    "source": "lidar-class1-gapfill:usgs-lidar-public/NY_NewYorkCity",
+    "n_points": 11,
+    "radius_m": 1.0,
+    "spread_m": 0.1,
+    "gap_fill": {
+     "class": [
+      1
+     ],
+     "dev_from_class17_line_m": -0.457
+    }
+   },
+   {
+    "lon": -73.94627397,
+    "lat": 40.74107595,
+    "z_sim_m": 16.99,
+    "z_native_m": 16.99,
+    "native_datum": "NAVD88",
+    "source": "lidar-class1-gapfill:usgs-lidar-public/NY_NewYorkCity",
+    "n_points": 6,
+    "radius_m": 1.0,
+    "spread_m": 0.065,
+    "gap_fill": {
+     "class": [
+      1
+     ],
+     "dev_from_class17_line_m": -0.718
+    }
+   },
+   {
+    "lon": -73.94650334,
+    "lat": 40.74112089,
+    "z_sim_m": 16.43,
+    "z_native_m": 16.43,
+    "native_datum": "NAVD88",
+    "source": "lidar-class1-gapfill:usgs-lidar-public/NY_NewYorkCity",
+    "n_points": 5,
+    "radius_m": 1.0,
+    "spread_m": 0.078,
+    "gap_fill": {
+     "class": [
+      1
+     ],
+     "dev_from_class17_line_m": -0.889
+    }
+   },
+   {
+    "lon": -73.94673272,
+    "lat": 40.74116582,
+    "z_sim_m": 16.02,
+    "z_native_m": 16.02,
+    "native_datum": "NAVD88",
+    "source": "lidar-class1-gapfill:usgs-lidar-public/NY_NewYorkCity",
+    "n_points": 9,
+    "radius_m": 1.0,
+    "spread_m": 0.068,
+    "gap_fill": {
+     "class": [
+      1
+     ],
+     "dev_from_class17_line_m": -0.91
+    }
+   },
+   {
+    "lon": -73.94696209,
+    "lat": 40.74121076,
+    "z_sim_m": 15.61,
+    "z_native_m": 15.61,
+    "native_datum": "NAVD88",
+    "source": "lidar-class1-gapfill:usgs-lidar-public/NY_NewYorkCity",
+    "n_points": 8,
+    "radius_m": 1.0,
+    "spread_m": 0.129,
+    "gap_fill": {
+     "class": [
+      1
+     ],
+     "dev_from_class17_line_m": -0.931
+    }
+   },
+   {
+    "lon": -73.94719146,
+    "lat": 40.7412557,
+    "z_sim_m": 15.275,
+    "z_native_m": 15.275,
+    "native_datum": "NAVD88",
+    "source": "lidar-class1-gapfill:usgs-lidar-public/NY_NewYorkCity",
+    "n_points": 8,
+    "radius_m": 1.0,
+    "spread_m": 0.076,
+    "gap_fill": {
+     "class": [
+      1
+     ],
+     "dev_from_class17_line_m": -0.877
+    }
+   },
+   {
+    "lon": -73.94742084,
+    "lat": 40.74130064,
+    "z_sim_m": 14.95,
+    "z_native_m": 14.95,
+    "native_datum": "NAVD88",
+    "source": "lidar-class1-gapfill:usgs-lidar-public/NY_NewYorkCity",
+    "n_points": 7,
+    "radius_m": 1.0,
+    "spread_m": 0.1,
+    "gap_fill": {
+     "class": [
+      1
+     ],
+     "dev_from_class17_line_m": -0.813
+    }
+   },
+   {
+    "lon": -73.94765021,
+    "lat": 40.74134557,
+    "z_sim_m": 14.75,
+    "z_native_m": 14.75,
+    "native_datum": "NAVD88",
+    "source": "lidar-class1-gapfill:usgs-lidar-public/NY_NewYorkCity",
+    "n_points": 6,
+    "radius_m": 1.0,
+    "spread_m": 0.1,
+    "gap_fill": {
+     "class": [
+      1
+     ],
+     "dev_from_class17_line_m": -0.624
+    }
+   },
+   {
+    "lon": -73.94787959,
+    "lat": 40.74139051,
+    "z_sim_m": 14.49,
+    "z_native_m": 14.49,
+    "native_datum": "NAVD88",
+    "source": "lidar-class1-gapfill:usgs-lidar-public/NY_NewYorkCity",
+    "n_points": 6,
+    "radius_m": 1.0,
+    "spread_m": 0.095,
+    "gap_fill": {
+     "class": [
+      1
+     ],
+     "dev_from_class17_line_m": -0.495
+    }
+   },
+   {
+    "lon": -73.94833834,
+    "lat": 40.74148038,
+    "z_sim_m": 13.95,
+    "z_native_m": 13.95,
+    "native_datum": "NAVD88",
+    "source": "lidar-class1-gapfill:usgs-lidar-public/NY_NewYorkCity",
+    "n_points": 9,
+    "radius_m": 1.0,
+    "spread_m": 0.152,
+    "gap_fill": {
+     "class": [
+      1
+     ],
+     "dev_from_class17_line_m": -0.257
+    }
+   },
+   {
+    "lon": -73.94856771,
+    "lat": 40.74152531,
+    "z_sim_m": 13.74,
+    "z_native_m": 13.74,
+    "native_datum": "NAVD88",
+    "source": "lidar-class1-gapfill:usgs-lidar-public/NY_NewYorkCity",
+    "n_points": 7,
+    "radius_m": 1.0,
+    "spread_m": 0.13,
+    "gap_fill": {
+     "class": [
+      1
+     ],
+     "dev_from_class17_line_m": -0.078
+    }
+   },
+   {
+    "lon": -73.94879709,
+    "lat": 40.74157025,
+    "z_sim_m": 13.445,
+    "z_native_m": 13.445,
+    "native_datum": "NAVD88",
+    "source": "lidar-class1-gapfill:usgs-lidar-public/NY_NewYorkCity",
+    "n_points": 8,
+    "radius_m": 1.0,
+    "spread_m": 0.19,
+    "gap_fill": {
+     "class": [
+      1
+     ],
+     "dev_from_class17_line_m": 0.016
+    }
+   },
+   {
+    "lon": -73.94902708,
+    "lat": 40.74161327,
+    "z_sim_m": 13.04,
+    "z_native_m": 13.04,
+    "native_datum": "NAVD88",
+    "source": "lidar-class17:usgs-lidar-public/NY_NewYorkCity",
+    "n_points": 28,
+    "radius_m": 1.0,
+    "spread_m": 0.086
+   },
+   {
+    "lon": -73.94925831,
+    "lat": 40.74165227,
+    "z_sim_m": 12.56,
+    "z_native_m": 12.56,
+    "native_datum": "NAVD88",
+    "source": "lidar-class17:usgs-lidar-public/NY_NewYorkCity",
+    "n_points": 11,
+    "radius_m": 1.0,
+    "spread_m": 0.07
+   },
+   {
+    "lon": -73.94949151,
+    "lat": 40.7416838,
+    "z_sim_m": 11.92,
+    "z_native_m": 11.92,
+    "native_datum": "NAVD88",
+    "source": "lidar-class17:usgs-lidar-public/NY_NewYorkCity",
+    "n_points": 5,
+    "radius_m": 1.0,
+    "spread_m": 0.03
+   },
+   {
+    "lon": -73.94972665,
+    "lat": 40.74170471,
+    "z_sim_m": 11.155,
+    "z_native_m": 11.155,
+    "native_datum": "NAVD88",
+    "source": "lidar-class17:usgs-lidar-public/NY_NewYorkCity",
+    "n_points": 18,
+    "radius_m": 1.0,
+    "spread_m": 0.096
+   },
+   {
+    "lon": -73.94996327,
+    "lat": 40.74171167,
+    "z_sim_m": 10.35,
+    "z_native_m": 10.35,
+    "native_datum": "NAVD88",
+    "source": "lidar-class17:usgs-lidar-public/NY_NewYorkCity",
+    "n_points": 15,
+    "radius_m": 1.0,
+    "spread_m": 0.116
+   },
+   {
+    "lon": -73.95020009,
+    "lat": 40.74170905,
+    "z_sim_m": 9.55,
+    "z_native_m": 9.55,
+    "native_datum": "NAVD88",
+    "source": "lidar-class17:usgs-lidar-public/NY_NewYorkCity",
+    "n_points": 11,
+    "radius_m": 1.0,
+    "spread_m": 0.07
+   }
+  ],
+  "status": "55 controls from lidar"
+ },
+ "BRG-fefcd9a9f2": {
+  "name": "49th Avenue",
+  "crossing_id": null,
+  "deck_length_m": 99.8,
+  "controls": [
+   {
+    "lon": -73.9480489,
+    "lat": 40.7423076,
+    "z_sim_m": 10.48,
+    "z_native_m": 10.48,
+    "native_datum": "NAVD88",
+    "source": "lidar-class17:usgs-lidar-public/NY_NewYorkCity",
+    "n_points": 11,
+    "radius_m": 2.5,
+    "spread_m": 0.16
+   },
+   {
+    "lon": -73.94781957,
+    "lat": 40.74226251,
+    "z_sim_m": 10.545,
+    "z_native_m": 10.545,
+    "native_datum": "NAVD88",
+    "source": "lidar-class17:usgs-lidar-public/NY_NewYorkCity",
+    "n_points": 6,
+    "radius_m": 2.5,
+    "spread_m": 0.09
+   },
+   {
+    "lon": -73.94759025,
+    "lat": 40.74221743,
+    "z_sim_m": 10.425,
+    "z_native_m": 10.425,
+    "native_datum": "NAVD88",
+    "source": "lidar-class17:usgs-lidar-public/NY_NewYorkCity",
+    "n_points": 10,
+    "radius_m": 2.5,
+    "spread_m": 0.072
+   },
+   {
+    "lon": -73.94736091,
+    "lat": 40.74217237,
+    "z_sim_m": 10.36,
+    "z_native_m": 10.36,
+    "native_datum": "NAVD88",
+    "source": "lidar-class17:usgs-lidar-public/NY_NewYorkCity",
+    "n_points": 9,
+    "radius_m": 2.5,
+    "spread_m": 0.14
+   },
+   {
+    "lon": -73.94713137,
+    "lat": 40.74212793,
+    "z_sim_m": 10.15,
+    "z_native_m": 10.15,
+    "native_datum": "NAVD88",
+    "source": "lidar-class17:usgs-lidar-public/NY_NewYorkCity",
+    "n_points": 6,
+    "radius_m": 2.5,
+    "spread_m": 0.105
+   }
+  ],
+  "status": "5 controls from lidar"
+ },
+ "BRG-e892c093f6": {
+  "name": "21st Street",
+  "crossing_id": null,
+  "deck_length_m": 80.1,
+  "controls": [
+   {
+    "lon": -73.94898312,
+    "lat": 40.74325233,
+    "z_sim_m": 8.64,
+    "z_native_m": 8.64,
+    "native_datum": "NAVD88",
+    "source": "lidar-class17:usgs-lidar-public/NY_NewYorkCity",
+    "n_points": 6,
+    "radius_m": 1.0,
+    "spread_m": 0.03
+   },
+   {
+    "lon": -73.94904213,
+    "lat": 40.74307785,
+    "z_sim_m": 8.825,
+    "z_native_m": 8.825,
+    "native_datum": "NAVD88",
+    "source": "lidar-class17:usgs-lidar-public/NY_NewYorkCity",
+    "n_points": 6,
+    "radius_m": 1.0,
+    "spread_m": 0.065
+   },
+   {
+    "lon": -73.94910113,
+    "lat": 40.74290337,
+    "z_sim_m": 8.6,
+    "z_native_m": 8.6,
+    "native_datum": "NAVD88",
+    "source": "lidar-class17:usgs-lidar-public/NY_NewYorkCity",
+    "n_points": 8,
+    "radius_m": 1.0,
+    "spread_m": 0.068
+   },
+   {
+    "lon": -73.94916013,
+    "lat": 40.7427289,
+    "z_sim_m": 8.16,
+    "z_native_m": 8.16,
+    "native_datum": "NAVD88",
+    "source": "lidar-class17:usgs-lidar-public/NY_NewYorkCity",
+    "n_points": 9,
+    "radius_m": 1.0,
+    "spread_m": 0.094
+   }
+  ],
+  "status": "4 controls from lidar"
+ },
+ "BRG-b1bf00eab9": {
+  "name": "Pulaski Bridge",
+  "crossing_id": "XS-PULASKI",
+  "deck_length_m": 636.6,
+  "controls": [
+   {
+    "lon": -73.9527648,
+    "lat": 40.7367336,
+    "z_sim_m": 7.42,
+    "z_native_m": 7.42,
+    "native_datum": "NAVD88",
+    "source": "lidar-class17:usgs-lidar-public/NY_NewYorkCity",
+    "n_points": 36,
+    "radius_m": 1.0,
+    "spread_m": 0.16
+   },
+   {
+    "lon": -73.9527942,
+    "lat": 40.73691236,
+    "z_sim_m": 8.27,
+    "z_native_m": 8.27,
+    "native_datum": "NAVD88",
+    "source": "lidar-class17:usgs-lidar-public/NY_NewYorkCity",
+    "n_points": 19,
+    "radius_m": 1.0,
+    "spread_m": 0.118
+   },
+   {
+    "lon": -73.9528236,
+    "lat": 40.73709112,
+    "z_sim_m": 9.03,
+    "z_native_m": 9.03,
+    "native_datum": "NAVD88",
+    "source": "lidar-class17:usgs-lidar-public/NY_NewYorkCity",
+    "n_points": 19,
+    "radius_m": 1.0,
+    "spread_m": 0.142
+   },
+   {
+    "lon": -73.95285301,
+    "lat": 40.73726989,
+    "z_sim_m": 9.78,
+    "z_native_m": 9.78,
+    "native_datum": "NAVD88",
+    "source": "lidar-class17:usgs-lidar-public/NY_NewYorkCity",
+    "n_points": 14,
+    "radius_m": 1.0,
+    "spread_m": 0.047
+   },
+   {
+    "lon": -73.95288241,
+    "lat": 40.73744865,
+    "z_sim_m": 10.57,
+    "z_native_m": 10.57,
+    "native_datum": "NAVD88",
+    "source": "lidar-class17:usgs-lidar-public/NY_NewYorkCity",
+    "n_points": 11,
+    "radius_m": 1.0,
+    "spread_m": 0.07
+   },
+   {
+    "lon": -73.95291181,
+    "lat": 40.73762741,
+    "z_sim_m": 11.3,
+    "z_native_m": 11.3,
+    "native_datum": "NAVD88",
+    "source": "lidar-class17:usgs-lidar-public/NY_NewYorkCity",
+    "n_points": 19,
+    "radius_m": 1.0,
+    "spread_m": 0.104
+   },
+   {
+    "lon": -73.9529278,
+    "lat": 40.73780705,
+    "z_sim_m": 12.12,
+    "z_native_m": 12.12,
+    "native_datum": "NAVD88",
+    "source": "lidar-class17:usgs-lidar-public/NY_NewYorkCity",
+    "n_points": 15,
+    "radius_m": 1.0,
+    "spread_m": 0.102
+   },
+   {
+    "lon": -73.9529217,
+    "lat": 40.73798702,
+    "z_sim_m": 12.93,
+    "z_native_m": 12.93,
+    "native_datum": "NAVD88",
+    "source": "lidar-class17:usgs-lidar-public/NY_NewYorkCity",
+    "n_points": 15,
+    "radius_m": 1.0,
+    "spread_m": 0.114
+   },
+   {
+    "lon": -73.95288766,
+    "lat": 40.73816518,
+    "z_sim_m": 13.75,
+    "z_native_m": 13.75,
+    "native_datum": "NAVD88",
+    "source": "lidar-class17:usgs-lidar-public/NY_NewYorkCity",
+    "n_points": 7,
+    "radius_m": 1.0,
+    "spread_m": 0.154
+   },
+   {
+    "lon": -73.95283788,
+    "lat": 40.73834126,
+    "z_sim_m": 14.61,
+    "z_native_m": 14.61,
+    "native_datum": "NAVD88",
+    "source": "lidar-class17:usgs-lidar-public/NY_NewYorkCity",
+    "n_points": 17,
+    "radius_m": 1.0,
+    "spread_m": 0.13
+   },
+   {
+    "lon": -73.95277942,
+    "lat": 40.73851584,
+    "z_sim_m": 15.495,
+    "z_native_m": 15.495,
+    "native_datum": "NAVD88",
+    "source": "lidar-class17:usgs-lidar-public/NY_NewYorkCity",
+    "n_points": 14,
+    "radius_m": 1.0,
+    "spread_m": 0.081
+   },
+   {
+    "lon": -73.95272098,
+    "lat": 40.73869043,
+    "z_sim_m": 16.11,
+    "z_native_m": 16.11,
+    "native_datum": "NAVD88",
+    "source": "lidar-class17:usgs-lidar-public/NY_NewYorkCity",
+    "n_points": 10,
+    "radius_m": 1.0,
+    "spread_m": 0.095
+   },
+   {
+    "lon": -73.95266254,
+    "lat": 40.73886501,
+    "z_sim_m": 16.28,
+    "z_native_m": 16.28,
+    "native_datum": "NAVD88",
+    "source": "lidar-class1-gapfill:usgs-lidar-public/NY_NewYorkCity",
+    "n_points": 28,
+    "radius_m": 1.0,
+    "spread_m": 0.073,
+    "gap_fill": {
+     "class": [
+      1
+     ],
+     "dev_from_class17_line_m": 0.17
+    }
+   },
+   {
+    "lon": -73.95260404,
+    "lat": 40.73903959,
+    "z_sim_m": 16.41,
+    "z_native_m": 16.41,
+    "native_datum": "NAVD88",
+    "source": "lidar-class1-gapfill:usgs-lidar-public/NY_NewYorkCity",
+    "n_points": 27,
+    "radius_m": 1.0,
+    "spread_m": 0.198,
+    "gap_fill": {
+     "class": [
+      1
+     ],
+     "dev_from_class17_line_m": 0.3
+    }
+   },
+   {
+    "lon": -73.95254505,
+    "lat": 40.73921407,
+    "z_sim_m": 16.39,
+    "z_native_m": 16.39,
+    "native_datum": "NAVD88",
+    "source": "lidar-class1-gapfill:usgs-lidar-public/NY_NewYorkCity",
+    "n_points": 27,
+    "radius_m": 1.0,
+    "spread_m": 0.114,
+    "gap_fill": {
+     "class": [
+      1
+     ],
+     "dev_from_class17_line_m": 0.28
+    }
+   },
+   {
+    "lon": -73.95248605,
+    "lat": 40.73938854,
+    "z_sim_m": 16.37,
+    "z_native_m": 16.37,
+    "native_datum": "NAVD88",
+    "source": "lidar-class1-gapfill:usgs-lidar-public/NY_NewYorkCity",
+    "n_points": 25,
+    "radius_m": 1.0,
+    "spread_m": 0.13,
+    "gap_fill": {
+     "class": [
+      1
+     ],
+     "dev_from_class17_line_m": 0.26
+    }
+   },
+   {
+    "lon": -73.95242869,
+    "lat": 40.73956334,
+    "z_sim_m": 16.205,
+    "z_native_m": 16.205,
+    "native_datum": "NAVD88",
+    "source": "lidar-class1-gapfill:usgs-lidar-public/NY_NewYorkCity",
+    "n_points": 28,
+    "radius_m": 1.0,
+    "spread_m": 0.093,
+    "gap_fill": {
+     "class": [
+      1
+     ],
+     "dev_from_class17_line_m": 0.095
+    }
+   },
+   {
+    "lon": -73.95237173,
+    "lat": 40.7397382,
+    "z_sim_m": 16.11,
+    "z_native_m": 16.11,
+    "native_datum": "NAVD88",
+    "source": "lidar-class17:usgs-lidar-public/NY_NewYorkCity",
+    "n_points": 11,
+    "radius_m": 1.0,
+    "spread_m": 0.08
+   },
+   {
+    "lon": -73.95231478,
+    "lat": 40.73991307,
+    "z_sim_m": 16.025,
+    "z_native_m": 16.025,
+    "native_datum": "NAVD88",
+    "source": "lidar-class17:usgs-lidar-public/NY_NewYorkCity",
+    "n_points": 14,
+    "radius_m": 1.0,
+    "spread_m": 0.111
+   },
+   {
+    "lon": -73.95225785,
+    "lat": 40.74008795,
+    "z_sim_m": 15.93,
+    "z_native_m": 15.93,
+    "native_datum": "NAVD88",
+    "source": "lidar-class17:usgs-lidar-public/NY_NewYorkCity",
+    "n_points": 16,
+    "radius_m": 1.0,
+    "spread_m": 0.105
+   },
+   {
+    "lon": -73.95219993,
+    "lat": 40.74026263,
+    "z_sim_m": 15.82,
+    "z_native_m": 15.82,
+    "native_datum": "NAVD88",
+    "source": "lidar-class17:usgs-lidar-public/NY_NewYorkCity",
+    "n_points": 20,
+    "radius_m": 1.0,
+    "spread_m": 0.083
+   },
+   {
+    "lon": -73.952142,
+    "lat": 40.74043732,
+    "z_sim_m": 15.73,
+    "z_native_m": 15.73,
+    "native_datum": "NAVD88",
+    "source": "lidar-class17:usgs-lidar-public/NY_NewYorkCity",
+    "n_points": 15,
+    "radius_m": 1.0,
+    "spread_m": 0.062
+   },
+   {
+    "lon": -73.95208408,
+    "lat": 40.740612,
+    "z_sim_m": 15.62,
+    "z_native_m": 15.62,
+    "native_datum": "NAVD88",
+    "source": "lidar-class17:usgs-lidar-public/NY_NewYorkCity",
+    "n_points": 14,
+    "radius_m": 1.0,
+    "spread_m": 0.087
+   },
+   {
+    "lon": -73.95202466,
+    "lat": 40.7407864,
+    "z_sim_m": 15.52,
+    "z_native_m": 15.52,
+    "native_datum": "NAVD88",
+    "source": "lidar-class17:usgs-lidar-public/NY_NewYorkCity",
+    "n_points": 14,
+    "radius_m": 1.0,
+    "spread_m": 0.084
+   },
+   {
+    "lon": -73.95196492,
+    "lat": 40.74096073,
+    "z_sim_m": 15.425,
+    "z_native_m": 15.425,
+    "native_datum": "NAVD88",
+    "source": "lidar-class17:usgs-lidar-public/NY_NewYorkCity",
+    "n_points": 6,
+    "radius_m": 1.0,
+    "spread_m": 0.085
+   },
+   {
+    "lon": -73.95190518,
+    "lat": 40.74113506,
+    "z_sim_m": 14.89,
+    "z_native_m": 14.89,
+    "native_datum": "NAVD88",
+    "source": "lidar-class17:usgs-lidar-public/NY_NewYorkCity",
+    "n_points": 13,
+    "radius_m": 1.0,
+    "spread_m": 0.094
+   },
+   {
+    "lon": -73.95184544,
+    "lat": 40.74130939,
+    "z_sim_m": 14.165,
+    "z_native_m": 14.165,
+    "native_datum": "NAVD88",
+    "source": "lidar-class17:usgs-lidar-public/NY_NewYorkCity",
+    "n_points": 12,
+    "radius_m": 1.0,
+    "spread_m": 0.135
+   },
+   {
+    "lon": -73.95178569,
+    "lat": 40.74148372,
+    "z_sim_m": 13.4,
+    "z_native_m": 13.4,
+    "native_datum": "NAVD88",
+    "source": "lidar-class17:usgs-lidar-public/NY_NewYorkCity",
+    "n_points": 10,
+    "radius_m": 1.0,
+    "spread_m": 0.094
+   },
+   {
+    "lon": -73.95172595,
+    "lat": 40.74165805,
+    "z_sim_m": 12.565,
+    "z_native_m": 12.565,
+    "native_datum": "NAVD88",
+    "source": "lidar-class17:usgs-lidar-public/NY_NewYorkCity",
+    "n_points": 12,
+    "radius_m": 1.0,
+    "spread_m": 0.133
+   },
+   {
+    "lon": -73.95166621,
+    "lat": 40.74183238,
+    "z_sim_m": 11.82,
+    "z_native_m": 11.82,
+    "native_datum": "NAVD88",
+    "source": "lidar-class17:usgs-lidar-public/NY_NewYorkCity",
+    "n_points": 9,
+    "radius_m": 1.0,
+    "spread_m": 0.058
+   },
+   {
+    "lon": -73.95160647,
+    "lat": 40.74200672,
+    "z_sim_m": 11.05,
+    "z_native_m": 11.05,
+    "native_datum": "NAVD88",
+    "source": "lidar-class17:usgs-lidar-public/NY_NewYorkCity",
+    "n_points": 5,
+    "radius_m": 1.0,
+    "spread_m": 0.056
+   },
+   {
+    "lon": -73.95154673,
+    "lat": 40.74218105,
+    "z_sim_m": 10.24,
+    "z_native_m": 10.24,
+    "native_datum": "NAVD88",
+    "source": "lidar-class17:usgs-lidar-public/NY_NewYorkCity",
+    "n_points": 7,
+    "radius_m": 1.0,
+    "spread_m": 0.072
+   }
+  ],
+  "status": "32 controls from lidar"
+ },
+ "BRG-9debabd00c": {
+  "name": "Long Island Expressway",
+  "crossing_id": null,
+  "deck_length_m": 1480.1,
+  "controls": [
+   {
+    "lon": -73.9502822,
+    "lat": 40.7415935,
+    "z_sim_m": 9.09,
+    "z_native_m": 9.09,
+    "native_datum": "NAVD88",
+    "source": "lidar-class17:usgs-lidar-public/NY_NewYorkCity",
+    "n_points": 17,
+    "radius_m": 1.0,
+    "spread_m": 0.09
+   },
+   {
+    "lon": -73.95004546,
+    "lat": 40.74159788,
+    "z_sim_m": 9.9,
+    "z_native_m": 9.9,
+    "native_datum": "NAVD88",
+    "source": "lidar-class17:usgs-lidar-public/NY_NewYorkCity",
+    "n_points": 12,
+    "radius_m": 1.0,
+    "spread_m": 0.144
+   },
+   {
+    "lon": -73.94980868,
+    "lat": 40.74159418,
+    "z_sim_m": 10.73,
+    "z_native_m": 10.73,
+    "native_datum": "NAVD88",
+    "source": "lidar-class17:usgs-lidar-public/NY_NewYorkCity",
+    "n_points": 19,
+    "radius_m": 1.0,
+    "spread_m": 0.102
+   },
+   {
+    "lon": -73.94957282,
+    "lat": 40.74157833,
+    "z_sim_m": 11.545,
+    "z_native_m": 11.545,
+    "native_datum": "NAVD88",
+    "source": "lidar-class17:usgs-lidar-public/NY_NewYorkCity",
+    "n_points": 8,
+    "radius_m": 1.0,
+    "spread_m": 0.086
+   },
+   {
+    "lon": -73.94933908,
+    "lat": 40.74154952,
+    "z_sim_m": 12.21,
+    "z_native_m": 12.21,
+    "native_datum": "NAVD88",
+    "source": "lidar-class17:usgs-lidar-public/NY_NewYorkCity",
+    "n_points": 11,
+    "radius_m": 1.0,
+    "spread_m": 0.1
+   },
+   {
+    "lon": -73.94910747,
+    "lat": 40.74151187,
+    "z_sim_m": 12.85,
+    "z_native_m": 12.85,
+    "native_datum": "NAVD88",
+    "source": "lidar-class17:usgs-lidar-public/NY_NewYorkCity",
+    "n_points": 53,
+    "radius_m": 1.0,
+    "spread_m": 0.098
+   },
+   {
+    "lon": -73.94887772,
+    "lat": 40.74146806,
+    "z_sim_m": 13.37,
+    "z_native_m": 13.37,
+    "native_datum": "NAVD88",
+    "source": "lidar-class1-gapfill:usgs-lidar-public/NY_NewYorkCity",
+    "n_points": 7,
+    "radius_m": 1.0,
+    "spread_m": 0.098,
+    "gap_fill": {
+     "class": [
+      1
+     ],
+     "dev_from_class17_line_m": 0.193
+    }
+   },
+   {
+    "lon": -73.94864821,
+    "lat": 40.74142354,
+    "z_sim_m": 13.7,
+    "z_native_m": 13.7,
+    "native_datum": "NAVD88",
+    "source": "lidar-class1-gapfill:usgs-lidar-public/NY_NewYorkCity",
+    "n_points": 5,
+    "radius_m": 1.0,
+    "spread_m": 0.072,
+    "gap_fill": {
+     "class": [
+      1
+     ],
+     "dev_from_class17_line_m": 0.197
+    }
+   },
+   {
+    "lon": -73.94841869,
+    "lat": 40.74137902,
+    "z_sim_m": 13.97,
+    "z_native_m": 13.97,
+    "native_datum": "NAVD88",
+    "source": "lidar-class1-gapfill:usgs-lidar-public/NY_NewYorkCity",
+    "n_points": 7,
+    "radius_m": 1.0,
+    "spread_m": 0.068,
+    "gap_fill": {
+     "class": [
+      1
+     ],
+     "dev_from_class17_line_m": 0.14
+    }
+   },
+   {
+    "lon": -73.94818918,
+    "lat": 40.7413345,
+    "z_sim_m": 14.26,
+    "z_native_m": 14.26,
+    "native_datum": "NAVD88",
+    "source": "lidar-class1-gapfill:usgs-lidar-public/NY_NewYorkCity",
+    "n_points": 8,
+    "radius_m": 1.0,
+    "spread_m": 0.073,
+    "gap_fill": {
+     "class": [
+      1
+     ],
+     "dev_from_class17_line_m": 0.103
+    }
+   },
+   {
+    "lon": -73.94795967,
+    "lat": 40.74128998,
+    "z_sim_m": 14.51,
+    "z_native_m": 14.51,
+    "native_datum": "NAVD88",
+    "source": "lidar-class1-gapfill:usgs-lidar-public/NY_NewYorkCity",
+    "n_points": 9,
+    "radius_m": 1.0,
+    "spread_m": 0.07,
+    "gap_fill": {
+     "class": [
+      1
+     ],
+     "dev_from_class17_line_m": 0.027
+    }
+   },
+   {
+    "lon": -73.94773015,
+    "lat": 40.74124545,
+    "z_sim_m": 14.81,
+    "z_native_m": 14.81,
+    "native_datum": "NAVD88",
+    "source": "lidar-class17:usgs-lidar-public/NY_NewYorkCity",
+    "n_points": 6,
+    "radius_m": 1.0,
+    "spread_m": 0.07
+   },
+   {
+    "lon": -73.94750064,
+    "lat": 40.74120093,
+    "z_sim_m": 14.985,
+    "z_native_m": 14.985,
+    "native_datum": "NAVD88",
+    "source": "lidar-class1-gapfill:usgs-lidar-public/NY_NewYorkCity",
+    "n_points": 8,
+    "radius_m": 1.0,
+    "spread_m": 0.112,
+    "gap_fill": {
+     "class": [
+      1
+     ],
+     "dev_from_class17_line_m": -0.254
+    }
+   },
+   {
+    "lon": -73.94727113,
+    "lat": 40.74115641,
+    "z_sim_m": 15.255,
+    "z_native_m": 15.255,
+    "native_datum": "NAVD88",
+    "source": "lidar-class1-gapfill:usgs-lidar-public/NY_NewYorkCity",
+    "n_points": 8,
+    "radius_m": 1.0,
+    "spread_m": 0.083,
+    "gap_fill": {
+     "class": [
+      1
+     ],
+     "dev_from_class17_line_m": -0.413
+    }
+   },
+   {
+    "lon": -73.94704161,
+    "lat": 40.74111188,
+    "z_sim_m": 15.52,
+    "z_native_m": 15.52,
+    "native_datum": "NAVD88",
+    "source": "lidar-class1-gapfill:usgs-lidar-public/NY_NewYorkCity",
+    "n_points": 8,
+    "radius_m": 1.0,
+    "spread_m": 0.102,
+    "gap_fill": {
+     "class": [
+      1
+     ],
+     "dev_from_class17_line_m": -0.577
+    }
+   },
+   {
+    "lon": -73.9468121,
+    "lat": 40.74106736,
+    "z_sim_m": 15.955,
+    "z_native_m": 15.955,
+    "native_datum": "NAVD88",
+    "source": "lidar-class1-gapfill:usgs-lidar-public/NY_NewYorkCity",
+    "n_points": 10,
+    "radius_m": 1.0,
+    "spread_m": 0.095,
+    "gap_fill": {
+     "class": [
+      1
+     ],
+     "dev_from_class17_line_m": -0.571
+    }
+   },
+   {
+    "lon": -73.94658259,
+    "lat": 40.74102283,
+    "z_sim_m": 16.475,
+    "z_native_m": 16.475,
+    "native_datum": "NAVD88",
+    "source": "lidar-class1-gapfill:usgs-lidar-public/NY_NewYorkCity",
+    "n_points": 8,
+    "radius_m": 1.0,
+    "spread_m": 0.096,
+    "gap_fill": {
+     "class": [
+      1
+     ],
+     "dev_from_class17_line_m": -0.479
+    }
+   },
+   {
+    "lon": -73.94635308,
+    "lat": 40.7409783,
+    "z_sim_m": 16.955,
+    "z_native_m": 16.955,
+    "native_datum": "NAVD88",
+    "source": "lidar-class1-gapfill:usgs-lidar-public/NY_NewYorkCity",
+    "n_points": 6,
+    "radius_m": 1.0,
+    "spread_m": 0.07,
+    "gap_fill": {
+     "class": [
+      1
+     ],
+     "dev_from_class17_line_m": -0.428
+    }
+   },
+   {
+    "lon": -73.94612357,
+    "lat": 40.74093378,
+    "z_sim_m": 17.535,
+    "z_native_m": 17.535,
+    "native_datum": "NAVD88",
+    "source": "lidar-class1-gapfill:usgs-lidar-public/NY_NewYorkCity",
+    "n_points": 16,
+    "radius_m": 1.0,
+    "spread_m": 0.105,
+    "gap_fill": {
+     "class": [
+      1
+     ],
+     "dev_from_class17_line_m": -0.277
+    }
+   },
+   {
+    "lon": -73.94589406,
+    "lat": 40.74088925,
+    "z_sim_m": 18.1,
+    "z_native_m": 18.1,
+    "native_datum": "NAVD88",
+    "source": "lidar-class1-gapfill:usgs-lidar-public/NY_NewYorkCity",
+    "n_points": 13,
+    "radius_m": 1.0,
+    "spread_m": 0.086,
+    "gap_fill": {
+     "class": [
+      1
+     ],
+     "dev_from_class17_line_m": -0.141
+    }
+   },
+   {
+    "lon": -73.94566491,
+    "lat": 40.74084367,
+    "z_sim_m": 18.67,
+    "z_native_m": 18.67,
+    "native_datum": "NAVD88",
+    "source": "lidar-class17:usgs-lidar-public/NY_NewYorkCity",
+    "n_points": 7,
+    "radius_m": 1.0,
+    "spread_m": 0.054
+   },
+   {
+    "lon": -73.94543737,
+    "lat": 40.7407937,
+    "z_sim_m": 19.23,
+    "z_native_m": 19.23,
+    "native_datum": "NAVD88",
+    "source": "lidar-class17:usgs-lidar-public/NY_NewYorkCity",
+    "n_points": 7,
+    "radius_m": 1.0,
+    "spread_m": 0.116
+   },
+   {
+    "lon": -73.94521257,
+    "lat": 40.74073694,
+    "z_sim_m": 19.88,
+    "z_native_m": 19.88,
+    "native_datum": "NAVD88",
+    "source": "lidar-class17:usgs-lidar-public/NY_NewYorkCity",
+    "n_points": 6,
+    "radius_m": 1.0,
+    "spread_m": 0.05
+   },
+   {
+    "lon": -73.94498914,
+    "lat": 40.74067716,
+    "z_sim_m": 20.505,
+    "z_native_m": 20.505,
+    "native_datum": "NAVD88",
+    "source": "lidar-class17:usgs-lidar-public/NY_NewYorkCity",
+    "n_points": 8,
+    "radius_m": 1.0,
+    "spread_m": 0.096
+   },
+   {
+    "lon": -73.94476754,
+    "lat": 40.74061361,
+    "z_sim_m": 21.14,
+    "z_native_m": 21.14,
+    "native_datum": "NAVD88",
+    "source": "lidar-class17:usgs-lidar-public/NY_NewYorkCity",
+    "n_points": 7,
+    "radius_m": 1.0,
+    "spread_m": 0.07
+   },
+   {
+    "lon": -73.94454971,
+    "lat": 40.74054291,
+    "z_sim_m": 21.7,
+    "z_native_m": 21.7,
+    "native_datum": "NAVD88",
+    "source": "lidar-class17:usgs-lidar-public/NY_NewYorkCity",
+    "n_points": 7,
+    "radius_m": 1.0,
+    "spread_m": 0.118
+   },
+   {
+    "lon": -73.94433454,
+    "lat": 40.74046761,
+    "z_sim_m": 22.38,
+    "z_native_m": 22.38,
+    "native_datum": "NAVD88",
+    "source": "lidar-class17:usgs-lidar-public/NY_NewYorkCity",
+    "n_points": 7,
+    "radius_m": 1.0,
+    "spread_m": 0.086
+   },
+   {
+    "lon": -73.94412238,
+    "lat": 40.74038754,
+    "z_sim_m": 22.945,
+    "z_native_m": 22.945,
+    "native_datum": "NAVD88",
+    "source": "lidar-class17:usgs-lidar-public/NY_NewYorkCity",
+    "n_points": 8,
+    "radius_m": 1.0,
+    "spread_m": 0.131
+   },
+   {
+    "lon": -73.94391244,
+    "lat": 40.74030413,
+    "z_sim_m": 23.675,
+    "z_native_m": 23.675,
+    "native_datum": "NAVD88",
+    "source": "lidar-class17:usgs-lidar-public/NY_NewYorkCity",
+    "n_points": 18,
+    "radius_m": 1.0,
+    "spread_m": 0.086
+   },
+   {
+    "lon": -73.9437054,
+    "lat": 40.74021663,
+    "z_sim_m": 24.47,
+    "z_native_m": 24.47,
+    "native_datum": "NAVD88",
+    "source": "lidar-class17:usgs-lidar-public/NY_NewYorkCity",
+    "n_points": 20,
+    "radius_m": 1.0,
+    "spread_m": 0.123
+   },
+   {
+    "lon": -73.94349849,
+    "lat": 40.74012894,
+    "z_sim_m": 25.295,
+    "z_native_m": 25.295,
+    "native_datum": "NAVD88",
+    "source": "lidar-class17:usgs-lidar-public/NY_NewYorkCity",
+    "n_points": 18,
+    "radius_m": 1.0,
+    "spread_m": 0.126
+   },
+   {
+    "lon": -73.94329159,
+    "lat": 40.74004126,
+    "z_sim_m": 26.145,
+    "z_native_m": 26.145,
+    "native_datum": "NAVD88",
+    "source": "lidar-class17:usgs-lidar-public/NY_NewYorkCity",
+    "n_points": 14,
+    "radius_m": 1.0,
+    "spread_m": 0.117
+   },
+   {
+    "lon": -73.94308468,
+    "lat": 40.73995357,
+    "z_sim_m": 27.02,
+    "z_native_m": 27.02,
+    "native_datum": "NAVD88",
+    "source": "lidar-class17:usgs-lidar-public/NY_NewYorkCity",
+    "n_points": 15,
+    "radius_m": 1.0,
+    "spread_m": 0.162
+   },
+   {
+    "lon": -73.94287777,
+    "lat": 40.73986588,
+    "z_sim_m": 27.8,
+    "z_native_m": 27.8,
+    "native_datum": "NAVD88",
+    "source": "lidar-class17:usgs-lidar-public/NY_NewYorkCity",
+    "n_points": 11,
+    "radius_m": 1.0,
+    "spread_m": 0.14
+   },
+   {
+    "lon": -73.94267087,
+    "lat": 40.7397782,
+    "z_sim_m": 28.62,
+    "z_native_m": 28.62,
+    "native_datum": "NAVD88",
+    "source": "lidar-class17:usgs-lidar-public/NY_NewYorkCity",
+    "n_points": 13,
+    "radius_m": 1.0,
+    "spread_m": 0.12
+   },
+   {
+    "lon": -73.94246396,
+    "lat": 40.73969051,
+    "z_sim_m": 29.47,
+    "z_native_m": 29.47,
+    "native_datum": "NAVD88",
+    "source": "lidar-class17:usgs-lidar-public/NY_NewYorkCity",
+    "n_points": 16,
+    "radius_m": 1.0,
+    "spread_m": 0.175
+   },
+   {
+    "lon": -73.94225706,
+    "lat": 40.73960282,
+    "z_sim_m": 30.3,
+    "z_native_m": 30.3,
+    "native_datum": "NAVD88",
+    "source": "lidar-class17:usgs-lidar-public/NY_NewYorkCity",
+    "n_points": 11,
+    "radius_m": 1.0,
+    "spread_m": 0.08
+   },
+   {
+    "lon": -73.94205015,
+    "lat": 40.73951513,
+    "z_sim_m": 31.04,
+    "z_native_m": 31.04,
+    "native_datum": "NAVD88",
+    "source": "lidar-class1-gapfill:usgs-lidar-public/NY_NewYorkCity",
+    "n_points": 19,
+    "radius_m": 1.0,
+    "spread_m": 0.084,
+    "gap_fill": {
+     "class": [
+      1
+     ],
+     "dev_from_class17_line_m": 0.888
+    }
+   },
+   {
+    "lon": -73.94142944,
+    "lat": 40.73925207,
+    "z_sim_m": 30.42,
+    "z_native_m": 30.42,
+    "native_datum": "NAVD88",
+    "source": "lidar-class1-gapfill:usgs-lidar-public/NY_NewYorkCity",
+    "n_points": 16,
+    "radius_m": 1.0,
+    "spread_m": 0.145,
+    "gap_fill": {
+     "class": [
+      1
+     ],
+     "dev_from_class17_line_m": 0.712
+    }
+   },
+   {
+    "lon": -73.94122254,
+    "lat": 40.73916438,
+    "z_sim_m": 29.56,
+    "z_native_m": 29.56,
+    "native_datum": "NAVD88",
+    "source": "lidar-class17:usgs-lidar-public/NY_NewYorkCity",
+    "n_points": 16,
+    "radius_m": 1.0,
+    "spread_m": 0.125
+   },
+   {
+    "lon": -73.94101564,
+    "lat": 40.73907669,
+    "z_sim_m": 28.73,
+    "z_native_m": 28.73,
+    "native_datum": "NAVD88",
+    "source": "lidar-class17:usgs-lidar-public/NY_NewYorkCity",
+    "n_points": 15,
+    "radius_m": 1.0,
+    "spread_m": 0.126
+   },
+   {
+    "lon": -73.94080874,
+    "lat": 40.738989,
+    "z_sim_m": 27.88,
+    "z_native_m": 27.88,
+    "native_datum": "NAVD88",
+    "source": "lidar-class17:usgs-lidar-public/NY_NewYorkCity",
+    "n_points": 15,
+    "radius_m": 1.0,
+    "spread_m": 0.148
+   },
+   {
+    "lon": -73.94060184,
+    "lat": 40.73890131,
+    "z_sim_m": 27.085,
+    "z_native_m": 27.085,
+    "native_datum": "NAVD88",
+    "source": "lidar-class17:usgs-lidar-public/NY_NewYorkCity",
+    "n_points": 16,
+    "radius_m": 1.0,
+    "spread_m": 0.13
+   },
+   {
+    "lon": -73.94039494,
+    "lat": 40.73881362,
+    "z_sim_m": 26.305,
+    "z_native_m": 26.305,
+    "native_datum": "NAVD88",
+    "source": "lidar-class17:usgs-lidar-public/NY_NewYorkCity",
+    "n_points": 20,
+    "radius_m": 1.0,
+    "spread_m": 0.133
+   },
+   {
+    "lon": -73.94018794,
+    "lat": 40.73872606,
+    "z_sim_m": 25.44,
+    "z_native_m": 25.44,
+    "native_datum": "NAVD88",
+    "source": "lidar-class17:usgs-lidar-public/NY_NewYorkCity",
+    "n_points": 25,
+    "radius_m": 1.0,
+    "spread_m": 0.146
+   },
+   {
+    "lon": -73.93997909,
+    "lat": 40.73864111,
+    "z_sim_m": 24.74,
+    "z_native_m": 24.74,
+    "native_datum": "NAVD88",
+    "source": "lidar-class17:usgs-lidar-public/NY_NewYorkCity",
+    "n_points": 5,
+    "radius_m": 1.0,
+    "spread_m": 0.086
+   },
+   {
+    "lon": -73.93976868,
+    "lat": 40.7385584,
+    "z_sim_m": 23.9,
+    "z_native_m": 23.9,
+    "native_datum": "NAVD88",
+    "source": "lidar-class17:usgs-lidar-public/NY_NewYorkCity",
+    "n_points": 5,
+    "radius_m": 1.0,
+    "spread_m": 0.064
+   },
+   {
+    "lon": -73.93955537,
+    "lat": 40.73848009,
+    "z_sim_m": 23.05,
+    "z_native_m": 23.05,
+    "native_datum": "NAVD88",
+    "source": "lidar-class17:usgs-lidar-public/NY_NewYorkCity",
+    "n_points": 8,
+    "radius_m": 1.0,
+    "spread_m": 0.152
+   },
+   {
+    "lon": -73.93933978,
+    "lat": 40.73840556,
+    "z_sim_m": 22.235,
+    "z_native_m": 22.235,
+    "native_datum": "NAVD88",
+    "source": "lidar-class17:usgs-lidar-public/NY_NewYorkCity",
+    "n_points": 6,
+    "radius_m": 1.0,
+    "spread_m": 0.085
+   },
+   {
+    "lon": -73.93912185,
+    "lat": 40.73833501,
+    "z_sim_m": 21.31,
+    "z_native_m": 21.31,
+    "native_datum": "NAVD88",
+    "source": "lidar-class1-gapfill:usgs-lidar-public/NY_NewYorkCity",
+    "n_points": 5,
+    "radius_m": 1.0,
+    "spread_m": 0.078,
+    "gap_fill": {
+     "class": [
+      1
+     ],
+     "dev_from_class17_line_m": -0.093
+    }
+   },
+   {
+    "lon": -73.93890245,
+    "lat": 40.73826715,
+    "z_sim_m": 20.57,
+    "z_native_m": 20.57,
+    "native_datum": "NAVD88",
+    "source": "lidar-class17:usgs-lidar-public/NY_NewYorkCity",
+    "n_points": 9,
+    "radius_m": 1.0,
+    "spread_m": 0.086
+   },
+   {
+    "lon": -73.93868053,
+    "lat": 40.73820428,
+    "z_sim_m": 19.74,
+    "z_native_m": 19.74,
+    "native_datum": "NAVD88",
+    "source": "lidar-class17:usgs-lidar-public/NY_NewYorkCity",
+    "n_points": 9,
+    "radius_m": 1.0,
+    "spread_m": 0.226
+   },
+   {
+    "lon": -73.93845642,
+    "lat": 40.73814599,
+    "z_sim_m": 18.89,
+    "z_native_m": 18.89,
+    "native_datum": "NAVD88",
+    "source": "lidar-class17:usgs-lidar-public/NY_NewYorkCity",
+    "n_points": 11,
+    "radius_m": 1.0,
+    "spread_m": 0.1
+   },
+   {
+    "lon": -73.93823106,
+    "lat": 40.7380906,
+    "z_sim_m": 18.04,
+    "z_native_m": 18.04,
+    "native_datum": "NAVD88",
+    "source": "lidar-class17:usgs-lidar-public/NY_NewYorkCity",
+    "n_points": 12,
+    "radius_m": 1.0,
+    "spread_m": 0.098
+   },
+   {
+    "lon": -73.93800373,
+    "lat": 40.73804004,
+    "z_sim_m": 17.165,
+    "z_native_m": 17.165,
+    "native_datum": "NAVD88",
+    "source": "lidar-class17:usgs-lidar-public/NY_NewYorkCity",
+    "n_points": 14,
+    "radius_m": 1.0,
+    "spread_m": 0.124
+   }
+  ],
+  "status": "55 controls from lidar"
+ }
 }

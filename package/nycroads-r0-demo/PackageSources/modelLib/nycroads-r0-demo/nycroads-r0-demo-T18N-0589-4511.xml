@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ModelInfo guid="{DC2F994F-639D-56ED-9DD5-6D7EBBE4EBFE}" version="1.1">
+    <LODS>
+        <LOD minSize="0" ModelFile="nycroads-r0-demo-T18N-0589-4511.gltf"/>
+    </LODS>
+</ModelInfo>
