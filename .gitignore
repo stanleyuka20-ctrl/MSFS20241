@@ -1,0 +1,19 @@
+__pycache__/
+*.pyc
+*.egg-info/
+.pytest_cache/
+.venv/
+# Large / re-downloadable inputs. Keep provenance records (*.source.json), not the data itself.
+data/raw/
+data/dem/
+# Generated outputs (reproducible from source + inputs)
+build/
+package/_PackageInt/
+package/Packages/
+# Local telemetry logs are committed only via tests/results/ after review
+telemetry/*.csv
+# Generated package content (rebuilt by `nycroads build`)
+package/*/PackageSources/modelLib/*/*.gltf
+package/*/PackageSources/modelLib/*/*.bin
+package/*/PackageSources/modelLib/*/*.xml
+package/*/PackageSources/scene/nycroads-*.xml

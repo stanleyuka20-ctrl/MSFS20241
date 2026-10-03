@@ -1,0 +1,33 @@
+{
+  "_status": "UNVERIFIED. These extension names/values are the project's best understanding of the Asobo glTF extensions. Before building a release, open the installed MSFS 2024 SDK documentation (glTF extensions / model behaviour pages) and the Blender exporter shipped with that SDK, confirm or correct every entry, then set 'verified' to true and record the SDK version below.",
+  "verified": false,
+  "verified_against_sdk_version": null,
+  "axis_mapping": {
+    "_note": "glTF: +Y up, +Z forward, -X right. Assumes MSFS heading 0 = model +Z points north. Verify with the orientation marker in the demo package.",
+    "x": "-east", "y": "up", "z": "north"
+  },
+  "collision_node_extensions": {
+    "ASOBO_tags": {"tags": ["Collision", "Road"]}
+  },
+  "collision_material_extensions": {
+    "ASOBO_material_invisible": {}
+  },
+  "visual_node_extensions": {},
+  "material_extensions": {
+    "marking_white":  {"ASOBO_material_draw_order": {"drawOrderOffset": 1}},
+    "marking_yellow": {"ASOBO_material_draw_order": {"drawOrderOffset": 1}}
+  },
+  "materials": {
+    "asphalt":                 {"baseColor": [0.18, 0.18, 0.19, 1], "roughness": 0.85, "metallic": 0.0},
+    "asphalt_skirt":           {"baseColor": [0.20, 0.19, 0.18, 1], "roughness": 0.95, "metallic": 0.0},
+    "concrete_deck":           {"baseColor": [0.42, 0.41, 0.40, 1], "roughness": 0.80, "metallic": 0.0},
+    "concrete_deck_skirt":     {"baseColor": [0.42, 0.41, 0.40, 1], "roughness": 0.80, "metallic": 0.0},
+    "concrete_deck_underside": {"baseColor": [0.35, 0.34, 0.33, 1], "roughness": 0.90, "metallic": 0.0},
+    "concrete_deck_edge":      {"baseColor": [0.45, 0.44, 0.42, 1], "roughness": 0.85, "metallic": 0.0},
+    "concrete_barrier":        {"baseColor": [0.62, 0.61, 0.58, 1], "roughness": 0.80, "metallic": 0.0},
+    "marking_white":           {"baseColor": [0.85, 0.85, 0.82, 1], "roughness": 0.60, "metallic": 0.0},
+    "marking_yellow":          {"baseColor": [0.86, 0.68, 0.12, 1], "roughness": 0.60, "metallic": 0.0},
+    "orientation_marker":      {"baseColor": [0.90, 0.10, 0.10, 1], "roughness": 0.50, "metallic": 0.0},
+    "collision":               {"baseColor": [1.00, 0.00, 1.00, 1], "roughness": 1.00, "metallic": 0.0}
+  }
+}

@@ -1,0 +1,25 @@
+{
+  "_about": "Release 0 demonstration route: Pulaski Bridge corridor (Greenpoint, Brooklyn <-> Long Island City, Queens). The bbox is an APPROXIMATE selection window; 'nycroads build' writes build/r0-demo/demo_acceptance.json saying whether the real data inside it contains every required feature. If a criterion fails, adjust the bbox or switch to a fallback candidate.",
+  "release": "r0-demo",
+  "package_name": "nycroads-r0-demo",
+  "osm": ["data/raw/roads_r0.json"],
+  "boroughs": "data/raw/boroughs.json",
+  "extensions": "data/extensions.geojson",
+  "crossings": "data/crossings.json",
+  "id_registry": "data/id_registry.json",
+  "dem": {"path": "data/dem/r0_dem.tif", "z_units": "ftUS", "datum": "NAVD88"},
+  "vertical_reference": "data/vertical_reference.json",
+  "deck_controls": "data/deck_controls.json",
+  "status": "data/status.json",
+  "bbox": [40.7340, -73.9580, 40.7480, -73.9440],
+  "fetch_bbox": [40.7300, -73.9650, 40.7520, -73.9380],
+  "demo": true,
+  "orientation_marker_at": null,
+  "package_root": "package/nycroads-r0-demo",
+  "build_dir": "build/r0-demo",
+  "coverage_dir": "coverage/r0-demo",
+  "fallback_candidates": [
+    {"name": "Hamilton Avenue Bridge / Gowanus Expressway area, Brooklyn", "why": "short bascule bridge, streets beneath an elevated expressway, ramps"},
+    {"name": "Queens Plaza / Queensboro Bridge Queens approach", "why": "roads beneath elevated subway structure and bridge ramps (larger, multi-level: harder)"}
+  ]
+}

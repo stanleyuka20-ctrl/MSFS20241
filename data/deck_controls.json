@@ -1,0 +1,9 @@
+{
+  "_about": "Bridge-deck elevation control points, keyed by crossing ID (XS-*) or deck ID (BRG-*). Heights are in the SIMULATOR height reference (see data/vertical_reference.json) at the road surface centreline. NEVER derive these from terrain/water heights under the deck. Acceptable sources, best first: (1) ASPRS class 17 'bridge deck' lidar returns (e.g. NYC 2017 topobathymetric lidar, USGS 3DEP point clouds), median of returns within 1 m of the centreline; (2) published engineering drawings / clearance data; (3) first-return DSM sampled on the centreline with outlier rejection. Record the source per point. Major crossings require >= 2 controls; more for long or cambered spans (every ~100 m and at towers).",
+  "_example": {
+    "controls": [
+      {"lon": -73.0, "lat": 40.0, "z_sim_m": 0.0, "source": "lidar-class17:<tile id>"}
+    ]
+  },
+  "XS-PULASKI": {"controls": [], "status": "TODO: extract from lidar (docs/03-demo-route.md#deck-elevation)"}
+}

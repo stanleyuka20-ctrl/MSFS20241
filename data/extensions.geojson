@@ -1,0 +1,8 @@
+{
+  "type": "FeatureCollection",
+  "_about": "Documented out-of-city areas that are in scope. GWB-NJ is an APPROXIMATE placeholder box covering the bridge's NJ half and the Fort Lee approach; refine it in R5 to end at specific at-grade junctions (record them in data/boundary_connections.json).",
+  "features": [
+    {"type": "Feature", "properties": {"name": "GWB-NJ", "approximate": true},
+     "geometry": {"type": "Polygon", "coordinates": [[[-73.9950, 40.8440], [-73.9530, 40.8440], [-73.9530, 40.8580], [-73.9950, 40.8580], [-73.9950, 40.8440]]]}}
+  ]
+}

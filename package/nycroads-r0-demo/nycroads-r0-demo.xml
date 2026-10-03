@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  BASELINE project file in the MSFS SDK project format used by the SDK's sample
+  scenery projects. STATUS: UNVERIFIED for MSFS 2024.
+  Preferred workflow (docs/07-build-install.md): create a new Scenery project with
+  the INSTALLED SDK's Project Editor using the names below, then diff that
+  SDK-generated project/package XML against these files and keep the SDK's version.
+-->
+<Project Version="2" Name="nycroads-r0-demo" FolderName="Packages">
+    <OutputDirectory>.</OutputDirectory>
+    <TempOutputDirectory>_PackageInt</TempOutputDirectory>
+    <Packages>
+        <Package>PackageDefinitions\nycroads-r0-demo.xml</Package>
+    </Packages>
+</Project>

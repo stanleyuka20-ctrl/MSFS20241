@@ -1,0 +1,25 @@
+{
+  "_about": "Target specification for a project-built vehicle (docs/04, Option C). Values are design targets for a mid-size passenger car, not simulator configuration values. Translate them into the SDK's documented SimObject configuration only after checking that documentation on the simulator host.",
+  "status": "not started (blocked on Gate G0/G1 and option A/B evaluation)",
+  "dimensions_m": {"length": 4.8, "width": 1.85, "height": 1.5, "wheelbase": 2.8, "track": 1.6},
+  "mass_kg": 1600,
+  "eye_point_m": {"forward_of_rear_axle": 1.4, "left_of_centre": 0.37, "above_road": 1.2},
+  "wheels": [
+    {"name": "front_left",  "x_m": 2.8, "y_m": -0.8, "steer": true,  "brake": true},
+    {"name": "front_right", "x_m": 2.8, "y_m":  0.8, "steer": true,  "brake": true},
+    {"name": "rear_left",   "x_m": 0.0, "y_m": -0.8, "steer": false, "brake": true, "driven": true},
+    {"name": "rear_right",  "x_m": 0.0, "y_m":  0.8, "steer": false, "brake": true, "driven": true}
+  ],
+  "max_steer_deg": 35,
+  "max_speed_kmh": 120,
+  "targets": {
+    "accel_0_50_kmh_s": [6, 12],
+    "brake_50_0_kmh_m": 25,
+    "turning_circle_m": 12,
+    "hold_on_grade_pct": 12,
+    "reverse_required": true
+  },
+  "controls_required": ["throttle", "brake", "steer", "reverse", "parking_brake"],
+  "cameras_required": ["driver_eye", "external_follow"],
+  "instrument_required": "speed (km/h and mph)"
+}

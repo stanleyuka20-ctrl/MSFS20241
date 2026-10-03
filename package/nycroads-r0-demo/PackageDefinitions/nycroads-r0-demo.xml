@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- BASELINE package definition. STATUS: UNVERIFIED for MSFS 2024 (see project file header). -->
+<AssetPackage Version="0.1.0">
+    <ItemSettings>
+        <ContentType>SCENERY</ContentType>
+        <Title>NYC Drivable Roads - R0 demonstration route (Pulaski Bridge corridor)</Title>
+        <Manufacturer>NYC Drivable Roads project</Manufacturer>
+        <Creator>nycroads</Creator>
+    </ItemSettings>
+    <Flags>
+        <VisibleInStore>false</VisibleInStore>
+        <CanBeReferenced>false</CanBeReferenced>
+    </Flags>
+    <AssetGroups>
+        <AssetGroup Name="ContentInfo">
+            <Type>ContentInfo</Type>
+            <Flags>
+                <FSXCompatibility>false</FSXCompatibility>
+            </Flags>
+            <AssetDir>PackageDefinitions\nycroads-r0-demo\ContentInfo\</AssetDir>
+            <OutputDir>ContentInfo\nycroads-r0-demo\</OutputDir>
+        </AssetGroup>
+        <AssetGroup Name="nycroads-r0-demo-modelLib">
+            <Type>ModelLib</Type>
+            <Flags>
+                <FSXCompatibility>false</FSXCompatibility>
+            </Flags>
+            <AssetDir>PackageSources\modelLib\nycroads-r0-demo\</AssetDir>
+            <OutputDir>scenery\nycroads\nycroads-r0-demo-modelLib\</OutputDir>
+        </AssetGroup>
+        <AssetGroup Name="nycroads-r0-demo-scene">
+            <Type>BGL</Type>
+            <Flags>
+                <FSXCompatibility>false</FSXCompatibility>
+            </Flags>
+            <AssetDir>PackageSources\scene\</AssetDir>
+            <OutputDir>scenery\nycroads\nycroads-r0-demo-scene\</OutputDir>
+        </AssetGroup>
+    </AssetGroups>
+</AssetPackage>

@@ -1,0 +1,7 @@
+{
+  "_about": "How native DEM heights (NAVD88, metres after unit conversion) become simulator heights. 'calibrated_offset' is preferred: measure the simulator's ground height at >= 3 flat, open control points in the demo area (nycroads record --selftest while parked; PLANE_ALTITUDE minus the vehicle's reference height) and enter them below. Until then the offset is 0 and the reference is UNVERIFIED, so every build is a test build.",
+  "method": "calibrated_offset",
+  "offset_m": 0.0,
+  "control_points": [],
+  "verified": false
+}

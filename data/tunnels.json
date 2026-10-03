@@ -1,0 +1,15 @@
+{
+  "_about": "Road tunnels are a SEPARATE FEASIBILITY TASK (docs/01-project-boundary.md#tunnels). Tunnel segments are inventoried and reported as 'blocked' until a supported underground approach is proven. No surface connection is ever generated in place of a tunnel.",
+  "tunnels": [
+    {"id": "TUN-HOLLAND",       "name": "Holland Tunnel",                  "connects": ["Manhattan", "Jersey City NJ"], "status": "blocked: feasibility + outside boundary beyond portal"},
+    {"id": "TUN-LINCOLN",       "name": "Lincoln Tunnel",                  "connects": ["Manhattan", "Weehawken NJ"],   "status": "blocked: feasibility + outside boundary beyond portal"},
+    {"id": "TUN-QUEENSMIDTOWN", "name": "Queens–Midtown Tunnel",           "connects": ["Manhattan", "Queens"],         "status": "blocked: feasibility"},
+    {"id": "TUN-HLCAREY",       "name": "Hugh L. Carey (Brooklyn–Battery) Tunnel", "connects": ["Manhattan", "Brooklyn"], "status": "blocked: feasibility"},
+    {"id": "TUN-OTHER",         "name": "Short road tunnels / underpasses tagged tunnel=yes (e.g. under parks and plazas)", "status": "blocked: feasibility; counted individually in the inventory"}
+  ],
+  "feasibility_questions": [
+    "Does the player vehicle stay supported on a scenery-object surface that lies BELOW the terrain mesh, or does the simulator force contact with the terrain surface above it?",
+    "Is there a supported way to open a hole in the terrain/photogrammetry for a portal (terraform / exclusion behaviour around portals)?",
+    "Is lighting/occlusion inside a closed model acceptable (no sky lighting leaking)?"
+  ]
+}
