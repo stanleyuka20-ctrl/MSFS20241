@@ -1,0 +1,250 @@
+{
+  "date": "2026-10-03T23:47:18.523Z",
+  "results": [
+    {
+      "name": "Chapter loads",
+      "ok": true,
+      "info": "issues: 0"
+    },
+    {
+      "name": "Intro cinematic skippable",
+      "ok": true,
+      "info": ""
+    },
+    {
+      "name": "Spawned in Fleet Street on the trench floor",
+      "ok": true,
+      "info": "[-24,-2.78,4]"
+    },
+    {
+      "name": "Walk Fleet Street to the company dugout",
+      "ok": true,
+      "info": "{\"ok\":true,\"pos\":[-6.41,-2.06,4.28],\"minDrop\":0}"
+    },
+    {
+      "name": "Talk to Sergeant Hollis",
+      "ok": true,
+      "info": "{\"ok\":true}"
+    },
+    {
+      "name": "Hollis dialogue gives the message",
+      "ok": true,
+      "info": "There you are. You’re the runner Battalion promise / The line to Captain Ward in Cheapside went dead an / Up Pall Mall. It’s the communication trench just w / Kemp in the signals dugout next door is tearing hi"
+    },
+    {
+      "name": "Stage advanced to \"carry\"",
+      "ok": true,
+      "info": ""
+    },
+    {
+      "name": "Checkpoint saved (support_line)",
+      "ok": true,
+      "info": ""
+    },
+    {
+      "name": "Enter signals dugout (down the passage)",
+      "ok": true,
+      "info": "{\"ok\":true,\"pos\":[7.99,-1.03,7.41],\"minDrop\":0}"
+    },
+    {
+      "name": "Talk to Kemp",
+      "ok": true,
+      "info": "{\"ok\":true}"
+    },
+    {
+      "name": "Optional task \"A Thread of Wire\" activated",
+      "ok": true,
+      "info": "Dead as a doornail. Buzzer, key, nothing. The cabl / Would you? Here: cable, tape and pliers. Find both"
+    },
+    {
+      "name": "Scanner records the field telephone",
+      "ok": true,
+      "info": "{\"ok\":true}"
+    },
+    {
+      "name": "Walk up Pall Mall to the cable break",
+      "ok": true,
+      "info": "{\"ok\":true,\"pos\":[-8.59,-3.27,-8.97],\"minDrop\":0}"
+    },
+    {
+      "name": "Cable break found and spliced (optional complete)",
+      "ok": true,
+      "info": "[{\"ok\":true},{\"ok\":true}]"
+    },
+    {
+      "name": "Barrage triggers on Pall Mall",
+      "ok": true,
+      "info": "{\"ok\":false,\"stuckAt\":[-9.69,-3.2,-19.37],\"reason\":\"state paused\",\"stage\":\"barrage\"}"
+    },
+    {
+      "name": "Intense-sequence prompt offers a skip",
+      "ok": true,
+      "info": "Skip this sequence (progress kept) | Experience it"
+    },
+    {
+      "name": "Danger indicator visible",
+      "ok": true,
+      "info": ""
+    },
+    {
+      "name": "Reach the shelter in time",
+      "ok": true,
+      "info": "{\"ok\":true,\"pos\":[-5.77,-3.88,-26.29],\"minDrop\":0}"
+    },
+    {
+      "name": "Bombardment ends; Pall Mall collapses",
+      "ok": true,
+      "info": ""
+    },
+    {
+      "name": "Stage \"reroute\" + shelter checkpoint",
+      "ok": true,
+      "info": ""
+    },
+    {
+      "name": "Ellis suggests the alternative route",
+      "ok": true,
+      "info": "Pall Mall’s fallen in up ahead. You won’t get thro"
+    },
+    {
+      "name": "Collapsed section blocks Pall Mall",
+      "ok": true,
+      "info": "{\"ok\":false,\"stuckAt\":[-10.52,-3.44,-32.89],\"target\":[-10.4,-36.5],\"stage\":\"reroute\"}"
+    },
+    {
+      "name": "Tottenham Sap to Old Boot Alley",
+      "ok": true,
+      "info": "{\"ok\":true,\"pos\":[29.23,-2.32,-36.37],\"minDrop\":0}"
+    },
+    {
+      "name": "Climb the ladder and cross the crater bridge",
+      "ok": true,
+      "info": "[27.42,-2.54,-48.23]"
+    },
+    {
+      "name": "Cross the crater bridge and reach the front line",
+      "ok": true,
+      "info": "{\"ok\":true,\"pos\":[24.28,-2.53,-59.54],\"minDrop\":0}"
+    },
+    {
+      "name": "Walk Cheapside to Captain Ward",
+      "ok": true,
+      "info": "{\"ok\":true,\"pos\":[-25.51,-3.87,-56.8],\"minDrop\":0}"
+    },
+    {
+      "name": "Message delivered",
+      "ok": true,
+      "info": "Who on earth are you? Out of breath and covered in / Kemp got through ten minutes ago. The line’s yours / Listen. Before the shelling, my stretcher-bearer A / Shells were landing on Fleet Street. Avery has goo / Go back down Old Boot Alley, then Haymarket south "
+    },
+    {
+      "name": "Walk to the diary fire bay",
+      "ok": true,
+      "info": "{\"ok\":true,\"pos\":[-45.94,-3.15,-60],\"minDrop\":0}"
+    },
+    {
+      "name": "Pick up the diary (optional task starts)",
+      "ok": true,
+      "info": "{\"ok\":true}"
+    },
+    {
+      "name": "Back down into Old Boot Alley",
+      "ok": true,
+      "info": "[28.55,-2.21,-28.44]"
+    },
+    {
+      "name": "Return route to Fleet Street",
+      "ok": true,
+      "info": "{\"ok\":true,\"pos\":[-6,-2.06,4.13],\"minDrop\":0}"
+    },
+    {
+      "name": "Haymarket to the village and Moulin Farm",
+      "ok": true,
+      "info": "{\"ok\":true,\"pos\":[-20.99,1.1,64],\"minDrop\":0}"
+    },
+    {
+      "name": "Observation mode reveals the echo (optional objective)",
+      "ok": true,
+      "info": ""
+    },
+    {
+      "name": "Call down to Avery through the gap",
+      "ok": true,
+      "info": "Hello? Is someone up there? Thank God. The beam’s  / The Engineers keep a store in the barn, the ruined"
+    },
+    {
+      "name": "Beam cannot be moved without a tool",
+      "ok": true,
+      "info": ""
+    },
+    {
+      "name": "Take the crowbar from the Engineers’ store",
+      "ok": true,
+      "info": "{\"ok\":true}"
+    },
+    {
+      "name": "Lever the beam (operate simple machinery)",
+      "ok": true,
+      "info": "{\"ok\":true}"
+    },
+    {
+      "name": "Checkpoint saved (farm)",
+      "ok": true,
+      "info": ""
+    },
+    {
+      "name": "Avery briefs the stretcher carry",
+      "ok": true,
+      "info": "Out at last. Thank you. We have the stretcher down / I’ll lead. You keep the pace. If you hear one comi"
+    },
+    {
+      "name": "Take the stretcher handles",
+      "ok": true,
+      "info": "{\"ok\":true}"
+    },
+    {
+      "name": "Not crouching under shellfire downs the player (mission failed state)",
+      "ok": true,
+      "info": "{\"state\":\"summary\",\"mission\":\"failed\"}"
+    },
+    {
+      "name": "Retry restores the farm checkpoint",
+      "ok": true,
+      "info": "{\"stage\":\"evacuate\",\"state\":\"active\",\"beam\":true,\"pos\":[-17,0.65,76]}"
+    },
+    {
+      "name": "Stretcher carry to the R.A.P. (escort, hazards, crouch)",
+      "ok": true,
+      "info": "{\"delivered\":true,\"crouchedFrames\":154,\"state\":\"playing\",\"pos\":[18,-1,7.76],\"trace\":[\"84s P2.43,-0.9,6.89 A2.4,-1.2,4.7 ws1.15 mpath pi36/53 clip carry_walk\",\"87s P2.58,-1.29,4.23 A5.5,-1.2,4.0 ws1.15 mpath pi38/53 clip carry_walk\",\"90s P6.56,-1,4 A8.8,-0.9,4.0 ws1.15 mpath pi40/53 clip carry_walk\",\"93s P9.46,-0.86,4 A11.4,-0.8,5.0 ws1.15 mpath pi43/53 clip carry_walk\",\"96s P11.66,-0.8,5.43 A13.7,-0.7,6.1 ws1.15 mpath pi45/53 clip carry_walk\",\"99s P14.2,-0.66,5.52 A15.9,-0.7,4.1 ws1.15 mpath pi47/53 clip carry_walk\",\"102s P16.15,-0.69,4.03 A17.9,-0.8,5.5 ws1.15 mpath pi50/53 clip carry_walk\",\"105s P17.98,-0.94,6.5 A17.9,-1.0,8.7 ws1.15 mpath pi52/53 clip carry_walk\"]}"
+    },
+    {
+      "name": "Speak with the medical officer",
+      "ok": true,
+      "info": "On the table. Gently. Good. Tourniquet’s been well / Field Ambulance bearers will carry him back to the / Now, unless you’re hurt, out of my aid post. I nee"
+    },
+    {
+      "name": "Return the diary (optional complete)",
+      "ok": true,
+      "info": "Is that… my diary? I thought I’d lost it in Cheaps / You don’t know what that means. Here, tear out the"
+    },
+    {
+      "name": "Return to the anchor point completes the chapter",
+      "ok": true,
+      "info": "{\"ok\":true,\"pos\":[-23.72,-2.78,4.08],\"minDrop\":0}"
+    },
+    {
+      "name": "Chapter summary shown",
+      "ok": true,
+      "info": "The Runner — completeWestern Front — Somme sector, October 1916.Optional tasks completed: 2 / 3. Historical records disc"
+    },
+    {
+      "name": "Progress persisted (completed, artifacts)",
+      "ok": true,
+      "info": "{\"status\":\"completed\",\"artifacts\":[\"ww1_diary_sketch\",\"ww1_message_form\",\"ww1_sb_armband\"]}"
+    },
+    {
+      "name": "Return to headquarters with progress saved",
+      "ok": true,
+      "info": ""
+    }
+  ]
+}

@@ -42,8 +42,8 @@ export function buildVillage(t: Terrain, batches: CellBatches, tiles: Record<str
   const maxX = Math.max(cx + csx / 2 + 0.3, s0x + 0.4);
   const minZ = cz - csz / 2 - 0.3;
   const maxZ = cz + csz / 2 + 0.3;
-  const holeMinZ = s0z - 0.66;
-  const holeMaxZ = s0z + 0.66;
+  const holeMinZ = s0z - 0.84;
+  const holeMaxZ = s0z + 0.84;
   const holeMinX = s1x - 0.3;
   const holeMaxX = s0x + 0.3;
   const slabs: [number, number, number, number][] = [
@@ -90,15 +90,15 @@ export function buildVillage(t: Terrain, batches: CellBatches, tiles: Record<str
     const k0 = i / steps;
     const x = s0x - (s0x - s1x) * (k0 + 0.5 / steps);
     const y = t.base(s0x, s0z) - (i + 1) * (FARM.cellarDepth / steps);
-    const g = boxT((s0x - s1x) / steps + 0.02, 0.18, 1.15, bt);
+    const g = boxT((s0x - s1x) / steps + 0.02, 0.18, 1.55, bt);
     batches.get('brick', x, s0z).add(g, new THREE.Matrix4().makeTranslation(x, y + 0.09 - 0.18 + FARM.cellarDepth / steps, s0z));
   }
   // stairwell side walls
   for (const sgn of [-1, 1]) {
     const len = s0x - s1x + 0.6;
     const g = boxT(len, FARM.cellarDepth + 0.3, 0.2, bt);
-    batches.get('brick', (s0x + s1x) / 2, s0z).add(g, new THREE.Matrix4().makeTranslation((s0x + s1x) / 2, t.base(s0x, s0z) - FARM.cellarDepth / 2 + 0.1, s0z + sgn * 0.68));
-    out.colliders.push({ c: new THREE.Vector3((s0x + s1x) / 2, t.base(s0x, s0z) - FARM.cellarDepth / 2 + 0.1, s0z + sgn * 0.68), s: new THREE.Vector3(len, FARM.cellarDepth + 0.3, 0.2), r: 0 });
+    batches.get('brick', (s0x + s1x) / 2, s0z).add(g, new THREE.Matrix4().makeTranslation((s0x + s1x) / 2, t.base(s0x, s0z) - FARM.cellarDepth / 2 + 0.1, s0z + sgn * 0.86));
+    out.colliders.push({ c: new THREE.Vector3((s0x + s1x) / 2, t.base(s0x, s0z) - FARM.cellarDepth / 2 + 0.1, s0z + sgn * 0.86), s: new THREE.Vector3(len, FARM.cellarDepth + 0.3, 0.2), r: 0 });
   }
   out.beamPos.set((s0x + s1x) / 2 + 0.4, t.base(s0x, s0z) - 0.7, s0z);
 
@@ -158,6 +158,11 @@ function building(t: Terrain, b: BuildingDef, batches: CellBatches, tiles: Recor
     // openings along the wall
     const openings: { s0: number; s1: number; y0: number; y1: number; door?: boolean }[] = [];
     if (w.door) openings.push({ s0: len / 2 - 0.6, s1: len / 2 + 0.6, y0: 0, y1: b.id === 'barn' ? 3.2 : 2.15, door: true });
+    // farmhouse: external cellar doorway where the stairs pass under the east wall
+    if (b.id === 'farmhouse' && wi === 3) {
+      const sc = FARM.cellarStairTop[1] - (b.z - hd);
+      openings.push({ s0: sc - 0.95, s1: sc + 0.95, y0: 0, y1: 1.75, door: true });
+    }
     if (!w.gable || len > 7) {
       for (let s = 1.4; s < len - 1.2; s += 2.6) {
         if (openings.some((o) => s + 0.6 > o.s0 - 0.4 && s - 0.6 < o.s1 + 0.4)) continue;
@@ -225,6 +230,7 @@ function building(t: Terrain, b: BuildingDef, batches: CellBatches, tiles: Recor
   for (let i = 0; i < mounds; i++) {
     const lx = rng.range(-hw * 0.9, hw * 0.9);
     const lz = rng.range(-hd * 0.9, hd * 0.9);
+    if (b.id === 'barn' && lx > -hw * 0.2) continue; // keep the store and the barn door clear
     if (b.id === 'farmhouse') {
       const [wx0, wz0] = toWorld(lx, lz);
       if (Math.abs(wz0 - FARM.cellarStairTop[1]) < 1.3 && wx0 > FARM.cellarStairBottom[0] - 1 && wx0 < FARM.cellarStairTop[0] + 1.2) continue;

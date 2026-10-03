@@ -415,6 +415,16 @@ function boundaries(ctx: GameContext, t: Terrain): void {
       ctx.world.addStaticBox(new THREE.Vector3(cx, y + 0.5, cz), new THREE.Vector3(step, 0.2, step));
     }
   }
+  // retaining wall inside the big crater (below ground level): the crater is crossed on the bridge,
+  // not waded — its flooded bottom is deep, sucking mud
+  for (const c of t.craters) {
+    if (c.r < 6) continue;
+    const base = t.base(c.x, c.z);
+    const cyl = new THREE.CylinderGeometry(c.r * 0.86, c.r * 0.86, 5, 32, 1, true);
+    cyl.translate(c.x, base - 0.35 - 2.5, c.z);
+    ctx.world.addStaticMesh(cyl);
+    cyl.dispose();
+  }
   // walls around the crater corridor at ground level
   const gy = t.base(cc.bridgeFrom[0], cc.bridgeFrom[1]);
   wall(minCX, minCZ, minCX, maxCZ, gy);

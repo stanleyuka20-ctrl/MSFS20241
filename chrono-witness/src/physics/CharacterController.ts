@@ -125,34 +125,51 @@ export class CharacterController {
     else this.velocity.y = Math.min(this.velocity.y, 0) - 2 * dt; // keep pressed onto ground
 
     const prevY = this.position.y;
+    const wasGrounded = this.grounded;
+    const fallSpeed = -this.velocity.y;
+    // step-up: while grounded, lift the capsule by stepHeight before moving so low edges
+    // (duckboards, rubble, stairs) are passed over instead of blocking; then snap back down.
+    let stepping = wasGrounded && this.velocity.y <= 0.01;
+    if (stepping) {
+      // never lift into a low ceiling
+      // never lift into a low ceiling — test where the capsule is about to move to
+      this.buildSegment(_seg2);
+      const mx = this.velocity.x * dt;
+      const mz = this.velocity.z * dt;
+      _seg2.start.set(_seg2.start.x + mx, _seg2.start.y + this.stepHeight + 0.05, _seg2.start.z + mz);
+      _seg2.end.set(_seg2.end.x + mx, _seg2.end.y + this.stepHeight, _seg2.end.z + mz);
+      if (this.world.capsuleOverlaps(_seg2, this.radius * 0.95)) stepping = false;
+    }
+    if (stepping) this.position.y += this.stepHeight;
     this.position.addScaledVector(this.velocity, dt);
 
     // --- collide
     this.buildSegment(_seg);
-    const wasGrounded = this.grounded;
-    const fallSpeed = -this.velocity.y;
     const supported = this.world.resolveCapsule(_seg, this.radius, _gn);
     this.position.copy(_seg.start);
     this.position.y -= this.radius;
 
-    if (supported && _gn.y > 0.62) {
+    if (stepping) {
+      const g = this.probeGround(this.stepHeight + 0.12);
+      if (g !== null && this.probeNormal.y > 0.62) {
+        this.position.y = g;
+        this.grounded = true;
+        this.groundNormal.copy(this.probeNormal);
+        if (this.velocity.y < 0) this.velocity.y = 0;
+      } else {
+        // walked off an edge: undo the lift and start falling
+        this.position.y -= this.stepHeight;
+        this.grounded = false;
+      }
+    } else if (supported && _gn.y > 0.62) {
       this.grounded = true;
       this.groundNormal.copy(_gn);
       if (this.velocity.y < 0) this.velocity.y = 0;
     } else {
-      // ground snap when walking down slopes / steps
-      if (wasGrounded && this.velocity.y <= 0) {
-        const g = this.world.groundHeight(this.position.x, this.position.y + 0.05, this.position.z, 0.42);
-        if (g !== null) {
-          this.position.y = g;
-          this.grounded = true;
-        } else this.grounded = false;
-      } else this.grounded = false;
-      if (supported && _gn.y <= 0.62) {
-        // steep surface: remove velocity into it, slide
-        this.velocity.y = Math.min(this.velocity.y, 0);
-      }
+      this.grounded = false;
+      if (supported && _gn.y <= 0.62) this.velocity.y = Math.min(this.velocity.y, 0);
     }
+    this.state = this.grounded ? 'ground' : 'air';
     if (this.grounded) this.coyote = 0.12;
     else this.coyote -= dt;
 
@@ -163,6 +180,30 @@ export class CharacterController {
 
     this.horizontalSpeed = Math.hypot(this.velocity.x, this.velocity.z);
     if (this.grounded) this.strideDistance += this.horizontalSpeed * dt;
+  }
+
+  /** Maximum ledge height walked over without jumping. */
+  stepHeight = 0.36;
+  readonly probeNormal = new THREE.Vector3(0, 1, 0);
+
+  /**
+   * Highest supporting surface under the capsule footprint (centre + 4 points at 0.6 r), searched
+   * from just above the feet down to `maxDrop`. Several rays avoid dropping through gaps between boards.
+   */
+  private probeGround(maxDrop: number): number | null {
+    let best: number | null = null;
+    const r = this.radius * 0.6;
+    for (let i = 0; i < 5; i++) {
+      const ox = i === 0 ? 0 : i === 1 ? r : i === 2 ? -r : 0;
+      const oz = i === 3 ? r : i === 4 ? -r : 0;
+      _o.set(this.position.x + ox, this.position.y + 0.06, this.position.z + oz);
+      const hit = this.world.raycast(_o, _d, maxDrop + 0.06, _hit);
+      if (hit && (best === null || hit.point.y > best)) {
+        best = hit.point.y;
+        this.probeNormal.copy(hit.normal);
+      }
+    }
+    return best;
   }
 
   private buildSegment(seg: THREE.Line3, height = this.height): void {
@@ -243,6 +284,19 @@ export class CharacterController {
   }
 
   private tryLadder(input: MoveInput, passive = false): boolean {
+    // descending: standing at the top and walking off the edge towards the climbing side
+    for (const lt of this.ladders) {
+      const dxT = this.position.x - lt.exit.x;
+      const dzT = this.position.z - lt.exit.z;
+      if (Math.hypot(dxT, dzT) > 1.3 || Math.abs(this.position.y - lt.top.y) > 0.6) continue;
+      const toward = input.wishX * lt.normal.x + input.wishZ * lt.normal.z;
+      if (toward < 0.5) continue;
+      this.activeLadder = lt;
+      this.state = 'ladder';
+      this.velocity.set(0, 0, 0);
+      this.position.set(lt.bottom.x + lt.normal.x * (this.radius + 0.08), lt.top.y - 0.25, lt.bottom.z + lt.normal.z * (this.radius + 0.08));
+      return true;
+    }
     const l = this.nearbyLadder(passive ? 0.65 : 1.0);
     if (!l) return false;
     // must face the ladder: forward opposite to ladder normal

@@ -54,6 +54,7 @@ class WW1Runtime implements ChapterRuntime {
   private cable!: { broken: THREE.Mesh; fixed: THREE.Mesh };
   private stretcher!: THREE.Group;
   private carryActive = false;
+  private stretcherRear!: THREE.Object3D;
   private carryWaitTimer = 0;
   private hazard: { t: number; total: number; pos: THREE.Vector3 } | null = null;
   private hazardPoints: THREE.Vector3[] = [];
@@ -276,10 +277,10 @@ class WW1Runtime implements ChapterRuntime {
       bag.rotation.y = 0.3;
       this.root.add(bag);
       scan('obj_gas_helmet', 'scan_ph_helmet', bag.position.clone().setY(bag.position.y + 0.12), 0.25);
-      const b3 = bayNear(-50);
+      const b3 = bayNear(-49);
       scan('obj_parapet', 'scan_sandbag_parapet', new THREE.Vector3(b3.p.x, t.base(b3.p.x, FRONT_Z - 1.4) + 0.3, FRONT_Z - 1.2), 0.9);
       // diary on the fire step (optional task)
-      const b4 = bayNear(-44);
+      const b4 = bayNear(-46.5);
       const diary = new THREE.Mesh(new THREE.BoxGeometry(0.1, 0.022, 0.15), M.leather);
       diary.position.set(b4.p.x + 0.6, b4.p.y + 0.04, b4.p.z + 0.05);
       diary.rotation.y = 0.5;
@@ -295,7 +296,7 @@ class WW1Runtime implements ChapterRuntime {
       this.braziers.push(new THREE.Vector3(b1.p.x - 3, b1.p.y - 0.47, b1.p.z + 0.6));
     }
     // braziers in Fleet Street
-    for (const x of [-34, 24]) {
+    for (const x of [-30, 35]) {
       const hit = t.trenchAt(x, SUPPORT_Z, 3);
       const z = hit ? SUPPORT_Z : SUPPORT_Z;
       const br = P.brazier(M);
@@ -314,13 +315,13 @@ class WW1Runtime implements ChapterRuntime {
     }
     scan('obj_picket', 'scan_screw_picket', new THREE.Vector3(10.6, t.height(10.5, SUPPORT_Z) + 0.8, SUPPORT_Z + 0.4), 0.4);
     const db = new THREE.Mesh((this.root.children.find((c) => (c as THREE.InstancedMesh).isInstancedMesh && (c as THREE.InstancedMesh).count > 0 && (c as THREE.Mesh).geometry.attributes.position.count > 200 && (c as THREE.Mesh).geometry.attributes.position.count < 400) as THREE.Mesh | undefined)?.geometry ?? new THREE.BoxGeometry(0.5, 0.05, 1.5), this.w.mats.planks_solid);
-    db.position.set(-14.5, t.height(-14.5, SUPPORT_Z) + 0.85, SUPPORT_Z - 0.55);
+    db.position.set(-11, t.height(-11, SUPPORT_Z) + 0.85, SUPPORT_Z - 0.55);
     db.rotation.set(-1.15, 0, 0);
     db.castShadow = true;
     this.root.add(db);
     scan('obj_duckboard', 'scan_duckboard', db.position.clone(), 0.6);
     // crates & tins along Fleet Street
-    for (const [x, rot] of [[-27, 0.1], [-8.5, -0.2], [13.5, 0.3], [30, 0]] as const) {
+    for (const [x, rot] of [[-26, 0.1], [-9.5, -0.2], [20.5, 0.3], [30, 0]] as const) {
       put(P.crate(M), x, SUPPORT_Z + 0.35, rot, 0.18);
       put(P.tins(M, 3), x + 0.5, SUPPORT_Z + 0.3, 0);
     }
@@ -515,7 +516,6 @@ class WW1Runtime implements ChapterRuntime {
     const nav = this.nav;
     const trenchNodes: { id: number; trench: string }[] = [];
     for (const tr of TRENCHES) {
-      if (tr.id === 'old_boot_n' || tr.id === 'front_e') continue;
       let prev = -1;
       for (let i = 1; i < tr.points.length; i++) {
         const [ax, az] = tr.points[i - 1];
@@ -539,22 +539,34 @@ class WW1Runtime implements ChapterRuntime {
         if (a.trench === b.trench || a.id >= b.id) continue;
         if (nav.nodes[a.id].pos.distanceTo(nav.nodes[b.id].pos) < 1.9) nav.link(a.id, b.id);
       }
-    // dugouts: entrance → room
+    // dugouts: entrance → room (link to the nearest trench node, not to the new door node)
     for (const d of DUGOUTS) {
       const [[ex0, ez0], [ex1, ez1]] = d.entrance;
-      const door = nav.add(new THREE.Vector3(ex0, t.height(ex0, ez0) + 0.05, ez0), `door:${d.id}`);
+      const doorPos = new THREE.Vector3(ex0, t.height(ex0, ez0) + 0.05, ez0);
+      let near = -1;
+      let nd = 3.5;
+      for (const tn of trenchNodes) {
+        const dd = nav.nodes[tn.id].pos.distanceTo(doorPos);
+        if (dd < nd) {
+          nd = dd;
+          near = tn.id;
+        }
+      }
+      const door = nav.add(doorPos, `door:${d.id}`);
       const inner = nav.add(new THREE.Vector3(ex1, t.height(ex1, ez1) + 0.05, ez1), `in:${d.id}`);
       const room = nav.add(new THREE.Vector3(d.room[0], t.height(d.room[0], d.room[1]) + 0.06, d.room[1]), `room:${d.id}`);
       nav.link(door, inner);
       nav.link(inner, room);
-      const near = nav.nearest(new THREE.Vector3(ex0, 0, ez0).setY(t.height(ex0, ez0)), 3);
-      if (near >= 0 && near !== door) nav.link(near, door);
+      if (near >= 0) nav.link(near, door);
     }
     // village path from the Haymarket ramp to the farm cellar steps
     const vp: [number, number][] = [[0, 43], [-1, 46.5], [-6, 49.6], [-14, 50.6], [-20.5, 54], [-22, 58.5], [-22, 62], [-21.5, 66], [-19.5, 71], [-17.2, 75.2], [-16.6, 77.4]];
     const vids = nav.addPath(vp.map(([x, z]) => new THREE.Vector3(x, t.height(x, z) + 0.05, z)), 'village');
     const hayEnd = nav.nearest(new THREE.Vector3(0, t.height(0, 42.5), 42.5), 3);
-    if (hayEnd >= 0) nav.link(hayEnd, vids[0]);
+    if (hayEnd >= 0 && hayEnd !== vids[0]) nav.link(hayEnd, vids[0]);
+    // into the barn (Engineers' store) through its east door
+    const barn = nav.addPath([[-26.5, 68.6], [-29.6, 69], [-31.4, 67.6], [-31.4, 66.2]].map(([x, z]) => new THREE.Vector3(x, t.height(x, z) + 0.05, z)), 'barn');
+    nav.link(vids[7], barn[0]);
   }
 
   // ======================================================================= people
@@ -582,10 +594,10 @@ class WW1Runtime implements ChapterRuntime {
     // support line
     spawn('hollis', 'Sgt. Hollis', 'soldier_b', floor(-4.7, SUPPORT_Z + 0.35), Math.PI * 0.95, 'idle');
     spawn('kemp', 'Signaller Kemp', 'soldier_a', roomPos('signals', -0.1, 0.05), Math.PI, 'kneel_work');
-    spawn('sentry1', 'Sentry', 'soldier_c', floor(-30, SUPPORT_Z - 0.75).add(new THREE.Vector3(0, 0.47, 0)), Math.PI, 'idle_alt', { attentive: false });
-    spawn('sit1', 'Soldier', 'soldier_a', floor(-33.2, SUPPORT_Z + 0.55), Math.PI * 0.9, 'sit_ground', { attentive: false });
-    spawn('sit2', 'Soldier', 'soldier_c', floor(-35.6, SUPPORT_Z + 0.5), Math.PI * 1.15, 'sit_ground', { attentive: true });
-    spawn('sit3', 'Soldier', 'soldier_b', floor(23, SUPPORT_Z + 0.55), Math.PI * 1.05, 'sit_ground');
+    spawn('sentry1', 'Sentry', 'soldier_c', floor(-22, SUPPORT_Z - 0.75).add(new THREE.Vector3(0, 0.47, 0)), Math.PI, 'idle_alt', { attentive: false });
+    spawn('sit1', 'Soldier', 'soldier_a', floor(-28.4, SUPPORT_Z + 0.55), Math.PI * 0.9, 'sit_ground', { attentive: false });
+    spawn('sit2', 'Soldier', 'soldier_c', floor(-31.4, SUPPORT_Z + 0.5), Math.PI * 1.15, 'sit_ground', { attentive: true });
+    spawn('sit3', 'Soldier', 'soldier_b', floor(21.6, SUPPORT_Z + 0.55), Math.PI * 1.05, 'sit_ground');
     const carrierA = spawn('carrier1', 'Ration party', 'soldier_b', floor(-44, SUPPORT_Z), Math.PI / 2, 'idle');
     const carrierB = spawn('carrier2', 'Ration party', 'soldier_c', floor(-46, SUPPORT_Z), Math.PI / 2, 'idle');
     // Pall Mall shelter
@@ -593,7 +605,7 @@ class WW1Runtime implements ChapterRuntime {
     // front line
     spawn('ward', 'Capt. Ward', 'officer', roomPos('front_hq', -0.6, -0.2), Math.PI, 'idle');
     spawn('sentry2', 'Sentry', 'soldier_b', floor(-15.5, FRONT_Z - 0.85).add(new THREE.Vector3(0, 0.47, 0)), Math.PI, 'idle_alt', { attentive: false });
-    spawn('sentry3', 'Sentry', 'soldier_c', floor(-41.5, FRONT_Z - 0.85).add(new THREE.Vector3(0, 0.47, 0)), Math.PI, 'idle_alt', { attentive: false });
+    spawn('sentry3', 'Sentry', 'soldier_c', floor(-47.5, FRONT_Z - 0.85).add(new THREE.Vector3(0, 0.47, 0)), Math.PI, 'idle_alt', { attentive: false });
     spawn('front_sit', 'Soldier', 'soldier_a', floor(-28.5, FRONT_Z + 0.4), 0.1, 'sit_ground');
     spawn('front_sit2', 'Soldier', 'soldier_b', floor(12, FRONT_Z + 0.2), -0.3, 'sit_ground');
     // RAP
@@ -609,16 +621,21 @@ class WW1Runtime implements ChapterRuntime {
     const patrol = (n: NPC | undefined, a: THREE.Vector3, b: THREE.Vector3): void => {
       if (!n) return;
       const go = (to: THREE.Vector3, back: THREE.Vector3): void => {
-        n.walkTo(this.nav, to, () => window.setTimeout(() => go(back, to), 2500 + Math.random() * 3000));
+        n.walkTo(this.nav, to, () => this.after(() => go(back, to), 2500 + Math.random() * 3000));
       };
       go(b, a);
     };
     patrol(carrierA, floor(-44, SUPPORT_Z), floor(44, SUPPORT_Z));
-    window.setTimeout(() => patrol(carrierB, floor(-46, SUPPORT_Z), floor(42, SUPPORT_Z)), 1600);
+    this.after(() => patrol(carrierB, floor(-46, SUPPORT_Z), floor(42, SUPPORT_Z)), 1600);
 
     // stretcher used for the carry (Whitlow lies on it)
     this.stretcher = P.stretcher(this.w.props);
     this.stretcher.visible = false;
+    const rear = new THREE.Object3D();
+    rear.name = 'rear-handles';
+    rear.position.set(0, 0.15, -1.1);
+    this.stretcher.add(rear);
+    this.stretcherRear = rear;
     this.root.add(this.stretcher);
 
     // temporal echoes (only visible in observation mode)
@@ -646,7 +663,7 @@ class WW1Runtime implements ChapterRuntime {
       const pts = path.map(([x, z]) => new THREE.Vector3(x, t.height(x, z) + 0.05, z));
       const loop = (): void => {
         n.teleport(pts[0]);
-        n.walkPath(pts.slice(1), () => window.setTimeout(loop, 1500));
+        n.walkPath(pts.slice(1), () => this.after(loop, 1500));
       };
       loop();
       this.echoes.push(n);
@@ -747,9 +764,9 @@ class WW1Runtime implements ChapterRuntime {
     ctx.interactions.add({
       id: 'stretcher_handles',
       position: new THREE.Vector3(),
-      object: this.stretcher,
-      offsetY: 0.4,
-      radius: 0.7,
+      object: this.stretcherRear,
+      offsetY: 0.2,
+      radius: 0.45,
       range: 2.6,
       prompt: 'Take the rear handles',
       enabled: () => ctx.facts.get('carry.ready') && !this.carryActive && !ctx.facts.get('event.whitlow_delivered'),
@@ -846,6 +863,18 @@ class WW1Runtime implements ChapterRuntime {
     for (const n of this.nav.nodes) if (Math.hypot(n.pos.x - mid.x, n.pos.z - mid.z) < 3.8) n.blocked = on;
   }
 
+  readonly killY = -40;
+
+  resolveSpawnHeight(x: number, z: number): number {
+    return this.w.terrain.height(x, z) + 0.15;
+  }
+
+  private timers: { t: number; fn: () => void }[] = [];
+  /** Game-time scheduler (pauses with the game, unlike setTimeout). Delay in milliseconds. */
+  private after(fn: () => void, ms: number): void {
+    this.timers.push({ t: ms / 1000, fn });
+  }
+
   scriptState(): Record<string, unknown> {
     return { barrage: this.barrage };
   }
@@ -854,6 +883,14 @@ class WW1Runtime implements ChapterRuntime {
   update(dt: number, time: number): void {
     const ctx = this.ctx;
     this.time += dt;
+    for (let i = this.timers.length - 1; i >= 0; i--) {
+      const tm = this.timers[i];
+      tm.t -= dt;
+      if (tm.t <= 0) {
+        this.timers.splice(i, 1);
+        tm.fn();
+      }
+    }
     const p = ctx.player.position;
     // zones (events only for gated, newly entered zones)
     for (const z of this.zones) {
@@ -899,7 +936,7 @@ class WW1Runtime implements ChapterRuntime {
     // completion
     if (!this.completed && ctx.facts.get('event.chapter_complete')) {
       this.completed = true;
-      window.setTimeout(() => ctx.completeChapter(), 600);
+      this.after(() => ctx.completeChapter(), 600);
     }
   }
 
@@ -1009,7 +1046,7 @@ class WW1Runtime implements ChapterRuntime {
       const dir = new THREE.Vector3(Math.sin(ang), 0.08, -Math.cos(ang));
       ctx.env.triggerFlash(dir, this.rng.range(0.15, 0.4), 0xffc69a, 5);
       const delay = dist / 343;
-      window.setTimeout(() => ctx.audio.distantGun(dir.x * 1000, dir.z * 1000, dist), Math.min(9000, delay * 1000));
+      this.after(() => ctx.audio.distantGun(dir.x * 1000, dir.z * 1000, dist), Math.min(9000, delay * 1000));
     }
     // brazier smoke
     this.smokeTimer -= dt;
@@ -1180,8 +1217,10 @@ class WW1Runtime implements ChapterRuntime {
         ctx.world.setEnabled('beam', false);
         ctx.audio.impact(this.beam.position.x, this.beam.position.z, 8);
         this.puffs.burst(this.beam.position.clone(), 18, 2, 1.2, 3, 0.7, 0x9a8e7c, 0.5);
-        // Avery climbs out and the stretcher is brought up
-        window.setTimeout(() => this.applyCheckpointPartialFreed(), 1200);
+        // the stretcher is brought up; Avery climbs out a moment later
+        const t2 = this.w.terrain;
+        this.placeStretcher(new THREE.Vector3(-15.6, t2.height(-15.6, 74.4) + 0.02, 74.4), 0.25);
+        this.after(() => this.applyCheckpointPartialFreed(), 1200);
       }
     }
     if (this.beamT >= 0 && this.beamT < 1) {
@@ -1195,6 +1234,7 @@ class WW1Runtime implements ChapterRuntime {
   }
 
   private applyCheckpointPartialFreed(): void {
+    if (!this.ctx.facts.get('event.beam_moved') || this.ctx.facts.get('carry.ready') || this.carryActive) return;
     const avery = this.npc.avery;
     const t = this.w.terrain;
     if (avery) {
@@ -1245,12 +1285,12 @@ class WW1Runtime implements ChapterRuntime {
       if (dest && p.distanceTo(dest) < 2) this.deliver();
       return;
     }
-    // leash: Avery waits for the player; the player cannot wander away from the stretcher
-    const fwd = new THREE.Vector3(Math.sin(avery.yaw), 0, Math.cos(avery.yaw));
-    const rear = avery.root.position.clone().addScaledVector(fwd, -2.55);
-    const dist = Math.hypot(p.x - rear.x, p.z - rear.z);
+    // stretcher link: Avery leads and waits if the player lags; the player is held within the
+    // stretcher's reach (distance-based so it never depends on which way Avery is facing)
+    const ap = avery.root.position;
+    const dist = Math.hypot(p.x - ap.x, p.z - ap.z);
     if (this.hazard) avery.walkSpeed = 0;
-    else avery.walkSpeed = dist > 1.0 ? 0 : 1.15;
+    else avery.walkSpeed = dist > 3.0 ? 0 : 1.15;
     if (avery.walkSpeed === 0 && !this.hazard) {
       this.carryWaitTimer += dt;
       if (this.carryWaitTimer > 6) {
@@ -1258,14 +1298,15 @@ class WW1Runtime implements ChapterRuntime {
         ctx.events.emit('subtitle', { speaker: 'Pte. Avery', text: 'Stay with me. Keep hold of those handles.', duration: 3 });
       }
     } else this.carryWaitTimer = 0;
-    if (dist > 1.4) {
-      // pull the player back toward the handles (they are holding a loaded stretcher)
-      const k = 1.4 / dist;
-      p.x = rear.x + (p.x - rear.x) * k;
-      p.z = rear.z + (p.z - rear.z) * k;
+    if (dist > 3.2) {
+      const k = 3.2 / dist;
+      p.x = ap.x + (p.x - ap.x) * k;
+      p.z = ap.z + (p.z - ap.z) * k;
     }
-    const front = avery.root.position.clone().addScaledVector(fwd, -0.35);
-    const back = p.clone().addScaledVector(new THREE.Vector3(front.x - p.x, 0, front.z - p.z).normalize(), 0.45);
+    const dirX = (ap.x - p.x) / Math.max(0.01, dist);
+    const dirZ = (ap.z - p.z) / Math.max(0.01, dist);
+    const front = new THREE.Vector3(ap.x - dirX * 0.35, ap.y, ap.z - dirZ * 0.35);
+    const back = new THREE.Vector3(p.x + dirX * 0.45, p.y, p.z + dirZ * 0.45);
     this.placeStretcherBetween(front, back);
     // hazards
     if (!this.hazard) {
@@ -1350,7 +1391,7 @@ class WW1Runtime implements ChapterRuntime {
     const t = this.w.terrain;
     const at = (x: number, z: number, dy = 1.62): THREE.Vector3 => new THREE.Vector3(x, t.height(x, z) + dy, z);
     return {
-      explore: [at(-21, SUPPORT_Z), at(-10, SUPPORT_Z), at(-6, 0), at(-8, -12), at(-6, 0), at(2, 8), at(0, 20), at(0.5, 38), at(-6, 49.6), at(-20, 56), at(-22, 66), at(-18, 74)].map((p, i, arr) => ({ pos: p, look: (arr[i + 1] ?? at(-25, 80)).clone().setY(p.y - 0.1) })),
+      explore: [at(-24, SUPPORT_Z), at(-10, SUPPORT_Z), at(-6, 0), at(-8, -12), at(-6, 0), at(2, 8), at(0, 20), at(0.5, 38), at(-6, 49.6), at(-20, 56), at(-22, 66), at(-18, 74)].map((p, i, arr) => ({ pos: p, look: (arr[i + 1] ?? at(-25, 80)).clone().setY(p.y - 0.1) })),
       crowd: [at(-48, SUPPORT_Z), at(-38, SUPPORT_Z), at(-30, SUPPORT_Z), at(-20, SUPPORT_Z), at(-10, SUPPORT_Z), at(0, SUPPORT_Z), at(14, SUPPORT_Z), at(24, SUPPORT_Z)].map((p, i, arr) => ({ pos: p, look: (arr[i + 1] ?? at(40, SUPPORT_Z)).clone() })),
       barrage: [at(-6.4, -26.3), at(-5.2, -26.3, 1.4), at(-4.0, -26.0, 1.5), at(-6.6, -26.2)].map((p) => ({ pos: p, look: at(-9.5, -24) })),
     };

@@ -176,10 +176,17 @@ export class CollisionWorld {
           intersectsTriangle: (tri: ExtendedTriangle) => {
             const d = tri.closestPointToSegment(_seg, _triPoint, _capPoint);
             if (d < radius) {
-              const depth = radius - d;
+              let depth = radius - d;
               _dir.subVectors(_capPoint, _triPoint);
               if (_dir.lengthSq() < 1e-10) tri.getNormal(_dir);
               else _dir.normalize();
+              // Walkable floors are one-sided: a capsule that ended up beneath one (deep
+              // penetration, teleport, tunnelling) is pushed back up through it, never down.
+              tri.getNormal(_tn);
+              if (_tn.y > 0.6 && _dir.dot(_tn) < 0) {
+                _dir.copy(_tn);
+                depth = radius + d;
+              }
               _seg.start.addScaledVector(_dir, depth);
               _seg.end.addScaledVector(_dir, depth);
             }
@@ -269,3 +276,4 @@ const _capPoint = new THREE.Vector3();
 const _dir = new THREE.Vector3();
 const _delta = new THREE.Vector3();
 const _tmp = new THREE.Vector3();
+const _tn = new THREE.Vector3();

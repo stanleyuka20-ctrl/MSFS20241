@@ -222,7 +222,7 @@ export class Terrain {
       const pz = z - ez0;
       const along = px * tx + pz * tz;
       const lat = Math.abs(-px * tz + pz * tx);
-      if (along > -0.6 && along < len + 0.2 && lat < 0.5) c = Math.max(c, dg.depth - 0.25);
+      if (along > -0.25 && along < len + 0.2 && lat < 0.78) c = Math.max(c, dg.depth - 0.12 - clamp(1 - along / 1.0, 0, 1) * 0.3);
     }
     // farm cellar + stairs
     const [cx, cz] = FARM.cellarRoom;
@@ -230,7 +230,7 @@ export class Terrain {
     if (Math.abs(x - cx) <= csx / 2 && Math.abs(z - cz) <= csz / 2) c = Math.max(c, FARM.cellarDepth);
     const [s0x, s0z] = FARM.cellarStairTop;
     const [s1x] = FARM.cellarStairBottom;
-    if (x <= s0x + 0.2 && x >= s1x - 0.2 && Math.abs(z - s0z) < 0.62) {
+    if (x <= s0x + 0.2 && x >= s1x - 0.2 && Math.abs(z - s0z) < 0.8) {
       const k = clamp((s0x - x) / (s0x - s1x), 0, 1);
       c = Math.max(c, Math.floor(k * 8) / 8 * FARM.cellarDepth);
     }

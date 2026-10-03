@@ -71,6 +71,10 @@ export interface ChapterRuntime {
   readonly root: THREE.Object3D;
   /** Optional benchmark camera route (world-space points). */
   benchmarkRoutes?(): Record<string, { pos: THREE.Vector3; look: THREE.Vector3 }[]>;
+  /** Ground height for spawning at (x, z) — avoids guessing heights in checkpoint data. */
+  resolveSpawnHeight?(x: number, z: number): number;
+  /** World y below which the player is considered lost (safety net returns them to safe ground). */
+  readonly killY?: number;
   /** Skip an intense scripted sequence while preserving mission progress. */
   skipSequence?(): void;
   dispose(): void;

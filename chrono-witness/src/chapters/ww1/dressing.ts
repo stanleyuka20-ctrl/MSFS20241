@@ -1,6 +1,6 @@
 import * as THREE from 'three';
 import { Rng, Noise2D } from '../../core/Random';
-import { TRENCHES, FLOODED, CRATER_CROSSING, type Revet } from './layout';
+import { TRENCHES, DUGOUTS, FLOODED, CRATER_CROSSING, type Revet } from './layout';
 import type { Terrain } from './terrain';
 import { GeoBatch, canvasTexture } from '../common/geo';
 
@@ -43,8 +43,82 @@ function styleFor(rev: Revet, rng: Rng): Exclude<Revet, 'mixed'> {
   return r < 0.38 ? 'planks' : r < 0.68 ? 'corrugated' : r < 0.84 ? 'hurdle' : 'bare';
 }
 
+/** An interval along a trench segment wall that must stay open (junction or dugout door). */
+interface Opening {
+  trench: string;
+  seg: number;
+  side: 1 | -1;
+  s0: number;
+  s1: number;
+}
+
+/**
+ * Find where other trenches and dugout entrances meet each trench wall, so revetments, fire steps
+ * and parapet bags leave those openings clear.
+ */
+function computeOpenings(): Opening[] {
+  const out: Opening[] = [];
+  const samples: { x: number; z: number; half: number; trench: string }[] = [];
+  for (const u of TRENCHES) {
+    for (let i = 1; i < u.points.length; i++) {
+      const [ax, az] = u.points[i - 1];
+      const [bx, bz] = u.points[i];
+      const len = Math.hypot(bx - ax, bz - az);
+      for (let s = 0; s <= len; s += 0.4) samples.push({ x: ax + ((bx - ax) * s) / len, z: az + ((bz - az) * s) / len, half: u.floorWidth / 2 + 0.35, trench: u.id });
+    }
+  }
+  for (const d of DUGOUTS) {
+    const [[ex0, ez0], [ex1, ez1]] = d.entrance;
+    for (let k = -1; k <= 4; k++) {
+      const f = k / 4;
+      samples.push({ x: ex0 + (ex1 - ex0) * f, z: ez0 + (ez1 - ez0) * f, half: 0.85, trench: `dug:${d.id}` });
+    }
+  }
+  for (const t of TRENCHES) {
+    const hf = t.floorWidth / 2;
+    for (let i = 1; i < t.points.length; i++) {
+      const [ax, az] = t.points[i - 1];
+      const [bx, bz] = t.points[i];
+      const len = Math.hypot(bx - ax, bz - az);
+      if (len < 0.3) continue;
+      const tx = (bx - ax) / len;
+      const tz = (bz - az) / len;
+      for (const p of samples) {
+        if (p.trench === t.id) continue;
+        const px = p.x - ax;
+        const pz = p.z - az;
+        const along = px * tx + pz * tz;
+        if (along < -1 || along > len + 1) continue;
+        const lat = -px * tz + pz * tx; // positive = left side (nx, nz) = (-tz, tx)
+        const a = Math.abs(lat);
+        if (a < hf - 0.05 || a > hf + t.batter + 1.4) continue;
+        out.push({ trench: t.id, seg: i, side: lat > 0 ? 1 : -1, s0: along - p.half, s1: along + p.half });
+      }
+    }
+  }
+  return out;
+}
+
+/** Split [s0, s1] removing opening intervals; returns remaining pieces. */
+function openPieces(s0: number, s1: number, ops: Opening[]): [number, number][] {
+  let pieces: [number, number][] = [[s0, s1]];
+  for (const o of ops) {
+    const next: [number, number][] = [];
+    for (const [a, b] of pieces) {
+      if (o.s1 <= a || o.s0 >= b) next.push([a, b]);
+      else {
+        if (o.s0 > a) next.push([a, o.s0]);
+        if (o.s1 < b) next.push([o.s1, b]);
+      }
+    }
+    pieces = next;
+  }
+  return pieces.filter(([a, b]) => b - a > 0.35);
+}
+
 export function buildDressing(t: Terrain, tiles: Record<string, number>, density: number): Dressing {
   const rng = new Rng(1916_10);
+  const openings = computeOpenings();
   const noise = new Noise2D(5);
   const d: Dressing = { batches: new CellBatches(), sandbags: [], duckboards: [], colliders: [], signs: [], ladders: [], waters: [], wallSpots: [], firestepSpots: [], cablePath: [] };
 
@@ -61,20 +135,24 @@ export function buildDressing(t: Terrain, tiles: Record<string, number>, density
       const nx = -tz;
       const nz = tx;
       const isBay = tr.fireStep && Math.abs(tx) > 0.9 && len > 5;
-      for (const sideSign of [1, -1]) {
+      for (const sideSign of [1, -1] as const) {
         const ox = nx * sideSign;
         const oz = nz * sideSign;
         const north = Math.abs(tx) > 0.3 ? (oz < 0) : false;
         const step = isBay && north ? 0.5 : 0;
         const style = styleFor(tr.revet, rng);
-        if (style !== 'bare' || tr.rough < 0.5) {
-          wallStrip(t, d, tiles, ax, az, tx, tz, ox, oz, len, hf + step, tr.batter, style, rng, tr.id);
-        }
-        if (step > 0) fireStep(t, d, tiles, ax, az, tx, tz, ox, oz, len, hf, tr.depth);
-        // sandbag parapet courses above ground on the enemy side of fire trenches; occasional on others
+        const ops = openings.filter((o) => o.trench === tr.id && o.seg === i && o.side === sideSign);
         const wantBags = (tr.fireStep && north) || (!tr.fireStep && rng.chance(0.25)) || (tr.fireStep && !north && rng.chance(0.4));
-        if (wantBags && tr.rough < 0.7) parapetBags(t, d, ax, az, tx, tz, ox, oz, len, hf + step + tr.batter + 0.15, north && tr.fireStep ? 3 : rng.int(1, 2), rng);
-        else if (wantBags) scatteredBags(t, d, ax, az, tx, tz, ox, oz, len, hf + step + tr.batter + 0.1, rng);
+        const courses = north && tr.fireStep ? 3 : rng.int(1, 2);
+        for (const [p0, p1] of openPieces(0, len, ops)) {
+          const sx = ax + tx * p0;
+          const sz = az + tz * p0;
+          const plen = p1 - p0;
+          if (style !== 'bare' || tr.rough < 0.5) wallStrip(t, d, tiles, sx, sz, tx, tz, ox, oz, plen, hf + step, tr.batter, style, rng, tr.id);
+          if (step > 0) fireStep(t, d, tiles, sx, sz, tx, tz, ox, oz, plen, hf, tr.depth);
+          if (wantBags && tr.rough < 0.7) parapetBags(t, d, sx, sz, tx, tz, ox, oz, plen, hf + step + tr.batter + 0.15, courses, rng);
+          else if (wantBags) scatteredBags(t, d, sx, sz, tx, tz, ox, oz, plen, hf + step + tr.batter + 0.1, rng);
+        }
       }
       if (tr.duckboards) duckboards(t, d, ax, az, tx, tz, len, rng, tr.id);
       if (isBay) d.firestepSpots.push({ p: new THREE.Vector3(ax + tx * len * 0.5 - nz * 0 + 0, 0, az + tz * len * 0.5), n: new THREE.Vector3(0, 0, 1) });
@@ -124,7 +202,16 @@ export function buildDressing(t: Terrain, tiles: Record<string, number>, density
   const topY = t.base(lx, lz - 0.9) + 0.05;
   const lnormal = new THREE.Vector3(0, 0, 1); // climber stands south of the ladder, ladder leans on the north wall
   ladder(d, tiles, new THREE.Vector3(lx, ly, lz - 0.35), topY - ly, lnormal);
-  d.ladders.push({ id: 'crater_ladder', bottom: new THREE.Vector3(lx, ly, lz - 0.1), top: new THREE.Vector3(lx, topY, lz), exit: new THREE.Vector3(lx - 0.1, topY + 0.05, lz - 1.25), normal: lnormal });
+  const [bfx, bfz] = CRATER_CROSSING.bridgeFrom;
+  d.ladders.push({ id: 'crater_ladder', bottom: new THREE.Vector3(lx, ly, lz - 0.1), top: new THREE.Vector3(lx, topY, lz), exit: new THREE.Vector3(bfx, t.base(bfx, bfz) + 0.25, bfz - 0.35), normal: lnormal });
+  // north ladder: from the start of Old Boot Alley (north) up onto the far end of the bridge
+  const [nx2, nz2] = CRATER_CROSSING.ladderNorth;
+  const ny2 = t.height(nx2, nz2 - 0.3);
+  const ntop = t.base(nx2, nz2 + 0.9) + 0.05;
+  const nnormal = new THREE.Vector3(0, 0, -1);
+  ladder(d, tiles, new THREE.Vector3(nx2, ny2, nz2 + 0.35), ntop - ny2, nnormal);
+  const [btx, btz] = CRATER_CROSSING.bridgeTo;
+  d.ladders.push({ id: 'crater_ladder_n', bottom: new THREE.Vector3(nx2, ny2, nz2 + 0.1), top: new THREE.Vector3(nx2, ntop, nz2), exit: new THREE.Vector3(btx, t.base(btx, btz) + 0.25, btz + 0.35), normal: nnormal });
   bridge(t, d, tiles, CRATER_CROSSING.bridgeFrom, CRATER_CROSSING.bridgeTo);
 
   void noise;

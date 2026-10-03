@@ -349,6 +349,10 @@ class HQRuntime implements ChapterRuntime {
     if (this.ringGlow) this.ringGlow.emissiveIntensity = 0.55 + Math.sin(time * 1.3) * 0.12;
   }
 
+  resolveSpawnHeight(): number {
+    return 0.05;
+  }
+
   scriptState(): Record<string, unknown> {
     return {};
   }

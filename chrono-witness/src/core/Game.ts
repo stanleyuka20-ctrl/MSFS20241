@@ -108,6 +108,7 @@ export class Game implements GameContext {
     window.addEventListener('resize', this.onResize);
     this.onResize();
     (window as unknown as { __game: Game }).__game = this; // automation hook (benchmarks, smoke tests)
+    if ((window as unknown as { __automation?: boolean }).__automation) (window as unknown as { __THREE: unknown }).__THREE = THREE;
   }
 
   // ======================================================================= boot
@@ -336,9 +337,13 @@ export class Game implements GameContext {
     const cp = this.chapter!.checkpoints[cpId];
     if (!cp) throw new Error(`Unknown checkpoint ${cpId}`);
     const p = new THREE.Vector3(...cp.position);
-    const g = this.world.groundHeight(p.x, p.y + 1.5, p.z, 8);
+    const hint = this.runtime?.resolveSpawnHeight?.(p.x, p.z);
+    if (hint !== undefined) p.y = hint;
+    // snap onto whatever surface is just above/below (duckboards, floors)
+    const g = this.world.groundHeight(p.x, p.y + 0.6, p.z, 3);
     if (g !== null) p.y = g + 0.02;
     this.player.spawn(p, cp.yaw);
+    this.lastSafe.copy(p);
   }
 
   private enterPlay(): void {
@@ -767,8 +772,32 @@ export class Game implements GameContext {
   };
 
   // ======================================================================= frame
+  /** Automation: when true the rAF loop idles and tests advance time with step(). */
+  automationHold = false;
+
+  /** Automation/tests: advance the full simulation (no rendering) by `seconds`. */
+  step(seconds: number, dt = 1 / 30): void {
+    const n = Math.max(1, Math.round(seconds / dt));
+    for (let i = 0; i < n; i++) {
+      if (this.state === 'playing' || this.state === 'cinematic') {
+        this.time += dt;
+        this.update(dt);
+      }
+      this.input.endFrame();
+    }
+  }
+
+  /** Automation/tests: render one frame now. */
+  renderOnce(): void {
+    this.render.render(this.time);
+  }
+
   private frame = (now: number): void => {
     requestAnimationFrame(this.frame);
+    if (this.automationHold) {
+      this.lastFrame = now;
+      return;
+    }
     const cap = this.settings.graphics.fpsCap;
     const elapsed = now - this.lastFrame;
     if (cap > 0) {
@@ -849,6 +878,7 @@ export class Game implements GameContext {
 
     this.updateDevice(dt, gameplay);
     this.player.update(dt, inp, gameplay);
+    this.fallSafety(dt);
     this.npcs.resolvePlayer(this.player.position, this.player.controller.radius);
 
     // interactions
@@ -882,6 +912,33 @@ export class Game implements GameContext {
   }
 
   private lockGrace = 0;
+  private readonly lastSafe = new THREE.Vector3();
+  private airTime = 0;
+  private safeTimer = 0;
+
+  /**
+   * Safety net against falling through geometry: remember the last position where the player stood
+   * on supported ground; if they drop below the chapter's kill height or free-fall for too long, put
+   * them back there.
+   */
+  private fallSafety(dt: number): void {
+    const c = this.player.controller;
+    if (c.grounded) {
+      this.airTime = 0;
+      this.safeTimer -= dt;
+      if (this.safeTimer <= 0) {
+        this.safeTimer = 0.5;
+        this.lastSafe.copy(c.position);
+      }
+    } else if (c.state === 'air') this.airTime += dt;
+    const killY = this.runtime?.killY ?? -60;
+    if (c.position.y < killY || this.airTime > 5) {
+      console.warn('Player recovered from an invalid position', c.position.toArray());
+      this.player.spawn(this.lastSafe.clone().add(new THREE.Vector3(0, 0.05, 0)), this.player.yaw);
+      this.airTime = 0;
+      this.ui.hud.toast('Returned to safe ground', 'warning');
+    }
+  }
 
   private activate(i: import('../player/Interaction').Interactable): void {
     if (this.scannerOn) {

@@ -28,8 +28,9 @@ export function buildDugouts(t: Terrain, batches: CellBatches, tiles: Record<str
     const [sx, sz] = def.size;
     const base = t.base(rx, rz);
     const floorY = base - def.depth;
-    const ceilY = base - 0.22;
     const [[ex0, ez0], [ex1, ez1]] = def.entrance;
+    // ceiling just under the lowest ground over the room and passage
+    const ceilY = Math.min(base, t.base(ex0, ez0), t.base(ex1, ez1)) - 0.06;
     const dir = new THREE.Vector3(ex1 - ex0, 0, ez1 - ez0).normalize();
     const colliders: DugoutBuild['colliders'] = [];
     const wallTile = tiles.wood_planks ?? 1.2;
@@ -55,8 +56,8 @@ export function buildDugouts(t: Terrain, batches: CellBatches, tiles: Record<str
         const side = new THREE.Vector3(Math.cos(rot), 0, -Math.sin(rot));
         const doorOff = side.x * (ex1 - cx) + side.z * (ez1 - cz);
         const segs: [number, number][] = [
-          [-len / 2, doorOff - 0.5],
-          [doorOff + 0.5, len / 2],
+          [-len / 2, doorOff - 0.7],
+          [doorOff + 0.7, len / 2],
         ];
         for (const [a, b] of segs) {
           if (b - a < 0.1) continue;
@@ -98,19 +99,19 @@ export function buildDugouts(t: Terrain, batches: CellBatches, tiles: Record<str
       const ph = passageTop - fy;
       for (const sgn of [-1, 1]) {
         const g = box(0.13, ph, 0.13, beamTile);
-        batches.get('beam', px, pz).add(g, new THREE.Matrix4().makeTranslation(px + right.x * 0.5 * sgn, fy + ph / 2, pz + right.z * 0.5 * sgn));
+        batches.get('beam', px, pz).add(g, new THREE.Matrix4().makeTranslation(px + right.x * 0.66 * sgn, fy + ph / 2, pz + right.z * 0.66 * sgn));
       }
-      const cap = box(1.15, 0.15, 0.15, beamTile);
+      const cap = box(1.5, 0.15, 0.15, beamTile);
       batches.get('beam', px, pz).add(cap, new THREE.Matrix4().makeRotationY(rotP).setPosition(px, passageTop - 0.075, pz));
     }
     // passage side lining
     for (const sgn of [-1, 1]) {
-      const cx = (ex0 + ex1) / 2 + right.x * 0.52 * sgn;
-      const cz = (ez0 + ez1) / 2 + right.z * 0.52 * sgn;
+      const cx = (ex0 + ex1) / 2 + right.x * 0.7 * sgn;
+      const cz = (ez0 + ez1) / 2 + right.z * 0.7 * sgn;
       const fy = t.height((ex0 + ex1) / 2, (ez0 + ez1) / 2);
       panel(batches, cx, fy - 0.05, cz, plen + 0.2, passageTop - fy + 0.05, rotP + (sgn > 0 ? -Math.PI / 2 : Math.PI / 2), wallTile);
     }
-    const proof = box(1.3, 0.04, plen + 0.4, corrTile);
+    const proof = box(1.7, 0.04, plen + 0.4, corrTile);
     batches.get('corrugated_solid', ex0, ez0).add(proof, new THREE.Matrix4().makeRotationY(rotP).setPosition((ex0 + ex1) / 2, passageTop + 0.02, (ez0 + ez1) / 2));
 
     // --- cover on top: earth/chalk mound box at ground level (collider) over room + passage
@@ -118,12 +119,13 @@ export function buildDugouts(t: Terrain, batches: CellBatches, tiles: Record<str
     const cover = box(sx + 0.7, coverH, sz + 0.7, tiles.chalk_spoil ?? 2);
     batches.get('spoil', rx, rz).add(cover, new THREE.Matrix4().makeTranslation(rx, ceilY + 0.04 + coverH / 2, rz));
     colliders.push({ c: new THREE.Vector3(rx, ceilY + 0.04 + coverH / 2, rz), s: new THREE.Vector3(sx + 0.7, coverH, sz + 0.7), r: 0 });
-    const pcover = box(1.6, coverH, plen + 0.5, tiles.chalk_spoil ?? 2);
+    const pcover = box(2.0, coverH, plen + 0.5, tiles.chalk_spoil ?? 2);
     const pm = new THREE.Matrix4().makeRotationY(rotP).setPosition((ex0 + ex1) / 2, passageTop + 0.04 + coverH / 2, (ez0 + ez1) / 2);
     batches.get('spoil', ex0, ez0).add(pcover, pm);
-    colliders.push({ c: new THREE.Vector3((ex0 + ex1) / 2, passageTop + 0.04 + coverH / 2, (ez0 + ez1) / 2), s: new THREE.Vector3(1.6, coverH, plen + 0.5), r: rotP });
+    colliders.push({ c: new THREE.Vector3((ex0 + ex1) / 2, passageTop + 0.04 + coverH / 2, (ez0 + ez1) / 2), s: new THREE.Vector3(2.0, coverH, plen + 0.5), r: rotP });
     // ceiling collider (so the capsule never rises into the roof)
-    colliders.push({ c: new THREE.Vector3(rx, ceilY + 0.06, rz), s: new THREE.Vector3(sx, 0.12, sz), r: 0 });
+    colliders.push({ c: new THREE.Vector3(rx, ceilY + 0.25, rz), s: new THREE.Vector3(sx, 0.5, sz), r: 0 });
+    colliders.push({ c: new THREE.Vector3((ex0 + ex1) / 2, ceilY + 0.25, (ez0 + ez1) / 2), s: new THREE.Vector3(1.6, 0.5, plen + 0.3), r: rotP });
 
     const door = new THREE.Vector3(ex0, t.height(ex0, ez0), ez0);
     out.push({
