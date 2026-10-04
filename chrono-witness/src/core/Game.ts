@@ -1,7 +1,7 @@
 import * as THREE from 'three';
 import { EventBus, type GameEvents } from './Events';
 import { Input } from './Input';
-import { loadSettings, saveSettings, type Settings } from './Settings';
+import { applyPreset, loadSettings, saveSettings, type PresetName, type Settings } from './Settings';
 import type { GameContext } from './GameContext';
 import { RenderSystem } from '../render/RenderSystem';
 import { PerfStats } from '../render/PerfStats';
@@ -271,6 +271,7 @@ export class Game implements GameContext {
         this.missions.evaluate();
       }
       this.chapterStartTime = this.time;
+      this.applySettings(false); // far plane etc. depend on the chapter
       this.ui.hud.setLocation(cfg.destination, cfg.dateLabel);
       this.hands.setEnvironment(this.scene.environment, this.scene.environmentIntensity * 0.9);
       if (!silent) await new Promise((r) => setTimeout(r, this.assets.issues.length ? 1600 : 250));
@@ -748,6 +749,11 @@ export class Game implements GameContext {
   }
 
   // ======================================================================= settings
+  setGraphicsPreset(p: PresetName): void {
+    applyPreset(this.settings.graphics, p);
+    this.applySettings(true);
+  }
+
   applySettings(graphicsChanged: boolean): void {
     saveSettings(this.settings);
     const g = this.settings.graphics;
@@ -758,7 +764,7 @@ export class Game implements GameContext {
     this.adaptive.enabled = g.adaptiveQuality;
     this.adaptive.targetFps = g.adaptiveTarget;
     this.env.applyShadowSettings(this.render.shadowMapSize, g.shadowDistance);
-    this.camera.far = g.drawDistance + 400;
+    this.camera.far = Math.min(g.drawDistance + 400, this.runtime?.visibilityLimit ?? Infinity);
     this.camera.updateProjectionMatrix();
     this.npcs.shadowDistance = g.shadowDistance * 0.8;
     this.npcs.animLodDistance = g.npcAnimLodDistance;

@@ -24,6 +24,32 @@ export interface WW1World {
   props: PropMaterials;
   tiles: Record<string, number>;
   waterMat: THREE.MeshStandardMaterial;
+  lods: CellLOD[];
+}
+
+/** A spatial cell with a detailed and a simplified instanced mesh, switched by camera distance. */
+export interface CellLOD {
+  center: THREE.Vector3;
+  hi: THREE.InstancedMesh;
+  lo: THREE.InstancedMesh | null;
+}
+
+/** Switch cell LODs (call a few times per second). */
+export function updateCellLODs(lods: CellLOD[], cam: THREE.Vector3, hiDist: number): void {
+  const h2 = hiDist * hiDist;
+  for (const l of lods) {
+    if (!l.lo) continue;
+    const near = l.center.distanceToSquared(cam) < h2;
+    l.hi.visible = near;
+    l.lo.visible = !near;
+  }
+}
+
+function duckboardLow(tile: number): THREE.BufferGeometry {
+  const g = new THREE.BoxGeometry(0.5, 0.05, 1.5);
+  const uv = g.attributes.uv as THREE.BufferAttribute;
+  for (let i = 0; i < uv.count; i++) uv.setXY(i, (uv.getX(i) * 0.5) / tile, (uv.getY(i) * 1.5) / tile);
+  return g;
 }
 
 const yieldFrame = (): Promise<void> => new Promise((r) => setTimeout(r, 0));
@@ -84,7 +110,7 @@ export async function buildWorld(ctx: GameContext, root: THREE.Group, report: Lo
   // ---------------------------------------------------------------- terrain
   report(0.2, 'Shaping terrain');
   const terrain = new Terrain();
-  const chunkSize = 16;
+  const chunkSize = 32;
   const inner = { minX: -96, maxX: 96, minZ: -176, maxZ: 112 };
   const chunks: { x0: number; z0: number; seg: number }[] = [];
   for (let z0 = inner.minZ; z0 < inner.maxZ; z0 += chunkSize)
@@ -93,8 +119,8 @@ export async function buildWorld(ctx: GameContext, root: THREE.Group, report: Lo
       const cz = z0 + chunkSize / 2;
       const trench = terrain.nearTrench(cx, cz, chunkSize * 0.72 + 6.5);
       const playable = cx > BOUNDS.minX - 20 && cx < BOUNDS.maxX + 20 && cz > -100 && cz < BOUNDS.maxZ + 16;
-      const seg = trench ? 48 : playable ? 16 : 8;
-      chunks.push({ x0, z0, seg: cz > 40 && cz < 96 && cx > -45 && cx < -5 ? Math.max(seg, 32) : seg });
+      const seg = trench ? 96 : playable ? 32 : 16;
+      chunks.push({ x0, z0, seg: cz > 40 && cz < 100 && cx > -50 && cx < 0 ? Math.max(seg, 64) : seg });
     }
   const terrainGroup = new THREE.Group();
   terrainGroup.name = 'terrain';
@@ -105,11 +131,26 @@ export async function buildWorld(ctx: GameContext, root: THREE.Group, report: Lo
     ctx.tracker.track(geo);
     const m = new THREE.Mesh(geo, tm);
     m.receiveShadow = true;
-    m.castShadow = c.seg >= 32;
+    m.castShadow = c.seg >= 64;
     m.matrixAutoUpdate = false;
-    terrainGroup.add(m);
-    if (c.seg >= 16) ctx.world.addStaticMesh(m);
-    if (i % 6 === 0) {
+    if (c.seg >= 64) {
+      // detailed trench chunks get a coarser distant LOD (skirts hide the seams; haze hides the rest)
+      const lo = new THREE.Mesh(ctx.tracker.track(buildChunk(terrain, { x0: c.x0, z0: c.z0, size: chunkSize, seg: Math.round(c.seg / 3) })), tm);
+      lo.receiveShadow = true;
+      lo.matrixAutoUpdate = false;
+      const lod = new THREE.LOD();
+      lod.position.set(c.x0 + chunkSize / 2, 0, c.z0 + chunkSize / 2);
+      m.position.set(-(c.x0 + chunkSize / 2), 0, -(c.z0 + chunkSize / 2));
+      lo.position.copy(m.position);
+      m.updateMatrix();
+      lo.updateMatrix();
+      lod.addLevel(m, 0);
+      lod.addLevel(lo, 72);
+      terrainGroup.add(lod);
+      lod.updateMatrixWorld(true);
+    } else terrainGroup.add(m);
+    if (c.seg >= 32) ctx.world.addStaticMesh(m);
+    if (i % 2 === 0) {
       report(0.2 + (i / chunks.length) * 0.45, 'Shaping terrain');
       await yieldFrame();
     }
@@ -148,8 +189,9 @@ export async function buildWorld(ctx: GameContext, root: THREE.Group, report: Lo
     if (['beam', 'brick', 'plaster', 'rubble', 'spoil', 'corrugated_solid', 'planks_solid'].includes(matKey) && false) ctx.world.addStaticMesh(m);
   }
   report(0.8, 'Sandbags and duckboards');
-  instanced(ctx, root, sandbagGeometry(tiles.sandbag), mats.sandbag, dressing.sandbags, 24, true);
-  instanced(ctx, root, duckboardGeometry(tiles.wood_planks), mats.planks_solid, dressing.duckboards, 32, true);
+  const lods: CellLOD[] = [];
+  lods.push(...instanced(ctx, root, sandbagGeometry(tiles.sandbag), mats.sandbag, dressing.sandbags, 24, true, sandbagGeometry(tiles.sandbag, true)));
+  lods.push(...instanced(ctx, root, duckboardGeometry(tiles.wood_planks), mats.planks_solid, dressing.duckboards, 32, true, duckboardLow(tiles.wood_planks)));
   // rubble mounds, bricks, roof tiles, stumps
   for (const geo of village.rubbleMounds) {
     ctx.tracker.track(geo);
@@ -159,9 +201,9 @@ export async function buildWorld(ctx: GameContext, root: THREE.Group, report: Lo
     ctx.world.addStaticMesh(m);
   }
   const brickGeo = new THREE.BoxGeometry(0.22, 0.065, 0.105);
-  instanced(ctx, root, brickGeo, mats.brick, village.bricks, 32, false);
+  instanced(ctx, root, brickGeo, mats.brick, village.bricks, 48, false);
   const tileGeo = new THREE.BoxGeometry(0.26, 0.015, 0.4);
-  instanced(ctx, root, tileGeo, mats.tiles, village.tiles, 32, false);
+  instanced(ctx, root, tileGeo, mats.tiles, village.tiles, 48, false);
   if (village.stumps.length) {
     const sb = new (await import('../common/geo')).GeoBatch();
     for (const s of village.stumps) sb.add(s);
@@ -171,10 +213,12 @@ export async function buildWorld(ctx: GameContext, root: THREE.Group, report: Lo
     m.receiveShadow = true;
     root.add(m);
   }
-  // water
-  for (const w of dressing.waters) {
-    ctx.tracker.track(w);
-    const m = new THREE.Mesh(w, waterMat);
+  // water: every pond and the flooded trench in one draw call
+  {
+    const wb = new (await import('../common/geo')).GeoBatch();
+    for (const w of dressing.waters) wb.add(w);
+    const wg = ctx.tracker.track(wb.build());
+    const m = new THREE.Mesh(wg, waterMat);
     m.receiveShadow = true;
     root.add(m);
   }
@@ -193,12 +237,13 @@ export async function buildWorld(ctx: GameContext, root: THREE.Group, report: Lo
   for (const c of [...dressing.colliders, ...village.colliders, ...dugouts.flatMap((d) => d.colliders)]) ctx.world.addStaticBox(c.c, c.s, c.r);
   boundaries(ctx, terrain);
 
-  return { terrain, dressing, dugouts, village, mats, props, tiles, waterMat };
+  return { terrain, dressing, dugouts, village, mats, props, tiles, waterMat, lods };
 }
 
-/** Instanced meshes split into spatial cells so frustum culling still works. */
-function instanced(ctx: GameContext, root: THREE.Group, geo: THREE.BufferGeometry, mat: THREE.Material, matrices: THREE.Matrix4[], cell: number, cast: boolean): void {
+/** Instanced meshes split into spatial cells so frustum culling still works; optional low-detail LOD. */
+function instanced(ctx: GameContext, root: THREE.Group, geo: THREE.BufferGeometry, mat: THREE.Material, matrices: THREE.Matrix4[], cell: number, cast: boolean, lowGeo?: THREE.BufferGeometry): CellLOD[] {
   ctx.tracker.track(geo);
+  if (lowGeo) ctx.tracker.track(lowGeo);
   const cells = new Map<string, THREE.Matrix4[]>();
   const p = new THREE.Vector3();
   for (const m of matrices) {
@@ -208,15 +253,24 @@ function instanced(ctx: GameContext, root: THREE.Group, geo: THREE.BufferGeometr
     if (!l) cells.set(k, (l = []));
     l.push(m);
   }
+  const out: CellLOD[] = [];
   for (const list of cells.values()) {
-    const im = new THREE.InstancedMesh(geo, mat, list.length);
-    list.forEach((m, i) => im.setMatrixAt(i, m));
-    im.instanceMatrix.needsUpdate = true;
-    im.computeBoundingSphere();
-    im.castShadow = cast;
-    im.receiveShadow = true;
-    root.add(im);
+    const mk = (g: THREE.BufferGeometry, shadow: boolean): THREE.InstancedMesh => {
+      const im = new THREE.InstancedMesh(g, mat, list.length);
+      list.forEach((m, i) => im.setMatrixAt(i, m));
+      im.instanceMatrix.needsUpdate = true;
+      im.computeBoundingSphere();
+      im.castShadow = shadow;
+      im.receiveShadow = true;
+      root.add(im);
+      return im;
+    };
+    const hi = mk(geo, cast);
+    const lo = lowGeo ? mk(lowGeo, false) : null;
+    if (lo) lo.visible = false;
+    out.push({ center: hi.boundingSphere!.center.clone(), hi, lo });
   }
+  return out;
 }
 
 /** Belts of screw pickets and barbed wire in front of the front line (out of bounds; visual). */

@@ -76,6 +76,7 @@ export class RenderSystem {
     this.renderer.shadowMap.enabled = settings.shadowQuality > 0;
     this.shadowMapSize = shadowSizes[settings.shadowQuality];
     this.scale = settings.resolutionScale;
+    this.shadowInterval = settings.preset === 'low' ? 2 : 1;
     this.rebuildComposer();
     this.resize(this.width, this.height);
   }
@@ -177,8 +178,15 @@ export class RenderSystem {
     }
   }
 
+  /** Render the sun shadow map every Nth frame (Low preset uses 2; the light only follows the player). */
+  shadowInterval = 1;
+  private frameNo = 0;
+
   render(time: number): void {
     this.renderer.info.reset();
+    this.frameNo++;
+    this.renderer.shadowMap.autoUpdate = false;
+    this.renderer.shadowMap.needsUpdate = this.frameNo % this.shadowInterval === 0;
     this.grade.uniforms.uTime.value = time;
     this.overlayCamera.fov = this.camera.fov;
     this.overlayCamera.updateProjectionMatrix();

@@ -1,7 +1,7 @@
 import * as THREE from 'three';
 import type { GameContext } from '../../core/GameContext';
 import type { ChapterConfig, ChapterRuntime, LoadReporter } from '../types';
-import { buildWorld, type WW1World } from './world';
+import { buildWorld, updateCellLODs, type WW1World } from './world';
 import { NavGraph } from '../../npc/NavGraph';
 import type { NPC } from '../../npc/NPC';
 import { TRENCHES, DUGOUTS, ANCHOR, BARRAGE_TRIGGER, COLLAPSE, FARM, SUPPORT_Z, FRONT_Z, OLD_BOOT_BLOCK, CRATER_CROSSING, BOUNDS } from './layout';
@@ -72,6 +72,7 @@ class WW1Runtime implements ChapterRuntime {
   private boundaryMsgT = 0;
   private completed = false;
   private benchBarrageLoop = false;
+  private lodTimer = 0;
 
   constructor(
     private readonly ctx: GameContext,
@@ -864,6 +865,8 @@ class WW1Runtime implements ChapterRuntime {
   }
 
   readonly killY = -40;
+  /** Beyond this the rain haze is near-opaque; the camera far plane is clamped to it. */
+  readonly visibilityLimit = 460;
 
   resolveSpawnHeight(x: number, z: number): number {
     return this.w.terrain.height(x, z) + 0.15;
@@ -906,6 +909,11 @@ class WW1Runtime implements ChapterRuntime {
     if (Math.abs(cam.x - cx) < FARM.cellarSize[0] / 2 + 0.5 && Math.abs(cam.z - cz) < FARM.cellarSize[1] / 2 + 0.3 && cam.y < this.w.terrain.base(cx, cz) - 0.3) indoor = 1;
     ctx.env.setIndoor(indoor);
 
+    this.lodTimer -= dt;
+    if (this.lodTimer <= 0) {
+      this.lodTimer = 0.4;
+      updateCellLODs(this.w.lods, cam, 38);
+    }
     this.updateMarkers();
     this.updateLamps(time);
     this.updateAmbience(dt);

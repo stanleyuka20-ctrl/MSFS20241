@@ -90,7 +90,7 @@ export class NPC {
         }
         if ((o as THREE.Mesh).isMesh) {
           if (opts.hideMeshes?.some((h) => o.name.toLowerCase().includes(h))) o.visible = false;
-          else if (/_lod1$/i.test(o.name)) this.lod1.push(o);
+          else if (isLod1(o)) this.lod1.push(o);
           else this.lod0.push(o);
         }
       });
@@ -310,6 +310,12 @@ export class NPC {
     if (this.model) this.mixer?.uncacheRoot(this.model);
     this.root.removeFromParent();
   }
+}
+
+/** LOD1 meshes are exported as `<id>_LOD1` nodes; multi-material meshes become children of that node. */
+function isLod1(o: THREE.Object3D): boolean {
+  for (let p: THREE.Object3D | null = o; p; p = p.parent) if (/lod1/i.test(p.name)) return true;
+  return false;
 }
 
 const _up = new THREE.Vector3(0, 1, 0);

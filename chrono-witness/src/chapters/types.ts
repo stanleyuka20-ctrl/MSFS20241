@@ -75,6 +75,8 @@ export interface ChapterRuntime {
   resolveSpawnHeight?(x: number, z: number): number;
   /** World y below which the player is considered lost (safety net returns them to safe ground). */
   readonly killY?: number;
+  /** Optional cap for the camera far plane (fog/haze makes geometry beyond invisible). */
+  readonly visibilityLimit?: number;
   /** Skip an intense scripted sequence while preserving mission progress. */
   skipSequence?(): void;
   dispose(): void;

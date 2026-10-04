@@ -115,10 +115,18 @@ export class Terrain {
     return h;
   }
 
+  /** True if any trench centreline lies within r of (x, z) (searches all grid cells the radius covers). */
   nearTrench(x: number, z: number, r: number): boolean {
-    const l = this.grid.get(key(Math.floor(x / CELL), Math.floor(z / CELL)));
-    if (!l) return false;
-    for (const s of l) if (segDist(s, x, z).d < r) return true;
+    const c0x = Math.floor((x - r) / CELL);
+    const c1x = Math.floor((x + r) / CELL);
+    const c0z = Math.floor((z - r) / CELL);
+    const c1z = Math.floor((z + r) / CELL);
+    for (let cx = c0x; cx <= c1x; cx++)
+      for (let cz = c0z; cz <= c1z; cz++) {
+        const l = this.grid.get(key(cx, cz));
+        if (!l) continue;
+        for (const s of l) if (segDist(s, x, z).d < r) return true;
+      }
     return false;
   }
 

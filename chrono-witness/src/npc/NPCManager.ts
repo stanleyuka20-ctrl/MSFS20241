@@ -17,6 +17,7 @@ export class NPCManager {
   groundFn: ((x: number, y: number, z: number) => number | null) | null = null;
   shadowDistance = 30;
   animLodDistance = 30;
+  cullDistance = 90;
 
   constructor(private readonly lib: CharacterLibrary) {
     this.group.name = 'npcs';
@@ -42,8 +43,14 @@ export class NPCManager {
     const camPos = _cam.setFromMatrixPosition(camera.matrixWorld);
     for (const n of this.npcs.values()) {
       if (!n.visible) continue;
+      // beyond the cull distance an NPC is not drawn (trench walls and haze hide it anyway)
+      const far = n.root.position.distanceToSquared(camPos) > this.cullDistance * this.cullDistance;
       this.sphere.center.copy(n.root.position).y += 0.9;
       const inView = this.frustum.intersectsSphere(this.sphere);
+      // skinned meshes are not frustum-culled by three.js (bounds move with bones), so cull per NPC;
+      // keep casting shadows when just outside the view but close
+      const nearForShadow = n.root.position.distanceToSquared(camPos) < 12 * 12;
+      if (n.model) n.model.visible = !far && (inView || nearForShadow);
       n.update(dt, camPos, playerPos, this.animLodDistance, inView);
       const cast = n.root.position.distanceTo(camPos) < this.shadowDistance;
       if (n.model && n.model.userData.castShadow !== cast) {

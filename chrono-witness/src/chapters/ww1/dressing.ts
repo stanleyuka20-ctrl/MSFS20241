@@ -7,7 +7,7 @@ import { GeoBatch, canvasTexture } from '../common/geo';
 /** Geometry batches grouped by material key and 32 m spatial cell (keeps frustum culling effective). */
 export class CellBatches {
   private map = new Map<string, GeoBatch>();
-  constructor(readonly cell = 32) {}
+  constructor(readonly cell = 48) {}
   get(mat: string, x: number, z: number): GeoBatch {
     const k = `${mat}|${Math.floor(x / this.cell)}|${Math.floor(z / this.cell)}`;
     let b = this.map.get(k);
@@ -484,11 +484,11 @@ export function signMesh(text: string, sub: string | null, mat: THREE.Material, 
 }
 
 /** Sandbag geometry: a lumpy filled sack (~100 triangles), UVs in tiles. */
-export function sandbagGeometry(tile: number): THREE.BufferGeometry {
+export function sandbagGeometry(tile: number, low = false): THREE.BufferGeometry {
   const w = 0.48;
   const h = 0.13;
   const dpt = 0.26;
-  const g = new THREE.BoxGeometry(w, h, dpt, 5, 2, 3);
+  const g = low ? new THREE.BoxGeometry(w, h, dpt, 2, 1, 1) : new THREE.BoxGeometry(w, h, dpt, 4, 1, 2);
   const p = g.attributes.position as THREE.BufferAttribute;
   const n = new Noise2D(9);
   for (let i = 0; i < p.count; i++) {
