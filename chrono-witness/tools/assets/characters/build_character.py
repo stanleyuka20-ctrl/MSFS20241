@@ -20,6 +20,7 @@ from scipy.spatial import cKDTree
 import cw_anim as ca
 import cw_blender as cb
 import cw_character as C
+import cw_civil as CV
 import cw_garment as G
 import cw_materials as MAT
 import cw_paths as P
@@ -35,16 +36,17 @@ LOD1_BUDGET = 6900
 FIXED0 = {"skin": 6500, "eyes": 560, "hair": 520, "helmet": 1400}
 FIXED1 = {"skin": 1900, "eyes": 100, "hair": 220, "helmet": 420}
 ATTRS = ["hand", "dens", "loft_s", "loft_c", "loft_sn", "pouch_u", "pouch_v", "pouch_front", "is_pouch",
-         "rib_t", "is_ribbon", "outer", "prof_k"]
+         "rib_t", "is_ribbon", "outer", "prof_k", "civ1"]
 TMP = os.path.join(P.WORK, "tex")
 os.makedirs(TMP, exist_ok=True)
 
 
 class Part:
-    def __init__(self, group, name, mesh, kind, weights="body", smooth=2):
+    def __init__(self, group, name, mesh, kind, weights="body", smooth=2, detach=False):
         self.group, self.name, self.m, self.kind = group, name, mesh, kind
         self.weights = weights
         self.smooth = smooth
+        self.detach = detach  # painted in the group atlas, exported as its own (hidden) mesh
 
 
 # ----------------------------------------------------------------------------------
@@ -69,6 +71,9 @@ def loft_attrs(m):
 
 
 def make_parts(cid, cfg, B, R):
+    if cfg.get("era") == "1940":
+        return [Part(p.group, p.name, p.m, p.kind, p.weights, p.smooth, p.detach)
+                for p in CV.make_parts(cid, cfg, B, R)], {}
     parts = []
     cover = np.zeros(len(B.v), bool)
     modern = cfg.get("modern", False)
@@ -209,6 +214,11 @@ def finalize_part(pt, B):
         w = 0.5 * w
         w[C.BI["upperleg01.L"]] += 0.5
         m.W = np.broadcast_to(w, (len(m.v), nW)).copy()
+    elif pt.weights == "bundle":
+        # carried bundle: rigid to the upper chest (the carry_box arms hold it there)
+        m.W = np.zeros((len(m.v), nW))
+        m.W[:, C.BI["spine02"]] = 0.5
+        m.W[:, C.BI["spine01"]] = 0.5
     elif pt.weights == "exact":
         pass
     else:
@@ -382,6 +392,19 @@ def extract_part(ob, pi, name):
     return o
 
 
+def remove_part(ob, pi):
+    import bmesh
+    bm = bmesh.new()
+    bm.from_mesh(ob.data)
+    lay = bm.faces.layers.int.get("part")
+    dead = [f for f in bm.faces if f[lay] == pi]
+    bmesh.ops.delete(bm, geom=dead, context="FACES")
+    loose = [v for v in bm.verts if not v.link_faces]
+    bmesh.ops.delete(bm, geom=loose, context="VERTS")
+    bm.to_mesh(ob.data)
+    bm.free()
+
+
 def split_skin_components(parts):
     """Split the visible body into connected pieces (head+neck, each hand, ...)."""
     out = []
@@ -407,7 +430,7 @@ def split_skin_components(parts):
     return out
 
 
-def part_targets(groups, tris, budget, fixed, head_min_frac=0.0):
+def part_targets(groups, tris, budget, fixed, head_min_frac=0.0, keep_small=True):
     """Triangle target per part.  Fixed group budgets for skin/eyes/hair/helmet, the rest is
     shared by cloth/gear proportionally.  Small low-poly parts are kept intact as far as
     possible; in the skin group the head gets ~72% of the budget."""
@@ -432,7 +455,7 @@ def part_targets(groups, tris, budget, fixed, head_min_frac=0.0):
             continue
         # weight: dense shells may lose more than low-poly lofts/straps; tiny parts are kept
         w = {pi: (1.0 if pt.m.attrs.get("dec_w", np.ones(1)).mean() > 0.5 else
-                  (0.0 if tris[pi] < 700 else 0.35)) for pi, pt in lst}
+                  (0.0 if (keep_small and tris[pi] < 700) else 0.35)) for pi, pt in lst}
         T_ = sum(tris[pi] for pi, _ in lst)
         if T_ <= b:
             for pi, _ in lst:
@@ -673,7 +696,7 @@ def build(cid):
         pobs = []
         for pi, pt in lst:
             ob = blender_obj("%s_%s_%d" % (cid, g, pi), pt.m)
-            sym = abs(pt.m.v[:, 0].mean()) < 0.01 and g in ("skin", "eyes", "helmet", "hair")
+            sym = abs(pt.m.v[:, 0].mean()) < 0.01 and g in ("skin", "helmet", "hair")
             decimate(ob, tg0[pi], symmetric=sym)
             set_face_int(ob, "part", pi)
             pobs.append(ob)
@@ -702,9 +725,17 @@ def build(cid):
         maps[g] = dict(W=W, attrs=attrs)
         N = TEXSIZE[g]
         M = raster_group(ob, attrs, N)
+        civ = cfg.get("era") == "1940"
         if g == "skin":
             res = MAT.paint_skin(M, B.landmarks, cfg, B.sk)
             moustache(res, M, B.landmarks, cfg)
+            CV.legwear(res, M, cfg, B.sk)
+        elif g == "cloth" and civ:
+            res = CV.paint_cloth(M, cfg, B.sk, B.landmarks)
+        elif g == "gear" and civ:
+            res = CV.paint_gear(M, cfg, B.sk)
+        elif g == "helmet" and civ:
+            res = CV.paint_helmet(M, cfg)
         elif g == "cloth":
             res = MAT.paint_cloth(M, dict(cfg, tunic_style=("officer" if cfg.get("uniform") == "officer" else
                                                               cfg.get("tunic_style", "private"))), B.sk, B.landmarks)
@@ -752,22 +783,33 @@ def build(cid):
     # ---- skin weights (LOD0)
     for g, ob in obs.items():
         cb.set_weights_dense(ob, sk.names, maps[g]["W"])
+    # ---- detached parts (e.g. the baby bundle): own object, same material/atlas
+    for pi, pt in enumerate(parts):
+        if pt.detach:
+            ob = obs[pt.group]
+            od = extract_part(ob, pi, pt.name)
+            remove_part(ob, pi)
+            extra_obs[pt.name] = (od, None)
     # ---- LOD1: per-part decimation of the LOD0 geometry (keeps the LOD0 UVs / textures)
     lod1 = {}
     part_tris0 = {}
     for g, ob in obs.items():
         for pi, cnt in part_tri_counts(ob).items():
             part_tris0[pi] = cnt
-    tg1 = part_targets(groups, part_tris0, LOD1_BUDGET, FIXED1)
+    groups1 = {g: [(pi, pt) for pi, pt in lst if not pt.detach] for g, lst in groups.items()}
+    groups1 = {g: lst for g, lst in groups1.items() if lst}
+    tg1 = part_targets(groups1, part_tris0, LOD1_BUDGET, FIXED1, keep_small=False)
     for g, ob in obs.items():
         pieces = []
         for pi, _ in groups[g]:
+            if parts[pi].detach:
+                continue
             obp = extract_part(ob, pi, "%s_%s_%d_LOD1" % (cid, g, pi))
             if obp is None:
                 continue
             for vg in list(obp.vertex_groups):
                 obp.vertex_groups.remove(vg)
-            sym = abs(parts[pi].m.v[:, 0].mean()) < 0.01 and g in ("skin", "eyes", "helmet", "hair")
+            sym = abs(parts[pi].m.v[:, 0].mean()) < 0.01 and g in ("skin", "helmet", "hair")
             decimate(obp, tg1[pi], symmetric=sym)
             pieces.append(obp)
         lod1[g] = join(pieces, ob.name + "_LOD1")
@@ -779,6 +821,8 @@ def build(cid):
     print(" LOD1 tris", {g: ntris(o) for g, o in lod1.items()}, sum(ntris(o) for o in lod1.values()))
     # ---- extra objects
     for k, (ob, m) in extra_obs.items():
+        if m is None:  # detached part: already weighted and textured
+            continue
         co, vn, tv, tuv = read_mesh(ob)
         Wx, attrs = lookup_attrs(co, m)
         cb.set_weights_dense(ob, sk.names, Wx)
@@ -803,6 +847,10 @@ def build(cid):
         smooth_all(o)
         cb.bind(o, arm)
     stats = dict(lod0=ntris(o0), lod1=ntris(o1), extra={k: ntris(ob) for k, (ob, _) in extra_obs.items()})
+    # smaller characters: uniform scale on the armature node (bones/clips stay canonical)
+    s = float(cfg.get("scale", 1.0))
+    arm.scale = (s, s, s)
+    stats["scale"] = s
     out = os.path.join(P.OUT, cid + ".glb")
     select_only([arm] + final, arm)
     bpy.ops.export_scene.gltf(

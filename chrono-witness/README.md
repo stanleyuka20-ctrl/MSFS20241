@@ -4,17 +4,19 @@ A first-person historical time-travel adventure built with **Three.js + TypeScri
 headquarters you travel to historical moments, explore what those places may have looked like and
 complete fictional, personal missions. The documented outcome of major events never changes.
 
-> **Status: vertical slice.** The **Headquarters** and the **Western Front, Somme sector, October 1916**
-> chapter are playable from start to finish, and an automated playthrough checks every mission stage.
-> The other seven destinations are registered in the destination selector as **in development**.
-> Each has research notes and a planned mission outline, but no playable content yet, so the full game
-> is not finished. See [Status by destination](#status-by-destination) and [Known limitations](#known-limitations).
+> **Status: work in progress — 2 of 8 historical chapters playable.** The **Headquarters**, the
+> **Western Front (Somme, October 1916)** and **London during the Blitz (September 1940)** are playable
+> from start to finish, and an automated playthrough checks every mission stage of both chapters.
+> London's characters are still **stand-ins** (recoloured WW1 models) until its period cast is made.
+> The other six destinations are registered in the destination selector as **in development**, with
+> research notes and a planned mission outline but no playable content, so the full game is not
+> finished. See [Status by destination](#status-by-destination) and [Known limitations](#known-limitations).
 
 ## Contents
 
 - [Run it](#run-it)
 - [Controls](#controls)
-- [What is in the slice](#what-is-in-the-slice)
+- [What is playable](#what-is-playable)
 - [Status by destination](#status-by-destination)
 - [Graphics, performance and accessibility](#graphics-performance-and-accessibility)
 - [Project structure](#project-structure)
@@ -68,7 +70,7 @@ Click the view to capture the mouse. Esc releases it and pauses the game.
 Ladders: walk into one while facing it to climb, and walk off the top towards the ladder to climb down.
 Ledges up to about 1.5 m: press Space while facing them.
 
-## What is in the slice
+## What is playable
 
 **Headquarters (the Meridian Archive):**
 - temporal gate and destination selector console
@@ -108,13 +110,40 @@ Six checkpoints are saved to browser storage. You can resume, retry from the las
 chapter, and return to headquarters with progress saved. Completing the chapter catalogues artifacts
 in the headquarters gallery.
 
+**London during the Blitz: "Blackout" (late September 1940, fictional East End street).**
+Night raid over Cable Row, a terraced street near the burning docks: blackout, taped windows, the
+siren's warble, searchlights, anti-aircraft bursts, barrage balloons and the glow of the docks to the
+south. The High Street has shops, a First Aid Post, an ARP depot, a WVS canteen van and an AFS trailer
+pump towed by a taxi. Morley Road station has a booking hall, two stair flights and a tiled platform
+tunnel where shelterers sit and sleep (no bunks yet in September 1940).
+
+Main mission, 9 stages:
+1. The siren: report to Warden Pike at the sandbagged ARP post and get a bucket of sand.
+2. Knock at No. 9 for the Hartleys and find Joan's gas-mask box in the front room.
+3. **Escort under a timer:** incendiaries land in the street as you step out. The family waits in the
+   doorway while you smother them with sand (hold E). If the timer runs out a house catches fire and you
+   retry from the checkpoint. Then lead the family down to the platform; they follow your exact route.
+4. **Scripted event:** a high-explosive bomb hits No. 14 while you walk back. It is announced first and
+   can be skipped. Find the deaf Mr Moss tapping under the stairs.
+5. Report to Pike, then clear the fallen bricks and draw the bolt on the back-alley gate so the Heavy
+   Rescue party can get round the crater that blocks Dock Lane. They then walk the route you opened.
+6. Carry dressings from the ARP depot to the nurse (no running or climbing while carrying).
+7. The rescue silence: stand still and watch the tapping marks over the rubble, then point out the
+   right spot.
+8. Pass timbers to the rescuers. Dawn breaks with the steady "Raiders Passed".
+9. Return to the temporal anchor.
+
+Optional tasks: **Fire-Watch** (incendiaries in the back yards, reached by the alleys), **Strong and
+Sweet** (tea from the WVS canteen for the rescue party), **Witness Record** (8 of 13 objects).
+Five checkpoints.
+
 ## Status by destination
 
 | Destination | Status |
 |---|---|
 | Headquarters | Playable |
 | Western Front, Somme, Oct 1916 | **Playable**, full mission chain verified by automated playthrough |
-| London Blitz, 1940 | In development (research notes and mission outline only) |
+| London Blitz, Sept 1940 | **Playable**, full mission chain verified by automated playthrough. Characters are stand-ins until the period cast exists. |
 | Normandy, June 1944 | In development (research notes and mission outline only) |
 | Berlin, April 1945 | In development (research notes and mission outline only) |
 | Hiroshima, 6 August 1945 | In development. Research notes include mandatory depiction guidance; nothing is implemented. |
@@ -186,10 +215,12 @@ chrono-witness/
     audio/       AudioSystem (procedural WebAudio + visual cue events)
     ui/          HUD, menus, settings, journal, selector, dialogue, loading, cinematic (DOM/CSS)
     bench/       Benchmark routes and result collection
-    chapters/    registry, shared types, HQ, WW1 (layout, terrain, dressing, dugouts, village, props, world, runtime),
-                 planned (in-development destinations)
+    chapters/    registry, shared types, common/ (builder, geometry batching, fire, particles),
+                 HQ, WW1 (layout, terrain, dressing, dugouts, village, props, world, runtime),
+                 London (layout, houses, street, tube, sky, runtime), planned (in-development destinations)
   public/assets/ textures/ (procedural PBR sets + fx), characters/ (GLB characters, animations, first-person arms)
-  tools/         smoke.mjs, playthrough.mjs, shots.mjs, bench.mjs, assets/ (texture + character generators)
+  tools/         smoke.mjs, playthrough.mjs, playthrough_london.mjs, harness.mjs, shots.mjs, bench.mjs,
+                 assets/ (texture + character generators)
   tests/         vitest unit tests
   docs/          history research, asset contract, performance, previews, screenshots
 ```
@@ -200,6 +231,7 @@ chrono-witness/
 npm test                                   # vitest unit tests (missions, facts, nav, controller, presets, stats)
 npm run dev &                               # then, in another shell:
 node tools/playthrough.mjs                 # full automated playthrough of the WW1 chapter (49 checks)
+node tools/playthrough_london.mjs          # full automated playthrough of the London chapter (64 checks)
 node tools/smoke.mjs                       # boot + load screenshots
 node tools/shots.mjs                       # fixed viewpoints → docs/screenshots
 node tools/bench.mjs <url> 1920 1080 medium 30   # benchmark routes → bench-results/*.json
@@ -213,7 +245,11 @@ The playthrough runs the real game simulation with real collision in headless Ch
 - carries the stretcher
 - checks the saved data and the return to headquarters
 
-Last result: `tests/playthrough-result.json`.
+The London playthrough also smothers the incendiaries under the timer, leads the family down to the
+platform, takes the bomb sequence, retries from a checkpoint, opens the gate, carries the dressings,
+completes the silence and the rescue, and does two optional tasks.
+
+Last results: `tests/playthrough-result.json` and `tests/playthrough-london-result.json`.
 
 The tools use the Playwright Chromium build at `/opt/pw-browsers/chromium` by default. Set
 `CHROMIUM_PATH` to use another browser.
@@ -239,11 +275,18 @@ alone.
 
 - **Journal:** every journal and scanner entry is tagged **documented** (with sources),
   **reconstruction** (plausible, not a recorded fact) or **fiction** (invented for the game).
-- **Fiction:** the units, people, trench and farm names, the diary and all objectives are fiction.
+- **Fiction:** the units, people, trench and farm names, the diary and all objectives are fiction. In
+  London, Cable Row, Morley Road station, the warden, the Hartleys, Mr Moss, the rescue party and the
+  nurse are fiction.
 - **Research files:** [`docs/history/ww1_somme_1916.md`](docs/history/ww1_somme_1916.md) and
   `.json` hold 46 facts and 14 scanner entries, with 56 sources (Imperial War Museums, National Army
   Museum, Western Front Association and others).
-- **Corrections adopted from research:** the message form is Army Form C.2121, in Army Book 153. The
+- **London research:** [`docs/history/london_blitz_1940.md`](docs/history/london_blitz_1940.md) and
+  `.json` hold 45 facts and 14 scanner entries with 46 sources. Corrections adopted: the all-clear is
+  the "Raiders Passed" signal; September 1940 is "ARP" (the name "Civil Defence" came in 1941); there
+  were no Tube bunks yet; fire-watching was still voluntary; most static water tanks and Morrison
+  shelters came in 1941, so neither appears.
+- **Corrections adopted from research (WW1):** the message form is Army Form C.2121, in Army Book 153. The
   PH gas helmet and Small Box Respirator coexisted in late 1916. Villages in the battle zone were
   shelled flat, so the farm is a roofless ruin over an intact cellar. British clocks were on GMT
   after 1 October 1916.
@@ -263,8 +306,12 @@ See [ASSETS.md](ASSETS.md). In summary:
 
 ## Known limitations
 
-- **Only one historical chapter is playable.** The seven other destinations are not implemented (see
-  the table above). Hiroshima in particular has only research and depiction guidance.
+- **Two of eight historical chapters are playable.** The six other destinations are not implemented
+  (see the table above). Hiroshima in particular has only research and depiction guidance.
+- **London characters are placeholders.** Until the period cast (warden, mother and children, rescue
+  men, nurse, WVS, AFS, civilians) is built, London uses the WW1 character models, recoloured to darker
+  civilian/ARP tones, with helmets hidden and children scaled down. They are recognisably soldiers'
+  bodies and uniforms. This is the most visible gap in the London chapter.
 - **Performance is not yet measured on real hardware.** This environment has no GPU. The only
   measurements are SwiftShader CPU rendering, which is useless as a performance guide.
   [docs/PERFORMANCE.md](docs/PERFORMANCE.md) defines the reference system and the procedure; the
@@ -286,6 +333,10 @@ See [ASSETS.md](ASSETS.md). In summary:
   - No asset compression pipeline (KTX2/Draco). Textures are 1024² JPEGs that are downscaled at load
     on Low.
 - **Historical verification:** research citations were checked only against search summaries (see above).
+- **London environment:** houses, shops and the station are procedural (boxes, walls with real openings,
+  sloped roofs). Only Nos. 9 and 14 have interiors. Distant docks, cranes and rooftops are flat
+  silhouettes. The night grade is strongly red-tinted by the fire glow.
 - **NPC navigation:**
   - NPCs follow authored waypoint graphs built from the trench centrelines. There is no general navmesh.
+  - In London, NPCs walk scripted routes, and the escorted family follows the player's own trail.
   - In narrow trenches NPCs wait for the player rather than squeezing past.

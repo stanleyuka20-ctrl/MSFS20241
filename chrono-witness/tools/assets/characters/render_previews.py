@@ -58,7 +58,7 @@ def main():
         arm = [o for o in objs if o.type == "ARMATURE"][0]
         meshes = [o for o in objs if o.type == "MESH"]
         for o in meshes:
-            show = (o.name.endswith("_LOD1") == (a.lod == "1")) and o.name != "cap"
+            show = (o.name.endswith("_LOD1") == (a.lod == "1")) and o.name not in ("cap", "bundle")
             o.hide_render = not show
         anim_objs = import_glb(os.path.join(P.OUT, "anims_humanoid.glb"))
         acts = {act.name: act for act in bpy.data.actions}
@@ -125,10 +125,11 @@ def main():
             sc.render.resolution_x, sc.render.resolution_y = 700, 700
             cam.data.lens = 85
             paths = []
+            ks = arm.scale[0]  # smaller characters carry a uniform armature scale
             for d, tgt, dd in (((0.0, -1, 0.05), (0, 0.05, 1.63), 1.05), ((0.75, -0.66, 0.05), (0, 0.05, 1.63), 1.05),
                                ((1, 0.15, 0.0), (0, 0.05, 1.63), 1.05), ((0.25, -1, 0.1), (0, 0, 1.2), 2.2)):
-                tgt = np.array(tgt)
-                cb.look_at(cam, tgt + np.array(d) * dd, tgt)
+                tgt = np.array(tgt) * ks
+                cb.look_at(cam, tgt + np.array(d) * dd * ks, tgt)
                 p = os.path.join(P.WORK, "_face_%s_%d.png" % (cid, len(paths)))
                 cb.render(p)
                 paths.append(p)

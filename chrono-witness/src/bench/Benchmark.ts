@@ -17,6 +17,9 @@ const ROUTES: RouteDef[] = [
   { id: 'ww1_explore', label: 'Western Front — normal exploration (support line → village)', chapter: 'ww1_somme_1916', route: 'explore' },
   { id: 'ww1_crowd', label: 'Western Front — crowded trench (most NPCs on screen)', chapter: 'ww1_somme_1916', route: 'crowd' },
   { id: 'ww1_barrage', label: 'Western Front — major effect (bombardment sequence)', chapter: 'ww1_somme_1916', route: 'barrage', event: 'benchBarrage' },
+  { id: 'ldn_street', label: 'London Blitz — night street exploration (Cable Row → High Street)', chapter: 'london_blitz_1940', route: 'street' },
+  { id: 'ldn_tube', label: 'London Blitz — crowded Underground shelter', chapter: 'london_blitz_1940', route: 'tube' },
+  { id: 'ldn_raid', label: 'London Blitz — major effect (fires, flak, bomb strike)', chapter: 'london_blitz_1940', route: 'raid', event: 'benchRaid' },
   { id: 'hq', label: 'Headquarters walkthrough', chapter: 'hq', route: 'hq' },
   { id: 'travel', label: 'Repeated travel: HQ ⇄ Western Front ×3 (load times, memory)', chapter: 'hq', route: 'hq', travelLoop: true },
 ];

@@ -46,7 +46,8 @@ export interface GameContext {
 
   startDialogue(id: string, npc?: NPC): void;
   checkpoint(id: string): void;
-  downPlayer(reason: string): void;
+  /** Mission setback: fade out and offer a retry from the last checkpoint. */
+  downPlayer(reason: string, title?: string): void;
   playCinematic(shots: CinematicShot[], onDone: () => void): void;
   completeChapter(): void;
   returnToHQ(): void;

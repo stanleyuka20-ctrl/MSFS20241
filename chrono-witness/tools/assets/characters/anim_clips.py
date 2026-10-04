@@ -804,6 +804,328 @@ def clip_kneel_work():
     save("kneel_work", c, True, 0.0, source="hand-keyed (IK, procedural working hands + breathing)")
 
 
+# ----------------------------------------------------------------------------------
+# London 1940 clips (hand-keyed + CMU bases)
+# ----------------------------------------------------------------------------------
+
+
+def periodic(times, values, t, period):
+    """Periodic cubic interpolation of keyframes (times in [0, period), values (K, ...))."""
+    from scipy.interpolate import CubicSpline
+    tt = np.concatenate([times, [times[0] + period]])
+    vv = np.concatenate([values, values[:1]], 0)
+    cs = CubicSpline(tt, vv, axis=0, bc_type="periodic")
+    return cs(np.mod(t - times[0], period) + times[0])
+
+
+def speech_jaw(c, amount=7.0, seed=3):
+    F = len(c["W"])
+    t = np.arange(F) * c["dt"]
+    phr = np.clip(ca.smooth_noise(F, c["dt"], 1.6, seed) * 1.5 + 0.4, 0, 1)
+    syl = 0.5 + 0.5 * np.sin(2 * np.pi * 4.3 * t + 2.0 * np.sin(2 * np.pi * 0.9 * t))
+    open_deg = amount * phr * syl
+    Q = sk.local_from_world(c["W"])
+    jb = sk.i("jaw")
+    for f in range(F):
+        Q[f, jb] = Q[f, jb] @ local_euler([-open_deg[f] * jaw_sign(), 0, 0])
+    return dict(c, W=sk.world_from_local(Q))
+
+
+def joint(W, h, name):
+    H, _ = sk.fk_positions(W, h)
+    return H[:, sk.i(name)]
+
+
+@recipe
+def clip_lie_sleep():
+    """Asleep on the left side, knees drawn up, head pillowed on the left forearm."""
+    dur = 8.0
+    F = int(dur * FPS)
+    dt = 1 / FPS
+    c = static_rest(F, dt)
+    W, h = c["W"], c["hips"].copy()
+    # pose in the upright frame first, then lay the body down on its left side
+    for b, a in (("spine05", 4), ("spine04", 5), ("spine03", 6), ("spine02", 5), ("spine01", 3)):
+        W = rotw(W, b, X, a)
+    W = rotw(W, "neck01", X, 10)
+    W = rotw(W, "head", X, 12)
+    W = rotw(W, "neck02", Z, -6)   # head tips a little towards the pillowing arm (left)
+    H, _ = sk.fk_positions(W, h)
+    for s, sg, hipf, kneef, dx in (("L", 1, 62, 95, 0.0), ("R", -1, 80, 100, 0.10)):
+        hip = H[:, sk.i("upperleg01." + s)]
+        l1 = np.linalg.norm(sk.head[sk.i("lowerleg01." + s)] - sk.head[sk.i("upperleg01." + s)])
+        l2 = np.linalg.norm(sk.head[sk.i("foot." + s)] - sk.head[sk.i("lowerleg01." + s)])
+        a1 = np.radians(hipf)
+        a2 = np.radians(hipf - kneef)
+        knee = hip + l1 * np.array([0, -np.cos(a1), np.sin(a1)])
+        ank = knee + l2 * np.array([0, -np.cos(a2), np.sin(a2)])
+        ank[:, 0] += dx  # upper leg rests forward/down on the lower one
+        W = leg_ik(W, h, s, ank, pole=np.array([dx * 3, 0.2, 1.0]),
+                   foot_frame=ca.axis_angle(X, -25 + 30))
+    H, _ = sk.fk_positions(W, h)
+    shL = H[:, sk.i("upperarm01.L")]
+    head = H[:, sk.i("head")]
+    # lower (left) arm: forearm under the side of the head
+    W = arm_ik(W, h, "L", head + np.array([0.13, 0.02, 0.17]), pole=np.array([0.5, -0.8, 0.4]),
+               hand_dir=ca.nrm(np.array([-0.4, 0.5, 0.5])), across=np.array([0, 0, 1.0]))
+    # upper (right) arm draped forward, hand resting on the ground in front of the chest
+    W = arm_ik(W, h, "R", np.broadcast_to([0.14, 1.12, 0.36], (F, 3)), pole=np.array([-1.0, -0.2, -0.2]),
+               hand_dir=ca.nrm(np.array([0.6, -0.3, 0.6])), across=np.array([0, 1.0, 0.2]))
+    # lay down: face towards +X, left side on the ground, head towards -Z
+    W = rotw(W, "hips", X, -90)
+    W = rotw(W, "hips", Z, -90)
+    c = dict(c, W=W, hips=h)
+    c = fingers(c, "relaxed", "relaxed")
+    c = twist_split(c)
+    c["W"] = ca.breathing(sk, c["W"], dt, 0.22, 1.3)
+    n1 = ca.smooth_noise(F, dt, 4.0, 31)
+    c["W"] = rotw(c["W"], "lowerarm01.R", Y, 1.0, n1 * 1.5)
+    # rest on the ground: lowest of shoulder/hip/knee joints minus flesh thickness = 0
+    H, _ = sk.fk_positions(c["W"], h)
+    low = min(np.percentile(H[:, sk.i("upperarm01.L"), 1], 50) - 0.065,
+              np.percentile(H[:, sk.i("upperleg01.L"), 1], 50) - 0.13,
+              np.percentile(H[:, sk.i("lowerleg01.L"), 1], 50) - 0.055,
+              np.percentile(H[:, sk.i("head"), 1], 50) - 0.15)
+    c["hips"] = h.copy()
+    c["hips"][:, 1] -= low
+    save("lie_sleep", c, True, 0.0, source="hand-keyed (IK, slow breathing)")
+
+
+@recipe
+def clip_sit_huddle():
+    """Sitting on the ground, knees drawn up, arms wrapped round the shins, head bowed, rocking."""
+    dur = 6.0
+    F = int(dur * FPS)
+    dt = 1 / FPS
+    t = np.arange(F) * dt
+    c = static_rest(F, dt)
+    W, h = c["W"], c["hips"].copy()
+    rock = np.sin(2 * np.pi * 2 * t / dur)
+    W = rotw(W, "hips", X, -8)
+    for b, a in (("spine05", 6), ("spine04", 7), ("spine03", 8), ("spine02", 7), ("spine01", 5)):
+        W = rotw(W, b, X, 1.0, a + 1.5 * rock)
+    W = rotw(W, "neck01", X, 14)
+    W = rotw(W, "head", X, 1.0, 22 + 3 * rock)
+    W = rotw(W, "head", Y, 1.0, 4 * ca.smooth_noise(F, dt, 3.0, 41))
+    # pelvis on the ground
+    H, _ = sk.fk_positions(W, h)
+    hipy = (H[:, sk.i("upperleg01.L"), 1] + H[:, sk.i("upperleg01.R"), 1]) / 2
+    h[:, 1] -= hipy - 0.115
+    h[:, 2] = -0.18
+    H, _ = sk.fk_positions(W, h)
+    for s, sg in (("L", 1), ("R", -1)):
+        ank = H[:, sk.i("upperleg01." + s)] * np.array([1, 0, 1]) + np.array([0.035 * sg, sk.head[sk.i("foot." + s)][1] + 0.01, 0.37])
+        W = leg_ik(W, h, s, ank, pole=np.array([0.15 * sg, 1.0, 0.6]),
+                   foot_frame=ca.axis_angle(Y, 6 * sg) @ ca.axis_angle(X, -8))
+    H, _ = sk.fk_positions(W, h)
+    kn = (H[:, sk.i("lowerleg01.L")] + H[:, sk.i("lowerleg01.R")]) / 2
+    for s, sg, dy in (("L", 1, -0.10), ("R", -1, -0.135)):
+        tgt = kn + np.array([-0.035 * sg, dy, 0.085])
+        W = arm_ik(W, h, s, tgt, pole=np.array([1.0 * sg, -0.3, 0.1]),
+                   hand_dir=ca.nrm(np.array([-1.0 * sg, -0.15, -0.1])), across=np.array([0, 0.3, 1.0]))
+    c = dict(c, W=W, hips=h)
+    c = twist_split(c)
+    c = fingers(c, "cup", "cup")
+    c["W"] = ca.breathing(sk, c["W"], dt, 0.33, 0.9)
+    save("sit_huddle", c, True, 0.0, source="hand-keyed (IK, rocking + breathing)")
+
+
+@recipe
+def clip_dig():
+    """Shovelling rubble: thrust, lever, lift and toss to the right (implied shovel, no prop)."""
+    dur = 2.4
+    F = int(dur * FPS)
+    dt = 1 / FPS
+    t = np.arange(F) * dt
+    c = static_rest(F, dt)
+    W, h = c["W"], c["hips"].copy()
+    kt = np.array([0.0, 0.55, 1.0, 1.5, 1.9]) * dur / 2.4
+    #            drop  flex  yaw   L hand (lower)        R hand (upper, handle top)
+    keys = np.array([
+        [0.07, 30, 0, 0.03, 0.60, 0.50, -0.06, 0.92, 0.24],
+        [0.11, 40, 2, 0.03, 0.40, 0.56, -0.04, 0.74, 0.32],
+        [0.12, 42, 0, 0.02, 0.47, 0.50, -0.05, 0.58, 0.20],
+        [0.05, 22, -12, -0.02, 0.86, 0.44, -0.10, 0.92, 0.12],
+        [0.03, 18, -34, -0.24, 0.96, 0.38, -0.30, 0.98, 0.04],
+    ])
+    k = periodic(kt, keys, t, dur)
+    h[:, 1] -= k[:, 0]
+    h[:, 2] -= 0.04 * k[:, 0] / 0.12
+    W = rotw(W, "hips", X, 1.0, k[:, 1] * 0.35)
+    for b, a in (("spine05", 0.14), ("spine04", 0.14), ("spine03", 0.14), ("spine02", 0.13), ("spine01", 0.1)):
+        W = rotw(W, b, X, 1.0, k[:, 1] * a)
+        W = rotw(W, b, Y, 1.0, k[:, 2] * 0.16)
+    W = rotw(W, "neck01", X, 1.0, k[:, 1] * 0.1)
+    W = rotw(W, "head", X, 1.0, 8 + k[:, 1] * 0.15)
+    W = rotw(W, "head", Y, 1.0, -k[:, 2] * 0.3)
+    H, _ = sk.fk_positions(W, h)
+    for s, sg, z in (("L", 1, 0.20), ("R", -1, -0.14)):
+        ank = np.broadcast_to(np.array([0.15 * sg, sk.head[sk.i("foot." + s)][1], z]), (F, 3))
+        W = leg_ik(W, h, s, ank, pole=np.array([0.25 * sg, 0.0, 1.0]), foot_frame=ca.axis_angle(Y, (10 if s == "L" else -25)))
+    for s, sg, cols in (("L", 1, slice(3, 6)), ("R", -1, slice(6, 9))):
+        W = arm_ik(W, h, s, k[:, cols], pole=np.array([0.9 * sg, -0.6, -0.2]))
+    c = dict(c, W=W, hips=h)
+    c = twist_split(c)
+    c = fingers(c, "grip", "grip")
+    c["W"] = ca.breathing(sk, c["W"], dt, 0.42, 0.8)
+    save("dig", c, True, 0.0, source="hand-keyed (IK shovelling cycle)")
+
+
+@recipe
+def clip_carry_box():
+    c, v = locomotion("35_01", 0.95, 1.3, lock=False)
+    c = head_level(c, -10.0)
+    W, h = c["W"], c["hips"]
+    W = rotw(W, "spine03", X, -3)  # lean back against the load
+    W = rotw(W, "spine01", X, -2)
+    yf = yaw_frame(W)
+    H, _ = sk.fk_positions(W, h)
+    hb = H[:, sk.i("hips")]
+    bob = (hb[:, 1] - hb[:, 1].mean()) * 0.5
+    for s, sg in (("L", 1), ("R", -1)):
+        off = np.array([0.175 * sg, 0.0, 0.31])
+        tgt = hb + np.einsum("fij,j->fi", yf, off)
+        tgt[:, 1] = hb[:, 1].mean() + 0.22 + bob
+        pole = np.einsum("fij,j->fi", yf, np.array([0.8 * sg, -0.6, -0.4]))
+        hd = np.einsum("fij,j->fi", yf, ca.nrm(np.array([-0.25 * sg, -0.25, 1.0])))
+        ac = np.einsum("fij,j->fi", yf, np.array([0, 1.0, 0]))
+        W = arm_ik(W, h, s, tgt, pole, hand_dir=hd, across=ac)
+    c["W"] = W
+    c = twist_split(c)
+    c = fingers(c, "cup", "cup")
+    c = ground_fix(c)
+    vv = ca.measure_speed(sk, c)
+    c = foot_lock(c, vv)
+    v2 = ca.measure_speed(sk, c)
+    save("carry_box", c, True, v2, source="CMU 35_01 (walk) + box-carrying arm IK")
+
+
+@recipe
+def clip_kneel_listen():
+    """Kneeling on the right knee over rubble, head bowed and turned, right hand cupped to the ear."""
+    dur = 6.0
+    F = int(dur * FPS)
+    dt = 1 / FPS
+    t = np.arange(F) * dt
+    c = static_rest(F, dt)
+    W, h = c["W"], c["hips"].copy()
+    l1 = np.linalg.norm(sk.head[sk.i("lowerleg01.R")] - sk.head[sk.i("upperleg01.R")])
+    hip_r = sk.head[sk.i("upperleg01.R")]
+    knee_y = 0.065
+    h[:, 1] += knee_y + np.sqrt(l1 ** 2 - 0.12 ** 2) - hip_r[1]
+    W = rotw(W, "hips", X, 18)
+    for b, a in (("spine05", 8), ("spine04", 9), ("spine03", 9), ("spine02", 8), ("spine01", 6)):
+        W = rotw(W, b, X, a)
+    hold = ca.smooth_noise(F, dt, 3.0, 51)
+    W = rotw(W, "neck01", X, 12)
+    W = rotw(W, "head", X, 1.0, 22 + 2 * hold)
+    W = rotw(W, "neck02", Y, 14)          # right ear turned down towards the rubble
+    W = rotw(W, "head", Z, 1.0, 16 + 2 * hold)
+    H, _ = sk.fk_positions(W, h)
+    hipR = H[:, sk.i("upperleg01.R")]
+    knee = hipR + np.array([0.0, 0, 0.12])
+    knee[:, 1] = knee_y
+    l2 = np.linalg.norm(sk.head[sk.i("foot.R")] - sk.head[sk.i("lowerleg01.R")])
+    ank = knee + np.array([0.02, 0.0, -l2 * 0.97])
+    ank[:, 1] = 0.105
+    W = leg_ik(W, h, "R", ank, pole=np.array([0, -0.3, 1.0]), foot_frame=ca.axis_angle(X, 70))
+    hipL = H[:, sk.i("upperleg01.L")]
+    ankL = hipL + np.array([0.08, 0, 0.42])
+    ankL[:, 1] = sk.head[sk.i("foot.L")][1]
+    W = leg_ik(W, h, "L", ankL, pole=np.array([0.3, 0.3, 1.0]), foot_frame=np.eye(3))
+    H, _ = sk.fk_positions(W, h)
+    hb = sk.i("head")
+    up = np.einsum("fij,j->fi", W[:, hb], sk.B[hb].T @ Y)
+    fw = np.einsum("fij,j->fi", W[:, hb], sk.B[hb].T @ Z)
+    lf = np.einsum("fij,j->fi", W[:, hb], sk.B[hb].T @ X)
+    ear = H[:, hb] - lf * 0.085 + up * 0.035 - fw * 0.01
+    W = arm_ik(W, h, "R", ear - lf * 0.03 - up * 0.07 - fw * 0.045, pole=np.array([-1.0, -0.6, 0.2]),
+               hand_dir=ca.nrm(up * 0.9 + fw * 0.3), across=ca.nrm(lf))
+    base = H[:, sk.i("hips")] * np.array([1, 0, 1])
+    W = arm_ik(W, h, "L", base + np.array([0.16, 0.10, 0.44]), pole=np.array([0.8, -0.2, -0.4]),
+               hand_dir=ca.nrm(np.array([-0.1, -0.5, 1.0])), across=np.array([-1.0, 0.0, 0.1]))
+    c = dict(c, W=W, hips=h)
+    c = twist_split(c)
+    c = fingers(c, "loose", "cup")
+    c["W"] = ca.breathing(sk, c["W"], dt, 0.2, 0.7)  # holding the breath to listen: slow and shallow
+    save("kneel_listen", c, True, 0.0, source="hand-keyed (IK, kneeling, hand cupped to the ear)")
+
+
+@recipe
+def clip_wave():
+    base = mocap_static("77_02", 1.0, 7.8, 3.0, 3.6)
+    base = head_level(base, -2.0)
+    F = len(base["W"])
+    dt = base["dt"]
+    t = np.arange(F) * dt
+    W0, h = base["W"], base["hips"]
+    W0 = ca.finger_pose(sk, W0, "L", "relaxed")
+    W0 = ca.finger_pose(sk, W0, "R", "relaxed")
+    Wp = rotw(W0, "spine03", Z, 3)
+    Wp = rotw(Wp, "head", X, -6)
+    H, _ = sk.fk_positions(Wp, h)
+    sh = H[:, sk.i("upperarm01.R")]
+    ph = 2 * np.pi * 1.8 * t
+    osc = np.sin(ph)
+    tgt = sh + np.stack([-0.20 + 0.10 * osc, 0.47 + 0.02 * np.cos(2 * ph), 0.14 + 0.0 * osc], 1)
+    hd = ca.nrm(np.stack([-0.45 * osc - 0.1, np.ones(F), 0.15 * np.ones(F)], 1))
+    Wp = arm_ik(Wp, h, "R", tgt, pole=np.array([-1.0, -0.4, -0.1]), hand_dir=hd,
+                across=np.array([1.0, 0.0, 0.15]))
+    Wp = rotw(Wp, "clavicle.R", Z, 8)
+    Wp = ca.finger_pose(sk, Wp, "R", "spread")
+    w = env(t, 0.2, 0.75, F * dt - 0.8, F * dt - 0.15)
+    delay = {"clavicle.R": -0.04, "lowerarm01.R": 0.05, "lowerarm02.R": 0.06, "wrist.R": 0.09,
+             "head": -0.1, "neck02": -0.08}
+    W = blend_local(W0, Wp, w, delay=delay, dt=dt)
+    c = dict(base, W=W)
+    c = twist_split(c)
+    c["W"] = ca.breathing(sk, c["W"], dt, 0.25, 0.6)
+    save("wave", c, False, 0.0, source="CMU 77_02 (standing) base + hand-keyed waving arm (IK)")
+
+
+@recipe
+def clip_talk_worried():
+    c = mocap_static("77_02", 1.0, 7.8, 4.0, 6.5)
+    c = head_level(c, -9.0)
+    F = len(c["W"])
+    dt = c["dt"]
+    t = np.arange(F) * dt
+    dur = F * dt
+    W0, h = c["W"], c["hips"]
+    W = W0
+    for s, sg in (("L", 1), ("R", -1)):
+        W = ca.set_local(sk, W, "clavicle." + s, local_euler([0, 0, 5 * sg]), 1.0)  # shoulders raised
+    W = rotw(W, "spine01", X, 4)
+    yf = yaw_frame(W)
+    H, _ = sk.fk_positions(W, h)
+    hb = H[:, sk.i("hips")]
+    nw = max(1, round(dur * 0.7))
+    ph = 2 * np.pi * nw * t / dur
+    gest = env(np.mod(t, dur), dur * 0.38, dur * 0.48, dur * 0.62, dur * 0.74)
+    for s, sg in (("L", 1), ("R", -1)):
+        wring = np.stack([0.016 * np.cos(ph) * sg, 0.014 * np.sin(ph) * sg, 0.008 * np.sin(ph + 1)], 1)
+        off = np.array([0.04 * sg, 0.085, 0.215]) + wring
+        if s == "R":  # one open-palm "what can we do" gesture per loop
+            off = off * (1 - gest[:, None]) + np.array([-0.24, 0.12, 0.30]) * gest[:, None]
+        tgt = hb + np.einsum("fij,fj->fi", yf, off)
+        hd = np.einsum("fij,j->fi", yf, ca.nrm(np.array([-0.75 * sg, 0.1, 0.6])))
+        ac = np.einsum("fij,j->fi", yf, np.array([0, 1.0, 0.0]))
+        if s == "R":
+            hd = ca.nrm(hd * (1 - gest[:, None]) + np.einsum("fij,j->fi", yf, ca.nrm(np.array([-0.3, 0.1, 1.0]))) * gest[:, None])
+            ac = ca.nrm(ac * (1 - gest[:, None]) + np.einsum("fij,j->fi", yf, np.array([1.0, 0.0, 0.0])) * gest[:, None])
+        pole = np.einsum("fij,j->fi", yf, np.array([0.8 * sg, -0.7, -0.3]))
+        W = arm_ik(W, h, s, tgt, pole, hand_dir=hd, across=ac)
+    # anxious head: small shakes and glances up
+    W = rotw(W, "head", Y, 1.0, 5 * np.sin(2 * np.pi * round(dur * 0.5) * t / dur) * ca.smooth_noise(F, dt, 2.0, 61))
+    W = rotw(W, "neck02", X, 1.0, -6 * gest)
+    c = dict(c, W=W)
+    c = twist_split(c)
+    c = fingers(c, "loose", "loose")
+    c["W"] = ca.breathing(sk, c["W"], dt, 0.4, 0.7)  # quicker, shallow breathing
+    c = speech_jaw(c, 6.5, seed=7)
+    save("talk_worried", c, True, 0.0, source="CMU 77_02 (standing) base + hand-keyed hand-wringing/gesture (IK), procedural jaw")
+
+
 def main(names):
     for n in names or RECIPES:
         RECIPES[n]()

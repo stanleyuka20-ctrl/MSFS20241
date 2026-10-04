@@ -154,7 +154,7 @@ export class Game implements GameContext {
       this.ui.hud.cue(c.label, c.direction, !!c.danger, this.time);
       if (c.danger && this.settings.accessibility.subtitles) this.ui.hud.subtitle('', `[${c.label}]`, 2.2, true);
     });
-    ev.on('playerDowned', ({ reason }) => this.onDowned(reason));
+    ev.on('playerDowned', ({ reason, title }) => this.onDowned(reason, title));
     this.facts.onChange = () => this.missions.evaluate();
     this.missions.externalEffects = (e) => this.handleEffect(e);
   }
@@ -412,17 +412,17 @@ export class Game implements GameContext {
     this.enterPlay();
   }
 
-  downPlayer(reason: string): void {
-    this.events.emit('playerDowned', { reason });
+  downPlayer(reason: string, title?: string): void {
+    this.events.emit('playerDowned', { reason, title });
   }
 
-  private onDowned(reason: string): void {
+  private onDowned(reason: string, title = 'You were caught'): void {
     if (this.state !== 'playing') return;
     this.state = 'summary';
     this.input.exitPointerLock();
     this.player.addTrauma(0.6);
     void this.animateUniform((t) => (this.render.grade.uniforms.uFade.value = t * 0.85), 0.6).then(() => {
-      this.ui.confirm('You were caught', `${reason}\n\nThe temporal device pulls you back to your last checkpoint. No progress before that checkpoint is lost.`, [
+      this.ui.confirm(title, `${reason}\n\nThe temporal device pulls you back to your last checkpoint. No progress before that checkpoint is lost.`, [
         {
           label: 'Retry from checkpoint',
           primary: true,

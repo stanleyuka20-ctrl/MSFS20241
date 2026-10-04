@@ -14,7 +14,9 @@ import cw_blender as cb
 import cw_paths as P
 
 CLIPS = ["idle", "idle_alt", "walk", "run", "talk", "sit_ground", "lie_supine", "kneel_work",
-         "carry_walk", "limp_walk", "point", "crouch_cover"]
+         "carry_walk", "limp_walk", "point", "crouch_cover",
+         # London 1940 additions
+         "lie_sleep", "sit_huddle", "dig", "carry_box", "kneel_listen", "wave", "talk_worried"]
 
 NOTES = {
     "lie_supine": "body lies on its back on the ground plane (back at y~0), head towards -Z, feet towards +Z; "
@@ -24,6 +26,18 @@ NOTES = {
     "carry_walk": "rear stretcher bearer: hands hold handles ~0.3 m in front of the hips, ~0.95 m above ground",
     "point": "one-shot: points forward-right with the right index finger (~0.7-1.9 s hold)",
     "crouch_cover": "deep squat, head tucked, both hands on top of the helmet, breathing/trembling loop",
+    "lie_sleep": "asleep on the LEFT side on the ground plane, head towards -Z, face towards +X, knees drawn up, "
+                 "head pillowed on the left forearm; the body extends ~0.75 m along -Z and +-0.4 m in X from the origin",
+    "sit_huddle": "pelvis on the ground ~0.18 m behind the origin, knees drawn up, arms wrapped round the shins, "
+                  "head bowed, slow rocking",
+    "dig": "standing shovelling cycle (thrust, lever, lift, toss to the character's right); hands grip an implied "
+           "shovel handle (no prop), blade point ~0.55 m in front of the origin",
+    "carry_box": "walk carrying a box (~0.35 m wide) at chest height, hands on its sides ~0.31 m in front of the hips",
+    "kneel_listen": "kneeling on the right knee, head bowed and turned (right ear down), right hand cupped to the "
+                    "ear, left hand on the rubble ~0.45 m in front",
+    "wave": "one-shot: raises the right arm and waves (~1.8 Hz) between ~0.75 s and ~2.8 s, starts/ends in the idle pose",
+    "talk_worried": "anxious conversation: hands wringing in front of the stomach, one open-palm gesture per loop, "
+                    "shoulders raised, quick breathing, procedural jaw",
 }
 
 

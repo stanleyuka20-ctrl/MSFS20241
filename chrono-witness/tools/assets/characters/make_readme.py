@@ -20,31 +20,44 @@ def main():
              "pose; `anims_humanoid.glb` carries the same skeleton plus every clip, so a single "
              "`THREE.AnimationMixer` clip set drives every character by bone name.\n")
     L.append("## Files\n")
-    L.append("| File | Content | LOD0 tris | LOD1 tris | Size |")
-    L.append("|---|---|---:|---:|---:|")
+    L.append("| File | Content | LOD0 tris | LOD1 tris | Height m (node scale) | Size |")
+    L.append("|---|---|---:|---:|---:|---:|")
     for cid, c in CHARACTERS.items():
         r = rep.get(cid)
         if not r:
             continue
+        if cid == "warden_woman":
+            L.append("| **London, East End, Sept 1940** | | | | | |")
         extra = ""
         if cid == "officer":
             extra = " Extra mesh `cap` (soft service cap, %d tris) - **hide it by default** (`cap.visible = false`); " \
                     "show it and hide the helmet primitive if wanted." % r["meshes"].get("cap", 0)
-        L.append("| `%s.glb` | %s.%s Meshes `%s` (LOD0) and `%s_LOD1`. | %d | %d | %.2f MB |" % (
-            cid, c["desc"], extra, cid, cid, r["lod0"], r["lod1"], r["bytes"] / 1e6))
+        if "bundle" in r["meshes"]:
+            extra = " Extra mesh `bundle` (wrapped baby, %d tris, rigid to the chest) - **hide it by default**; " \
+                    "it sits between the hands of `carry_box`." % r["meshes"]["bundle"]
+        L.append("| `%s.glb` | %s.%s Meshes `%s` (LOD0) and `%s_LOD1`. | %d | %d | %.2f (%.3g) | %.2f MB |" % (
+            cid, c["desc"], extra, cid, cid, r["lod0"], r["lod1"], r["height"], r.get("scale", 1.0), r["bytes"] / 1e6))
     a = rep["anims_humanoid"]
-    L.append("| `anims_humanoid.glb` | Skeleton (63 bones + root node, no mesh) and %d clips | - | - | %.2f MB |" % (
+    L.append("| `anims_humanoid.glb` | Skeleton (63 bones + root node, no mesh) and %d clips | - | - | - | %.2f MB |" % (
         len(a["clips"]), a["bytes"] / 1e6))
-    L.append("| `anims_humanoid.json` | Clip metadata `{duration, loop, speed, source[, notes]}` | - | - | - |")
+    L.append("| `anims_humanoid.json` | Clip metadata `{duration, loop, speed, source[, notes]}` | - | - | - | - |")
     f = rep["fp_arms"]
     L.append("| `fp_arms.glb` | First-person forearms + hands, charcoal wool sleeves, temporal device on the LEFT "
              "wrist (emissive material `device_screen`), folded paper prop `fp_paper` (shown only by `fp_hold` via "
-             "the `prop.R` bone scale). Own rig: %d bones. Camera space: origin = camera, looking -Z, +Y up. | %d | - | %.2f MB |"
+             "the `prop.R` bone scale). Own rig: %d bones. Camera space: origin = camera, looking -Z, +Y up. | %d | - | - | %.2f MB |"
              % (f["bones"], f["tris"], f["bytes"] / 1e6))
     L.append("")
     L.append("Each character GLB holds one skinned mesh per LOD with these primitives/materials (draw calls): "
              "`skin`, `eyes`, `hair`, `cloth` (wool garments, double-sided), `gear` (webbing/leather/boots/brass) and "
-             "`helmet` (where worn). LOD1 reuses the LOD0 materials/textures.\n")
+             "`helmet` (where worn). LOD1 reuses the LOD0 materials/textures. Height = top of the rest-pose mesh "
+             "(incl. helmet/hat).\n")
+    L.append("**Node scale.** Women, children and the elderly are smaller than the canonical skeleton: their bodies are "
+             "fitted to the canonical skeleton x scale and the GLB's `Armature` node carries that uniform scale "
+             "(e.g. 0.93 for the women, 0.78 / 0.69 for the girl / boy). Bones, rest pose and every clip are identical "
+             "for all characters, so the shared clips play unchanged (the hips translation is scaled with the node). "
+             "Do not reset the `Armature` node's scale; multiply your own placement scale onto it. Locomotion speeds in "
+             "the json are for scale 1: use `timeScale = actualSpeed / (speed * scale)`. The children keep adult limb "
+             "proportions (same skeleton) with child heads/faces/bodies.\n")
     L.append("## Skeleton (63 bones)\n")
     L.append("`root` (origin, never animated) > `hips` > `spine05..spine01` > `neck01`, `neck02`, `head`, `jaw`; "
              "per side `pelvis`, `upperleg01/02`, `lowerleg01/02`, `foot`, `toes`; `clavicle`, `shoulder01`, "
@@ -60,7 +73,7 @@ def main():
                                                     ("%.3f" % m["speed"]) if m["speed"] else "0",
                                                     m.get("source", ""), (" - " + m["notes"]) if "notes" in m else ""))
     L.append("\nLocomotion clips are in place (linear root trend removed, stance feet IK-locked); play them with "
-             "`timeScale = actualSpeed / speed` to avoid foot sliding.\n")
+             "`timeScale = actualSpeed / (speed * nodeScale)` to avoid foot sliding.\n")
     L.append("## First-person clips (`fp_arms.glb`)\n")
     L.append("| Clip | Duration s | Loop |")
     L.append("|---|---:|:---:|")

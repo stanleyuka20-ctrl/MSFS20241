@@ -23,16 +23,6 @@ function planned(c: Pick<ChapterConfig, 'id' | 'title' | 'destination' | 'dateLa
 
 export const PLANNED_CHAPTERS: ChapterConfig[] = [
   planned({
-    id: 'london_blitz_1940',
-    title: 'Blackout',
-    destination: 'London during the Blitz',
-    dateLabel: 'Autumn 1940',
-    year: 1940,
-    tagline: 'Sirens, blackout curtains and the long night in the shelters.',
-    overview: 'The sustained German bombing of London began on 7 September 1940. Planned environment: a terraced East End street under blackout, an Underground station used as a shelter, searchlights and ARP wardens.',
-    plannedMissions: ['Guide a family to a shelter before the raid', 'Locate a missing resident after an incident', 'Deliver medical supplies to a first-aid post', 'Help a rescue party reach a blocked street'],
-  }),
-  planned({
     id: 'normandy_1944',
     title: 'Hedgerows',
     destination: 'Normandy',

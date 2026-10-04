@@ -36,8 +36,18 @@ numpy; no third-party images). They are derived from the following third-party i
   Bruce Hahne: "CMU places no restrictions on the use of the original dataset, and I (Bruce) place no
   additional restrictions on the use of this particular BVH conversion."
 - Takes used (retargeted onto our skeleton, cut into loops, made in-place, foot-locked):
-  `08_01` (walk), `09_11` (run), `35_01` (walk; base of carry_walk), `91_16` (limp),
-  `77_02` (standing; idle and base of point), `111_28` (standing still, hands clasped; idle_alt),
-  `19_08` (conversation with hand gestures; talk), `82_05` (sitting on ground relaxing; sit_ground).
-  `lie_supine`, `kneel_work`, `crouch_cover`, the pointing arm, the stretcher-handle arms, breathing and
-  all `fp_*` clips are hand-keyed/procedural (own work).
+  `08_01` (walk), `09_11` (run), `35_01` (walk; base of carry_walk and carry_box), `91_16` (limp),
+  `77_02` (standing; idle and base of point, wave and talk_worried), `111_28` (standing still, hands
+  clasped; idle_alt), `19_08` (conversation with hand gestures; talk), `82_05` (sitting on ground
+  relaxing; sit_ground).
+  `lie_supine`, `kneel_work`, `crouch_cover`, `lie_sleep`, `sit_huddle`, `dig`, `kneel_listen`, the
+  pointing / waving / hand-wringing arms, the stretcher-handle and box-carrying arms, breathing, the
+  procedural jaw and all `fp_*` clips are hand-keyed/procedural (own work).
+
+### London 1940 civilian cast
+`warden_woman`, `mother_1940`, `girl_1940`, `boy_1940`, `old_man_1940`, `rescue_man_a`, `rescue_man_b`,
+`nurse_1940`, `wvs_woman`, `afs_fireman`, `civilian_man`, `civilian_man_b`, `civilian_woman`,
+`civilian_woman_b`, `civilian_oldwoman`, `civilian_oldwoman_b`: same sources as above (MakeHuman CC0
+body, targets, rig and eyes; CMU mocap via the cgspeed BVH conversion for the clips listed).
+Clothing, headwear, gas-mask haversack/carton, helmet lettering, armband lettering, blanket/scarf
+patterns and all textures are own procedural work; no third-party images, fonts or logos.

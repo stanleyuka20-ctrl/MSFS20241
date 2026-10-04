@@ -33,7 +33,13 @@ def build_body(cfg):
     v = mh.body_verts(cfg["macro"], cfg.get("details"))
     v = v + np.array([0, mh.ground_offset(v), 0])
     Wfull = mh.reduced_weights(len(v))
-    v, off = mh.fit_to_canonical(v, Wfull)
+    # smaller characters (women, children, the elderly): fit onto the canonical skeleton scaled
+    # by cfg['scale'], then magnify the mesh back to the canonical size; the exported armature
+    # node carries the uniform scale so the shared (rotation + hips-translation) clips play
+    # unchanged on every character.
+    cs = cfg.get("scale", 1.0)
+    v, off = mh.fit_to_canonical(v, Wfull, scale=cs)
+    v = v / cs
     fi = base["groups"]["body"]
     faces = [base["faces"][i] for i in fi]
     fuv = [base["face_uv"][i] for i in fi]
@@ -171,11 +177,13 @@ def tunic(B, R, cfg):
     m.v[waist_loop, 1] = waist
     G.laplacian_smooth(m, 4, 0.4, body=B.ref, dmin=0.008)
     body_pts = B.v[(R["arm"] < 0.4)]
-    nlev = 7
+    nlev = cfg.get("nlev", 7)
     hs = np.linspace(waist, hem, nlev + 1)[1:]
-    eases = np.linspace(0.016, 0.03, nlev)
-    flares = np.linspace(0.0, 0.004, nlev)
-    G.extrude_loop(m, waist_loop, hs, body_pts, eases, flares, weight_body=B.ref, blend=0.55)
+    se = cfg.get("skirt_ease", (0.016, 0.03))
+    sf = cfg.get("skirt_flare", (0.0, 0.004))
+    eases = np.linspace(se[0], se[1], nlev)
+    flares = np.linspace(sf[0], sf[1], nlev)
+    G.extrude_loop(m, waist_loop, hs, body_pts, eases, flares, weight_body=B.ref, blend=cfg.get("skirt_blend", 0.55))
     # collar: stand up the neck, then fall back down outside
     nl = neck_loop
     neck_pts = B.v[(R["neck"] > 0.3) | (R["head"] > 0.3)]

@@ -276,7 +276,7 @@ def tarmac_road(name, tile_m):
         for off in (0.0, 0.47):
             d = np.abs(((v - yc - off + 0.5) % 1.0) - 0.5) * tile_m
             track = np.maximum(track, np.exp(-(d / 0.22) ** 2))
-    expose = ch["mask"] * smoothstep(0.2, 0.7, norm01(spectral(rng, beta=2.4, fmin=3)) * 0.7 + 0.5 * track)
+    expose = ch["mask"] * smoothstep(0.35, 0.8, norm01(spectral(rng, beta=2.4, fmin=3)) * 0.7 + 0.5 * track)
     col = mix(binder, sc[ch["cid"]], expose * 0.85)
     h = spectral(rng, beta=3.4, fmin=1, fmax=10) * 0.006 - track * 0.006 + ch["h"] * ch["mask"] * 0.0012
     h += spectral(rng, beta=1.4, fmin=80) * 0.0001
@@ -294,15 +294,14 @@ def tarmac_road(name, tile_m):
         e = np.minimum(hw - np.abs(ru), hh - np.abs(rv)) + blur(rng.standard_normal((n, n)).astype(np.float32), 3) * 4
         patch = np.maximum(patch, smoothstep(-1, 1, e))
     seam = np.clip(blur(patch, 1.0) * (1 - blur(patch, 1.0)) * 4, 0, 1)
-    pcol = ramp(norm01(spectral(rng, beta=2, fmin=8)), [(0, "#23211f"), (1, "#302d2a")])
-    pcol = mix(pcol, sc[ch["cid"]] * 0.8, ch["mask"] * 0.25)
-    col = mix(col, pcol, patch * 0.85)
+    pcol = ramp(norm01(spectral(rng, beta=2, fmin=8)), [(0, "#1a1918"), (1, "#22201e")])  # newer, blacker tar
+    col = mix(col, pcol, patch * 0.92)
     h = h + patch * 0.0015 + seam * 0.0008
     # cracks: longitudinal + crocodile network in fatigued areas
-    lon = crack_lines(rng, n, 10, length_px=(150, 500), width_px=(1.0, 2.2), wobble=0.08, branch=0.6,
+    lon = crack_lines(rng, n, 14, length_px=(200, 600), width_px=(1.8, 3.2), wobble=0.08, branch=0.7,
                       angle=0.0, angle_jitter=0.25)
     croc_cells = voronoi_chunks(rng, 2500, n=n, gap=(0.02, 0.05), bevel=0.05, tilt=0.0, jitter=0.9, warp_px=3)
-    croc = (1 - croc_cells["mask"]) * smoothstep(0.62, 0.75, norm01(spectral(rng, beta=2.8, fmin=2)) + 0.2 * track)
+    croc = (1 - croc_cells["mask"]) * smoothstep(0.5, 0.65, norm01(spectral(rng, beta=2.8, fmin=2)) + 0.25 * track)
     crack = np.clip(lon + croc, 0, 1) * (1 - patch)
     col = mix(col, hexlin("#151413"), crack * 0.85)
     h = h - crack * 0.004

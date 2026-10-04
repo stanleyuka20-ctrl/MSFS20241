@@ -39,6 +39,11 @@ export class Builder {
     this.matrix.makeRotationY(rotY).setPosition(x, y, z);
   }
 
+  /** Texture tile size (metres) for a material key. */
+  tileOf(key: string): number {
+    return this.tile(key);
+  }
+
   private tile(key: string): number {
     return this.tiles[this.setOf[key] ?? key] ?? 1;
   }
@@ -51,6 +56,10 @@ export class Builder {
 
   /** Axis-aligned box in local space with world-scale UVs on every face. */
   box(key: string, x0: number, x1: number, y0: number, y1: number, z0: number, z1: number, collide = false, uOff = 0): void {
+    // accept corners in either order (mirrored layouts compute them as wall ± offset)
+    if (x0 > x1) [x0, x1] = [x1, x0];
+    if (y0 > y1) [y0, y1] = [y1, y0];
+    if (z0 > z1) [z0, z1] = [z1, z0];
     const w = x1 - x0;
     const h = y1 - y0;
     const d = z1 - z0;
@@ -77,6 +86,8 @@ export class Builder {
 
   /** Collision box in local space. */
   collider(x0: number, x1: number, y0: number, y1: number, z0: number, z1: number): void {
+    if (x0 > x1) [x0, x1] = [x1, x0];
+    if (z0 > z1) [z0, z1] = [z1, z0];
     const c = new THREE.Vector3((x0 + x1) / 2, (y0 + y1) / 2, (z0 + z1) / 2).applyMatrix4(this.matrix);
     this.colliders.push({ c, s: new THREE.Vector3(x1 - x0, y1 - y0, z1 - z0), r: this.rotY });
   }

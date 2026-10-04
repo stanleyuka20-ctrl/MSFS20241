@@ -369,13 +369,13 @@ def canonical():
     return _canon["c"]
 
 
-def fit_to_canonical(verts, W):
+def fit_to_canonical(verts, W, scale=1.0):
     """Warp a character's verts (already ground shifted with its own offset) so its joints
     coincide with the canonical skeleton: per-vertex LBS of joint translation offsets.
     Also returns the per-bone offsets."""
     cv, csk = canonical()
     sk = skeleton_rest(verts)
-    off = np.array([c["head"] - b["head"] for c, b in zip(csk, sk)])
+    off = np.array([c["head"] * scale - b["head"] for c, b in zip(csk, sk)])
     # root has no geometric meaning - use hips offset
     off[0] = off[1]
     Wn = W / np.maximum(W.sum(axis=1, keepdims=True), 1e-9)

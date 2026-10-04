@@ -92,7 +92,7 @@ export class AudioSystem {
   }
 
   // -------------------------------------------------------------- loops
-  setLoop(id: string, kind: 'rain' | 'wind' | 'hum' | 'room', level: number, bus: Bus = 'ambience'): void {
+  setLoop(id: string, kind: 'rain' | 'wind' | 'hum' | 'room' | 'fire', level: number, bus: Bus = 'ambience'): void {
     if (!this.ctx) return;
     let l = this.loops.get(id);
     if (!l) {
@@ -113,6 +113,11 @@ export class AudioSystem {
       } else if (kind === 'hum') {
         filter.type = 'lowpass';
         filter.frequency.value = 180;
+      } else if (kind === 'fire') {
+        // roar of a large fire: broadband low noise with a crackle band
+        filter.type = 'bandpass';
+        filter.frequency.value = 650;
+        filter.Q.value = 0.5;
       } else {
         filter.type = 'lowpass';
         filter.frequency.value = 300;
@@ -126,7 +131,136 @@ export class AudioSystem {
     if (kind === 'rain') l.filter.frequency.setTargetAtTime(this.muffled > 0.5 ? 700 : 2400, this.ctx.currentTime, 0.3);
   }
 
+  private drone: { oscs: OscillatorNode[]; gain: GainNode; lfo: OscillatorNode } | null = null;
+
+  /**
+   * Bomber engines overhead: two slightly detuned engine notes beating against each other (the
+   * throbbing, unsynchronised sound Londoners described). Level 0 silences it.
+   */
+  setDrone(level: number): void {
+    if (!this.ctx) return;
+    const ctx = this.ctx;
+    if (!this.drone) {
+      const gain = ctx.createGain();
+      gain.gain.value = 0;
+      const f = ctx.createBiquadFilter();
+      f.type = 'lowpass';
+      f.frequency.value = 260;
+      const oscs = [82, 86.5, 164].map((hz, i) => {
+        const o = ctx.createOscillator();
+        o.type = i === 2 ? 'triangle' : 'sawtooth';
+        o.frequency.value = hz;
+        const g = ctx.createGain();
+        g.gain.value = i === 2 ? 0.15 : 0.5;
+        o.connect(g).connect(f);
+        o.start();
+        return o;
+      });
+      // slow swell as the formation passes
+      const lfo = ctx.createOscillator();
+      lfo.frequency.value = 0.07;
+      const lg = ctx.createGain();
+      lg.gain.value = 60;
+      lfo.connect(lg).connect(f.frequency);
+      lfo.start();
+      f.connect(gain).connect(this.buses.ambience);
+      this.drone = { oscs, gain, lfo };
+    }
+    this.drone.gain.gain.setTargetAtTime(level * 0.16, ctx.currentTime, 1.2);
+  }
+
+  /**
+   * Air raid siren. 'alert' is the rising and falling warble of the warning; 'clear' is the steady
+   * note of the "Raiders Passed". Shortened for play (the real signals lasted two minutes).
+   */
+  siren(kind: 'alert' | 'clear', seconds: number, distance = 300): void {
+    const label = kind === 'alert' ? 'Air raid warning — siren rising and falling' : 'Raiders Passed — steady siren note';
+    this.events.emit('soundCue', { id: 'siren', label, intensity: 0.7, danger: kind === 'alert' });
+    if (!this.ctx) return;
+    const ctx = this.ctx;
+    const t0 = ctx.currentTime;
+    const o = ctx.createOscillator();
+    const o2 = ctx.createOscillator();
+    o.type = 'sawtooth';
+    o2.type = 'square';
+    const f = ctx.createBiquadFilter();
+    f.type = 'lowpass';
+    f.frequency.value = 1400;
+    const g = ctx.createGain();
+    const vol = Math.min(0.12, 18 / distance);
+    g.gain.setValueAtTime(0.0001, t0);
+    g.gain.exponentialRampToValueAtTime(vol, t0 + 2.5);
+    g.gain.setValueAtTime(vol, t0 + seconds - 3);
+    g.gain.exponentialRampToValueAtTime(0.0001, t0 + seconds);
+    // both rotors follow the same pitch contour, the second a fifth below
+    for (const [osc, m] of [[o, 1], [o2, 0.667]] as const) {
+      const fq = osc.frequency;
+      fq.setValueAtTime(180 * m, t0);
+      if (kind === 'alert') {
+        fq.exponentialRampToValueAtTime(520 * m, t0 + 2.5);
+        for (let t = 2.5; t + 4 <= seconds - 2.5; t += 4) {
+          fq.exponentialRampToValueAtTime(360 * m, t0 + t + 2);
+          fq.exponentialRampToValueAtTime(520 * m, t0 + t + 4);
+        }
+      } else fq.exponentialRampToValueAtTime(500 * m, t0 + 3);
+      fq.setValueAtTime((kind === 'alert' ? 520 : 500) * m, t0 + seconds - 2.5);
+      fq.exponentialRampToValueAtTime(120 * m, t0 + seconds);
+    }
+    const k = ctx.createGain();
+    k.gain.value = 0.25;
+    o.connect(f);
+    o2.connect(k).connect(f);
+    f.connect(g).connect(this.buses.effects);
+    const s = ctx.createGain();
+    s.gain.value = 0.6;
+    g.connect(s).connect(this.reverbSend);
+    o.start(t0);
+    o2.start(t0);
+    o.stop(t0 + seconds + 0.1);
+    o2.stop(t0 + seconds + 0.1);
+  }
+
+  /** Falling bomb: a descending scream, then the explosion via impact(). */
+  bombWhistle(x: number, z: number, duration: number): void {
+    if (this.ctx) {
+      const ctx = this.ctx;
+      const t0 = ctx.currentTime;
+      const o = ctx.createOscillator();
+      const g = ctx.createGain();
+      o.type = 'triangle';
+      o.frequency.setValueAtTime(1100, t0);
+      o.frequency.exponentialRampToValueAtTime(260, t0 + duration);
+      g.gain.setValueAtTime(0.0001, t0);
+      g.gain.exponentialRampToValueAtTime(0.06, t0 + duration * 0.85);
+      g.gain.exponentialRampToValueAtTime(0.0001, t0 + duration);
+      o.connect(g).connect(this.buses.effects);
+      o.start(t0);
+      o.stop(t0 + duration + 0.05);
+    }
+    this.events.emit('soundCue', { id: 'whistle', label: 'Bomb falling', direction: this.directionTo(x, z), intensity: 0.9, danger: true });
+  }
+
+  /** Anti-aircraft guns: sharp distant cracks, with a visual cue. */
+  antiAircraft(x: number, z: number, distance: number): void {
+    const gain = Math.min(0.5, 1.6 / (1 + distance / 300));
+    this.burst({ buf: this.brownBuf, type: 'lowpass', freq: 700, gain, attack: 0.003, decay: 0.9, reverb: 0.9, freqEnd: 90 });
+    this.events.emit('soundCue', { id: 'aa', label: 'Anti-aircraft guns', direction: this.directionTo(x, z), intensity: gain });
+  }
+
+  /** Metal-on-metal tapping (a trapped person signalling). Always shown as a visual cue too. */
+  tap(x: number, z: number, count = 3): void {
+    for (let i = 0; i < count; i++) this.burst({ type: 'bandpass', freq: 2100, q: 12, gain: 0.16, attack: 0.002, decay: 0.12, delay: i * 0.38 });
+    this.events.emit('soundCue', { id: 'tap', label: 'Tapping', direction: this.directionTo(x, z), intensity: 0.5 });
+  }
+
+  /** Incendiary igniting / sand thrown on it. */
+  hiss(x: number, z: number, label: string): void {
+    this.burst({ type: 'highpass', freq: 3200, gain: 0.12, attack: 0.05, decay: 1.1 });
+    this.events.emit('soundCue', { id: 'hiss', label, direction: this.directionTo(x, z), intensity: 0.4 });
+  }
+
   stopAllLoops(): void {
+    if (this.drone && this.ctx) this.drone.gain.gain.setTargetAtTime(0, this.ctx.currentTime, 0.2);
     for (const l of this.loops.values()) {
       try {
         l.src.stop();
@@ -218,14 +352,14 @@ export class AudioSystem {
     this.events.emit('soundCue', { id: 'whistle', label: 'Shell incoming', direction: this.directionTo(x, z), intensity: 0.9, danger: true });
   }
 
-  impact(x: number, z: number, distance: number): void {
+  impact(x: number, z: number, distance: number, label = 'Shell impact'): void {
     const near = Math.max(0, 1 - distance / 60);
     const gain = Math.min(1.2, 0.25 + near * 1.1);
     this.burst({ buf: this.brownBuf, type: 'lowpass', freq: 900 * (0.4 + near), gain, attack: 0.005, decay: 1.6 + near, reverb: 0.8, freqEnd: 70 });
     this.burst({ type: 'lowpass', freq: 3000, gain: gain * 0.4 * near, attack: 0.002, decay: 0.4, delay: 0.02 });
     // debris patter
     if (near > 0.3) this.burst({ type: 'highpass', freq: 2500, gain: 0.08 * near, attack: 0.2, decay: 1.2, delay: 0.3 });
-    this.events.emit('soundCue', { id: 'impact', label: near > 0.4 ? 'Shell impact — close' : 'Shell impact', direction: this.directionTo(x, z), intensity: gain, danger: near > 0.4 });
+    this.events.emit('soundCue', { id: 'impact', label: near > 0.4 ? `${label} — close` : label, direction: this.directionTo(x, z), intensity: gain, danger: near > 0.4 });
   }
 
   thunderOrFlare(label: string): void {

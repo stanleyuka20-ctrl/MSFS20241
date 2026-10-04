@@ -51,7 +51,7 @@ export interface GameEvents {
   missionUpdated: { missionId: string };
   checkpoint: { id: string };
   /** The player was caught by a hazard and must retry from the last checkpoint. */
-  playerDowned: { reason: string };
+  playerDowned: { reason: string; title?: string };
   /** Audio cue happened — UI shows a visual equivalent (accessibility). */
   soundCue: { id: string; label: string; direction?: number; intensity: number; danger?: boolean };
   subtitle: { speaker: string; text: string; duration: number };

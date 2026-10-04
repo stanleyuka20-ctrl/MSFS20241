@@ -1,0 +1,327 @@
+{
+  "date": "2026-10-04T01:44:16.147Z",
+  "passed": 64,
+  "total": 64,
+  "results": [
+    {
+      "name": "Chapter loads",
+      "ok": true,
+      "info": "asset issues: 13 (missing period characters use stand-ins)"
+    },
+    {
+      "name": "Intro cinematic skippable",
+      "ok": true,
+      "info": ""
+    },
+    {
+      "name": "Spawned at the west end of Cable Row",
+      "ok": true,
+      "info": "[-46,0,-1]"
+    },
+    {
+      "name": "Walk Cable Row to the warden’s post",
+      "ok": true,
+      "info": "{\"ok\":true,\"pos\":[16.04,0,-2.56],\"minDrop\":0}"
+    },
+    {
+      "name": "Scan the warden’s helmet",
+      "ok": true,
+      "info": "{\"ok\":true}"
+    },
+    {
+      "name": "Pike gives the sand bucket",
+      "ok": true,
+      "info": "There you are. You’re the volunteer from Stepney?  / The Hartleys at No. 9: Ivy and the two kiddies. Th / And take this, a bucket of sand and the scoop. If "
+    },
+    {
+      "name": "Stage \"family\" + checkpoint \"post\"",
+      "ok": true,
+      "info": ""
+    },
+    {
+      "name": "Optional \"Fire-Watch\" becomes available",
+      "ok": true,
+      "info": ""
+    },
+    {
+      "name": "Scan stirrup pump, Redhill container and ARP post",
+      "ok": true,
+      "info": ""
+    },
+    {
+      "name": "Walk back to No. 9",
+      "ok": true,
+      "info": "{\"ok\":true,\"pos\":[-38.87,0.12,-4.44],\"minDrop\":0}"
+    },
+    {
+      "name": "Ivy asks for Joan’s gas mask",
+      "ok": true,
+      "info": "{\"ok\":true} Is it Mrs Pike sent you? We were just going. Joan, / It’s in the front room, Mum. I think. / Would you fetch it, love? My hands are full with t"
+    },
+    {
+      "name": "Enter No. 9 and cross the front room",
+      "ok": true,
+      "info": "{\"ok\":true,\"pos\":[-36.7,0.18,-11.38],\"minDrop\":0}"
+    },
+    {
+      "name": "Scan the ration book",
+      "ok": true,
+      "info": "{\"ok\":true}"
+    },
+    {
+      "name": "Pick up the gas-mask box",
+      "ok": true,
+      "info": "{\"ok\":true}"
+    },
+    {
+      "name": "Stage \"escort\"",
+      "ok": true,
+      "info": ""
+    },
+    {
+      "name": "Incendiaries land when you step out",
+      "ok": true,
+      "info": "{\"ok\":true,\"pos\":[-38.89,0.12,-4.34],\"minDrop\":0}"
+    },
+    {
+      "name": "Danger timer shown",
+      "ok": true,
+      "info": ""
+    },
+    {
+      "name": "Smother the first incendiary (hold E)",
+      "ok": true,
+      "info": "{\"ok\":true}"
+    },
+    {
+      "name": "Scan the burnt-out incendiary",
+      "ok": true,
+      "info": "{\"ok\":true}"
+    },
+    {
+      "name": "Smother the second incendiary",
+      "ok": true,
+      "info": "{\"ok\":true}"
+    },
+    {
+      "name": "Family follows once the street is safe",
+      "ok": true,
+      "info": ""
+    },
+    {
+      "name": "Lead the family to Morley Road and down to the platform",
+      "ok": true,
+      "info": "{\"ok\":true,\"pos\":[22.22,-8.88,-69.3],\"minDrop\":0}"
+    },
+    {
+      "name": "Family sheltered on the platform",
+      "ok": true,
+      "info": "[[31.6,-8.9,-67.5],[32.4,-8.9,-67.5],[33.1,-8.9,-67.6]]"
+    },
+    {
+      "name": "Stage \"moss\" + checkpoint \"station\"",
+      "ok": true,
+      "info": ""
+    },
+    {
+      "name": "Scan the Tube shelter",
+      "ok": true,
+      "info": "{\"ok\":true}"
+    },
+    {
+      "name": "Climb back up; the bomb sequence asks first (skippable)",
+      "ok": true,
+      "info": "{\"ok\":false,\"stuckAt\":[29,0.12,-51.91],\"reason\":\"state paused\",\"stage\":\"moss\"} Skip this sequence (progress kept) | Experience it"
+    },
+    {
+      "name": "No. 14 is hit (ruin collision on)",
+      "ok": true,
+      "info": ""
+    },
+    {
+      "name": "Walk back to No. 14 and into the doorway",
+      "ok": true,
+      "info": "{\"ok\":true,\"pos\":[-28.92,-0.01,6.55],\"minDrop\":0}"
+    },
+    {
+      "name": "Hear Mr Moss tapping under the stairs",
+      "ok": true,
+      "info": "{\"ok\":true} Mr Moss? Can you hear me? A faint tapping answers "
+    },
+    {
+      "name": "Stage \"route\" + checkpoint \"incident\"",
+      "ok": true,
+      "info": ""
+    },
+    {
+      "name": "Retry from checkpoint \"incident\" restores the ruined house",
+      "ok": true,
+      "info": ""
+    },
+    {
+      "name": "Report the incident to Pike",
+      "ok": true,
+      "info": "No. 14? Oh, Albert. He’s under the stairs, you say / The back alley. There’s a gate through to the bomb"
+    },
+    {
+      "name": "Down Dock Lane and along the south alley to the gate",
+      "ok": true,
+      "info": "{\"ok\":true,\"pos\":[30.83,0.02,24.26],\"minDrop\":0}"
+    },
+    {
+      "name": "Bolt cannot be drawn while bricks block the gate",
+      "ok": true,
+      "info": ""
+    },
+    {
+      "name": "Clear the fallen bricks (hold E)",
+      "ok": true,
+      "info": "{\"ok\":true}"
+    },
+    {
+      "name": "Open the gate",
+      "ok": true,
+      "info": "{\"ok\":true}"
+    },
+    {
+      "name": "Gate collision removed",
+      "ok": true,
+      "info": ""
+    },
+    {
+      "name": "Rescue party sets off",
+      "ok": true,
+      "info": ""
+    },
+    {
+      "name": "Stage \"supplies\"",
+      "ok": true,
+      "info": ""
+    },
+    {
+      "name": "Collect tea from the WVS canteen (optional)",
+      "ok": true,
+      "info": "{\"ok\":true} Tea for the rescue boys? Here you are, four mugs, "
+    },
+    {
+      "name": "Walk to the ARP depot",
+      "ok": true,
+      "info": "{\"ok\":true,\"pos\":[-40.19,-0.02,-36.15],\"minDrop\":0}"
+    },
+    {
+      "name": "Take the dressings (carrying)",
+      "ok": true,
+      "info": "{\"ok\":true}"
+    },
+    {
+      "name": "Cannot sprint while carrying (slow walk)",
+      "ok": true,
+      "info": "1.72 m/s"
+    },
+    {
+      "name": "Carry the dressings back to No. 14",
+      "ok": true,
+      "info": "{\"ok\":true,\"pos\":[-28.09,0,2.87],\"minDrop\":0}"
+    },
+    {
+      "name": "Nurse takes the dressings",
+      "ok": true,
+      "info": "{\"ok\":true} Dressings? Bless you. Put them down by me. I’ll wa"
+    },
+    {
+      "name": "Stage \"listen\" + checkpoint \"rescue\"",
+      "ok": true,
+      "info": ""
+    },
+    {
+      "name": "Rescue party arrives by the alley route",
+      "ok": true,
+      "info": ""
+    },
+    {
+      "name": "Give the rescue party their tea (optional complete)",
+      "ok": true,
+      "info": "{\"ok\":true}"
+    },
+    {
+      "name": "Carver calls for silence",
+      "ok": true,
+      "info": "{\"ok\":true} You opened that gate? Good work. Right: before we  / Silence, please! Watch the rubble. Where he’s tapp"
+    },
+    {
+      "name": "Step into the front of the ruin",
+      "ok": true,
+      "info": "{\"ok\":true,\"pos\":[-28.7,-0.01,6.53],\"minDrop\":0}"
+    },
+    {
+      "name": "Tapping marks appear while you keep still",
+      "ok": true,
+      "info": ""
+    },
+    {
+      "name": "Pointing at the wrong place does not count",
+      "ok": true,
+      "info": "{\"ok\":true}"
+    },
+    {
+      "name": "Point out the tapping under the stairs",
+      "ok": true,
+      "info": "{\"ok\":true}"
+    },
+    {
+      "name": "Pass three timbers",
+      "ok": true,
+      "info": "{\"ok\":true}"
+    },
+    {
+      "name": "Mr Moss is brought out at dawn",
+      "ok": true,
+      "info": ""
+    },
+    {
+      "name": "Stage \"return\"",
+      "ok": true,
+      "info": ""
+    },
+    {
+      "name": "Talk to Mr Moss",
+      "ok": true,
+      "info": "Hm? You’ll have to speak up. Everyone kept saying "
+    },
+    {
+      "name": "Through the back alley into the yard of No. 19",
+      "ok": true,
+      "info": "{\"ok\":true,\"pos\":[-12.07,-0.01,-16.2],\"minDrop\":0}"
+    },
+    {
+      "name": "Smother a yard incendiary via the back alley (optional)",
+      "ok": true,
+      "info": "{\"ok\":true}"
+    },
+    {
+      "name": "Return to the anchor point",
+      "ok": true,
+      "info": "{\"ok\":true,\"pos\":[-45.68,0,-1],\"minDrop\":0}"
+    },
+    {
+      "name": "Main mission complete",
+      "ok": true,
+      "info": ""
+    },
+    {
+      "name": "Chapter completion recorded in the save",
+      "ok": true,
+      "info": ""
+    },
+    {
+      "name": "Witness record progress",
+      "ok": true,
+      "info": "7 scans"
+    },
+    {
+      "name": "No page errors",
+      "ok": true,
+      "info": ""
+    }
+  ]
+}

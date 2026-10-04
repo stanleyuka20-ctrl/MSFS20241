@@ -24,11 +24,11 @@ export CW_WORK=~/.cache/chrono-witness/characters   # inputs + caches (default s
 PY=/path/to/venv/bin/python
 $PY anim_clips.py                       # retarget + clean all humanoid clips -> $CW_WORK/cache/clips/*.npz
 $PY build_anims.py                      # -> anims_humanoid.glb + anims_humanoid.json
-$PY build_character.py                  # -> soldier_a/b/c, officer, medic, wounded, archivist .glb
+$PY build_character.py                  # -> every id in characters_cfg.py (WW1 cast + London 1940 cast)
 $PY build_fp_arms.py                    # -> fp_arms.glb
 $PY verify_glb.py                       # checks names/rest pose/budgets/scale/facing/NaNs/textures
 $PY make_readme.py                      # -> public/assets/characters/README.md
-$PY render_previews.py soldier_a soldier_b soldier_c officer medic wounded archivist \
+$PY render_previews.py soldier_a warden_woman ... \
       --clips walk,crouch_cover,sit_ground     # -> docs/previews/characters/<id>.png, <id>_face.png
 $PY render_fp.py                        # -> docs/previews/characters/fp_arms.png
 $PY preview_anim.py walk run ...        # quick Workbench contact sheets of cached clips (debug)
@@ -50,5 +50,6 @@ Single characters: `$PY build_character.py officer medic`. Output dirs can be re
 | `cw_tex.py`, `cw_materials.py` | Procedural texturing: triangles are rasterised into the UV atlas to get the rest-pose 3D position/normal/attributes of every texel; colour, height, roughness and metalness are evaluated as 3D fields (gradient/cellular noise, landmark distances, garment details such as pockets, buttons, seams, puttee spirals, folds at elbows/knees, mud by height, chipped helmet paint, skin melanin/haemoglobin variation, pores, wrinkles, stubble, brows, nails...), height is converted to tangent-space normals with the true texel size, islands are dilated. |
 | `build_character.py` | Assembles a character: parts -> per-part collapse decimation to the LOD budgets (face kept denser than hands; low-poly lofts/straps protected) -> join per material -> Smart-UV / MakeHuman-UV atlases -> painted textures -> Cycles AO bake -> LOD1 (per-part decimation of LOD0, same UVs) -> skin weights -> glTF export (JPEG textures). |
 | `build_fp_arms.py` | First-person arms in camera space, own 40-bone rig (upper-arm stubs, forearm + twist, hand, 5x3 fingers, paper prop bone), IK-driven fp_* clips. |
-| `characters_cfg.py` | Per-character body/face/skin/clothing parameters. |
+| `cw_civil.py` | London 1940 cast (`era="1940"` entries): outfit assembly (coats/overalls/dress/cardigan/fire tunic on the tunic shell with long extruded skirts, shoulder cape and blanket drapes, shorts, pinned-up hair with nape roll, girl's bob, headscarf with chin ties, felt hat, flat cap, Brodie-pattern steel helmet with painted W / R / AFS, chest gas-mask haversack, gas-mask carton on a string, ARP armband, braces, AFS belt + axe, rubber knee boots, slippers, wrapped baby bundle) and its painters (wool/drill/knit/felt/print/plaid fabrics, buttons, pockets, apron, cape trim, stroke-font lettering, stockings / knee socks on the skin atlas, plaster dust). |
+| `characters_cfg.py` | Per-character body/face/skin/clothing parameters. `scale` < 1 fits the body to a scaled canonical skeleton and is exported as the `Armature` node scale (women, children, elderly). |
 | `verify_glb.py`, `render_previews.py`, `render_fp.py`, `preview_anim.py`, `make_readme.py` | Verification and documentation. |

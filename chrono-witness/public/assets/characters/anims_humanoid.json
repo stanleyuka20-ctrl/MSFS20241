@@ -76,5 +76,54 @@
     "speed": 0.0,
     "source": "hand-keyed (IK squat, hands over helmet, breathing/trembling)",
     "notes": "deep squat, head tucked, both hands on top of the helmet, breathing/trembling loop"
+  },
+  "lie_sleep": {
+    "duration": 8.0,
+    "loop": true,
+    "speed": 0.0,
+    "source": "hand-keyed (IK, slow breathing)",
+    "notes": "asleep on the LEFT side on the ground plane, head towards -Z, face towards +X, knees drawn up, head pillowed on the left forearm; the body extends ~0.75 m along -Z and +-0.4 m in X from the origin"
+  },
+  "sit_huddle": {
+    "duration": 6.0,
+    "loop": true,
+    "speed": 0.0,
+    "source": "hand-keyed (IK, rocking + breathing)",
+    "notes": "pelvis on the ground ~0.18 m behind the origin, knees drawn up, arms wrapped round the shins, head bowed, slow rocking"
+  },
+  "dig": {
+    "duration": 2.4,
+    "loop": true,
+    "speed": 0.0,
+    "source": "hand-keyed (IK shovelling cycle)",
+    "notes": "standing shovelling cycle (thrust, lever, lift, toss to the character's right); hands grip an implied shovel handle (no prop), blade point ~0.55 m in front of the origin"
+  },
+  "carry_box": {
+    "duration": 1.1333,
+    "loop": true,
+    "speed": 1.13,
+    "source": "CMU 35_01 (walk) + box-carrying arm IK",
+    "notes": "walk carrying a box (~0.35 m wide) at chest height, hands on its sides ~0.31 m in front of the hips"
+  },
+  "kneel_listen": {
+    "duration": 6.0,
+    "loop": true,
+    "speed": 0.0,
+    "source": "hand-keyed (IK, kneeling, hand cupped to the ear)",
+    "notes": "kneeling on the right knee, head bowed and turned (right ear down), right hand cupped to the ear, left hand on the rubble ~0.45 m in front"
+  },
+  "wave": {
+    "duration": 3.5667,
+    "loop": false,
+    "speed": 0.0,
+    "source": "CMU 77_02 (standing) base + hand-keyed waving arm (IK)",
+    "notes": "one-shot: raises the right arm and waves (~1.8 Hz) between ~0.75 s and ~2.8 s, starts/ends in the idle pose"
+  },
+  "talk_worried": {
+    "duration": 4.0667,
+    "loop": true,
+    "speed": 0.0,
+    "source": "CMU 77_02 (standing) base + hand-keyed hand-wringing/gesture (IK), procedural jaw",
+    "notes": "anxious conversation: hands wringing in front of the stomach, one open-palm gesture per loop, shoulders raised, quick breathing, procedural jaw"
   }
 }

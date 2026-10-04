@@ -103,6 +103,20 @@ def analyse(path):
         out["bones"] = joints
         jpos = {nodes[j]["name"]: W[j][:3, 3] for j in skins[0]["joints"]}
         out["joint_pos"] = jpos
+    # skinning matrices at rest (joint world x inverse bind) -> positions as the runtime draws them
+    Mj = None
+    out["scale"] = 1.0
+    if skins:
+        ibm = accessor(js, binc, skins[0]["inverseBindMatrices"]).reshape(-1, 4, 4).transpose(0, 2, 1)
+        Mj = np.array([W[j] for j in skins[0]["joints"]]) @ ibm
+        parent = {c: i for i, n in enumerate(nodes) for c in n.get("children", [])}
+        rj = skins[0]["joints"][0]
+        while rj in parent and nodes[rj]["name"] in out["bones"]:
+            rj = parent[rj]
+        arm_w = W[rj] if nodes[rj]["name"] not in out["bones"] else np.eye(4)
+        out["scale"] = float(np.cbrt(np.linalg.det(arm_w[:3, :3])))
+        inv = np.linalg.inv(arm_w)
+        out["joint_pos"] = {nodes[j]["name"]: (inv @ W[j])[:3, 3] for j in skins[0]["joints"]}
     meshes = {}
     for ni, n in enumerate(nodes):
         if "mesh" not in n:
@@ -117,6 +131,14 @@ def analyse(path):
                 tris += js["accessors"][p["indices"]]["count"] // 3
             pos = accessor(js, binc, p["attributes"]["POSITION"])
             nan |= not np.all(np.isfinite(pos))
+            if Mj is not None and "JOINTS_0" in p["attributes"]:
+                jo = accessor(js, binc, p["attributes"]["JOINTS_0"]).astype(int)
+                we = accessor(js, binc, p["attributes"]["WEIGHTS_0"]).astype(np.float64)
+                ph = np.concatenate([pos.astype(np.float64), np.ones((len(pos), 1))], 1)
+                sp = np.zeros((len(pos), 4))
+                for k in range(jo.shape[1]):
+                    sp += we[:, k:k + 1] * np.einsum("nij,nj->ni", Mj[jo[:, k]], ph)
+                pos = sp[:, :3]
             for k in ("NORMAL", "TEXCOORD_0", "WEIGHTS_0"):
                 if k in p["attributes"]:
                     nan |= not np.all(np.isfinite(accessor(js, binc, p["attributes"][k]).astype(np.float64)))
@@ -124,8 +146,8 @@ def analyse(path):
             mat = js["materials"][p["material"]]["name"] if "material" in p else None
             prims.append(mat)
         pos = np.concatenate(pos_all)
-        # skinned meshes: positions are in bind space == world rest pose for our exports
-        meshes[n["name"]] = dict(tris=tris, nan=nan, materials=prims, min=pos.min(0).round(3).tolist(),
+        # skinned meshes: rest-pose positions after skinning (includes the armature node scale)
+        meshes[n["name"]] = dict(tris=tris, nan=nan, materials=prims, nprims=len(prims), min=pos.min(0).round(3).tolist(),
                                  max=pos.max(0).round(3).tolist(), skinned="skin" in n, pos=pos)
     out["meshes"] = meshes
     imgs = []
@@ -155,7 +177,9 @@ def analyse(path):
 
 
 def main():
-    files = ["soldier_a", "soldier_b", "soldier_c", "officer", "medic", "wounded", "archivist"]
+    from characters_cfg import CHARACTERS
+    files = list(CHARACTERS.keys())
+    EXTRA = ("cap", "bundle")  # optional meshes hidden by default
     ref = analyse(os.path.join(P.OUT, "anims_humanoid.glb"))
     ok = True
     report = {}
@@ -187,8 +211,12 @@ def main():
         same = names == ref_names
         sub = all(n in anim_nodes for n in names)
         dpos = max(np.linalg.norm(r["joint_pos"][n] - anim_pos[n]) for n in names if n in anim_pos)
-        lod0 = [m for k, m in r["meshes"].items() if not k.endswith("_LOD1") and k != "cap"]
+        lod0 = [m for k, m in r["meshes"].items() if not k.endswith("_LOD1") and k not in EXTRA]
         lod1 = [m for k, m in r["meshes"].items() if k.endswith("_LOD1")]
+        sc = r["scale"]
+        exp_sc = float(CHARACTERS[f].get("scale", 1.0))
+        lod_ok = (f in r["meshes"]) and (f + "_LOD1" in r["meshes"]) and r["meshes"][f + "_LOD1"]["nprims"] <= 6 and \
+            r["meshes"][f]["nprims"] <= 6
         t0 = sum(m["tris"] for m in lod0)
         t1 = sum(m["tris"] for m in lod1)
         allpos = np.concatenate([m["pos"] for m in lod0])
@@ -196,19 +224,21 @@ def main():
         feet = allpos[:, 1].min()
         head = allpos[allpos[:, 1] > height - 0.35]
         # facing: the nose/brim region should be in +Z: compare z of the face (eyes level) extremes
-        face = allpos[(allpos[:, 1] > 1.55) & (allpos[:, 1] < 1.7) & (np.abs(allpos[:, 0]) < 0.03)]
+        cp = allpos / sc  # canonical-size coordinates
+        face = cp[(cp[:, 1] > 1.55) & (cp[:, 1] < 1.7) & (np.abs(cp[:, 0]) < 0.03)]
         facing = "+Z" if face[:, 2].max() > -face[:, 2].min() else "-Z?"
         nan = any(m["nan"] for m in r["meshes"].values())
         print("%-10s %.2f MB bones=%d same_names=%s in_anims=%s max_joint_delta=%.4f LOD0=%d LOD1=%d "
-              "height=%.3f feet_y=%.3f facing=%s nan=%s" % (f, r["bytes"] / 1e6, len(names), same, sub, dpos, t0, t1,
-                                                           height, feet, facing, nan))
+              "height=%.3f (scale %.3f) feet_y=%.3f facing=%s nan=%s" % (f, r["bytes"] / 1e6, len(names), same, sub, dpos,
+                                                                         t0, t1, height, sc, feet, facing, nan))
         print("           meshes:", {k: (m["tris"], m["materials"]) for k, m in r["meshes"].items()})
         print("           images:", [(n, s, b // 1024) for n, s, mt, b in r["images"]])
         cond = same and sub and dpos < 1e-3 and t0 <= 22000 and t1 <= 7000 and len(names) <= 64 and not nan and \
-            1.6 < height < 2.0 and abs(feet) < 0.01 and facing == "+Z" and r["bytes"] < 6.5e6 and \
+            1.6 * sc < height < 2.0 * sc and abs(sc - exp_sc) < 1e-3 and lod_ok and abs(feet) < 0.01 and facing == "+Z" and r["bytes"] < 6.5e6 and \
             all(max(s) <= 1024 for _, s, _, _ in r["images"])
         ok &= cond
         report[f] = dict(bytes=r["bytes"], lod0=t0, lod1=t1, bones=len(names), height=round(float(height), 3),
+                         scale=round(sc, 3),
                          images=[(n, s) for n, s, _, _ in r["images"]],
                          meshes={k: m["tris"] for k, m in r["meshes"].items()})
         if not cond:

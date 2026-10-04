@@ -93,7 +93,7 @@ Other measures:
 | Area | Measures |
 |---|---|
 | Loading and memory | Only the active destination is resident. Leaving a chapter disposes its geometry, materials, textures, render targets and colliders. Shaders are precompiled during loading (`compileAsync`). |
-| Lights | Interior lamps use a fixed pool of 3 point lights moved to the nearest lamps, so the light count never changes and shaders never recompile at runtime. The HQ uses 2 real-time point lights plus emissive surfaces. |
+| Lights | Interior lamps use a fixed pool of point lights moved to the nearest lamps (3 on the Western Front, 5 in London for fires, shelter lamps and incendiaries), so the light count never changes and shaders never recompile at runtime. The HQ uses 2 real-time point lights plus emissive surfaces. |
 | Effects | Rain is fully GPU-animated (2.5k–12k instanced streaks, scaled by preset). Particles come from fixed pools (220 dust, 90 smoke). |
 | Textures | 1024² JPEG PBR sets. The Low preset downsamples to 512² at load, and anisotropy follows the preset. |
 
@@ -110,15 +110,32 @@ Environment for every row below:
 | Hardware | Cloud container, 4 vCPU, 15 GB RAM, no GPU |
 | Settings | Adaptive quality off, FPS cap off; resolution and preset as listed |
 
-RESULTS_PLACEHOLDER
+Low preset, 960×540 window (720×405 render at 0.75 resolution scale), 10 measured seconds per route.
+Source files: `bench-results/bench-low-960x540-*.json` (latest run used for the Western Front rows;
+the HQ row is from the first run, 2026-10-04 00:17 UTC).
+
+| Route | Avg fps | 1% low | p99 frame | Peak draw calls | Peak triangles | JS heap |
+|---|---|---|---|---|---|---|
+| Western Front — exploration | 0.8 | 0.5 | 1833 ms | 648 | 1.17 M | 96 MB |
+| Western Front — crowded trench | 0.6 | 0.5 | 1967 ms | 673 | 1.21 M | 134 MB |
+| Headquarters walkthrough | 2.6 | 0.9 | 850 ms | 389 | 0.67 M | 96 MB |
+
+Every frame counts as a spike on software rendering, so the spike counts are meaningless here and
+are omitted. Peak triangles include the shadow pass.
+
+**1920×1080 attempts failed.** A Medium run at 1080p measured 0.2 fps on the exploration route
+(569 draw calls, 0.95 M triangles), then the headless browser lost its page; the Low and High runs
+at 1080p also ended with the page closing before any route completed. No 1080p result exists.
+
+**London (Blitz) and the bombardment / travel routes have not been measured** in this environment
+yet. Their routes exist (`ldn_street`, `ldn_tube`, `ldn_raid`, `ww1_barrage`, `travel`).
 
 What the software numbers do show:
 
 - Draw calls and triangles per route, which carry over to real hardware.
-- JS heap stays around 95–135 MB in the chapter.
-- The repeated-travel route returns to a stable geometry/texture count, so no unbounded growth was
-  observed across loads.
-- Chapter load time on a CPU-only system (dominated by terrain generation and baked AO).
+- JS heap stays around 95–135 MB in the Western Front chapter.
+- The repeated-travel memory check has **not** completed in this environment, so leaks across loads
+  are not ruled out by measurement (the disposal code is in `src/render/Disposal.ts`).
 
 ### Reference system
 
