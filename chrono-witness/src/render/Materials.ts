@@ -182,7 +182,7 @@ export function terrainMaterial(sets: TerrainSets, macro: THREE.Texture): THREE.
           // height-aware weights (AO channel as height proxy)
           float wMud = vBlend.x * (1.0 - side * 0.8);
           float wGr = vBlend.y * (1.0 - side);
-          float wCh = vBlend.z;
+          float wCh = vBlend.z * (1.0 - side * 0.9);
           float wEt = max(0.0, 1.0 - wMud - wGr - wCh) + side * 0.6;
           float hM = mudR.r + wMud * 1.5, hG = grR.r + wGr * 1.5, hC = chR.r + wCh * 1.5, hE = etR.r + wEt * 1.5;
           float hmax = max(max(hM, hG), max(hC, hE)) - 0.35;
@@ -209,7 +209,7 @@ export function terrainMaterial(sets: TerrainSets, macro: THREE.Texture): THREE.
           // general wetness
           float wetGen = uWetness * (0.35 + 0.65 * N.y);
           tW_albedo *= mix(1.0, 0.7, wetGen * 0.6);
-          tW_orm.g = mix(tW_orm.g, tW_orm.g * 0.55, wetGen);
+          tW_orm.g = mix(tW_orm.g, max(0.32, tW_orm.g * 0.72), wetGen);
           tW_orm.g = mix(tW_orm.g, 0.04, pud);
           vec2 rip = rippleNormal(pXZ * 0.9) * uRain;
           tW_normal = normalize(mix(tW_normal, normalize(N + vec3(rip.x, 0.0, rip.y) * 0.35), pud));

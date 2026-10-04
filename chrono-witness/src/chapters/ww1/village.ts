@@ -170,18 +170,28 @@ function building(t: Terrain, b: BuildingDef, batches: CellBatches, tiles: Recor
         if (b.height > 5) openings.push({ s0: s - 0.45, s1: s + 0.45, y0: 3.35, y1: 4.45 });
       }
     }
+    // ruined top line sampled at column boundaries: continuous and ragged, never stepped
+    const topAt = (sv: number): number => {
+      const u = sv / len;
+      let top = b.height;
+      if (w.gable) top += Math.max(0, 1 - Math.abs(u - 0.5) * 2) * (b.d * 0.45);
+      const n = noise.fbm(sv * 0.35 + wi * 10 + b.x, b.z * 0.1, 3);
+      top *= 1 - b.damage * (0.35 + 0.45 * (n * 0.5 + 0.5));
+      if (wi === collapseWall) top *= Math.min(1, 0.25 + Math.abs(u - collapseAt) * 2.2);
+      // broken masonry: jitter of a few brick courses
+      top += (noise.get(sv * 3.1 + wi, b.x * 0.7) * 0.5 + 0.5) * COURSE * 3 - COURSE * 1.5;
+      return Math.max(0.35, top);
+    };
+    const tops: number[] = [];
+    for (let ci = 0; ci <= cols; ci++) tops.push(topAt(Math.min(len, ci * colW)));
+    const rot = Math.atan2(-dz, dx) + b.rot;
     for (let ci = 0; ci < cols; ci++) {
       const s0 = ci * colW;
       const s1 = Math.min(len, s0 + colW);
       const sMid = (s0 + s1) / 2;
-      // ruined top height for this column
-      const u = sMid / len;
-      let top = b.height;
-      if (w.gable) top += Math.max(0, 1 - Math.abs(u - 0.5) * 2) * (b.d * 0.45);
-      const n = noise.fbm(sMid * 0.35 + wi * 10 + b.x, b.z * 0.1, 3);
-      top *= 1 - b.damage * (0.35 + 0.45 * (n * 0.5 + 0.5));
-      if (wi === collapseWall) top *= Math.min(1, 0.25 + Math.abs(u - collapseAt) * 2.2);
-      top = Math.max(0.35, Math.round(top / COURSE) * COURSE);
+      const topL = tops[ci];
+      const topR = tops[ci + 1];
+      const top = Math.max(topL, topR);
       // solid vertical intervals (skip openings)
       const cuts = openings.filter((o) => sMid > o.s0 && sMid < o.s1).map((o) => [o.y0, o.y1] as [number, number]);
       let y = 0;
@@ -191,23 +201,21 @@ function building(t: Terrain, b: BuildingDef, batches: CellBatches, tiles: Recor
         y = Math.max(y, c1);
       }
       if (y < top) solids.push([y, top]);
-      for (const [y0, y1] of solids) {
+      const [wx, wz] = toWorld(lx0 + dx * sMid, lz0 + dz * sMid);
+      for (let k = 0; k < solids.length; k++) {
+        const [y0, y1] = solids[k];
         if (y1 - y0 < 0.02) continue;
-        const g = boxT(s1 - s0 + 0.002, y1 - y0, thick, tile, s0, y0);
-        const [wx, wz] = toWorld(lx0 + dx * sMid, lz0 + dz * sMid);
-        const rot = Math.atan2(-dz, dx) + b.rot; // local wall direction → world yaw
-        const m = new THREE.Matrix4().makeRotationY(rot).setPosition(wx, gy + (y0 + y1) / 2 - 0.05, wz);
+        const isTop = k === solids.length - 1 && y1 >= top - 1e-3;
+        const g = isTop ? wallPiece(s1 - s0 + 0.002, y0, Math.max(y0 + 0.05, topL), Math.max(y0 + 0.05, topR), thick, tile, s0) : wallPiece(s1 - s0 + 0.002, y0, y1, y1, thick, tile, s0);
+        const m = new THREE.Matrix4().makeRotationY(rot).setPosition(wx, gy - 0.05, wz);
         batches.get(mat, wx, wz).add(g, m);
       }
-      // colliders: one box per column for the full height
-      if (top > 0.4) {
-        const [wx, wz] = toWorld(lx0 + dx * sMid, lz0 + dz * sMid);
-        const solidLow = cuts.some((c) => c[0] < 0.2) ? null : top;
-        if (solidLow !== null) out.colliders.push({ c: new THREE.Vector3(wx, gy + top / 2, wz), s: new THREE.Vector3(s1 - s0, top, thick), r: Math.atan2(-dz, dx) + b.rot });
-        else {
-          const above = cuts.find((c) => c[0] < 0.2)![1];
-          if (top > above) out.colliders.push({ c: new THREE.Vector3(wx, gy + (above + top) / 2, wz), s: new THREE.Vector3(s1 - s0, top - above, thick), r: Math.atan2(-dz, dx) + b.rot });
-        }
+      // colliders: one box per column (lowest of the two top heights)
+      const ctop = Math.min(topL, topR);
+      if (ctop > 0.4) {
+        const lowCut = cuts.find((c) => c[0] < 0.2);
+        if (!lowCut) out.colliders.push({ c: new THREE.Vector3(wx, gy + ctop / 2, wz), s: new THREE.Vector3(s1 - s0, ctop, thick), r: rot });
+        else if (ctop > lowCut[1]) out.colliders.push({ c: new THREE.Vector3(wx, gy + (lowCut[1] + ctop) / 2, wz), s: new THREE.Vector3(s1 - s0, ctop - lowCut[1], thick), r: rot });
       }
     }
     // lintels and sills
@@ -269,10 +277,18 @@ function building(t: Terrain, b: BuildingDef, batches: CellBatches, tiles: Recor
     for (let side = 0; side < 4; side++) {
       const a = (side * Math.PI) / 2 + b.rot;
       const h = towerH * (side === 1 ? 0.55 : side === 3 ? 0.8 : 1);
-      const g = boxT(4.2, h, 0.7, tile, 0, 0);
       const ox = Math.sin(a) * 1.75;
       const oz = Math.cos(a) * 1.75;
-      batches.get(mat, tx + ox, tz + oz).add(g, new THREE.Matrix4().makeRotationY(a).setPosition(tx + ox, gy + h / 2, tz + oz));
+      // broken tower top in a few ragged segments
+      for (let k = 0; k < 4; k++) {
+        const hl = h * (1 - rng.range(0, 0.18)) - (k === 0 ? 1.2 : 0);
+        const hr = h * (1 - rng.range(0, 0.18)) - (k === 3 ? 1.5 : 0);
+        const g = wallPiece(1.05, 0, hl, hr, 0.7, tile, k * 1.05);
+        const off = -1.575 + k * 1.05;
+        const px = tx + ox + Math.cos(a) * off;
+        const pz = tz + oz - Math.sin(a) * off;
+        batches.get(mat, px, pz).add(g, new THREE.Matrix4().makeRotationY(a).setPosition(px, gy, pz));
+      }
       out.colliders.push({ c: new THREE.Vector3(tx + ox, gy + h / 2, tz + oz), s: new THREE.Vector3(4.2, h, 0.7), r: a });
     }
   }
@@ -351,6 +367,34 @@ function stump(t: Terrain, x: number, z: number, rng: Rng, hMax = 6): THREE.Buff
   const uv = g.attributes.uv as THREE.BufferAttribute;
   for (let i = 0; i < uv.count; i++) uv.setXY(i, uv.getX(i) * r * 6, (uv.getY(i) * h) / 1.2);
   g.translate(x, t.height(x, z) + h / 2 - 0.2, z);
+  return g;
+}
+
+/**
+ * Wall column piece: a box whose top edge can slope (left/right heights), with UVs derived from its
+ * final shape so brick courses stay continuous along the wall (uOff = distance along the wall).
+ */
+function wallPiece(w: number, y0: number, yTopL: number, yTopR: number, d: number, tile: number, uOff: number): THREE.BufferGeometry {
+  const g = new THREE.BoxGeometry(w, 1, d);
+  const p = g.attributes.position as THREE.BufferAttribute;
+  const n = g.attributes.normal as THREE.BufferAttribute;
+  const uv = g.attributes.uv as THREE.BufferAttribute;
+  for (let i = 0; i < p.count; i++) {
+    const x = p.getX(i);
+    const yy = p.getY(i) > 0 ? (x < 0 ? yTopL : yTopR) : y0;
+    p.setY(i, yy);
+  }
+  for (let i = 0; i < p.count; i++) {
+    const x = p.getX(i);
+    const yy = p.getY(i);
+    const z = p.getZ(i);
+    const ax = Math.abs(n.getX(i));
+    const ay = Math.abs(n.getY(i));
+    if (ax > 0.5) uv.setXY(i, z / tile, yy / tile);
+    else if (ay > 0.5) uv.setXY(i, (uOff + x + w / 2) / tile, z / tile);
+    else uv.setXY(i, (uOff + x + w / 2) / tile, yy / tile);
+  }
+  g.computeVertexNormals();
   return g;
 }
 

@@ -70,7 +70,7 @@ export async function buildWorld(ctx: GameContext, root: THREE.Group, report: Lo
     rubble: S('stone_rubble', { porosity: 0.7 }),
     cobble: S('cobblestone_wet', { porosity: 0.95 }),
     charred: S('wood_beam', { color: 0x4a4038, porosity: 0.5 }),
-    bark: S('wood_beam', { color: 0x75695c, porosity: 0.6 }),
+    bark: S('wood_beam', { color: 0xb3a596, porosity: 0.6 }),
     tiles: S('roof_tiles', { porosity: 0.7, vertexColors: false }),
     canvas: S('canvas_tent', { porosity: 0.6, vertexColors: false }),
     crate: S('crate_wood', { porosity: 0.6, vertexColors: false }),
@@ -309,7 +309,7 @@ function mergeSimple(parts: THREE.BufferGeometry[]): THREE.BufferGeometry {
 /** Alpha-tested grass tuft cards with wind sway (vertex shader), density from settings. */
 function grass(ctx: GameContext, root: THREE.Group, t: Terrain, atlas: THREE.Texture, density: number): void {
   const rng = new Rng(808);
-  const count = Math.floor(9000 * density);
+  const count = Math.floor(16000 * density);
   const mats: THREE.Matrix4[] = [];
   const atlasIdx: number[] = [];
   const b4 = new THREE.Vector4();
@@ -322,21 +322,24 @@ function grass(ctx: GameContext, root: THREE.Group, t: Terrain, atlas: THREE.Tex
     t.blend(x, z, h, b4);
     if (b4.y < 0.35 || rng.next() > b4.y) continue;
     if (Math.abs(h - t.base(x, z)) > 0.3) continue; // not in trenches / craters
-    const s = rng.range(0.35, 0.75);
-    mats.push(new THREE.Matrix4().compose(new THREE.Vector3(x, h - 0.03, z), new THREE.Quaternion().setFromEuler(new THREE.Euler(0, rng.range(0, Math.PI), 0)), new THREE.Vector3(s * rng.range(0.8, 1.3), s, s)));
+    const s = rng.range(0.45, 0.95);
+    mats.push(new THREE.Matrix4().compose(new THREE.Vector3(x, h - 0.03, z), new THREE.Quaternion().setFromEuler(new THREE.Euler(0, rng.range(0, Math.PI), 0)), new THREE.Vector3(s * rng.range(0.8, 1.25), s, s)));
     atlasIdx.push(rng.int(0, 7));
   }
   // two crossed quads
-  const q1 = new THREE.PlaneGeometry(1, 1);
+  // card aspect matches the atlas cells (0.3 × 0.6 m); normals point up so cards light like the ground
+  const q1 = new THREE.PlaneGeometry(0.5, 1);
   q1.translate(0, 0.5, 0);
   const q2 = q1.clone().rotateY(Math.PI / 2);
   const geo = mergeSimple([q1, q2]);
+  const nrm = geo.attributes.normal as THREE.BufferAttribute;
+  for (let i = 0; i < nrm.count; i++) nrm.setXYZ(i, 0, 1, 0);
   geo.setAttribute('aAtlas', new THREE.InstancedBufferAttribute(new Float32Array(atlasIdx), 1));
   const mat = new THREE.MeshStandardMaterial({ map: atlas, alphaTest: 0.45, side: THREE.DoubleSide, roughness: 0.9, metalness: 0 });
   mat.onBeforeCompile = (sh) => {
     sh.uniforms.uTime = WeatherUniforms.uTime;
     sh.vertexShader = sh.vertexShader
-      .replace('#include <common>', '#include <common>\nattribute float aAtlas;\nuniform float uTime;\nvarying float vAtlas;')
+      .replace('#include <common>', '#include <common>\nattribute float aAtlas;\nuniform float uTime;\nvarying float vAtlas;\nvarying float vGrassH;')
       .replace(
         '#include <begin_vertex>',
         `#include <begin_vertex>
@@ -344,19 +347,21 @@ function grass(ctx: GameContext, root: THREE.Group, t: Terrain, atlas: THREE.Tex
         vec4 ip = instanceMatrix * vec4(0.0, 0.0, 0.0, 1.0);
         float sway = sin(uTime * 1.6 + ip.x * 0.37 + ip.z * 0.21) * 0.08 + sin(uTime * 3.1 + ip.x) * 0.03;
         transformed.x += sway * uv.y * uv.y;
-        transformed.z += sway * 0.6 * uv.y * uv.y;`,
+        transformed.z += sway * 0.6 * uv.y * uv.y;
+        vGrassH = uv.y;`,
       )
       .replace('#include <uv_vertex>', '#include <uv_vertex>');
     sh.fragmentShader = sh.fragmentShader
-      .replace('#include <common>', '#include <common>\nvarying float vAtlas;')
+      .replace('#include <common>', '#include <common>\nvarying float vAtlas;\nvarying float vGrassH;')
       .replace(
         '#include <map_fragment>',
-        `vec2 cellUv = vec2((mod(vAtlas, 4.0) + vMapUv.x) / 4.0, (floor(vAtlas / 4.0) + vMapUv.y) / 2.0);
+        `vec2 cellUv = vec2((mod(vAtlas, 4.0) + vMapUv.x) / 4.0, (floor(vAtlas / 4.0) + 1.0 - vMapUv.y) / 2.0);
         vec4 sampledDiffuseColor = texture2D(map, cellUv);
-        diffuseColor *= sampledDiffuseColor;`,
+        diffuseColor *= sampledDiffuseColor;
+        diffuseColor.rgb *= mix(0.55, 1.0, vGrassH); // darker near the base (ground contact)`,
       );
   };
-  mat.customProgramCacheKey = () => 'grass-v1';
+  mat.customProgramCacheKey = () => 'grass-v2';
   ctx.tracker.track(mat);
   ctx.tracker.track(geo);
   // spatial cells

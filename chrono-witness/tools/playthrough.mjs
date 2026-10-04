@@ -340,6 +340,7 @@ try {
     return { state: g.state, mission: g.missions.state.get('runner').state };
   });
   check('Not crouching under shellfire downs the player (mission failed state)', failRun.state !== 'playing' && failRun.mission === 'failed', JSON.stringify(failRun));
+  await waitFor(page, () => [...document.querySelectorAll('button')].some((b) => b.textContent.includes('Retry from checkpoint')), 30000).catch(() => {});
   await page.evaluate(() => window.__H.clickButton('Retry from checkpoint'));
   await page.evaluate(() => window.__game.step(0.5));
   const afterRetry = await page.evaluate(() => ({ stage: window.__H.stage(), state: window.__game.missions.state.get('runner').state, beam: window.__game.facts.get('event.beam_moved'), pos: window.__H.pos() }));

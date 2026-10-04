@@ -275,7 +275,7 @@ export class Terrain {
     if (roadD < 3.4) mud = Math.max(mud, 0.75 + n2 * 0.25);
     let grass = clamp(smoothstep(8, 22, z) * (0.75 + n * 0.4) * (1 - mud), 0, 1);
     grass = Math.max(grass, clamp((1 - between) * 0.0 + smoothstep(-64, -90, z) * (0.25 + n * 0.3), 0, 0.6) * (1 - cp.bowl));
-    const chalk = clamp(tp.berm * 1.2 * (0.55 + n2 * 0.5) + (cp.h > 0 ? cp.h * 2.5 : 0) * 0.6, 0, 0.95);
+    const chalk = clamp(tp.berm * 0.85 * (0.45 + n2 * 0.5) + (cp.h > 0 ? cp.h * 2.0 : 0) * 0.45, 0, 0.7);
     let pud = clamp(tp.floor * 1.3 + cp.bowl * 1.2 + (roadD < 3 ? 0.6 : 0) + between * 0.25, 0, 1);
     if (h > this.base(x, z) + 0.05) pud *= 0.2;
     out.set(mud, grass * (1 - chalk), chalk, pud);

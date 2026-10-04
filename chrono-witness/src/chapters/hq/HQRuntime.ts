@@ -223,6 +223,85 @@ class HQRuntime implements ChapterRuntime {
     tlMesh.position.set(0, 4.6, z0 + 0.01);
     this.root.add(tlMesh);
 
+    report(0.72, 'Headquarters: archive');
+    // archive shelving along the right wall: steel frames with archival boxes (instanced)
+    const shelfFrames = new GeoBatch();
+    const boxMats: THREE.Matrix4[] = [];
+    const boxColors: THREE.Color[] = [];
+    const rngS = (i: number): number => ((Math.sin(i * 127.1) * 43758.5453) % 1 + 1) % 1;
+    let bi = 0;
+    for (const zc of [-7.5, -4.6, 4.4, 7.3]) {
+      const x = W / 2 - 0.55;
+      for (const dz of [-1.2, 1.2]) shelfFrames.add(boxUV(0.6, 2.6, 0.05, tSteel), mat4(x, 1.3, zc + dz));
+      for (let lvl = 0; lvl < 5; lvl++) {
+        const y = 0.12 + lvl * 0.55;
+        shelfFrames.add(boxUV(0.6, 0.03, 2.45, tSteel), mat4(x, y, zc));
+        if (lvl === 4) continue;
+        let z = zc - 1.12;
+        while (z < zc + 1.1) {
+          const w = 0.09 + rngS(bi++) * 0.06;
+          if (rngS(bi++) > 0.08) {
+            const h = 0.28 + rngS(bi++) * 0.08;
+            boxMats.push(new THREE.Matrix4().compose(new THREE.Vector3(x - 0.02 + rngS(bi++) * 0.04, y + 0.015 + h / 2, z + w / 2), new THREE.Quaternion().setFromEuler(new THREE.Euler(0, 0, rngS(bi++) > 0.92 ? 0.12 : 0)), new THREE.Vector3(0.36, h, w)));
+            const c = new THREE.Color().setHSL(0.08 + rngS(bi++) * 0.04, 0.25 + rngS(bi++) * 0.15, 0.32 + rngS(bi++) * 0.18);
+            boxColors.push(c);
+          }
+          z += w + 0.006;
+        }
+      }
+      world.addStaticBox(new THREE.Vector3(x, 1.3, zc), new THREE.Vector3(0.62, 2.6, 2.5));
+    }
+    add(shelfFrames.build(), steel, false, true);
+    const boxGeo = new THREE.BoxGeometry(1, 1, 1);
+    const boxMat = new THREE.MeshStandardMaterial({ color: 0xffffff, roughness: 0.85, metalness: 0 });
+    const boxes = new THREE.InstancedMesh(boxGeo, boxMat, boxMats.length);
+    boxMats.forEach((m, i) => {
+      boxes.setMatrixAt(i, m);
+      boxes.setColorAt(i, boxColors[i]);
+    });
+    boxes.castShadow = boxes.receiveShadow = true;
+    boxes.computeBoundingSphere();
+    this.root.add(boxes);
+    ctx.tracker.track(boxGeo);
+    ctx.tracker.track(boxMat);
+    // brass ring inlaid in the floor around the gate platform
+    const brass = ctx.tracker.track(new THREE.MeshStandardMaterial({ color: 0xb08a4a, metalness: 1, roughness: 0.35 }));
+    const inlay = new THREE.Mesh(new THREE.RingGeometry(3.7, 3.82, 128), brass);
+    inlay.rotation.x = -Math.PI / 2;
+    inlay.position.set(0, 0.004, -6);
+    this.root.add(inlay);
+    // vitrine frames (thin steel edges so the glass reads)
+    const frames = new GeoBatch();
+    for (let i = 0; i < 6; i++) {
+      const z = -6 + i * 3;
+      const x = -W / 2 + 1.4;
+      for (const [fx, fz] of [[-0.43, -0.43], [0.43, -0.43], [-0.43, 0.43], [0.43, 0.43]]) frames.add(boxUV(0.025, 0.6, 0.025, tSteel), mat4(x + fx, 1.31, z + fz));
+      frames.add(boxUV(0.88, 0.03, 0.88, tSteel), mat4(x, 1.62, z));
+    }
+    add(frames.build(), steel, false, false);
+    // pendant linear lights
+    const pendMat = ctx.tracker.track(new THREE.MeshStandardMaterial({ color: 0x111111, emissive: 0xfff1dc, emissiveIntensity: 1.6 }));
+    const pend = new GeoBatch();
+    const cables = new GeoBatch();
+    for (const z of [-2, 2.5, 7]) {
+      for (const x of [-6, 6]) {
+        pend.add(new THREE.BoxGeometry(2.4, 0.05, 0.12), mat4(x, 4.2, z));
+        for (const dx of [-1, 1]) cables.add(new THREE.CylinderGeometry(0.004, 0.004, H - 4.45, 4), mat4(x + dx, 4.2 + (H - 4.45) / 2, z));
+      }
+    }
+    add(pend.build(), pendMat, false, false);
+    add(cables.build(), steel, false, false);
+    // records desk with a chair near the kiosk
+    const desk2 = new GeoBatch();
+    desk2.add(boxUV(1.6, 0.05, 0.75, tOak), mat4(W / 2 - 3.2, 0.74, 1));
+    for (const [dx, dz] of [[-0.75, -0.33], [0.75, -0.33], [-0.75, 0.33], [0.75, 0.33]]) desk2.add(boxUV(0.04, 0.72, 0.04, tSteel), mat4(W / 2 - 3.2 + dx, 0.36, 1 + dz));
+    add(desk2.build(), oak, false, true);
+    world.addStaticBox(new THREE.Vector3(W / 2 - 3.2, 0.4, 1), new THREE.Vector3(1.6, 0.8, 0.75));
+    const chair = new GeoBatch();
+    chair.add(boxUV(0.46, 0.05, 0.46, tFab), mat4(W / 2 - 3.2, 0.46, 1.65));
+    chair.add(boxUV(0.46, 0.5, 0.05, tFab), mat4(W / 2 - 3.2, 0.72, 1.88));
+    add(chair.build(), fabric, false, true);
+
     report(0.8, 'Headquarters: lighting');
     // lighting: room environment + daylight from the skylight + warm accents
     const pm = new THREE.PMREMGenerator(ctx.render.renderer);

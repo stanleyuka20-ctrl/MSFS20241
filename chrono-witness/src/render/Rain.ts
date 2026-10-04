@@ -54,12 +54,12 @@ export class Rain {
           vec3 dir = normalize(vel);
           vec3 toCam = normalize(uCam - p);
           vec3 side = normalize(cross(dir, toCam));
-          float len = 0.55 + aOffset.w * 0.25;
-          float width = 0.0085;
+          float len = 0.38 + aOffset.w * 0.2;
+          float width = 0.0045;
           vec3 world = p + side * position.x * width + dir * position.y * len;
           vUv = uv;
           float dist = length(uCam - p);
-          vAlpha = smoothstep(0.6, 2.0, dist) * (1.0 - smoothstep(9.0, 13.0, dist)) * step(aOffset.w, uIntensity);
+          vAlpha = smoothstep(1.2, 3.5, dist) * (1.0 - smoothstep(9.0, 13.0, dist)) * step(aOffset.w, uIntensity);
           gl_Position = projectionMatrix * viewMatrix * vec4(world, 1.0);
         }
       `,
@@ -68,7 +68,7 @@ export class Rain {
         varying vec2 vUv;
         void main() {
           float a = (1.0 - abs(vUv.x - 0.5) * 2.0) * smoothstep(0.0, 0.25, vUv.y) * smoothstep(1.0, 0.6, vUv.y);
-          gl_FragColor = vec4(vec3(0.72, 0.75, 0.78), a * vAlpha * 0.28);
+          gl_FragColor = vec4(vec3(0.7, 0.73, 0.76), a * vAlpha * 0.16);
         }
       `,
       transparent: true,

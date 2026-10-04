@@ -130,7 +130,7 @@ export class HUD {
   toast(text: string, kind = 'info'): void {
     const el = h(`div.toast.${kind}` as 'div', null, text);
     this.toasts.append(el);
-    while (this.toasts.children.length > 4) this.toasts.firstElementChild?.remove();
+    while (this.toasts.children.length > 3) this.toasts.firstElementChild?.remove();
     window.setTimeout(() => el.remove(), 4800);
   }
 
@@ -162,13 +162,18 @@ export class HUD {
     const arrow = direction === undefined ? '◆' : Math.abs(direction) < 0.5 ? '▲' : Math.abs(direction) > 2.6 ? '▼' : direction > 0 ? '▶' : '◀';
     el.append(h('span.arrow', null, arrow), label);
     this.placeCue(el, direction);
+    // stack cues that share a screen slot instead of overlapping them
+    const slot = direction === undefined || Math.abs(direction) < 0.5 ? 'a' : Math.abs(direction) > 2.6 ? 'b' : direction > 0 ? 'r' : 'l';
+    el.dataset.slot = slot;
+    const same = this.cueList.filter((c) => c.el.dataset.slot === slot).length;
+    el.style.marginTop = `${same * 34}px`;
     this.cues.append(el);
     this.cueList.push({ el, until: now + 2.6 });
     if (this.cueList.length > 5) this.cueList.shift()!.el.remove();
   }
 
   private placeCue(el: HTMLElement, direction?: number): void {
-    el.style.left = el.style.right = el.style.top = el.style.bottom = '';
+    el.style.left = el.style.right = el.style.top = el.style.bottom = 'auto';
     if (direction === undefined || Math.abs(direction) < 0.5) {
       el.style.left = '50%';
       el.style.top = '18%';
