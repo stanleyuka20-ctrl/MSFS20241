@@ -873,7 +873,10 @@ export class Game implements GameContext {
         this.runtime.skipSequence();
       }
     }
-    if (inp.isDown('jump') && inp.pressed('crouch')) this.fpsVisible = !this.fpsVisible;
+    if (inp.keyPressed('F3')) {
+      this.fpsVisible = !this.fpsVisible;
+      if (!this.fpsVisible) this.ui.hud.setFps(null);
+    }
 
     const gameplay = !this.dialogue;
     // dialogue input

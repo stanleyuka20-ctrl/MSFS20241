@@ -1,0 +1,109 @@
+{
+  "rain_ripples_normal.png": {
+    "size": [
+      2048,
+      2048
+    ],
+    "layout": "4x4 flipbook, 16 frames of 512x512, row-major from top-left; loops (frame 15 -> 0); each frame tiles. OpenGL tangent normals, flat = (128,128,255).",
+    "suggestedTileMetres": 1.0,
+    "fps": 16
+  },
+  "footprints_alpha.png": {
+    "size": [
+      1024,
+      1024
+    ],
+    "layout": "4 cols x 2 rows of 256x512 cells, toe towards the top of the image (+V); sole ~0.295 m ~= 340 px (1150 px/m, cell = 0.22 x 0.445 m). RGB = OpenGL normal of the depression, A = decal mask. Cells (row-major): left_fresh_deep, right_fresh_deep, left_shallow, right_shallow, left_slipped_smeared, right_toe_only, left_heel_only, right_old_softened.",
+    "cellMetres": [
+      0.2226,
+      0.4452
+    ]
+  },
+  "smoke_puff.png": {
+    "size": [
+      512,
+      512
+    ],
+    "layout": "single sprite, straight alpha, RGB light-grey self-shadowed shading (never black in transparent texels; safe to premultiply)."
+  },
+  "dust_puff.png": {
+    "size": [
+      512,
+      512
+    ],
+    "layout": "single sprite, tan/brown dust, softer & wispier, straight alpha."
+  },
+  "cloud_noise.png": {
+    "size": [
+      1024,
+      1024
+    ],
+    "layout": "tileable; R = broad fbm masses, G = ridged/billow mid detail, B = fine cellular wisps. Linear data."
+  },
+  "blue_noise.png": {
+    "size": [
+      128,
+      128
+    ],
+    "layout": "8-bit greyscale void-and-cluster blue noise, tileable."
+  },
+  "water_normal.png": {
+    "size": [
+      1024,
+      1024
+    ],
+    "layout": "tileable small wind-wave normal map (OpenGL), Phillips spectrum, designed for ~2 m tile.",
+    "suggestedTileMetres": 2.0
+  },
+  "grass_blade_atlas.png": {
+    "size": [
+      1024,
+      1024
+    ],
+    "layout": "4 cols x 2 rows of 256x512 cells; each a dead/autumn grass tuft card with its base at the bottom centre of the cell; sRGB colour, alpha-tested (A>0.5); colours dilated into transparent texels.",
+    "cardMetres": [
+      0.3,
+      0.6
+    ]
+  },
+  "fire_flipbook.png": {
+    "size": [
+      2048,
+      2048
+    ],
+    "layout": "8x8 flipbook, 64 frames of 256x256, row-major from the top left, loops (frame 63 -> 0). RGB = emissive flame colour (sRGB, use additively or as emissive), A = flame mask; flame base at the bottom centre of each frame.",
+    "fps": 24
+  },
+  "smoke_dark.png": {
+    "size": [
+      512,
+      512
+    ],
+    "layout": "single dense dark smoke puff (burning buildings), straight alpha, self-shadowed dark grey-brown RGB."
+  },
+  "window_tape.png": {
+    "size": [
+      512,
+      512
+    ],
+    "layout": "whole texture = one window pane: brown gummed anti-blast paper tape (border, X and centre cross), straight alpha ~0.85, transparent elsewhere."
+  },
+  "glass_shards.png": {
+    "size": [
+      512,
+      512
+    ],
+    "layout": "decal of scattered broken window glass on the ground: faint greenish bodies, bright edges and glints in RGB, A = coverage. Not tileable."
+  },
+  "barbed_wire_alpha.png": {
+    "size": [
+      512,
+      128
+    ],
+    "layout": "horizontal strip tiling along U: two twisted strands with a 4-point barb every 128 px (~0.1 m if the strip is 0.4 m long).",
+    "stripMetres": [
+      0.4,
+      0.1
+    ]
+  }
+}

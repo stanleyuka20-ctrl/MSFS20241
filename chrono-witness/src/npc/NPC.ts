@@ -226,18 +226,19 @@ export class NPC {
       }
     }
 
-    this.speed += (desiredSpeed - this.speed) * damp(desiredSpeed > this.speed ? 4 : 7, dt);
-    if (this.speed > 0.05) {
-      pos.x += moveX * this.speed * dt;
-      pos.z += moveZ * this.speed * dt;
-      if (moveX || moveZ) this.targetYaw = Math.atan2(moveX, moveZ);
-      const runClip = this.speed > 2.4 && this.lib.clips.has('run') && this.locomotionClip === 'walk' ? 'run' : this.locomotionClip;
-      const clipSpeed = this.lib.clipSpeed(runClip) || 1.4;
-      this.play(runClip, 0.3, Math.max(0.3, this.speed / clipSpeed));
-    } else if (this.mode !== 'scripted' && (this.currentClip === 'walk' || this.currentClip === 'run' || this.currentClip === this.locomotionClip)) {
-      this.play(this.waiting ? 'idle' : this.pose, 0.4);
+    if (this.mode !== 'scripted') {
+      this.speed += (desiredSpeed - this.speed) * damp(desiredSpeed > this.speed ? 4 : 7, dt);
+      if (this.speed > 0.05) {
+        pos.x += moveX * this.speed * dt;
+        pos.z += moveZ * this.speed * dt;
+        if (moveX || moveZ) this.targetYaw = Math.atan2(moveX, moveZ);
+        const runClip = this.speed > 2.4 && this.lib.clips.has('run') && this.locomotionClip === 'walk' ? 'run' : this.locomotionClip;
+        const clipSpeed = this.lib.clipSpeed(runClip) || 1.4;
+        this.play(runClip, 0.3, Math.max(0.3, this.speed / clipSpeed));
+      } else if ((this.currentClip === 'walk' || this.currentClip === 'run' || this.currentClip === this.locomotionClip)) {
+        this.play(this.waiting ? 'idle' : this.pose, 0.4);
+      }
     }
-
     // ground following (periodic raycast; cheap)
     this.groundTimer -= dt;
     if (this.groundFn && (this.speed > 0.05 || this.groundTimer < -2)) {

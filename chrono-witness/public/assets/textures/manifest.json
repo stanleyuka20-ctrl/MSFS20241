@@ -1,0 +1,177 @@
+{
+  "acoustic_fabric": {
+    "tileMetres": 1.0,
+    "notes": "Charcoal heathered wool/felt acoustic panel fabric, very rough.",
+    "source": "procedural (own work)"
+  },
+  "brick_french": {
+    "tileMetres": 1.0,
+    "notes": "Hand-made red-brown French farmhouse brick, running bond (16 courses x 4 bricks per tile), recessed lime mortar, soot, efflorescence, damaged bricks.",
+    "source": "procedural (own work)"
+  },
+  "brushed_steel": {
+    "tileMetres": 1.0,
+    "notes": "Brushed stainless steel, metalness 1, brushing along U (anisotropic streaks in roughness/normal).",
+    "source": "procedural (own work)"
+  },
+  "canvas_tent": {
+    "tileMetres": 1.5,
+    "notes": "Weathered khaki/off-white cotton duck canvas: tension wrinkles, tide-line water stains, mildew, felled seam along U at V\u22480.7.",
+    "source": "procedural (own work)"
+  },
+  "chalk_spoil": {
+    "tileMetres": 2.0,
+    "notes": "Somme chalk spoil: angular white-grey chalk lumps, flints, brown earth matrix and chalk fines; parapets / spoil heaps.",
+    "source": "procedural (own work)"
+  },
+  "cobblestone_wet": {
+    "tileMetres": 2.0,
+    "notes": "Wet worn grey setts in irregular courses along U, mud joints, puddles (roughness ~0.06).",
+    "source": "procedural (own work)"
+  },
+  "concrete_board": {
+    "tileMetres": 2.4,
+    "notes": "Board-formed architectural concrete: 16 x 150 mm boards along U with wood-grain imprint, fins, 600 mm tie-hole grid, bug holes.",
+    "source": "procedural (own work)"
+  },
+  "concrete_platform": {
+    "tileMetres": 2.0,
+    "notes": "Worn platform concrete; worn white painted 150 mm strip along U at V\u22480.1 (platform edge side = V=0); expansion joint at U=0.",
+    "source": "procedural (own work)"
+  },
+  "concrete_polished": {
+    "tileMetres": 3.0,
+    "notes": "Polished/sealed concrete floor with ground exposed aggregate, power-trowel swirls, pinholes; roughness ~0.2-0.4.",
+    "source": "procedural (own work)"
+  },
+  "corrugated_iron": {
+    "tileMetres": 1.0,
+    "notes": "Galvanised corrugated sheet, 13 corrugations per tile (~76 mm pitch), ridges along V; heavy rust (metalness 0) over zinc (metalness 1), nail row at V\u22480.9. Corrugation is in the normal map only.",
+    "source": "procedural (own work)"
+  },
+  "crate_wood": {
+    "tileMetres": 1.0,
+    "notes": "Supply-crate boards (7 per tile, grain along U), faded grey-green paint worn to grey wood, nails; no stencils.",
+    "source": "procedural (own work)"
+  },
+  "earth_wall": {
+    "tileMetres": 2.0,
+    "notes": "Spade-cut trench wall, V = up: layered loam/clay strata (periodic over the tile), chalk flecks, flints, roots, spade facets, damp seeps.",
+    "source": "procedural (own work)"
+  },
+  "floorboards_interior": {
+    "tileMetres": 1.2,
+    "notes": "Dusty pine floorboards, 8 x 150 mm boards along U, butt joints, cut nails on 400 mm joists, plaster crumbs.",
+    "source": "procedural (own work)"
+  },
+  "grass_dead": {
+    "tileMetres": 3.0,
+    "notes": "Matted dead autumn grass, tussocks and fallen leaves over wet mud (behind-the-lines ground).",
+    "source": "procedural (own work)"
+  },
+  "interior_wallpaper": {
+    "tileMetres": 1.0,
+    "notes": "Faded 1930s floral wallpaper (half-drop repeat, strip seams at U=0/0.5), torn to plaster, water stains (V up), mould.",
+    "source": "procedural (own work)"
+  },
+  "london_stock_brick": {
+    "tileMetres": 1.0,
+    "notes": "Yellow-brown London stock brick, Flemish bond (14 courses, 3 stretcher+header units per tile), heavy soot, blackened lime mortar.",
+    "source": "procedural (own work)"
+  },
+  "london_stock_brick_band": {
+    "tileMetres": 1.0,
+    "notes": "Accent-course option: identical wall to london_stock_brick with one red-brick course at V\u22480.55; use for one band row of a facade.",
+    "source": "procedural (own work)"
+  },
+  "mud_wet": {
+    "tileMetres": 2.0,
+    "notes": "Churned Somme trench-floor mud (brown-grey clay), boot prints, ruts along U, flint/chalk stones; puddles = roughness ~0.07 areas.",
+    "source": "procedural (own work)"
+  },
+  "oak_veneer": {
+    "tileMetres": 1.2,
+    "notes": "Fumed dark-oak flat-cut veneer, 4 leaves of 30 cm per tile (seams and grain along U), pores and ray flecks, satin lacquer.",
+    "source": "procedural (own work)"
+  },
+  "painted_wood": {
+    "tileMetres": 0.5,
+    "notes": "Chipped dark-green enamel over cream undercoat and red-oxide primer on softwood, scuffed; grain along U.",
+    "source": "procedural (own work)"
+  },
+  "pavement_flags": {
+    "tileMetres": 2.0,
+    "notes": "Wet York stone flags in 3 courses along U; map V across the pavement with the kerb side at V=0 (more dirt, puddles: roughness ~0.06).",
+    "source": "procedural (own work)"
+  },
+  "plaster_damaged": {
+    "tileMetres": 2.0,
+    "notes": "Lime plaster over rubble-stone masonry, flaking to expose the stones, cracks, water run-down stains (V = up).",
+    "source": "procedural (own work)"
+  },
+  "render_stucco": {
+    "tileMetres": 2.0,
+    "notes": "Cream lime stucco ruled as ashlar (5 courses of 0.4 m), soot streaks running down (V up), cracks, patches, spalls showing brick.",
+    "source": "procedural (own work)"
+  },
+  "roof_tiles": {
+    "tileMetres": 1.0,
+    "notes": "Terracotta interlocking 'tuiles m\u00e9caniques' (5 x 3 tiles per tile), moss and lichen, dirt in the flutes; eaves/down-slope towards V=0 (image bottom).",
+    "source": "procedural (own work)"
+  },
+  "rusty_steel": {
+    "tileMetres": 0.5,
+    "notes": "Pitted, flaking rusty steel with mill-scale remnants and bare-metal scratches (metalness 1 only there).",
+    "source": "procedural (own work)"
+  },
+  "sandbag": {
+    "tileMetres": 0.5,
+    "notes": "Coarse jute hessian sack weave (~4.5 threads/cm), wet, mud-clogged; one stitched seam runs along U at V\u22480.22. Bag shape comes from geometry.",
+    "source": "procedural (own work)"
+  },
+  "sandbag_dry": {
+    "tileMetres": 0.5,
+    "notes": "Dry, newer jute hessian (lighter variant of sandbag), dusty not muddy; stitched seam along U at V\u22480.22.",
+    "source": "procedural (own work)"
+  },
+  "slate_roof": {
+    "tileMetres": 1.0,
+    "notes": "Welsh slate roof, 4 slates x 5 rows (200 mm gauge), broken bond, rows along U; V points up the roof (tails at the bottom of each row). Moss, lichen, slipped slates.",
+    "source": "procedural (own work)"
+  },
+  "soot_scorch": {
+    "tileMetres": 1.0,
+    "notes": "Charred timber (alligator char), checks elongated along U, ash and brown unburnt wood in cracks; very dark albedo.",
+    "source": "procedural (own work)"
+  },
+  "stone_rubble": {
+    "tileMetres": 2.0,
+    "notes": "Shattered masonry rubble: brick, limestone, mortar and tile fragments in plaster/brick dust.",
+    "source": "procedural (own work)"
+  },
+  "tarmac_road": {
+    "tileMetres": 3.0,
+    "notes": "Old wet tar-macadam: exposed chippings, wheel tracks along U, crocodile and longitudinal cracks, tar patches, puddles in ruts. No tram rails.",
+    "source": "procedural (own work)"
+  },
+  "tile_station": {
+    "tileMetres": 1.0,
+    "notes": "Cream glazed wall tiles in half bond (6 x 12 per tile) with a two-course green band at V\u22480.3; crazing, chips, grime. No logos or text.",
+    "source": "procedural (own work)"
+  },
+  "wicker_hurdle": {
+    "tileMetres": 1.0,
+    "notes": "Woven brushwood revetment hurdle: horizontal rods woven round 4 vertical stakes per tile (25 cm).",
+    "source": "procedural (own work)"
+  },
+  "wood_beam": {
+    "tileMetres": 1.0,
+    "notes": "Rough band-sawn timber, dark and damp, drying checks and knots; grain along U.",
+    "source": "procedural (own work)"
+  },
+  "wood_planks": {
+    "tileMetres": 1.2,
+    "notes": "Weathered wet softwood planks, 6 horizontal boards per tile (grain along U), butt joints, nails with rust streaks, mud splashes on the bottom board (V=0).",
+    "source": "procedural (own work)"
+  }
+}

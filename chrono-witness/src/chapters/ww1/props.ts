@@ -396,3 +396,65 @@ export function fallenBeam(M: PropMaterials, len = 3.2): THREE.Mesh {
   g.computeVertexNormals();
   return mesh(g, M.beam);
 }
+
+/** Kit bag: a canvas sack slumped on the floor. */
+export function kitBag(M: PropMaterials): THREE.Mesh {
+  const g = new THREE.CylinderGeometry(0.14, 0.17, 0.62, 12, 4);
+  const p = g.attributes.position as THREE.BufferAttribute;
+  for (let i = 0; i < p.count; i++) {
+    const y = p.getY(i);
+    const k = (y + 0.31) / 0.62;
+    p.setX(i, p.getX(i) * (1 + Math.sin(i * 1.7) * 0.05) * (k > 0.85 ? 0.6 : 1));
+    p.setZ(i, p.getZ(i) * (1 + Math.cos(i * 2.3) * 0.05) * (k > 0.85 ? 0.6 : 1) * 0.8);
+  }
+  g.computeVertexNormals();
+  g.rotateZ(Math.PI / 2 - 0.25);
+  g.translate(0, 0.15, 0);
+  return mesh(g, M.canvas);
+}
+
+/** Mess tins stacked (D-shaped tins approximated with flattened cylinders). */
+export function messTins(M: PropMaterials): THREE.Group {
+  const g = new THREE.Group();
+  for (let i = 0; i < 2; i++) {
+    const t = mesh(new THREE.CylinderGeometry(0.09, 0.085, 0.06, 16), M.tin);
+    t.scale.z = 0.6;
+    t.position.set(i * 0.02, 0.03 + i * 0.062, 0);
+    g.add(t);
+  }
+  return g;
+}
+
+/** Letters / a photograph left on a bunk or crate. */
+export function letters(M: PropMaterials): THREE.Group {
+  const g = new THREE.Group();
+  for (let i = 0; i < 3; i++) {
+    const l = mesh(new THREE.BoxGeometry(0.11, 0.002, 0.15), M.paper, false);
+    l.position.set(i * 0.03, 0.002 + i * 0.002, i * 0.02);
+    l.rotation.y = i * 0.4 - 0.3;
+    g.add(l);
+  }
+  return g;
+}
+
+/** A string line with socks hung to dry (each sock sways via its own small rotation). */
+export function sockLine(M: PropMaterials, len = 1.6): THREE.Group {
+  const g = new THREE.Group();
+  const line = mesh(new THREE.CylinderGeometry(0.003, 0.003, len, 4), M.tin, false);
+  line.rotation.z = Math.PI / 2;
+  g.add(line);
+  for (let i = 0; i < 4; i++) {
+    const sock = new THREE.Group();
+    const leg = mesh(new THREE.CylinderGeometry(0.035, 0.032, 0.26, 8), M.wool);
+    leg.position.y = -0.13;
+    const foot = mesh(new THREE.CylinderGeometry(0.032, 0.03, 0.14, 8), M.wool);
+    foot.rotation.x = Math.PI / 2;
+    foot.position.set(0, -0.26, 0.05);
+    sock.add(leg, foot);
+    sock.position.x = -len / 2 + 0.25 + i * 0.36;
+    sock.userData.sway = i * 1.3;
+    g.add(sock);
+  }
+  g.userData.socks = true;
+  return g;
+}

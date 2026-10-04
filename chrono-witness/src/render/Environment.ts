@@ -50,6 +50,9 @@ const SkyShader = {
     uFlash: { value: 0 },
     uFlashDir: { value: new THREE.Vector3(0, 0.1, -1) },
     uFlashColor: { value: new THREE.Color(1, 0.8, 0.6) },
+    uGlow: { value: 0 },
+    uGlowDir: { value: new THREE.Vector3(0, 0, 1) },
+    uGlowColor: { value: new THREE.Color(1, 0.45, 0.15) },
     tNoise: { value: null as THREE.Texture | null },
     uHasNoise: { value: 0 },
   },
@@ -62,8 +65,8 @@ const SkyShader = {
     }
   `,
   fragmentShader: /* glsl */ `
-    uniform vec3 uZenith, uHorizon, uGround, uSunDir, uSunColor, uCloudColor, uCloudShadow, uFlashDir, uFlashColor;
-    uniform float uSunDisc, uCloudCover, uTime, uFlash, uHasNoise;
+    uniform vec3 uZenith, uHorizon, uGround, uSunDir, uSunColor, uCloudColor, uCloudShadow, uFlashDir, uFlashColor, uGlowDir, uGlowColor;
+    uniform float uSunDisc, uCloudCover, uTime, uFlash, uHasNoise, uGlow;
     uniform sampler2D tNoise;
     varying vec3 vDir;
     float hash(vec2 p) { return fract(sin(dot(p, vec2(127.1, 311.7))) * 43758.5453); }
@@ -100,6 +103,9 @@ const SkyShader = {
       // distant artillery/flare flash lighting the cloud base near the horizon
       float fd = max(dot(normalize(vec3(d.x, max(d.y, 0.0) * 0.4, d.z)), normalize(vec3(uFlashDir.x, 0.0, uFlashDir.z))), 0.0);
       col += uFlashColor * uFlash * pow(fd, 6.0) * smoothstep(0.45, 0.0, h) * 2.0;
+      // persistent glow on the cloud base from distant fires
+      float gd = max(dot(normalize(vec3(d.x, 0.0, d.z)), normalize(vec3(uGlowDir.x, 0.0, uGlowDir.z))), 0.0);
+      col += uGlowColor * uGlow * pow(gd, 3.0) * smoothstep(0.55, 0.0, h) * (0.6 + 0.4 * sin(uTime * 0.7 + d.x * 3.0));
       gl_FragColor = vec4(col, 1.0);
       #include <tonemapping_fragment>
       #include <colorspace_fragment>
@@ -128,6 +134,8 @@ export class Environment {
   private flashDecay = 6;
   readonly sunDir = new THREE.Vector3(0, 1, 0);
   private shadowSize = 0;
+  /** How much sky/IBL light is removed when indoors (0..1). */
+  indoorDim = 0.75;
 
   constructor(
     private readonly scene: THREE.Scene,
@@ -206,6 +214,7 @@ export class Environment {
       this.scene.environment = this.envRT.texture;
       this.scene.background = null;
       this.scene.environmentIntensity = cfg.envIntensity;
+      this.baseEnvIntensity = cfg.envIntensity;
     } else {
       this.scene.background = new THREE.Color(cfg.background ?? 0x101012);
       this.scene.environmentIntensity = cfg.envIntensity;
@@ -218,6 +227,48 @@ export class Environment {
     }
     this.applyShadowSettings(2048, this.settings.graphics.shadowDistance);
   }
+
+  /** Persistent horizon glow (e.g. the docks burning). */
+  setGlow(dir: THREE.Vector3, color: THREE.ColorRepresentation, intensity: number): void {
+    if (!this.skyMat) return;
+    this.skyMat.uniforms.uGlowDir.value.copy(dir);
+    this.skyMat.uniforms.uGlowColor.value.set(color);
+    this.skyMat.uniforms.uGlow.value = intensity;
+  }
+
+  /**
+   * Blend sky colours and light levels towards another configuration (time-of-day change, e.g. dawn).
+   * The baked environment map is kept; its intensity follows the blend.
+   */
+  blend(a: EnvironmentConfig, b: EnvironmentConfig, k: number): void {
+    const c = (x: THREE.ColorRepresentation, y: THREE.ColorRepresentation): THREE.Color => new THREE.Color(x).lerp(new THREE.Color(y), k);
+    const L = (x: number, y: number): number => x + (y - x) * k;
+    if (this.skyMat) {
+      const u = this.skyMat.uniforms;
+      u.uZenith.value.copy(c(a.sky.zenith, b.sky.zenith));
+      u.uHorizon.value.copy(c(a.sky.horizon, b.sky.horizon));
+      u.uGround.value.copy(c(a.sky.ground, b.sky.ground));
+      u.uCloudColor.value.copy(c(a.sky.cloudColor, b.sky.cloudColor));
+      u.uCloudShadow.value.copy(c(a.sky.cloudShadow, b.sky.cloudShadow));
+      u.uCloudCover.value = L(a.sky.cloudCover, b.sky.cloudCover);
+      u.uSunColor.value.copy(c(a.sky.sunColor, b.sky.sunColor));
+      const sd = new THREE.Vector3(...a.sky.sunDirection).normalize().lerp(new THREE.Vector3(...b.sky.sunDirection).normalize(), k).normalize();
+      u.uSunDir.value.copy(sd);
+      this.sunDir.copy(sd);
+    }
+    this.sun.color.copy(c(a.sky.sunColor, b.sky.sunColor));
+    this.sun.intensity = L(a.sky.sunIntensity, b.sky.sunIntensity);
+    this.hemi.color.copy(c(a.hemiSky, b.hemiSky));
+    this.hemi.groundColor.copy(c(a.hemiGround, b.hemiGround));
+    this.hemi.intensity = L(a.hemiIntensity, b.hemiIntensity);
+    this.baseEnvIntensity = L(a.envIntensity, b.envIntensity);
+    if (this.scene.fog instanceof THREE.FogExp2) {
+      this.scene.fog.color.copy(c(a.fogColor, b.fogColor));
+      this.scene.fog.density = L(a.fogDensity, b.fogDensity);
+    }
+  }
+
+  baseEnvIntensity = 1;
 
   /** Assign an externally generated environment map (e.g. HQ room environment). */
   setEnvironmentMap(tex: THREE.Texture, intensity: number): void {
@@ -269,6 +320,8 @@ export class Environment {
   update(dt: number, time: number, focus: THREE.Vector3, camera: THREE.Camera): void {
     WeatherUniforms.uTime.value = time;
     this.indoor += (this.indoorTarget - this.indoor) * damp(3, dt);
+    // interiors: sky light falls off (dugouts, cellars, tunnels are lit by their own lamps)
+    if (!this.config.indoor) this.scene.environmentIntensity = this.baseEnvIntensity * (1 - this.indoor * this.indoorDim);
     if (this.skyMesh) this.skyMesh.position.copy(_c.setFromMatrixPosition(camera.matrixWorld));
     if (this.skyMat) {
       this.skyMat.uniforms.uTime.value = time;

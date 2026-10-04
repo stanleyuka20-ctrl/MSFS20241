@@ -1,0 +1,80 @@
+{
+  "idle": {
+    "duration": 4.0667,
+    "loop": true,
+    "speed": 0.0,
+    "source": "CMU 77_02 (standing)"
+  },
+  "idle_alt": {
+    "duration": 4.0,
+    "loop": true,
+    "speed": 0.0,
+    "source": "CMU 111_28 (standing still, hands clasped)"
+  },
+  "walk": {
+    "duration": 1.0333,
+    "loop": true,
+    "speed": 1.395,
+    "source": "CMU 08_01 (walk)"
+  },
+  "run": {
+    "duration": 0.7667,
+    "loop": true,
+    "speed": 3.027,
+    "source": "CMU 09_11 (run)"
+  },
+  "talk": {
+    "duration": 4.8,
+    "loop": true,
+    "speed": 0.0,
+    "source": "CMU 19_08 (conversation, explain with hand gestures), gestures damped 50% towards CMU 77_02 standing pose, procedural jaw"
+  },
+  "sit_ground": {
+    "duration": 2.5,
+    "loop": true,
+    "speed": 0.0,
+    "source": "CMU 82_05 (sitting on ground relaxing)",
+    "notes": "pelvis on the ground at the origin, back towards -Z (place the origin ~0.25 m in front of a wall)"
+  },
+  "lie_supine": {
+    "duration": 8.0,
+    "loop": true,
+    "speed": 0.0,
+    "source": "hand-keyed (procedural breathing)",
+    "notes": "body lies on its back on the ground plane (back at y~0), head towards -Z, feet towards +Z; offset the root to put it on a stretcher"
+  },
+  "kneel_work": {
+    "duration": 6.0,
+    "loop": true,
+    "speed": 0.0,
+    "source": "hand-keyed (IK, procedural working hands + breathing)",
+    "notes": "kneeling on the right knee, hands working ~0.45 m in front of the origin at ground level"
+  },
+  "carry_walk": {
+    "duration": 1.1333,
+    "loop": true,
+    "speed": 1.13,
+    "source": "CMU 35_01 (walk) + stretcher-handle arm IK",
+    "notes": "rear stretcher bearer: hands hold handles ~0.3 m in front of the hips, ~0.95 m above ground"
+  },
+  "limp_walk": {
+    "duration": 1.3,
+    "loop": true,
+    "speed": 0.861,
+    "source": "CMU 91_16 (Limp), arm swing damped towards CMU 77_02 standing pose"
+  },
+  "point": {
+    "duration": 2.6,
+    "loop": false,
+    "speed": 0.0,
+    "source": "CMU 77_02 (standing) base + hand-keyed pointing arm (IK)",
+    "notes": "one-shot: points forward-right with the right index finger (~0.7-1.9 s hold)"
+  },
+  "crouch_cover": {
+    "duration": 4.0,
+    "loop": true,
+    "speed": 0.0,
+    "source": "hand-keyed (IK squat, hands over helmet, breathing/trembling)",
+    "notes": "deep squat, head tucked, both hands on top of the helmet, breathing/trembling loop"
+  }
+}

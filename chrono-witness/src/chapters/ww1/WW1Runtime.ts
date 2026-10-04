@@ -73,6 +73,8 @@ class WW1Runtime implements ChapterRuntime {
   private completed = false;
   private benchBarrageLoop = false;
   private lodTimer = 0;
+  private swayers: THREE.Object3D[] = [];
+  private curtain: THREE.Mesh | null = null;
 
   constructor(
     private readonly ctx: GameContext,
@@ -185,6 +187,12 @@ class WW1Runtime implements ChapterRuntime {
     this.root.add(c1);
     lamp(c1.position.clone().setY(c1.position.y + 0.3), 1.6);
     inRoom('coy_hq', P.bunk(M, tr), -1.2, 0.1, 0);
+    const lt = P.letters(M);
+    inRoom('coy_hq', lt, -1.15, 0.5, 0.2, 0.49);
+    inRoom('coy_hq', P.kitBag(M), -1.3, -1.0, 0.6);
+    const socks = P.sockLine(M, 1.8);
+    inRoom('coy_hq', socks, 0.1, -1.1, 0, 1.75);
+    this.swayers.push(socks);
     // gas curtain at the HQ entrance
     const ent = dug('coy_hq').entrance;
     const curtain = P.gasCurtain(M, 1.0, 1.85);
@@ -193,6 +201,7 @@ class WW1Runtime implements ChapterRuntime {
     curtain.scale.x = 0.55; // drawn back to one side
     curtain.position.x -= 0.25;
     this.root.add(curtain);
+    this.curtain = curtain;
     scan('obj_gas_curtain', 'scan_gas_curtain', curtain.position.clone(), 0.5);
     // helmet on a hook outside the HQ, rum jar inside
     const helmet = P.brodieHelmet(M);
@@ -243,6 +252,8 @@ class WW1Runtime implements ChapterRuntime {
     lamp(sl.position.clone(), 1.8);
     this.root.userData.shelterLamp = sl;
     inRoom('shelter', P.crate(M), -0.9, 0.7, 0.3);
+    inRoom('shelter', P.kitBag(M), 0.9, 0.8, -0.4);
+    inRoom('shelter', P.messTins(M), -0.9, 0.7, 0.2, 0.36);
 
     // ---- Front-line company dugout (Ward)
     const fT = inRoom('front_hq', P.table(M), 0.5, 0.4, 0);
@@ -250,6 +261,10 @@ class WW1Runtime implements ChapterRuntime {
     fc.position.set(fT.position.x, fT.position.y + 0.76, fT.position.z);
     this.root.add(fc);
     lamp(fc.position.clone().setY(fc.position.y + 0.3), 1.5);
+    const fsocks = P.sockLine(M, 1.5);
+    inRoom('front_hq', fsocks, -0.4, -0.9, 0, 1.7);
+    this.swayers.push(fsocks);
+    inRoom('front_hq', P.kitBag(M), -1.2, 0.8, 1.2);
     const fmap = P.mapSheet(M, tr);
     fmap.position.set(fT.position.x - 0.2, fT.position.y + 0.765, fT.position.z + 0.05);
     this.root.add(fmap);
@@ -293,6 +308,17 @@ class WW1Runtime implements ChapterRuntime {
         diary.visible = false;
         ctx.readDocument('Pocket diary', this.cfg.items.find((i) => i.id === 'diary')!.readable!);
       } });
+      // personal belongings left along the fire bays
+      for (const [bx2, rot] of [[-27.5, 0.4], [-14, -0.6], [-56.5, 1.1]] as const) {
+        const b = bayNear(bx2);
+        const kb = P.kitBag(M);
+        kb.position.set(b.p.x + 0.8, b.p.y - 0.47, b.p.z + 0.55);
+        kb.rotation.y = rot;
+        this.root.add(kb);
+        const mt = P.messTins(M);
+        mt.position.set(b.p.x - 0.6, b.p.y + 0.01, b.p.z);
+        this.root.add(mt);
+      }
       // brazier + sitting men in the support line, sentries on fire steps
       this.braziers.push(new THREE.Vector3(b1.p.x - 3, b1.p.y - 0.47, b1.p.z + 0.6));
     }
@@ -923,6 +949,11 @@ class WW1Runtime implements ChapterRuntime {
     this.updateEchoes();
     this.puffs.update(dt, ctx.camera);
     this.smoke.update(dt, ctx.camera);
+    // moving fabric: socks on their lines, the gas curtain stirring in the draught (nearby only)
+    if (cam.distanceToSquared(this.swayers[0]?.position ?? cam) < 900 || cam.distanceToSquared(this.swayers[1]?.position ?? cam) < 900) {
+      for (const sw of this.swayers) for (const c of sw.children) if (c.userData.sway !== undefined) c.rotation.x = Math.sin(time * 1.3 + c.userData.sway) * 0.08 + (this.barrage === 'sheltered' ? Math.sin(time * 17) * 0.05 : 0);
+      if (this.curtain) this.curtain.rotation.x = Math.sin(time * 0.9) * 0.03 + Math.sin(time * 2.3) * 0.015;
+    }
 
     // optional: splice timer
     if (this.splicing > 0) {

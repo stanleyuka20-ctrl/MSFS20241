@@ -2,3 +2,4 @@ node_modules/
 dist/
 *.log
 bench-results/raw/
+docs/previews/

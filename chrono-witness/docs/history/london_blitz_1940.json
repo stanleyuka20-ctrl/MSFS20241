@@ -1,0 +1,801 @@
+{
+  "chapter": "london_blitz_1940",
+  "verificationNote": "All sources accessed 2026-10-04. Direct page fetching (WebFetch) was blocked by the sandbox network policy for reference hosts (IWM, NAM, TNA, LTM, LFB, Britannica, Wikipedia and others). Each 'documented' fact was checked against search-engine result summaries of the cited page, not a full read. Confirm the wording on each live page before shipping. Museum of London returned no usable results. Keys starting 'wiki_' or 'ww2cd_' are tertiary or enthusiast sources.",
+  "sources": {
+    "iwm_warden_objects": {
+      "title": "8 Objects Air Raid Wardens Used In The Blitz",
+      "publisher": "Imperial War Museums",
+      "url": "https://www.iwm.org.uk/history/second-world-war/blitz/objects-used-by-air-raid-wardens-during-the-blitz",
+      "accessed": "2026-10-04"
+    },
+    "iwm_air_raid_life": {
+      "title": "Life during an air raid",
+      "publisher": "Imperial War Museums",
+      "url": "https://www.iwm.org.uk/history/what-to-do-during-an-air-raid",
+      "accessed": "2026-10-04"
+    },
+    "iwm_prepared": {
+      "title": "How Britain Prepared For Air Raids In World War 2",
+      "publisher": "Imperial War Museums",
+      "url": "https://www.iwm.org.uk/history/how-britain-prepared-for-air-raids-in-the-second-world-war",
+      "accessed": "2026-10-04"
+    },
+    "iwm_blitz_factsheet": {
+      "title": "Factsheet: Blitz and Battle of Britain (PDF)",
+      "publisher": "Imperial War Museums",
+      "url": "https://www.iwm.org.uk/sites/default/files/press-release/Battle_of_Britain_and_Blitz_Factsheet.pdf",
+      "accessed": "2026-10-04"
+    },
+    "nam_warden_helmet": {
+      "title": "Air Raid Precautions (ARP) warden's helmet, 1940 (c)",
+      "publisher": "National Army Museum (collection 1998-12-170-1)",
+      "url": "https://collection.nam.ac.uk/detail.php?acc=1998-12-170-1",
+      "accessed": "2026-10-04"
+    },
+    "iwm_warden_helmet": {
+      "title": "Steel Helmet, MKII: ARP Warden",
+      "publisher": "Imperial War Museums (collection object 30101021)",
+      "url": "https://www.iwm.org.uk/collections/item/object/30101021",
+      "accessed": "2026-10-04"
+    },
+    "ltm_warden_helmet": {
+      "title": "Helmet; ARP Air Raid Wardens helmet, 1939-1945",
+      "publisher": "London Transport Museum (1995/1482)",
+      "url": "https://www.ltmuseum.co.uk/collections/collections-online/uniforms/item/1995-1482",
+      "accessed": "2026-10-04"
+    },
+    "iwm_women_warden_coat": {
+      "title": "Coat, Long, ARP 42: Women Wardens', Air Raid Precautions (ARP)",
+      "publisher": "Imperial War Museums (collection object 30097716)",
+      "url": "https://www.iwm.org.uk/collections/item/object/30097716",
+      "accessed": "2026-10-04"
+    },
+    "iwm_arp_bell": {
+      "title": "bell, ARP",
+      "publisher": "Imperial War Museums (collection object 30082840)",
+      "url": "https://www.iwm.org.uk/collections/item/object/30082840",
+      "accessed": "2026-10-04"
+    },
+    "tna_signals": {
+      "title": "Home Front, source 5a (ARP public information leaflet: air raid warning signals)",
+      "publisher": "The National Archives (UK)",
+      "url": "https://www.nationalarchives.gov.uk/education/resources/home-front/source-5a/",
+      "accessed": "2026-10-04"
+    },
+    "iwm_siren_rec": {
+      "title": "Air Raid, London, 1940 (sound recording)",
+      "publisher": "Imperial War Museums (collection object 80008647)",
+      "url": "https://www.iwm.org.uk/collections/item/object/80008647",
+      "accessed": "2026-10-04"
+    },
+    "iwm_warden_post_film": {
+      "title": "An A.R.P. Film. Warden's Post 9",
+      "publisher": "Imperial War Museums (film 1060042531)",
+      "url": "https://www.iwm.org.uk/collections/item/object/1060042531",
+      "accessed": "2026-10-04"
+    },
+    "iwm_warden_logbooks": {
+      "title": "ARP Wardens' Log Books, West Square (London), Second World War",
+      "publisher": "Imperial War Museums (1030032870)",
+      "url": "https://www.iwm.org.uk/collections/item/object/1030032870",
+      "accessed": "2026-10-04"
+    },
+    "iwm_b1e": {
+      "title": "B1E 1 kg incendiary aircraft bomb",
+      "publisher": "Imperial War Museums (collection object 30021484)",
+      "url": "https://www.iwm.org.uk/collections/item/object/30021484",
+      "accessed": "2026-10-04"
+    },
+    "iwm_redhill_scoop": {
+      "title": "ARP incendiary bomb scoop: British",
+      "publisher": "Imperial War Museums (collection object 30028522)",
+      "url": "https://www.iwm.org.uk/collections/item/object/30028522",
+      "accessed": "2026-10-04"
+    },
+    "iwm_stirrup_pump": {
+      "title": "Stirrup Pump",
+      "publisher": "Imperial War Museums (collection object 30028095)",
+      "url": "https://www.iwm.org.uk/collections/item/object/30028095",
+      "accessed": "2026-10-04"
+    },
+    "iwm_incendiary_poster": {
+      "title": "How to Deal with Incendiary Bombs",
+      "publisher": "Imperial War Museums (collection object 5215)",
+      "url": "https://www.iwm.org.uk/collections/item/object/5215",
+      "accessed": "2026-10-04"
+    },
+    "ww2cd_fireguard": {
+      "title": "Short history of Fire Watchers and the Fire Guard Organisation during WW2",
+      "publisher": "ww2civildefence.co.uk (enthusiast reference, medium reliability)",
+      "url": "https://www.ww2civildefence.co.uk/fire-guard-history.html",
+      "accessed": "2026-10-04"
+    },
+    "lfb_ww2_firefighters": {
+      "title": "Firefighters of the Second World War",
+      "publisher": "London Fire Brigade Museum",
+      "url": "https://www.london-fire.gov.uk/museum/london-fire-brigade-history-and-stories/the-second-world-war/firefighters-of-the-second-world-war/",
+      "accessed": "2026-10-04"
+    },
+    "iwm_afs_eltham": {
+      "title": "The Auxiliary Fire Service, Eltham Fire Station, 1939",
+      "publisher": "Imperial War Museums (photograph 205021224)",
+      "url": "https://www.iwm.org.uk/collections/item/object/205021224",
+      "accessed": "2026-10-04"
+    },
+    "iwm_dennis_trailer": {
+      "title": "Dennis Trailer Fire Pump",
+      "publisher": "Imperial War Museums (collection object 70000297)",
+      "url": "https://www.iwm.org.uk/collections/item/object/70000297",
+      "accessed": "2026-10-04"
+    },
+    "iwm_bravery": {
+      "title": "10 Stories Of Bravery During The Blitz",
+      "publisher": "Imperial War Museums",
+      "url": "https://www.iwm.org.uk/history/second-world-war/blitz/incredible-stories-of-bravery",
+      "accessed": "2026-10-04"
+    },
+    "wiki_cds": {
+      "title": "Civil Defence Service",
+      "publisher": "Wikipedia (tertiary)",
+      "url": "https://en.wikipedia.org/wiki/Civil_Defence_Service",
+      "accessed": "2026-10-04"
+    },
+    "booklet_1938": {
+      "title": "The Protection of Your Home Against Air Raids (Home Office, 1938), digitised copy",
+      "publisher": "IBCC Digital Archive, University of Lincoln",
+      "url": "https://ibccdigitalarchive.lincoln.ac.uk/collections/document/57130",
+      "accessed": "2026-10-04"
+    },
+    "tna_anderson": {
+      "title": "Home Front 1939-1945 (part one): Anderson Shelter",
+      "publisher": "The National Archives (UK)",
+      "url": "https://www.nationalarchives.gov.uk/education/resources/home-front-1939-1945-part-one/anderson-shelter/",
+      "accessed": "2026-10-04"
+    },
+    "iwm_morrison": {
+      "title": "Morrison 'Table' Shelter",
+      "publisher": "Imperial War Museums (collection object 30082790)",
+      "url": "https://www.iwm.org.uk/collections/item/object/30082790",
+      "accessed": "2026-10-04"
+    },
+    "ltm_shelter": {
+      "title": "Shelter in wartime",
+      "publisher": "London Transport Museum",
+      "url": "https://www.ltmuseum.co.uk/collections/stories/war/shelter-wartime",
+      "accessed": "2026-10-04"
+    },
+    "ltm_deep_shelters": {
+      "title": "Deep-level shelters",
+      "publisher": "London Transport Museum",
+      "url": "https://www.ltmuseum.co.uk/collections/stories/war/deep-level-shelters",
+      "accessed": "2026-10-04"
+    },
+    "tfl_sheltering": {
+      "title": "The Experience of Sheltering in the Tube during WWII (Corporate Archives research guide, PDF)",
+      "publisher": "Transport for London",
+      "url": "https://tfl.gov.uk/cdn/static/cms/documents/the-experience-of-sheltering-in-the-tube-during-wwii.pdf",
+      "accessed": "2026-10-04"
+    },
+    "tna_public_shelters": {
+      "title": "Home Front 1939-1945 (part one): Problems in public shelters",
+      "publisher": "The National Archives (UK)",
+      "url": "https://www.nationalarchives.gov.uk/education/resources/home-front-1939-1945-part-one/problems-in-public-shelters/",
+      "accessed": "2026-10-04"
+    },
+    "iwm_wvs_canteen": {
+      "title": "Blitz Canteen: Women of the WVS run a mobile canteen in London, 1941",
+      "publisher": "Imperial War Museums (photograph 205197934)",
+      "url": "https://www.iwm.org.uk/collections/item/object/205197934",
+      "accessed": "2026-10-04"
+    },
+    "rvs_bristol": {
+      "title": "The Story of WVS Bristol 1939-1945 (PDF)",
+      "publisher": "Royal Voluntary Service Heritage Collection",
+      "url": "https://www.royalvoluntaryservice.org.uk/media/s22mr5gd/the_story_of_wvs_bristol_1939-1945.pdf",
+      "accessed": "2026-10-04"
+    },
+    "stjohn_ww2": {
+      "title": "St John during the Second World War",
+      "publisher": "Museum of the Order of St John",
+      "url": "https://museumstjohn.org.uk/st-john-during-the-second-world-war/",
+      "accessed": "2026-10-04"
+    },
+    "iwm_stretcher_parties": {
+      "title": "Civil Defence: ARP stretcher parties in London [enrolment form]",
+      "publisher": "Imperial War Museums (1502010585)",
+      "url": "https://www.iwm.org.uk/collections/item/object/1502010585",
+      "accessed": "2026-10-04"
+    },
+    "iwm_gasmask_c1": {
+      "title": "Respirator, Anti-Gas, General Civilian, Type C1 (boxed)",
+      "publisher": "Imperial War Museums (collection object 30015579)",
+      "url": "https://www.iwm.org.uk/collections/item/object/30015579",
+      "accessed": "2026-10-04"
+    },
+    "iwm_gasmask_poster": {
+      "title": "Take your Gas Mask Everywhere",
+      "publisher": "Imperial War Museums (collection object 8427)",
+      "url": "https://www.iwm.org.uk/collections/item/object/8427",
+      "accessed": "2026-10-04"
+    },
+    "iwm_1940s_house": {
+      "title": "The 1940's House - Life In Britain During WW2",
+      "publisher": "Imperial War Museums (Learning)",
+      "url": "https://www.iwm.org.uk/learning/resources/the-1940s-house",
+      "accessed": "2026-10-04"
+    },
+    "iwm_static_water": {
+      "title": "Danger Lurks in Static Water Tanks (poster)",
+      "publisher": "Imperial War Museums (collection object 19281)",
+      "url": "https://www.iwm.org.uk/collections/item/object/19281",
+      "accessed": "2026-10-04"
+    },
+    "tate_ews": {
+      "title": "Charles Ginner, Emergency Water Storage Tank (1942), catalogue entry",
+      "publisher": "Tate",
+      "url": "https://www.tate.org.uk/art/research-publications/camden-town-group/charles-ginner-emergency-water-storage-tank-r1139031",
+      "accessed": "2026-10-04"
+    },
+    "tna_blackout": {
+      "title": "Home Front 1939-1945 (part one): Look out in the blackout",
+      "publisher": "The National Archives (UK)",
+      "url": "https://www.nationalarchives.gov.uk/education/resources/home-front-1939-1945-part-one/look-out-in-the-blackout/",
+      "accessed": "2026-10-04"
+    },
+    "iwm_rationing": {
+      "title": "Rationing In World War 2 - What You Need To Know",
+      "publisher": "Imperial War Museums",
+      "url": "https://www.iwm.org.uk/history/second-world-war/home-front/rationing",
+      "accessed": "2026-10-04"
+    },
+    "tna_ration_book": {
+      "title": "Home Front 1939-1945 (part two): Ration book",
+      "publisher": "The National Archives (UK)",
+      "url": "https://www.nationalarchives.gov.uk/education/resources/home-front-1939-1945-part-two/ration-book/",
+      "accessed": "2026-10-04"
+    },
+    "hist_england_poplar": {
+      "title": "45-51 Bazely Street, Poplar (listed building description)",
+      "publisher": "British Listed Buildings (Historic England list data)",
+      "url": "https://britishlistedbuildings.co.uk/101357766-45-51-bazely-street-poplar-ward",
+      "accessed": "2026-10-04"
+    },
+    "hist_england_maria": {
+      "title": "1-10 Maria Terrace, E1 (listed building description)",
+      "publisher": "British Listed Buildings (Historic England list data)",
+      "url": "https://britishlistedbuildings.co.uk/101357845-1-10-maria-terrace-e1-st-dunstans-ward",
+      "accessed": "2026-10-04"
+    },
+    "iwm_business_usual": {
+      "title": "'Business as Usual' (B. Howitt-Lodge, 1941)",
+      "publisher": "Imperial War Museums (collection object 13889)",
+      "url": "https://www.iwm.org.uk/collections/item/object/13889",
+      "accessed": "2026-10-04"
+    },
+    "tna_blitz": {
+      "title": "London during the Blitz",
+      "publisher": "The National Archives (UK)",
+      "url": "https://www.nationalarchives.gov.uk/education/resources/significant-events/london-during-the-blitz/",
+      "accessed": "2026-10-04"
+    }
+  },
+  "facts": [
+    {
+      "id": "blitz_dates",
+      "text": "The Blitz on London began with the raid of Saturday 7 September 1940. London was then bombed on 57 consecutive nights. The wider campaign lasted until May 1941 and killed over 43,500 civilians across Britain.",
+      "status": "documented",
+      "sources": [
+        "iwm_blitz_factsheet",
+        "tna_blitz"
+      ]
+    },
+    {
+      "id": "blitz_bombs",
+      "text": "German bombers usually dropped a mix of high-explosive and incendiary bombs.",
+      "status": "documented",
+      "sources": [
+        "iwm_air_raid_life"
+      ]
+    },
+    {
+      "id": "term_arp",
+      "text": "In 1940 the organisation was still officially called ARP (Air Raid Precautions). The name 'Civil Defence' became official in 1941, so 1940 dialogue should say 'ARP'.",
+      "status": "documented",
+      "sources": [
+        "iwm_bravery"
+      ]
+    },
+    {
+      "id": "warden_duties",
+      "text": "ARP wardens (a service set up in 1937) advised residents, enforced the blackout, sounded warnings, guided people to shelters, reported bomb damage, helped coordinate the other services, assisted with firefighting and rescue, and policed bombed buildings.",
+      "status": "documented",
+      "sources": [
+        "iwm_air_raid_life",
+        "iwm_warden_objects"
+      ]
+    },
+    {
+      "id": "warden_helmet",
+      "text": "From August 1939 ARP helmets were painted black with 2-inch white lettering, often front and back. A white 'W' marked a Post Warden, the most junior grade. Higher grades had other markings, such as District Warden.",
+      "status": "documented",
+      "sources": [
+        "nam_warden_helmet",
+        "iwm_warden_helmet",
+        "ltm_warden_helmet"
+      ]
+    },
+    {
+      "id": "warden_kit",
+      "text": "Warden kit included a steel helmet, whistle, gas rattle (gas warning), handbell, torch and an armband or uniform.",
+      "status": "documented",
+      "sources": [
+        "iwm_warden_objects",
+        "iwm_arp_bell"
+      ]
+    },
+    {
+      "id": "warden_kit_note",
+      "text": "The exact mix of overalls, armband and battledress for a particular East End post in September 1940 is not verified. Show a mix of a steel helmet, armband or overalls, and civilian coats.",
+      "status": "reconstruction",
+      "sources": []
+    },
+    {
+      "id": "warden_posts",
+      "text": "Wardens worked from local wardens' posts. Posts kept log books recording warnings, incidents and drills, along with records of the houses, occupants and shelters in their sector. IWM holds a West Square (SE London) log for April 1940 to December 1941.",
+      "status": "documented",
+      "sources": [
+        "iwm_warden_logbooks",
+        "iwm_warden_post_film"
+      ]
+    },
+    {
+      "id": "warden_post_look",
+      "text": "Art direction: a post set up in a shop, a basement or a sandbagged brick hut, with a blackout curtain, a telephone, an incident board, a map of the sector, a kettle, and stirrup pumps and buckets by the door.",
+      "status": "reconstruction",
+      "sources": [
+        "iwm_warden_post_film"
+      ]
+    },
+    {
+      "id": "women_wardens",
+      "text": "Women served as ARP wardens and had their own uniform pattern (the IWM holds an ARP 42 women wardens' long coat). The WVS was set up in 1938 to bring women into ARP. Named women wardens of the Blitz include Jo Oakman and Ita Ekpenyon. The exact proportion of women among wardens was not verified.",
+      "status": "documented",
+      "sources": [
+        "iwm_women_warden_coat",
+        "iwm_prepared"
+      ]
+    },
+    {
+      "id": "signals",
+      "text": "The official ARP signals were: Air Raid Warning, a warbling (rising and falling) siren note plus police and warden whistles; Raiders Passed, a continuous steady siren note; Gas, hand rattles; Gas Clear, handbells.",
+      "status": "documented",
+      "sources": [
+        "tna_signals",
+        "iwm_warden_objects"
+      ]
+    },
+    {
+      "id": "signals_correction",
+      "text": "CORRECTION: the dawn signal is the steady 'Raiders Passed' siren, which people called the 'all clear'. Handbells meant gas clear, not raiders passed.",
+      "status": "documented",
+      "sources": [
+        "tna_signals"
+      ]
+    },
+    {
+      "id": "siren_recording",
+      "text": "The IWM holds BBC recordings of London sirens from 27 September 1940, a good reference for sound design.",
+      "status": "documented",
+      "sources": [
+        "iwm_siren_rec"
+      ]
+    },
+    {
+      "id": "blackout",
+      "text": "The blackout began in September 1939. No artificial light was allowed to show. Street lights and lit signs were switched off and vehicle headlamps masked. Kerbs were painted black and white, lamp-posts and roads carried white bands or stripes, and pillar boxes and lamp posts were coated with gas-detecting paint.",
+      "status": "documented",
+      "sources": [
+        "tna_blackout",
+        "iwm_air_raid_life"
+      ]
+    },
+    {
+      "id": "incendiary",
+      "text": "The standard German incendiary was the 1 kg B1E 'Elektron' bomb: a magnesium-alloy body filled with thermite, with a steel tail. It did not explode on impact. The thermite lit and then the casing burned hot enough to melt steel. They were dropped in large numbers from containers.",
+      "status": "documented",
+      "sources": [
+        "iwm_b1e"
+      ]
+    },
+    {
+      "id": "incendiary_drill",
+      "text": "Incendiaries were tackled with sand, using a long-handled Redhill scoop to lift the bomb into the square Redhill sand container, and with stirrup pumps. A stirrup pump team of two or three people meant one on the nozzle, one pumping from a bucket and one refilling the bucket.",
+      "status": "documented",
+      "sources": [
+        "iwm_redhill_scoop",
+        "iwm_stirrup_pump",
+        "iwm_incendiary_poster"
+      ]
+    },
+    {
+      "id": "fire_watching",
+      "text": "In September 1940 fire-watching was voluntary for households and streets: people were encouraged to form rotas with neighbours. A first Fire Watchers Order of September 1940 applied only to large premises. Compulsory part-time fire-watching came only in January 1941, after the 29 December raid.",
+      "status": "documented",
+      "sources": [
+        "iwm_air_raid_life",
+        "ww2cd_fireguard"
+      ]
+    },
+    {
+      "id": "afs",
+      "text": "The Auxiliary Fire Service was formed in 1938. Its usual equipment was the trailer pump, often towed by requisitioned London taxis. An IWM photograph shows an AFS taxi and Dennis trailer pump at Eltham in September 1939. London had recruited about 23,000 auxiliary firefighters by the outbreak of war.",
+      "status": "documented",
+      "sources": [
+        "lfb_ww2_firefighters",
+        "iwm_afs_eltham",
+        "iwm_dennis_trailer"
+      ]
+    },
+    {
+      "id": "afs_first_nights",
+      "text": "In the first 22 nights of the Blitz the fire service fought nearly 10,000 fires.",
+      "status": "documented",
+      "sources": [
+        "iwm_air_raid_life"
+      ]
+    },
+    {
+      "id": "heavy_rescue",
+      "text": "Rescue parties (Heavy Rescue, often men from the building trades) tunnelled through the debris of bombed houses to reach trapped people, at risk from further collapse and gas leaks.",
+      "status": "documented",
+      "sources": [
+        "iwm_bravery"
+      ]
+    },
+    {
+      "id": "rescue_silence",
+      "text": "Rescuers called for complete silence, then tried to make contact with trapped casualties (calling out, listening for tapping) to locate them. This is described in rescue doctrine traced to British wartime practice, but only a tertiary source was found. No IWM, TNA or LFB source specifically describing Blitz 'silence periods' was retrieved.",
+      "status": "reconstruction",
+      "sources": [
+        "wiki_cds"
+      ]
+    },
+    {
+      "id": "under_stairs",
+      "text": "The Home Office booklet 'The Protection of Your Home Against Air Raids' (1938, sent to every household) advised choosing and equipping a refuge room. Early advice suggested sheltering under the stairs. Many people without gardens sheltered at home.",
+      "status": "documented",
+      "sources": [
+        "booklet_1938"
+      ]
+    },
+    {
+      "id": "anderson",
+      "text": "Anderson shelters were two curved corrugated-steel sheets bolted together at the top, sunk about 3 ft into a garden and covered with about 18 in of earth. They were free to low-income families, but only if they had a garden. Over 2.3 million were distributed by September 1940. They were cold and damp and prone to flooding.",
+      "status": "documented",
+      "sources": [
+        "iwm_blitz_factsheet",
+        "tna_anderson",
+        "iwm_prepared"
+      ]
+    },
+    {
+      "id": "anderson_east_end",
+      "text": "Many East End terraces had only small back yards, so many residents relied on public shelters, railway arches, basements and the Tube instead.",
+      "status": "documented",
+      "sources": [
+        "tna_anderson",
+        "tna_public_shelters"
+      ]
+    },
+    {
+      "id": "morrison",
+      "text": "Morrison indoor table shelters were produced only from January 1941. They must not appear in a September 1940 scene.",
+      "status": "documented",
+      "sources": [
+        "iwm_morrison",
+        "iwm_air_raid_life"
+      ]
+    },
+    {
+      "id": "tube_policy",
+      "text": "The government at first tried to stop Tube stations being used as shelters, fearing a 'deep shelter mentality' and disruption to transport. In early September 1940 crowds pressed into stations such as Liverpool Street, buying a ticket to pass the barriers and then refusing to leave. The authorities gave way.",
+      "status": "documented",
+      "sources": [
+        "iwm_blitz_factsheet",
+        "ltm_shelter",
+        "tfl_sheltering"
+      ]
+    },
+    {
+      "id": "tube_numbers",
+      "text": "About 120,000 people sheltered in the Underground on 21 September 1940.",
+      "status": "documented",
+      "sources": [
+        "tfl_sheltering"
+      ]
+    },
+    {
+      "id": "tube_conditions",
+      "text": "In September 1940 Tube shelters were improvised and overcrowded: people slept on platforms, stairs and passageways with no bunks, few toilets and poor sanitation. Organised improvements came later: Westminster shelter reservation tickets on 30 November 1940, the first Tube medical aid post at South Kensington on 20 December 1940, chemical toilets, canteens, and eventually about 24,000 bunks.",
+      "status": "documented",
+      "sources": [
+        "tfl_sheltering",
+        "ltm_shelter",
+        "ltm_deep_shelters",
+        "tna_public_shelters"
+      ]
+    },
+    {
+      "id": "tube_ticket_price",
+      "text": "The exact fare paid by shelterers in September 1940 (a penny or 1 1/2d platform ticket) is not confirmed. Show buying 'a ticket' without stating a price.",
+      "status": "reconstruction",
+      "sources": [
+        "tfl_sheltering"
+      ]
+    },
+    {
+      "id": "first_aid",
+      "text": "ARP casualty services included First Aid Posts, Mobile First Aid Units, stretcher parties and ambulances, staffed partly by volunteers from St John, the Red Cross and the public. Volunteers also ran first aid posts in Tube shelters.",
+      "status": "documented",
+      "sources": [
+        "stjohn_ww2",
+        "iwm_stretcher_parties",
+        "iwm_warden_objects"
+      ]
+    },
+    {
+      "id": "wvs_canteen",
+      "text": "WVS mobile canteens served tea to bombed-out people and to fire and rescue crews at incidents. WVS members also took supplies to First Aid Posts.",
+      "status": "documented",
+      "sources": [
+        "iwm_wvs_canteen",
+        "rvs_bristol"
+      ]
+    },
+    {
+      "id": "gas_masks",
+      "text": "From 1938 the whole civilian population was issued gas masks in cardboard boxes with string straps, and posters urged 'Take your gas mask everywhere'.",
+      "status": "documented",
+      "sources": [
+        "iwm_gasmask_c1",
+        "iwm_gasmask_poster"
+      ]
+    },
+    {
+      "id": "gas_mask_habit",
+      "text": "By late 1940 many people no longer carried gas masks everywhere, because no gas had been used. Show a mix of people carrying them and not.",
+      "status": "reconstruction",
+      "sources": []
+    },
+    {
+      "id": "window_tape",
+      "text": "Windows were taped with strips of paper, tape or splinter-net to reduce flying glass from blast.",
+      "status": "documented",
+      "sources": [
+        "iwm_1940s_house"
+      ]
+    },
+    {
+      "id": "static_water",
+      "text": "Emergency Water Supply (EWS) static water tanks were part of Blitz firefighting and carried safety warnings. Most large EWS tanks and flooded basement reservoirs were built after mains failures in the 1940-41 raids, many in 1941-42.",
+      "status": "documented",
+      "sources": [
+        "iwm_static_water",
+        "tate_ews"
+      ]
+    },
+    {
+      "id": "static_water_risk",
+      "text": "A big painted 'EWS' steel tank on the street in September 1940 risks being an anachronism. Safer options are a fire hydrant, a burst main, or a small domestic water barrel.",
+      "status": "reconstruction",
+      "sources": [
+        "tate_ews"
+      ]
+    },
+    {
+      "id": "rationing",
+      "text": "Ration books were issued in November 1939, and food rationing began on 8 January 1940 (bacon, ham, butter, sugar). Meat followed in March 1940 and tea in July 1940 (2 oz a week). Shoppers registered with a particular shop and handed over coupons.",
+      "status": "documented",
+      "sources": [
+        "iwm_rationing",
+        "tna_ration_book"
+      ]
+    },
+    {
+      "id": "rationing_points",
+      "text": "The 'points' system for extra goods was introduced later, from late 1941 (date not verified here). Do not show points coupons in 1940.",
+      "status": "reconstruction",
+      "sources": []
+    },
+    {
+      "id": "terraces",
+      "text": "East End terraces such as those in Poplar and Stepney were typically 19th-century houses of yellow London stock brick with slate roofs and timber sash windows.",
+      "status": "documented",
+      "sources": [
+        "hist_england_poplar",
+        "hist_england_maria"
+      ]
+    },
+    {
+      "id": "terrace_layout",
+      "text": "Level design: houses opening straight onto the pavement, a front parlour, back kitchen and scullery, a small back yard with an outside WC, a back alley, chimney stacks with pots, and the stairs rising from the narrow hallway with a cupboard underneath.",
+      "status": "reconstruction",
+      "sources": []
+    },
+    {
+      "id": "docks_poverty",
+      "text": "The Docklands was densely populated and poor, with run-down working-class housing next to docks, warehouses and gasworks, which were the main targets on 7 September.",
+      "status": "documented",
+      "sources": [
+        "iwm_blitz_factsheet"
+      ]
+    },
+    {
+      "id": "moon",
+      "text": "Computed moon phase (simple synodic approximation, not a sourced record): full moon about 16 September 1940, last quarter about 23-24 September, new moon about 1 October. On a late-September night the moon is a waning crescent rising after midnight, so evenings are dark. Check against HM Nautical Almanac Office data.",
+      "status": "reconstruction",
+      "sources": []
+    },
+    {
+      "id": "weather",
+      "text": "Daily weather for late September 1940 was not sourced. Check Met Office Daily Weather Reports before scripting rain or fog.",
+      "status": "reconstruction",
+      "sources": []
+    },
+    {
+      "id": "business_as_usual",
+      "text": "Shops displayed 'Business as Usual' notices after bomb damage. An IWM painting from 1941 shows one on a bombed second-hand furniture shop.",
+      "status": "documented",
+      "sources": [
+        "iwm_business_usual"
+      ]
+    },
+    {
+      "id": "fiction_premise",
+      "text": "The street, the warden, the mother and children, the elderly deaf neighbour, the Heavy Rescue party and the First Aid Post are all fictional. Real station names may be used as locations, but no real shelter incident may be depicted as involving the player.",
+      "status": "fiction",
+      "sources": []
+    }
+  ],
+  "scanEntries": [
+    {
+      "id": "scan_warden_helmet",
+      "title": "ARP Warden's Steel Helmet",
+      "text": "A black steel helmet with a white 'W' on the front, marking a Post Warden. From August 1939 ARP helmets were painted black with white lettering showing the wearer's service and rank. Wardens enforced the blackout, guided people to shelters and reported bomb damage.",
+      "status": "documented",
+      "sources": [
+        "nam_warden_helmet",
+        "iwm_warden_helmet",
+        "iwm_air_raid_life"
+      ]
+    },
+    {
+      "id": "scan_stirrup_pump",
+      "title": "Stirrup Pump",
+      "text": "A hand pump stood in a bucket of water and held steady with a foot on its stirrup. One person aimed the hose, one pumped and a third kept the bucket filled. Households and wardens used them on incendiary bombs and the fires they started.",
+      "status": "documented",
+      "sources": [
+        "iwm_stirrup_pump"
+      ]
+    },
+    {
+      "id": "scan_incendiary",
+      "title": "Incendiary Bomb (1 kg Elektron)",
+      "text": "A small magnesium-alloy cylinder filled with thermite, with a steel tail fin. It did not explode. It burned fiercely, hot enough to melt steel, and set fire to roofs and lofts. German bombers scattered them by the hundred from containers.",
+      "status": "documented",
+      "sources": [
+        "iwm_b1e"
+      ]
+    },
+    {
+      "id": "scan_redhill",
+      "title": "Sand Bucket and Redhill Container",
+      "text": "A square sand container with a long-handled scoop. The scoop lifted a burning incendiary into the container so that sand could smother it by cutting off its air. Buckets of sand stood ready on landings, in doorways and at wardens' posts.",
+      "status": "documented",
+      "sources": [
+        "iwm_redhill_scoop",
+        "iwm_incendiary_poster"
+      ]
+    },
+    {
+      "id": "scan_gasmask_box",
+      "title": "Gas-Mask Box",
+      "text": "A cardboard box on a string strap holding a civilian rubber respirator. Every civilian was issued a gas mask from 1938, and posters urged 'Take your gas mask everywhere'. Poison gas was never dropped on Britain.",
+      "status": "documented",
+      "sources": [
+        "iwm_gasmask_c1",
+        "iwm_gasmask_poster"
+      ]
+    },
+    {
+      "id": "scan_anderson",
+      "title": "Anderson Shelter",
+      "text": "Two curved sheets of corrugated steel bolted together, sunk about three feet into a garden and covered with earth. They were free to low-income families with a garden. Over 2.3 million had been distributed by September 1940, though they were often cold, damp and flooded.",
+      "status": "documented",
+      "sources": [
+        "iwm_blitz_factsheet",
+        "tna_anderson"
+      ]
+    },
+    {
+      "id": "scan_taped_windows",
+      "title": "Taped Windows",
+      "text": "Strips of tape or paper criss-crossed over the panes. Bomb blast could turn window glass into flying splinters, and taping helped hold the pieces together.",
+      "status": "documented",
+      "sources": [
+        "iwm_1940s_house"
+      ]
+    },
+    {
+      "id": "scan_static_water",
+      "title": "Static Water Tank",
+      "text": "A tank of water for firefighters, marked EWS (Emergency Water Supply). When bombs burst water mains, firefighters needed water close at hand. Most large tanks were built after the heavy raids of 1940-41. Warning posters told children to keep away.",
+      "status": "documented",
+      "sources": [
+        "iwm_static_water",
+        "tate_ews"
+      ]
+    },
+    {
+      "id": "scan_blackout_lamppost",
+      "title": "Blackout Lamp Post",
+      "text": "An unlit street lamp with painted white bands, and black-and-white kerbs. Under the blackout, no light could show to guide enemy aircraft, so white paint helped pedestrians and drivers find their way in the dark.",
+      "status": "documented",
+      "sources": [
+        "tna_blackout"
+      ]
+    },
+    {
+      "id": "scan_arp_post",
+      "title": "ARP Wardens' Post",
+      "text": "The local base for wardens. Here they logged warnings and incidents, kept records of every house, its occupants and its shelter, and set out to deal with incidents in their sector.",
+      "status": "documented",
+      "sources": [
+        "iwm_warden_logbooks",
+        "iwm_warden_post_film"
+      ]
+    },
+    {
+      "id": "scan_tube_shelter",
+      "title": "Tube Shelter",
+      "text": "Officials at first did not want stations used as shelters. Londoners bought tickets, went down to the platforms and stayed. By 21 September 1940 about 120,000 people slept underground each night, on platforms and stairs, with no bunks yet.",
+      "status": "documented",
+      "sources": [
+        "tfl_sheltering",
+        "ltm_shelter",
+        "iwm_blitz_factsheet"
+      ]
+    },
+    {
+      "id": "scan_first_aid_post",
+      "title": "First Aid Post",
+      "text": "Part of the ARP casualty services, with stretcher parties, mobile units and ambulances. Staff and volunteers, many from St John and the Red Cross, treated people with lighter injuries and sent the seriously hurt on to hospital.",
+      "status": "documented",
+      "sources": [
+        "stjohn_ww2",
+        "iwm_stretcher_parties"
+      ]
+    },
+    {
+      "id": "scan_ration_book",
+      "title": "Ration Book",
+      "text": "Issued from November 1939. Bacon, butter and sugar were rationed from January 1940, meat from March and tea from July. Each family registered with a shop, which took the coupons for each purchase.",
+      "status": "documented",
+      "sources": [
+        "iwm_rationing",
+        "tna_ration_book"
+      ]
+    },
+    {
+      "id": "scan_afs_pump",
+      "title": "AFS Trailer Pump",
+      "text": "A portable fire pump on a two-wheeled trailer, often towed by a requisitioned London taxi. The Auxiliary Fire Service, formed in 1938, fought nearly 10,000 fires in the first 22 nights of the Blitz.",
+      "status": "documented",
+      "sources": [
+        "lfb_ww2_firefighters",
+        "iwm_afs_eltham",
+        "iwm_air_raid_life"
+      ]
+    }
+  ]
+}
