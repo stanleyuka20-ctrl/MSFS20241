@@ -1,5 +1,5 @@
 {
-  "date": "2026-10-03T23:47:18.523Z",
+  "date": "2026-10-04T00:11:40.877Z",
   "results": [
     {
       "name": "Chapter loads",
@@ -19,7 +19,7 @@
     {
       "name": "Walk Fleet Street to the company dugout",
       "ok": true,
-      "info": "{\"ok\":true,\"pos\":[-6.41,-2.06,4.28],\"minDrop\":0}"
+      "info": "{\"ok\":true,\"pos\":[-6.51,-2.11,4.28],\"minDrop\":0}"
     },
     {
       "name": "Talk to Sergeant Hollis",
@@ -44,7 +44,7 @@
     {
       "name": "Enter signals dugout (down the passage)",
       "ok": true,
-      "info": "{\"ok\":true,\"pos\":[7.99,-1.03,7.41],\"minDrop\":0}"
+      "info": "{\"ok\":true,\"pos\":[8,-1.05,7.48],\"minDrop\":0}"
     },
     {
       "name": "Talk to Kemp",
@@ -64,7 +64,7 @@
     {
       "name": "Walk up Pall Mall to the cable break",
       "ok": true,
-      "info": "{\"ok\":true,\"pos\":[-8.59,-3.27,-8.97],\"minDrop\":0}"
+      "info": "{\"ok\":true,\"pos\":[-8.59,-3.27,-8.99],\"minDrop\":0}"
     },
     {
       "name": "Cable break found and spliced (optional complete)",
@@ -74,7 +74,7 @@
     {
       "name": "Barrage triggers on Pall Mall",
       "ok": true,
-      "info": "{\"ok\":false,\"stuckAt\":[-9.69,-3.2,-19.37],\"reason\":\"state paused\",\"stage\":\"barrage\"}"
+      "info": "{\"ok\":false,\"stuckAt\":[-9.69,-3.2,-19.39],\"reason\":\"state paused\",\"stage\":\"barrage\"}"
     },
     {
       "name": "Intense-sequence prompt offers a skip",
@@ -89,7 +89,7 @@
     {
       "name": "Reach the shelter in time",
       "ok": true,
-      "info": "{\"ok\":true,\"pos\":[-5.77,-3.88,-26.29],\"minDrop\":0}"
+      "info": "{\"ok\":true,\"pos\":[-5.85,-3.87,-26.29],\"minDrop\":0}"
     },
     {
       "name": "Bombardment ends; Pall Mall collapses",
@@ -114,7 +114,7 @@
     {
       "name": "Tottenham Sap to Old Boot Alley",
       "ok": true,
-      "info": "{\"ok\":true,\"pos\":[29.23,-2.32,-36.37],\"minDrop\":0}"
+      "info": "{\"ok\":true,\"pos\":[29.24,-2.32,-36.4],\"minDrop\":0}"
     },
     {
       "name": "Climb the ladder and cross the crater bridge",
@@ -124,12 +124,12 @@
     {
       "name": "Cross the crater bridge and reach the front line",
       "ok": true,
-      "info": "{\"ok\":true,\"pos\":[24.28,-2.53,-59.54],\"minDrop\":0}"
+      "info": "{\"ok\":true,\"pos\":[24.19,-2.55,-59.43],\"minDrop\":0}"
     },
     {
       "name": "Walk Cheapside to Captain Ward",
       "ok": true,
-      "info": "{\"ok\":true,\"pos\":[-25.51,-3.87,-56.8],\"minDrop\":0}"
+      "info": "{\"ok\":true,\"pos\":[-25.51,-3.87,-56.8],\"minDrop\":-0.17}"
     },
     {
       "name": "Message delivered",
@@ -139,7 +139,7 @@
     {
       "name": "Walk to the diary fire bay",
       "ok": true,
-      "info": "{\"ok\":true,\"pos\":[-45.94,-3.15,-60],\"minDrop\":0}"
+      "info": "{\"ok\":true,\"pos\":[-45.94,-3.15,-59.99],\"minDrop\":0}"
     },
     {
       "name": "Pick up the diary (optional task starts)",
@@ -149,17 +149,17 @@
     {
       "name": "Back down into Old Boot Alley",
       "ok": true,
-      "info": "[28.55,-2.21,-28.44]"
+      "info": "[28.63,-2.2,-28.48]"
     },
     {
       "name": "Return route to Fleet Street",
       "ok": true,
-      "info": "{\"ok\":true,\"pos\":[-6,-2.06,4.13],\"minDrop\":0}"
+      "info": "{\"ok\":true,\"pos\":[-6.01,-2.06,4.15],\"minDrop\":-0.02}"
     },
     {
       "name": "Haymarket to the village and Moulin Farm",
       "ok": true,
-      "info": "{\"ok\":true,\"pos\":[-20.99,1.1,64],\"minDrop\":0}"
+      "info": "{\"ok\":true,\"pos\":[-20.98,1.1,63.97],\"minDrop\":0}"
     },
     {
       "name": "Observation mode reveals the echo (optional objective)",
@@ -214,7 +214,7 @@
     {
       "name": "Stretcher carry to the R.A.P. (escort, hazards, crouch)",
       "ok": true,
-      "info": "{\"delivered\":true,\"crouchedFrames\":154,\"state\":\"playing\",\"pos\":[18,-1,7.76],\"trace\":[\"84s P2.43,-0.9,6.89 A2.4,-1.2,4.7 ws1.15 mpath pi36/53 clip carry_walk\",\"87s P2.58,-1.29,4.23 A5.5,-1.2,4.0 ws1.15 mpath pi38/53 clip carry_walk\",\"90s P6.56,-1,4 A8.8,-0.9,4.0 ws1.15 mpath pi40/53 clip carry_walk\",\"93s P9.46,-0.86,4 A11.4,-0.8,5.0 ws1.15 mpath pi43/53 clip carry_walk\",\"96s P11.66,-0.8,5.43 A13.7,-0.7,6.1 ws1.15 mpath pi45/53 clip carry_walk\",\"99s P14.2,-0.66,5.52 A15.9,-0.7,4.1 ws1.15 mpath pi47/53 clip carry_walk\",\"102s P16.15,-0.69,4.03 A17.9,-0.8,5.5 ws1.15 mpath pi50/53 clip carry_walk\",\"105s P17.98,-0.94,6.5 A17.9,-1.0,8.7 ws1.15 mpath pi52/53 clip carry_walk\"]}"
+      "info": "{\"delivered\":true,\"crouchedFrames\":154,\"state\":\"playing\",\"pos\":[18,-0.99,7.73],\"trace\":[\"84s P2.43,-0.9,6.89 A2.4,-1.2,4.7 ws1.15 mpath pi36/53 clip carry_walk\",\"87s P3.31,-1.34,4.03 A5.5,-1.2,4.0 ws1.15 mpath pi38/53 clip carry_walk\",\"90s P6.58,-1,4 A8.8,-0.9,4.0 ws1.15 mpath pi40/53 clip carry_walk\",\"93s P9.48,-0.86,4 A11.4,-0.8,5.0 ws1.15 mpath pi43/53 clip carry_walk\",\"96s P11.66,-0.8,5.42 A13.7,-0.7,6.1 ws1.15 mpath pi45/53 clip carry_walk\",\"99s P14.2,-0.66,5.51 A15.9,-0.7,4.1 ws1.15 mpath pi47/53 clip carry_walk\",\"102s P16.15,-0.69,4.04 A17.9,-0.8,5.5 ws1.15 mpath pi50/53 clip carry_walk\",\"105s P17.99,-0.94,6.49 A17.9,-1.0,8.7 ws1.15 mpath pi52/53 clip carry_walk\"]}"
     },
     {
       "name": "Speak with the medical officer",
@@ -229,7 +229,7 @@
     {
       "name": "Return to the anchor point completes the chapter",
       "ok": true,
-      "info": "{\"ok\":true,\"pos\":[-23.72,-2.78,4.08],\"minDrop\":0}"
+      "info": "{\"ok\":true,\"pos\":[-23.69,-2.78,4.08],\"minDrop\":0}"
     },
     {
       "name": "Chapter summary shown",

@@ -189,6 +189,13 @@ export class CollisionWorld {
               }
               _seg.start.addScaledVector(_dir, depth);
               _seg.end.addScaledVector(_dir, depth);
+              // support comes from individual upward-facing contacts, not the net push
+              if (_dir.y > 0.55) {
+                _contactN.copy(_dir);
+                if (!c.isStatic) _contactN.transformDirection(c.matrix);
+                groundNormal.add(_contactN);
+                grounded = true;
+              }
             }
             return false;
           },
@@ -199,12 +206,6 @@ export class CollisionWorld {
           if (!c.isStatic) _delta.transformDirection(c.matrix).multiplyScalar(_seg.start.distanceTo(before));
           segment.start.add(_delta);
           segment.end.add(_delta);
-          const len = _delta.length();
-          const ny = _delta.y / len;
-          if (ny > 0.55) {
-            grounded = true;
-            groundNormal.addScaledVector(_delta, 1 / len);
-          }
         }
       }
       if (!pushed) break;
@@ -277,3 +278,4 @@ const _dir = new THREE.Vector3();
 const _delta = new THREE.Vector3();
 const _tmp = new THREE.Vector3();
 const _tn = new THREE.Vector3();
+const _contactN = new THREE.Vector3();

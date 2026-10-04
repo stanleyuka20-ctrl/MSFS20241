@@ -198,11 +198,13 @@ export class CharacterController {
       const oz = i === 3 ? r : i === 4 ? -r : 0;
       _o.set(this.position.x + ox, this.position.y + 0.06, this.position.z + oz);
       const hit = this.world.raycast(_o, _d, maxDrop + 0.06, _hit);
-      if (hit && (best === null || hit.point.y > best)) {
+      // highest *walkable* surface; steep wall hits from the outer rays are ignored
+      if (hit && hit.normal.y > 0.62 && (best === null || hit.point.y > best)) {
         best = hit.point.y;
         this.probeNormal.copy(hit.normal);
       }
     }
+    if (best === null) this.probeNormal.set(0, 0, 0);
     return best;
   }
 
