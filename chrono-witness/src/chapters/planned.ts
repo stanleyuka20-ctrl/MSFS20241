@@ -33,17 +33,6 @@ export const PLANNED_CHAPTERS: ChapterConfig[] = [
     plannedMissions: ['Reach a rendezvous point inland', 'Find a lost communications operator', 'Deliver supplies to an aid station', 'Help a stranded group reach cover'],
   }),
   planned({
-    id: 'berlin_1945',
-    title: 'The Last Weeks',
-    destination: 'Berlin',
-    dateLabel: 'April 1945',
-    year: 1945,
-    tagline: 'Rubble, cellars and exhausted civilians at the end of the war in Europe.',
-    overview: 'The Battle of Berlin ended with the city’s surrender on 2 May 1945. Planned environment: a damaged residential block, a cellar shelter and a disrupted U-Bahn line, focused on civilians.',
-    contentNotes: 'Wartime civilian suffering; handled without graphic depictions.',
-    plannedMissions: ['Escort civilians along a passable route', 'Recover missing records from a damaged office', 'Locate an emergency shelter', 'Restore contact between separated neighbours'],
-  }),
-  planned({
     id: 'hiroshima_1945',
     title: 'Morning',
     destination: 'Hiroshima',

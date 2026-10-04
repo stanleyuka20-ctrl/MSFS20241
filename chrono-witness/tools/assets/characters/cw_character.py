@@ -475,6 +475,10 @@ def hair_cap(B, cfg):
         e = Lm["ear." + s]
         d = np.linalg.norm((p - e) * np.array([1.0, 0.75, 1.0]), axis=1)
         dens *= np.clip((d - 0.03) / 0.012, 0, 1)
+    if cfg.get("bald"):  # receding/balding crown (1940 old man): horseshoe of hair at sides and back
+        bt = eye_y + cfg["bald"]
+        crown = np.clip((y - bt) / 0.02, 0, 1) * np.clip((z - (hc[2] - 0.07)) / 0.03, 0, 1)
+        dens = dens * (1 - crown)
     head_r = (wsum(B.W, ["head"]) > 0.5)
     sel_v = (dens > cfg.get("cap_from", 0.4)) & head_r
     fsel = faces_all(B, sel_v)

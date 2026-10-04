@@ -1,0 +1,502 @@
+{
+  "chapter": "titanic_1912",
+  "verificationNote": "IMPORTANT: this file is only partly verified. Every source was carried over from research_notes_titanic_1912.md (accessed 2026-10-03), whose author checked each against search-engine summaries, not full reads. In this pass, direct page fetching was blocked by the sandbox for every host tried (titanicinquiry.org, encyclopedia-titanica.org, rmg.co.uk, loc.gov, gutenberg.org and others), and the session's web search budget ran out before any Titanic search was made. No new Titanic source could be checked. Facts marked 'documented' rest only on those earlier checked sources. Facts marked 'reconstruction' whose text begins 'Inquiry evidence, not verified in this pass' are widely published points from the 1912 British and US inquiries (ice warnings, the Mesaba and Californian exchanges, port and starboard loading, Scotland Road, boat loads, Carpathia's pickups). No source was available to check them, so they must be confirmed against the inquiry transcripts and Encyclopedia Titanica before shipping, and can then be upgraded to 'documented'.",
+  "sources": {
+    "rmg_facts": {
+      "title": "RMS Titanic facts",
+      "publisher": "Royal Museums Greenwich",
+      "url": "https://www.rmg.co.uk/stories/maritime-history/rms-titanic-facts",
+      "accessed": "2026-10-03"
+    },
+    "rmg_d1": {
+      "title": "Research guide D1: RMS Titanic fact sheet",
+      "publisher": "Royal Museums Greenwich",
+      "url": "https://www.rmg.co.uk/collections/research-guides/research-guide-d1-rms-titanic-fact-sheet",
+      "accessed": "2026-10-03"
+    },
+    "bot_weather": {
+      "title": "British Wreck Commissioner's Inquiry, Report: 'Weather conditions'",
+      "publisher": "Titanic Inquiry Project (titanicinquiry.org), transcript of the 1912 UK inquiry report",
+      "url": "https://www.titanicinquiry.org/BOTInq/BOTReport/botRepWeather.php",
+      "accessed": "2026-10-03"
+    },
+    "britannica_apr15": {
+      "title": "April 15: The Titanic's Final Moments and Messages",
+      "publisher": "Encyclopaedia Britannica",
+      "url": "https://www.britannica.com/today-in-history/April-15-The-Titanics-Final-Moments-and-Messages",
+      "accessed": "2026-10-03"
+    },
+    "et_rockets": {
+      "title": "Rockets, Lifeboats, and Time Changes",
+      "publisher": "Encyclopedia Titanica (research article)",
+      "url": "https://www.encyclopedia-titanica.org/rockets-lifeboats-and-time-changes.html",
+      "accessed": "2026-10-03"
+    },
+    "et_time_to_go": {
+      "title": "12.45am - A Time to Go!",
+      "publisher": "Encyclopedia Titanica (research article)",
+      "url": "https://www.encyclopedia-titanica.org/a-time-to-go.html",
+      "accessed": "2026-10-03"
+    },
+    "et_lifeboats_1": {
+      "title": "Lifeboats, Launch Times, List and Trim: Part 1",
+      "publisher": "Encyclopedia Titanica (research article)",
+      "url": "https://www.encyclopedia-titanica.org/lifeboats-launch-times-list-and-trim-1.html",
+      "accessed": "2026-10-03"
+    },
+    "et_boat8": {
+      "title": "The sailor and the countess: Lifeboat No. 8",
+      "publisher": "Encyclopedia Titanica (research article)",
+      "url": "https://www.encyclopedia-titanica.org/sailor-countess-lifeboat-no-8.html",
+      "accessed": "2026-10-03"
+    },
+    "et_accommodation": {
+      "title": "Olympic & Titanic: Passenger Accommodation (reprints period builders' descriptions)",
+      "publisher": "Encyclopedia Titanica",
+      "url": "https://www.encyclopedia-titanica.org/passenger-accommodation.html",
+      "accessed": "2026-10-03"
+    },
+    "belfast_food": {
+      "title": "Titanic - Food for All Classes",
+      "publisher": "Titanic Belfast",
+      "url": "https://www.titanicbelfast.com/history-of-titanic/titanic-stories/titanic-food-for-all-classes/",
+      "accessed": "2026-10-03"
+    }
+  },
+  "facts": [
+    {
+      "id": "voyage",
+      "text": "Titanic left Southampton on her maiden voyage on 10 April 1912, calling at Cherbourg and then Queenstown (Cobh) before heading west for New York.",
+      "status": "documented",
+      "sources": [
+        "rmg_facts",
+        "rmg_d1"
+      ]
+    },
+    {
+      "id": "people_deaths",
+      "text": "About 2,224-2,228 people were aboard after Queenstown. About 1,500 died.",
+      "status": "documented",
+      "sources": [
+        "rmg_facts",
+        "rmg_d1"
+      ]
+    },
+    {
+      "id": "boats_capacity",
+      "text": "Titanic carried 20 lifeboats with a total capacity of about 1,178 people, about half the number aboard.",
+      "status": "documented",
+      "sources": [
+        "rmg_facts",
+        "rmg_d1"
+      ]
+    },
+    {
+      "id": "boat_types",
+      "text": "The 20 boats were 14 wooden lifeboats (65 people each), 2 smaller emergency cutters, boats 1 and 2 (40 each), and 4 Engelhardt collapsibles, A to D (47 each): 910 + 80 + 188 = 1,178. Boats were numbered odd on the starboard side and even on the port side. The total is documented; the breakdown by type was not verified in this pass.",
+      "status": "reconstruction",
+      "sources": [
+        "rmg_facts"
+      ]
+    },
+    {
+      "id": "weather",
+      "text": "From about 6 p.m. on 14 April the weather was perfectly clear and fine, with no moon, stars out and not a cloud in the sky.",
+      "status": "documented",
+      "sources": [
+        "bot_weather"
+      ]
+    },
+    {
+      "id": "air_temp",
+      "text": "The air temperature fell sharply in the evening, to 33 °F (about 0.5 °C) by about 7:30 p.m. and later to 32 °F (0 °C).",
+      "status": "documented",
+      "sources": [
+        "bot_weather"
+      ]
+    },
+    {
+      "id": "flat_calm",
+      "text": "The sea was flat calm with no swell. With no waves breaking at its base, the iceberg was harder to see.",
+      "status": "documented",
+      "sources": [
+        "bot_weather"
+      ]
+    },
+    {
+      "id": "water_temp",
+      "text": "The sea temperature was about -2 °C (28 °F), below the freezing point of fresh water.",
+      "status": "documented",
+      "sources": [
+        "rmg_facts",
+        "rmg_d1"
+      ]
+    },
+    {
+      "id": "moon",
+      "text": "Computed moon phase: new moon fell on 17 April 1912, so on the night of 14-15 April only a thin waning crescent (about 4% lit) rose shortly before dawn. The night itself was moonless, matching the inquiry. Computed, not a sourced record.",
+      "status": "reconstruction",
+      "sources": []
+    },
+    {
+      "id": "dawn_ice",
+      "text": "At dawn survivors in the boats saw icebergs and field ice around them, and a light breeze and small waves got up. Reported in survivor testimony, not verified in this pass.",
+      "status": "reconstruction",
+      "sources": []
+    },
+    {
+      "id": "ships_time",
+      "text": "All times are ship's time, kept as local apparent time and reset as the ship moved west. Ship's time was roughly three hours behind GMT and two hours ahead of New York; 2:20 a.m. ship's time is often given as about 5:18 a.m. GMT. The exact offset is debated and was not verified in this pass, so use ship's time throughout.",
+      "status": "reconstruction",
+      "sources": [
+        "et_rockets"
+      ]
+    },
+    {
+      "id": "wireless_operators",
+      "text": "Inquiry evidence, not verified in this pass: Wireless was worked by two Marconi Company employees, senior operator Jack Phillips and junior operator Harold Bride, not by White Star crew. Much of their work was paid passenger traffic, relayed by Cape Race, Newfoundland.",
+      "status": "reconstruction",
+      "sources": []
+    },
+    {
+      "id": "marconi_room",
+      "text": "Inquiry evidence, not verified in this pass: The Marconi room was on the Boat Deck, near the officers' quarters behind the bridge. It had an operating room, a soundproofed 'silent room' for the transmitter and a small sleeping cabin.",
+      "status": "reconstruction",
+      "sources": []
+    },
+    {
+      "id": "warnings_received",
+      "text": "Inquiry evidence, not verified in this pass: On 14 April Titanic received ice warnings from several ships, including Caronia (morning), Baltic and Amerika (early afternoon), Californian (evening, sent to Antillian and copied by Titanic) and Mesaba (about 9:40 p.m.).",
+      "status": "reconstruction",
+      "sources": []
+    },
+    {
+      "id": "warnings_bridge",
+      "text": "Inquiry evidence, not verified in this pass: Some warnings reached the officers: the Caronia message was posted on the bridge, and Captain Smith showed the Baltic message to J. Bruce Ismay, who kept it for some hours. Others, such as the Amerika message, were relayed onward and are not known to have reached the bridge.",
+      "status": "reconstruction",
+      "sources": []
+    },
+    {
+      "id": "mesaba_warning",
+      "text": "Inquiry evidence, not verified in this pass: The Mesaba warning at about 9:40 p.m. reported heavy pack ice and large icebergs across Titanic's course. Phillips, busy with passenger messages for Cape Race, acknowledged it but it is not known to have reached the bridge.",
+      "status": "reconstruction",
+      "sources": []
+    },
+    {
+      "id": "californian_shut_up",
+      "text": "Inquiry evidence, not verified in this pass: At about 11 p.m. Californian's operator, Cyril Evans, called to say they were stopped and surrounded by ice. Phillips, working Cape Race, cut him off with words recorded as 'Shut up, shut up, I am busy; I am working Cape Race'. Evans soon closed his set and went to bed.",
+      "status": "reconstruction",
+      "sources": []
+    },
+    {
+      "id": "cqd_sos",
+      "text": "At about 12:15 a.m. on 15 April Captain Smith ordered a distress call. Phillips sent 'CQD MGY' (MGY was Titanic's call sign) with the ship's position. The newer signal 'SOS' was also used later in the night.",
+      "status": "documented",
+      "sources": [
+        "et_rockets"
+      ]
+    },
+    {
+      "id": "sos_first_myth",
+      "text": "Titanic was not the first ship to send SOS; earlier uses, such as by Slavonia in 1909, are widely reported. Not verified in this pass, so the game should simply avoid any 'first SOS' claim.",
+      "status": "reconstruction",
+      "sources": []
+    },
+    {
+      "id": "collision_time",
+      "text": "Titanic struck an iceberg at about 11:40 p.m. ship's time on 14 April.",
+      "status": "documented",
+      "sources": [
+        "rmg_facts",
+        "britannica_apr15"
+      ]
+    },
+    {
+      "id": "lookout_warning",
+      "text": "Inquiry evidence, not verified in this pass: Lookout Frederick Fleet rang the crow's-nest bell three times and telephoned the bridge: 'Iceberg right ahead.' First Officer Murdoch ordered the helm hard over and the engines changed. The ship turned to port, and the berg scraped along the starboard bow.",
+      "status": "reconstruction",
+      "sources": []
+    },
+    {
+      "id": "collision_felt",
+      "text": "Inquiry evidence, not verified in this pass: On the upper decks many passengers felt only a slight jar or a long grinding vibration, and some slept through it. Forward and low in the ship it was much stronger: firemen in the forward boiler rooms saw water burst in, and chunks of ice fell onto the forward well deck.",
+      "status": "reconstruction",
+      "sources": []
+    },
+    {
+      "id": "steam_noise",
+      "text": "After the engines stopped, steam was blown off through the funnels with a deafening roar for some time, making it hard to hear orders on the Boat Deck. Widely reported in testimony; not verified in this pass.",
+      "status": "reconstruction",
+      "sources": []
+    },
+    {
+      "id": "third_class_quarters",
+      "text": "Inquiry evidence, not verified in this pass: Third-class single men were berthed mainly forward and single women and families mainly aft, on the lower decks. The third-class general room was aft.",
+      "status": "reconstruction",
+      "sources": []
+    },
+    {
+      "id": "third_general_room",
+      "text": "The third-class general room was aft, about 36 by 38 ft, panelled in pine and finished in white enamel.",
+      "status": "documented",
+      "sources": [
+        "et_accommodation"
+      ]
+    },
+    {
+      "id": "third_dining",
+      "text": "The third-class dining saloon was in two compartments, about 100 ft long in all, seating 473, finished in white enamel.",
+      "status": "documented",
+      "sources": [
+        "et_accommodation"
+      ]
+    },
+    {
+      "id": "third_food",
+      "text": "Third-class passengers ate plain, hearty meals in shared saloons; first class dined on multi-course menus.",
+      "status": "documented",
+      "sources": [
+        "belfast_food"
+      ]
+    },
+    {
+      "id": "class_barriers",
+      "text": "Gates and barriers kept the classes apart, partly to meet US immigration rules on health inspection. Whether gates were locked during the sinking is disputed. Do not show a deliberate lock-in as fact.",
+      "status": "reconstruction",
+      "sources": []
+    },
+    {
+      "id": "third_class_access",
+      "text": "Inquiry evidence, not verified in this pass: The British inquiry found no evidence that third-class passengers were deliberately kept below. Steward John Hart testified that he led groups of third-class women and children aft and up through second-class areas to the Boat Deck. Many third-class passengers reached the boats late or not at all, because of distance, unclear routes, language barriers and lack of direction.",
+      "status": "reconstruction",
+      "sources": []
+    },
+    {
+      "id": "scotland_road",
+      "text": "Inquiry evidence, not verified in this pass: A long working alleyway on E Deck, nicknamed 'Scotland Road', ran along the port side for much of the ship's length. Crew used it to move between their quarters and stations, and third-class passengers used it to reach the stairs.",
+      "status": "reconstruction",
+      "sources": []
+    },
+    {
+      "id": "grand_staircase",
+      "text": "The first-class Grand Staircase ran from the Boat Deck down to E Deck. It was about 60 ft high and 16 ft wide, lit by an iron-and-glass dome, with a carved panel and clock showing 'Honour and Glory crowning Time'.",
+      "status": "documented",
+      "sources": [
+        "et_accommodation"
+      ]
+    },
+    {
+      "id": "first_dining",
+      "text": "The first-class dining saloon on D (Saloon) Deck was 114 ft long and the full 92 ft width of the ship, in Jacobean style with white moulded plaster.",
+      "status": "documented",
+      "sources": [
+        "et_accommodation"
+      ]
+    },
+    {
+      "id": "a_deck_promenade",
+      "text": "Inquiry evidence, not verified in this pass: The first-class promenade on A Deck ran along both sides of the superstructure. On Titanic, unlike Olympic, its forward half was enclosed by a screen with sliding windows, which complicated loading Boat 4 from A Deck.",
+      "status": "reconstruction",
+      "sources": []
+    },
+    {
+      "id": "boat_deck",
+      "text": "Inquiry evidence, not verified in this pass: The Boat Deck carried the lifeboats in four groups, two forward and two aft on each side, on davits. The bridge, officers' quarters, Marconi room, the top of the Grand Staircase and the gymnasium were also on the Boat Deck.",
+      "status": "reconstruction",
+      "sources": []
+    },
+    {
+      "id": "first_boat",
+      "text": "The first lifeboat was lowered at about 12:40-12:45 a.m., probably No. 7 on the starboard side. Exact launch times are debated.",
+      "status": "documented",
+      "sources": [
+        "et_time_to_go",
+        "et_lifeboats_1"
+      ]
+    },
+    {
+      "id": "boat7_load",
+      "text": "Inquiry evidence, not verified in this pass: Boat 7 left with roughly 27-28 people, well under its 65 capacity. Boat 1, a 40-seat cutter, left with about 12. Many early boats left part-empty because passengers did not believe the ship would sink.",
+      "status": "reconstruction",
+      "sources": []
+    },
+    {
+      "id": "port_starboard",
+      "text": "Inquiry evidence, not verified in this pass: Second Officer Lightoller, loading on the port side, read the order as women and children only and turned men away. First Officer Murdoch, on the starboard side, allowed men into boats when no women or children were nearby. A man's chance of a seat depended heavily on which side he went to.",
+      "status": "reconstruction",
+      "sources": []
+    },
+    {
+      "id": "rockets",
+      "text": "From about 12:45 to about 1:25 a.m., Fourth Officer Boxhall and Quartermaster Rowe fired white distress rockets from the bridge. Eight were seen from the Californian.",
+      "status": "documented",
+      "sources": [
+        "et_rockets"
+      ]
+    },
+    {
+      "id": "band",
+      "text": "The ship's musicians played to keep people calm, first indoors and then near the Boat Deck. Which piece they played last is unknown; 'Nearer, My God, to Thee' is a popular claim, not a fact. All the musicians died. Widely reported; not verified in this pass.",
+      "status": "reconstruction",
+      "sources": []
+    },
+    {
+      "id": "last_boats",
+      "text": "Inquiry evidence, not verified in this pass: The last boat lowered from the davits was Collapsible D, at about 2:05 a.m. Collapsibles A and B were washed off the deck as the bow went under, B upside down.",
+      "status": "reconstruction",
+      "sources": []
+    },
+    {
+      "id": "sinking",
+      "text": "Titanic sank at about 2:20 a.m. on 15 April, after breaking in two.",
+      "status": "documented",
+      "sources": [
+        "rmg_facts",
+        "britannica_apr15",
+        "et_rockets"
+      ]
+    },
+    {
+      "id": "carpathia",
+      "text": "The Cunard liner Carpathia began picking up lifeboats at about 4:00-4:10 a.m. and took aboard about 705-712 survivors.",
+      "status": "documented",
+      "sources": [
+        "britannica_apr15",
+        "et_boat8"
+      ]
+    },
+    {
+      "id": "carpathia_details",
+      "text": "Inquiry evidence, not verified in this pass: Carpathia's operator, Harold Cottam, picked up the distress call shortly after midnight. Captain Arthur Rostron turned his ship and raced through the ice, about 58 miles. The first boat taken aboard was No. 2 (with Boxhall), at about 4:10 a.m.; the last, No. 12, at about 8:30 a.m.",
+      "status": "reconstruction",
+      "sources": []
+    },
+    {
+      "id": "fiction_premise",
+      "text": "The player's junior steward or messenger, the third-class family and every passenger the player speaks to are fictional composites. Real people (Phillips, Bride, Smith, Murdoch, Lightoller, Boxhall, the band) may appear only as background figures doing what the record says, with no invented dialogue. The player cannot add seats, save extra lives or change any documented message, time or total.",
+      "status": "fiction",
+      "sources": []
+    },
+    {
+      "id": "fiction_messenger",
+      "text": "A junior steward or messenger carrying a wireless message is a game device. In the record, Harold Bride himself took the evening Californian-to-Antillian ice message to the bridge (not verified in this pass). The message the player carries must be one that actually reached the bridge, such as that one at about 7:30 p.m. If the player handles the Mesaba warning, the scene must end with it set aside in the wireless room.",
+      "status": "fiction",
+      "sources": []
+    }
+  ],
+  "scanEntries": [
+    {
+      "id": "scan_lifeboat",
+      "title": "Wooden Lifeboat",
+      "text": "One of 14 standard wooden lifeboats on the Boat Deck. Titanic's 20 boats together could carry about 1,178 people, roughly half of those aboard. The first boat away, probably No. 7, was lowered at about 12:40-12:45 a.m.",
+      "status": "documented",
+      "sources": [
+        "rmg_facts",
+        "rmg_d1",
+        "et_time_to_go"
+      ]
+    },
+    {
+      "id": "scan_collapsible",
+      "title": "Engelhardt Collapsible",
+      "text": "A flat-bottomed lifeboat with canvas sides that were raised before use. Titanic carried four, lettered A to D. Two were never properly launched and floated off as the ship went down. Not verified in this pass.",
+      "status": "reconstruction",
+      "sources": []
+    },
+    {
+      "id": "scan_rocket",
+      "title": "Distress Rocket",
+      "text": "A white distress rocket. From about 12:45 to 1:25 a.m., Fourth Officer Boxhall and Quartermaster Rowe fired them into the clear night sky. Eight were seen from the Californian.",
+      "status": "documented",
+      "sources": [
+        "et_rockets"
+      ]
+    },
+    {
+      "id": "scan_staircase_clock",
+      "title": "Grand Staircase Clock",
+      "text": "A carved panel and clock showing 'Honour and Glory crowning Time', on the first-class Grand Staircase. The staircase ran from the Boat Deck down to E Deck, about 60 ft high and 16 ft wide, under an iron-and-glass dome.",
+      "status": "documented",
+      "sources": [
+        "et_accommodation"
+      ]
+    },
+    {
+      "id": "scan_wireless_key",
+      "title": "Marconi Transmitting Key",
+      "text": "The key Jack Phillips used to send Titanic's distress call. From about 12:15 a.m. he sent 'CQD MGY' (MGY was Titanic's call sign) with the ship's position. Later in the night 'SOS' was also used.",
+      "status": "documented",
+      "sources": [
+        "et_rockets"
+      ]
+    },
+    {
+      "id": "scan_ice_message",
+      "title": "Ice Warning Form",
+      "text": "A handwritten message form from the Marconi room. Several ships warned Titanic of ice on 14 April, but not every warning reached the bridge. The Mesaba warning of heavy pack ice, at about 9:40 p.m., is not known to have left the wireless room. Not verified in this pass.",
+      "status": "reconstruction",
+      "sources": []
+    },
+    {
+      "id": "scan_deck_ice",
+      "title": "Ice on the Well Deck",
+      "text": "Chunks of ice that fell onto the forward well deck when the iceberg scraped the bow. Some passengers picked up pieces as curiosities, not yet aware of the danger. Not verified in this pass.",
+      "status": "reconstruction",
+      "sources": []
+    },
+    {
+      "id": "scan_general_room",
+      "title": "Third-Class General Room",
+      "text": "The third-class social room, aft, about 36 by 38 ft, panelled in pine and finished in white enamel. Third-class families berthed aft would have passed close to it on the way to the stairs (berthing not verified in this pass).",
+      "status": "documented",
+      "sources": [
+        "et_accommodation"
+      ]
+    },
+    {
+      "id": "scan_bill_of_fare",
+      "title": "Third-Class Bill of Fare",
+      "text": "A printed menu for the third-class dining saloon, which seated 473 in two white-enamelled compartments. Third class ate plain, hearty food in shared saloons, unlike first class's multi-course dinners.",
+      "status": "documented",
+      "sources": [
+        "belfast_food",
+        "et_accommodation"
+      ]
+    },
+    {
+      "id": "scan_lifebelt",
+      "title": "Cork Lifebelt",
+      "text": "A canvas lifejacket packed with cork blocks, issued from cabins and tied over clothing. It kept a person afloat but gave no protection from water at about -2 °C. Construction details not verified in this pass.",
+      "status": "reconstruction",
+      "sources": [
+        "rmg_facts"
+      ]
+    },
+    {
+      "id": "scan_scotland_road",
+      "title": "Scotland Road",
+      "text": "The crew's nickname for the long working alleyway on E Deck. Stewards, firemen and third-class passengers used it to move along the ship below the passenger decks. Not verified in this pass.",
+      "status": "reconstruction",
+      "sources": []
+    },
+    {
+      "id": "scan_thermometer",
+      "title": "Deck Thermometer",
+      "text": "On the evening of 14 April the air temperature dropped sharply, to 33 °F by about 7:30 p.m. and then 32 °F. The night was clear, flat calm and moonless.",
+      "status": "documented",
+      "sources": [
+        "bot_weather"
+      ]
+    },
+    {
+      "id": "scan_carpathia",
+      "title": "RMS Carpathia",
+      "text": "The Cunard liner that came to the lifeboats at dawn. From about 4:00-4:10 a.m. she began picking up boats, and she took aboard about 705-712 survivors.",
+      "status": "documented",
+      "sources": [
+        "britannica_apr15",
+        "et_boat8"
+      ]
+    }
+  ]
+}

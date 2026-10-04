@@ -1,0 +1,779 @@
+{
+  "chapter": "normandy_1944",
+  "verificationNote": "Sources dated 2026-10-04 were checked in this pass; sources dated 2026-10-03 were carried over from research_notes_normandy_1944.md, whose author checked them the same way. Direct page fetching (WebFetch) was blocked by the sandbox network policy for every reference host tried (history.army.mil, nationalww2museum.org, ibiblio.org and others), so each 'documented' fact was checked against search-engine result summaries of the cited page, not a full read. Some summaries blended several result pages, so a fact may rest on only one of the sources listed with it. The session's web search budget ran out partway through, so the Utah Beach Museum, Airborne Museum (Sainte-Mère-Église), Mémorial de Caen collections, C-47 losses and the bocage were not searched again. Confirm the wording on each live page before shipping. Keys marked 'enthusiast', 'tertiary' or 'popular history' in the publisher field are weaker sources, used alongside stronger ones where possible.",
+  "sources": {
+    "nww2m_timeline": {
+      "title": "D-Day Timeline",
+      "publisher": "The National WWII Museum",
+      "url": "https://www.nationalww2museum.org/d-day-timeline",
+      "accessed": "2026-10-04"
+    },
+    "nww2m_airborne": {
+      "title": "The Airborne Invasion of Normandy",
+      "publisher": "The National WWII Museum",
+      "url": "https://www.nationalww2museum.org/war/articles/airborne-invasion-normandy",
+      "accessed": "2026-10-04"
+    },
+    "nww2m_personal_link": {
+      "title": "A Personal Link to D-Day",
+      "publisher": "The National WWII Museum",
+      "url": "https://www.nationalww2museum.org/war/articles/personal-link-d-day",
+      "accessed": "2026-10-04"
+    },
+    "cmh_utah_airborne": {
+      "title": "Utah Beach to Cherbourg (American Forces in Action), 'The Airborne Assault'",
+      "publisher": "US Army Center of Military History",
+      "url": "https://www.history.army.mil/BOOKS/WWII/utah/utah2.htm",
+      "accessed": "2026-10-04"
+    },
+    "cmh_omaha_ch3": {
+      "title": "Omaha Beachhead (American Forces in Action), ch. 3 'D Day: The Landings'",
+      "publisher": "US Army Center of Military History",
+      "url": "https://www.history.army.mil/BOOKS/WWII/100-11/ch3.htm",
+      "accessed": "2026-10-03"
+    },
+    "cmh_xchannel_ch7": {
+      "title": "Harrison, Cross-Channel Attack (US Army in WWII), ch. VII 'German Defense Measures, 1944' (HyperWar transcription)",
+      "publisher": "US Army Center of Military History, via ibiblio HyperWar",
+      "url": "https://www.ibiblio.org/hyperwar/USA/USA-E-XChannel/USA-E-XChannel-7.html",
+      "accessed": "2026-10-04"
+    },
+    "cmh_xchannel_ch8": {
+      "title": "Harrison, Cross-Channel Attack (US Army in WWII), ch. VIII (HyperWar transcription)",
+      "publisher": "US Army Center of Military History, via ibiblio HyperWar",
+      "url": "https://www.ibiblio.org/hyperwar/USA/USA-E-XChannel/USA-E-XChannel-8.html",
+      "accessed": "2026-10-04"
+    },
+    "iwm_dday_air": {
+      "title": "D-Day in the air",
+      "publisher": "Imperial War Museums",
+      "url": "https://www.iwm.org.uk/history/second-world-war/d-day/how-d-day-was-fought-from-the-air",
+      "accessed": "2026-10-04"
+    },
+    "iwm_dday_weather": {
+      "title": "How the D-Day Landings Were Delayed by a Weather Forecast",
+      "publisher": "Imperial War Museums",
+      "url": "https://www.iwm.org.uk/history/second-world-war/d-day/how-d-day-was-delayed-by-a-weather-forecast",
+      "accessed": "2026-10-03"
+    },
+    "metoffice_dday": {
+      "title": "D-Day: the most important weather forecast in history",
+      "publisher": "Met Office",
+      "url": "https://www.metoffice.gov.uk/about-us/who-we-are/our-history/met-office-d-day-weather-forecast",
+      "accessed": "2026-10-03"
+    },
+    "memorial_caen_battle": {
+      "title": "The Battle of Normandy",
+      "publisher": "Mémorial de Caen",
+      "url": "https://www.memorial-caen.com/museum/d-day-landings-and-battle-normandy/battle-normandy/",
+      "accessed": "2026-10-03"
+    },
+    "doubler_bocage": {
+      "title": "Doubler, Busting the Bocage: American Combined Arms Operations in France, 6 June-31 July 1944 (PDF)",
+      "publisher": "US Army Combat Studies Institute (Army University Press)",
+      "url": "https://www.armyupress.army.mil/Portals/7/combat-studies-institute/csi-books/Doubler-Bocage.PDF",
+      "accessed": "2026-10-03"
+    },
+    "ap_civilians": {
+      "title": "In France, D-Day evokes both the joys of liberation and the pain of Normandy's 20,000 civilian dead",
+      "publisher": "Associated Press (via Anchorage Daily News)",
+      "url": "https://www.adn.com/nation-world/2024/06/05/in-france-d-day-evokes-both-the-joys-of-liberation-and-the-pain-of-normandys-20000-civilian-dead/",
+      "accessed": "2026-10-04"
+    },
+    "afp_civilians": {
+      "title": "Price of victory: How Allied D-Day bombs killed French civilians",
+      "publisher": "AFP (via eNCA)",
+      "url": "https://www.enca.com/lifestyle/price-victory-how-allied-d-day-bombs-killed-french-civilians",
+      "accessed": "2026-10-04"
+    },
+    "dday_overlord_sme": {
+      "title": "Sainte-Mère-Eglise in 1944",
+      "publisher": "dday-overlord.com (enthusiast reference, medium reliability)",
+      "url": "https://www.dday-overlord.com/?p=133759",
+      "accessed": "2026-10-04"
+    },
+    "army_sme_church": {
+      "title": "Church tower, windows pay tribute to paratroopers who jumped into first town liberated during WWII",
+      "publisher": "U.S. Army (army.mil)",
+      "url": "https://www.army.mil/article/22006",
+      "accessed": "2026-10-04"
+    },
+    "healthmil_medics": {
+      "title": "D-Day Medics: Heroes Who Treated the Wounded",
+      "publisher": "Military Health System (health.mil, DVIDS article)",
+      "url": "https://health.mil/News/Dvids-Articles/2024/06/04/news472904",
+      "accessed": "2026-10-04"
+    },
+    "bdn_moore": {
+      "title": "Ken Moore, D-Day medic who treated both sides, dies at 90",
+      "publisher": "Bangor Daily News",
+      "url": "https://www.bangordailynews.com/2014/12/25/news/ken-moore-d-day-medic-who-treated-both-sides-dies-at-90-2/",
+      "accessed": "2026-10-04"
+    },
+    "nwg_angoville": {
+      "title": "Angoville Au Plain church, American aid station during WW2",
+      "publisher": "Normandy War Guide (enthusiast reference, medium reliability)",
+      "url": "https://www.normandywarguide.com/place/angoville-au-plain-church",
+      "accessed": "2026-10-04"
+    },
+    "eisenhower_clicker": {
+      "title": "ACME clicker (primary source library item)",
+      "publisher": "Eisenhower Foundation",
+      "url": "https://eisenhowerfoundation.net/primary-source/acme-clicker",
+      "accessed": "2026-10-04"
+    },
+    "amheritage_clicker": {
+      "title": "Original cricket clicker found (75th anniversary of D-Day)",
+      "publisher": "American Heritage",
+      "url": "https://americanheritage.com/original-cricket-clicker-found-75th-anniversary-d-day",
+      "accessed": "2026-10-04"
+    },
+    "whn_cricket": {
+      "title": "Beranty, 'The Airborne Infantry Cricket: Dime Store Toy Becomes D-Day Legend'",
+      "publisher": "Warfare History Network (popular history magazine)",
+      "url": "https://warfarehistorynetwork.com/the-airborne-infantry-cricket-dime-store-toy-becomes-d-day-legend/",
+      "accessed": "2026-10-04"
+    },
+    "skytel_dday": {
+      "title": "Astronomy of D-Day: sun, moon and tides (title taken from URL)",
+      "publisher": "Sky & Telescope",
+      "url": "https://skyandtelescope.org/astronomy-news/astronomy-d-day-sun-moon-tides",
+      "accessed": "2026-10-04"
+    },
+    "iana_tz_uk": {
+      "title": "Updated UK history of Summer Time (tz database mailing list, January 1998)",
+      "publisher": "IANA tz project archive (ICANN)",
+      "url": "https://mm.icann.org/pipermail/tz/1998-January/035091.html",
+      "accessed": "2026-10-04"
+    },
+    "c1900s_time": {
+      "title": "GMT, BST, WW2 Double Summer Time and the 'right' time",
+      "publisher": "1900s.org.uk (enthusiast reference, medium reliability)",
+      "url": "https://1900s.org.uk/1940s50s-time.htm",
+      "accessed": "2026-10-04"
+    },
+    "historynet_lafiere": {
+      "title": "Capturing the La Fière Causeway",
+      "publisher": "HistoryNet (popular history magazine)",
+      "url": "https://www.historynet.com/world-war-ii-capturing-the-la-fiere-causeway/",
+      "accessed": "2026-10-04"
+    },
+    "wiki_mission_albany": {
+      "title": "Mission Albany",
+      "publisher": "Wikipedia (tertiary)",
+      "url": "https://en.wikipedia.org/wiki/Mission_Albany",
+      "accessed": "2026-10-04"
+    },
+    "wiki_rommelspargel": {
+      "title": "Rommel's asparagus",
+      "publisher": "Wikipedia (tertiary)",
+      "url": "https://en.wikipedia.org/wiki/Rommel%27s_asparagus",
+      "accessed": "2026-10-04"
+    },
+    "ttt_dummy_positions": {
+      "title": "German Dummy Coastal Positions (Tactical and Technical Trends, wartime US War Department intelligence bulletin, transcribed)",
+      "publisher": "Lone Sentry",
+      "url": "https://lonesentry.com/articles/ttt/german_dummy_coastal_positions.html",
+      "accessed": "2026-10-04"
+    },
+    "ttt_minefields": {
+      "title": "Report on an enemy minefield encountered by the British (Tactical and Technical Trends, transcribed)",
+      "publisher": "Lone Sentry",
+      "url": "https://lonesentry.com/articles/ttt08/antitank-mine-fields.html",
+      "accessed": "2026-10-04"
+    },
+    "nasm_stripes": {
+      "title": "Stripes for D-Day (title taken from URL)",
+      "publisher": "Smithsonian National Air and Space Museum",
+      "url": "https://airandspace.si.edu/stories/editorial/stripes-d-day",
+      "accessed": "2026-10-04"
+    },
+    "aviationist_stripes": {
+      "title": "On This Day In 1944, Invasion Stripes Became the Markings That Saved Allied Lives",
+      "publisher": "The Aviationist (aviation news site)",
+      "url": "https://theaviationist.com/2019/06/06/75-years-ago-today-invasion-stripes-became-the-markings-that-saved-allied-lives/",
+      "accessed": "2026-10-04"
+    },
+    "historytoday_leaflets": {
+      "title": "D-Day Propaganda",
+      "publisher": "History Today",
+      "url": "https://historytoday.com/node/50239",
+      "accessed": "2026-10-04"
+    },
+    "eisenhower_scaef21": {
+      "title": "Minutes, SCAEF 21st meeting (primary source library item)",
+      "publisher": "Eisenhower Foundation",
+      "url": "https://eisenhowerfoundation.net/primary-source-library/minutes-scaef-21st-meeting/",
+      "accessed": "2026-10-04"
+    },
+    "pritzker_utah_naval": {
+      "title": "Naval Bombardment Group at Utah Beach (D-Day 75 exhibit)",
+      "publisher": "Pritzker Military Museum & Library",
+      "url": "https://www.pritzkermilitary.org/explore/museum/past-exhibits/d-day-75/naval-bombardment-group-utah-beach",
+      "accessed": "2026-10-04"
+    },
+    "pritzker_nevada": {
+      "title": "USS Nevada Fires Its 14-Inch Guns at the German Defenses on Utah Beach (D-Day 75 exhibit)",
+      "publisher": "Pritzker Military Museum & Library",
+      "url": "https://www.pritzkermilitary.org/explore/museum/past-exhibits/d-day-75/uss-nevada-fires-its-14-inch-guns-german-defenses-on-utah-beach",
+      "accessed": "2026-10-04"
+    },
+    "nhhc_neptune": {
+      "title": "Operation Neptune",
+      "publisher": "Naval History and Heritage Command",
+      "url": "https://history.navy.mil/browse-by-topic/wars-conflicts-and-operations/world-war-ii/1944/overlord/operation-neptune.html",
+      "accessed": "2026-10-04"
+    },
+    "pnr_terre": {
+      "title": "Où voir la terre ? (earth-building guide, 2014, PDF)",
+      "publisher": "Parc naturel régional des Marais du Cotentin et du Bessin",
+      "url": "https://parc-cotentin-bessin.fr/sites/default/files/2019-05/PUBLI_20140301_OU_VOIR_LA_TERRE_V02_LEG.pdf",
+      "accessed": "2026-10-04"
+    },
+    "wiki_norman_arch": {
+      "title": "Architecture of Normandy",
+      "publisher": "Wikipedia (tertiary)",
+      "url": "https://en.wikipedia.org/wiki/Architecture_of_Normandy",
+      "accessed": "2026-10-04"
+    },
+    "aar_82nd": {
+      "title": "82nd Airborne Division, after-action report, June 1944 (transcription)",
+      "publisher": "unithistories.com (enthusiast transcription of a primary document)",
+      "url": "https://unithistories.com/units/82nd%20Abn.Div%20AAR%20june%201944.php",
+      "accessed": "2026-10-04"
+    },
+    "pbs_paratroopers": {
+      "title": "D-Day Paratroopers (American Experience feature)",
+      "publisher": "PBS / WGBH",
+      "url": "https://www.pbs.org/wgbh/americanexperience/features/dday-paratroopers",
+      "accessed": "2026-10-04"
+    },
+    "ddaymem_equipment": {
+      "title": "Soldier Equipment (education resource, PDF)",
+      "publisher": "National D-Day Memorial",
+      "url": "https://www.dday.org/wp-content/uploads/2020/03/Soldier-Equipment.pdf",
+      "accessed": "2026-10-04"
+    },
+    "paratrooper_be_flags": {
+      "title": "Invasion arm flags",
+      "publisher": "paratrooper.be (collector reference, medium reliability)",
+      "url": "https://www.paratrooper.be/articles/invasion-arm-flags/",
+      "accessed": "2026-10-04"
+    },
+    "qm_museum_aotm": {
+      "title": "Artifacts of the Month, 2024 (oilcloth flag brassard on an M1942 jump suit; may be on the 2025 page instead)",
+      "publisher": "US Army Quartermaster Museum",
+      "url": "https://qmmuseum.army.mil/explore/artifact-of-the-month/2024.html",
+      "accessed": "2026-10-04"
+    }
+  },
+  "facts": [
+    {
+      "id": "airborne_scale",
+      "text": "Shortly after midnight on 6 June 1944, over 18,000 men of the US 82nd and 101st Airborne Divisions and the British 6th Airborne Division were dropped into Normandy. The American parachute force behind Utah Beach was six regiments, more than 13,000 men, carried in about 925 C-47s.",
+      "status": "documented",
+      "sources": [
+        "iwm_dday_air",
+        "cmh_utah_airborne"
+      ]
+    },
+    {
+      "id": "pathfinders_101",
+      "text": "Pathfinders of the 101st Airborne jumped at about 00:15 to mark drop zones behind Utah Beach. Only a small fraction of pathfinder teams landed where planned.",
+      "status": "documented",
+      "sources": [
+        "nww2m_timeline",
+        "cmh_utah_airborne"
+      ]
+    },
+    {
+      "id": "drop_101_time",
+      "text": "The 101st Airborne's main parachute drop took place roughly between 00:48 and 01:40. The Army's official Utah Beach to Cherbourg dates the start of the 6,600-man drop to about 01:30. Sources disagree, so the game should say 'after midnight' rather than give a single minute.",
+      "status": "documented",
+      "sources": [
+        "cmh_utah_airborne",
+        "wiki_mission_albany"
+      ]
+    },
+    {
+      "id": "drop_82_time",
+      "text": "Pathfinders of the 82nd Airborne began dropping at about 01:21, into three zones near Sainte-Mère-Église and two west of the Merderet River. The main body began jumping at 01:51 from 369 C-47s, with drop zones near Sainte-Mère-Église, Amfreville and Picauville.",
+      "status": "documented",
+      "sources": [
+        "nww2m_timeline",
+        "aar_82nd",
+        "nww2m_airborne"
+      ]
+    },
+    {
+      "id": "gliders_0404",
+      "text": "From 04:04, 52 gliders landed for the 82nd Airborne, carrying anti-aircraft and anti-tank batteries, artillery parties, signals and divisional headquarters detachments.",
+      "status": "documented",
+      "sources": [
+        "aar_82nd",
+        "nww2m_timeline"
+      ]
+    },
+    {
+      "id": "drop_scatter_cause",
+      "text": "A cloud bank over the Cotentin Peninsula broke up the transport formations as pilots climbed or dived, and anti-aircraft fire scattered them further. Many planeloads were dropped far from their zones.",
+      "status": "documented",
+      "sources": [
+        "nww2m_airborne",
+        "cmh_utah_airborne"
+      ]
+    },
+    {
+      "id": "drop_scatter_effect",
+      "text": "Most paratroopers came down scattered over a wide area, and men spent hours or days finding each other in small mixed groups. The scattering also confused the Germans about the size and aim of the attack.",
+      "status": "documented",
+      "sources": [
+        "cmh_utah_airborne",
+        "nww2m_airborne"
+      ]
+    },
+    {
+      "id": "sme_fire",
+      "text": "During the night a fire, started by a stray incendiary from an Allied air raid, burned a building near the square in Sainte-Mère-Église. Paratroopers of the 82nd who came down over the lit town at about 01:30 were easy targets. The town, held by the 82nd on 6 June, is commemorated as the first town liberated on D-Day.",
+      "status": "documented",
+      "sources": [
+        "army_sme_church"
+      ]
+    },
+    {
+      "id": "weather_postponement",
+      "text": "D-Day was planned for 5 June. Group Captain Stagg's forecasters predicted storms, and Eisenhower postponed by 24 hours, then chose 6 June on a forecast break in the weather.",
+      "status": "documented",
+      "sources": [
+        "iwm_dday_weather",
+        "metoffice_dday"
+      ]
+    },
+    {
+      "id": "weather_night",
+      "text": "On the night of 5-6 June there were cloud banks over the Cotentin coast and a north-westerly wind. By early morning the wind was easing, but the swell was still hard on small craft.",
+      "status": "documented",
+      "sources": [
+        "nww2m_airborne",
+        "cmh_xchannel_ch8"
+      ]
+    },
+    {
+      "id": "weather_rain",
+      "text": "No source checked here records rain over the Sainte-Mère-Église area during the drop. Script broken cloud, wind and wet grass, not heavy rain. Confirm with Met Office Daily Weather Reports for 5-6 June 1944.",
+      "status": "reconstruction",
+      "sources": []
+    },
+    {
+      "id": "moon",
+      "text": "A nearly full moon was up during the drop, at its highest at about 01:19 on 6 June. The airborne planners wanted moonlight. Between cloud banks, roads, hedges and houses stood out clearly.",
+      "status": "documented",
+      "sources": [
+        "skytel_dday"
+      ]
+    },
+    {
+      "id": "clock_bdst",
+      "text": "In 1944 Britain kept British Double Summer Time (GMT+2) from 2 April to 17 September, so all Allied D-Day times are GMT+2. German clocks in occupied France were also on GMT+2 in June 1944, so both sides' clocks showed the same time (German side not confirmed against a primary source).",
+      "status": "documented",
+      "sources": [
+        "iana_tz_uk",
+        "c1900s_time"
+      ]
+    },
+    {
+      "id": "sunrise_omaha",
+      "text": "Sunrise at Omaha Beach on 6 June 1944 was 05:58, double summer time.",
+      "status": "documented",
+      "sources": [
+        "cmh_omaha_ch3"
+      ]
+    },
+    {
+      "id": "sunrise_hamlet",
+      "text": "Computed for Sainte-Mère-Église (49.41 N, 1.32 W) on 6 June 1944: civil dawn about 05:15, sunrise about 06:00 and sunset about 22:07, double summer time. Computed with a standard solar algorithm, which gives 05:59 for Omaha against the Army's 05:58. Not a sourced record.",
+      "status": "reconstruction",
+      "sources": []
+    },
+    {
+      "id": "utah_bombardment",
+      "text": "Off Utah Beach the naval bombardment was due at 05:50. Ships opened fire early, at about 05:30-05:40, after German batteries began firing. At about 06:10 nearly 300 B-26 Marauders bombed the beach defences, and the seaborne landing went in at H-Hour, 06:30. USS Nevada alone fired 337 14-inch and about 2,700 5-inch shells at Utah targets over the operation.",
+      "status": "documented",
+      "sources": [
+        "pritzker_utah_naval",
+        "pritzker_nevada",
+        "nhhc_neptune",
+        "cmh_omaha_ch3"
+      ]
+    },
+    {
+      "id": "bombardment_inland",
+      "text": "A hamlet about 10 km inland would hear the dawn naval and air bombardment of the coast as continuous thunder and see flashes on the horizon. Heavy naval shells could fall inland later in the day on call. Direct hits on the hamlet at dawn are not supported.",
+      "status": "reconstruction",
+      "sources": []
+    },
+    {
+      "id": "flooding",
+      "text": "Before the invasion the Germans flooded the low ground of the Merderet and Douve valleys, including by opening the locks near Carentan, so the Merderet was several times its normal width. Tall grass showing above the water hid the flooding from air reconnaissance. Some paratroopers who came down in it drowned, tangled in their parachutes or dragged under by their equipment.",
+      "status": "documented",
+      "sources": [
+        "historynet_lafiere",
+        "nww2m_airborne",
+        "cmh_utah_airborne"
+      ]
+    },
+    {
+      "id": "utah_inundation",
+      "text": "Behind Utah Beach there was also a flooded belt crossed by four causeways; the 101st Airborne's task was to seize their western ends (the beach exits) between Saint-Martin-de-Varreville and Pouppeville. West of Sainte-Mère-Église, the only Merderet crossings were at La Fière, about two miles west of the town, and Chef-du-Pont to the south-west.",
+      "status": "documented",
+      "sources": [
+        "cmh_utah_airborne",
+        "historynet_lafiere"
+      ]
+    },
+    {
+      "id": "bocage",
+      "text": "The bocage is a patchwork of small fields, orchards and sunken lanes enclosed by ancient hedgerows on earth banks, about 1-4 ft thick and 3-5 ft or more high, topped with hedges and trees.",
+      "status": "documented",
+      "sources": [
+        "doubler_bocage"
+      ]
+    },
+    {
+      "id": "farm_earth_buildings",
+      "text": "The Cotentin and Bessin marshes have the highest concentration in France of traditional earth-walled ('bauge' or 'masse') buildings, mostly from the 18th and 19th centuries. A typical marsh farm, such as the Maison des Marais at Marchésieux (1773), kept the hearth room, stables, cellar, cider press, cart shed and hay lofts under one roof.",
+      "status": "documented",
+      "sources": [
+        "pnr_terre"
+      ]
+    },
+    {
+      "id": "farm_stone_roofs",
+      "text": "Elsewhere in the Cotentin, older houses are built of local stone (granite or schist in the north) with thick walls and steep slate roofs. For a hamlet near Sainte-Mère-Église, mix stone and earth-walled buildings; use slate for most roofs, with thatch on a few older cottages and outbuildings (thatch proportion not sourced).",
+      "status": "reconstruction",
+      "sources": [
+        "wiki_norman_arch"
+      ]
+    },
+    {
+      "id": "farm_orchard",
+      "text": "Norman farms kept cider-apple orchards, often grazed by cattle, with a cider press and cellar on the farm. The cellar would hold barrels of cider and calvados.",
+      "status": "reconstruction",
+      "sources": [
+        "pnr_terre"
+      ]
+    },
+    {
+      "id": "rommel_asparagus",
+      "text": "From early 1944 Rommel ordered fields behind the coast that were suitable for gliders to be staked with poles ('Rommelspargel', Rommel's asparagus), set close enough to wreck landing gliders, and meant to be wired and mined. The poles were about 4-5 m high; well over a million were put up across the coast of France and the Low Countries.",
+      "status": "documented",
+      "sources": [
+        "cmh_xchannel_ch7",
+        "wiki_rommelspargel"
+      ]
+    },
+    {
+      "id": "rommel_asparagus_effect",
+      "text": "In practice many staked fields were unfinished: few poles carried mines or wire on 6 June, and air reconnaissance had mapped many of the fields. Their effect on the airborne landings was limited.",
+      "status": "reconstruction",
+      "sources": [
+        "wiki_rommelspargel"
+      ]
+    },
+    {
+      "id": "minen_signs",
+      "text": "German forces marked minefields with warning boards reading 'Achtung Minen'. Dummy minefields, wired in and seeded with buried tins, were also used, so a sign did not always mean live mines.",
+      "status": "documented",
+      "sources": [
+        "ttt_minefields",
+        "ttt_dummy_positions"
+      ]
+    },
+    {
+      "id": "minen_sign_hamlet",
+      "text": "A hand-painted 'Achtung Minen' board on a fence or hedge gate near the hamlet is plausible. Whether a specific inland field near Sainte-Mère-Église was mined is not recorded, so the game should keep the field's danger ambiguous.",
+      "status": "reconstruction",
+      "sources": []
+    },
+    {
+      "id": "cricket_origin",
+      "text": "The 'cricket' was a small brass toy clicker made by ACME in Birmingham, England. The 101st Airborne, at the suggestion of its commander Maj. Gen. Maxwell Taylor, ordered about 7,000 and issued them just before D-Day.",
+      "status": "documented",
+      "sources": [
+        "eisenhower_clicker",
+        "amheritage_clicker",
+        "whn_cricket"
+      ]
+    },
+    {
+      "id": "cricket_convention",
+      "text": "Recognition in the dark was one click (a single 'click-clack') answered by two clicks.",
+      "status": "documented",
+      "sources": [
+        "eisenhower_clicker",
+        "amheritage_clicker"
+      ]
+    },
+    {
+      "id": "cricket_units",
+      "text": "Which units used the cricket is disputed. The 101st Airborne's division history says only the 101st used it. Cornelius Ryan's The Longest Day describes 82nd Airborne men using it too. Safe choice: the lost paratrooper carries a 101st cricket.",
+      "status": "documented",
+      "sources": [
+        "whn_cricket"
+      ]
+    },
+    {
+      "id": "password",
+      "text": "The spoken challenge was 'Flash', answered by 'Thunder', valid for the first 24 hours of the operation. A third word, 'Welcome', is reported in later accounts but was not confirmed here.",
+      "status": "documented",
+      "sources": [
+        "eisenhower_clicker",
+        "amheritage_clicker"
+      ]
+    },
+    {
+      "id": "jump_uniform",
+      "text": "American paratroopers of the 82nd and 101st jumped into Normandy in the M1942 jump jacket and trousers. Many suits had been reinforced by unit riggers (the exact reinforcements, often canvas patches at elbows, knees and pockets, are not confirmed here).",
+      "status": "documented",
+      "sources": [
+        "nww2m_personal_link"
+      ]
+    },
+    {
+      "id": "load_weight",
+      "text": "Paratroopers jumped with a main parachute, a reserve parachute and very heavy loads: about 70 lb of equipment on average and about 90 lb for officers, so many men carried 90-120 lb above their body weight.",
+      "status": "documented",
+      "sources": [
+        "pbs_paratroopers",
+        "ddaymem_equipment"
+      ]
+    },
+    {
+      "id": "leg_bag",
+      "text": "Some men jumped with a leg bag strapped to the leg, meant to be released on a rope before landing. Many bags tore away in the jump and were lost.",
+      "status": "reconstruction",
+      "sources": []
+    },
+    {
+      "id": "arm_flag",
+      "text": "Some US paratroopers wore a 48-star US flag, printed on oilcloth (about 17 x 4 in) and pinned or sewn to the sleeve (usually the right), so that friendly troops would recognise them. Collector sources say the 82nd wore flags in Normandy while most of the 101st did not; treat unit use as unconfirmed.",
+      "status": "documented",
+      "sources": [
+        "paratrooper_be_flags",
+        "qm_museum_aotm"
+      ]
+    },
+    {
+      "id": "invasion_stripes",
+      "text": "Allied aircraft on D-Day wore 'invasion stripes': three white and two black bands round the wings and rear fuselage, about 2 ft wide on large aircraft and 18 in on small ones. The scheme was approved on 17 May 1944, and painting orders went out on 3 June to troop carrier units and on 4 June to fighters and bombers.",
+      "status": "documented",
+      "sources": [
+        "nasm_stripes",
+        "aviationist_stripes"
+      ]
+    },
+    {
+      "id": "leaflets",
+      "text": "After French pressure, SHAEF agreed to drop leaflets warning civilians before air attacks. Leaflets headed 'Message urgent' from the Allied Supreme Command told inhabitants to leave towns and roads for the countryside. Some fell in the wrong place, and German authorities stopped evacuations in some towns.",
+      "status": "documented",
+      "sources": [
+        "historytoday_leaflets",
+        "eisenhower_scaef21"
+      ]
+    },
+    {
+      "id": "civilian_toll",
+      "text": "About 20,000 Norman civilians were killed in the Battle of Normandy, nearly a third of all French civilians killed in the war. Many died under Allied bombing and shelling.",
+      "status": "documented",
+      "sources": [
+        "memorial_caen_battle",
+        "ap_civilians"
+      ]
+    },
+    {
+      "id": "civilian_dday_toll",
+      "text": "About 3,000 French civilians died on 6 June 1944 itself, mostly under Allied bombs, including about 700 in Lisieux.",
+      "status": "documented",
+      "sources": [
+        "ap_civilians",
+        "afp_civilians"
+      ]
+    },
+    {
+      "id": "sme_civilians",
+      "text": "In Sainte-Mère-Église, 25 civilians died on 6 June and 4 more on 7 June. German artillery in the fighting of 6-7 June destroyed or damaged about 60% of the town's buildings.",
+      "status": "documented",
+      "sources": [
+        "dday_overlord_sme"
+      ]
+    },
+    {
+      "id": "civilian_shelter",
+      "text": "Rural families sheltered in cellars, ditches, quarries and trenches dug in orchards during the bombardments, and many fled with carts to farms further from the fighting.",
+      "status": "reconstruction",
+      "sources": [
+        "afp_civilians"
+      ]
+    },
+    {
+      "id": "angoville_real",
+      "text": "At Angoville-au-Plain, about 10 miles inland from Utah Beach, Pvt. Robert E. Wright and Pvt. Kenneth J. Moore, medics of the 501st Parachute Infantry, 101st Airborne, turned the village church into an aid station. They hung a Red Cross flag and required all weapons to be left outside. Over about 72 hours, under shell and mortar fire, they treated more than 80 wounded, including about a dozen Germans and a local child. Both received the Silver Star; the church now has stained-glass windows honouring them and pews still marked by blood.",
+      "status": "documented",
+      "sources": [
+        "healthmil_medics",
+        "bdn_moore",
+        "nwg_angoville"
+      ]
+    },
+    {
+      "id": "angoville_borrow",
+      "text": "Safe to borrow for a fictional church: a stone parish church used as an aid station, a Red Cross flag, a rule that weapons stay outside, and wounded from both sides treated together. Do not borrow the medics' names, the number of patients, the child patient, the stained-glass windows or the bloodstained pews. Credit the real event in the journal.",
+      "status": "fiction",
+      "sources": []
+    },
+    {
+      "id": "prisoners_sme",
+      "text": "Prisoners were taken by both sides on D-Day. Paratrooper John Steele, caught on the church steeple in Sainte-Mère-Église, was taken prisoner by the Germans and later escaped.",
+      "status": "documented",
+      "sources": [
+        "army_sme_church"
+      ]
+    },
+    {
+      "id": "fiction_premise",
+      "text": "The hamlet, the farm family, the lost paratrooper, the wounded man, the church aid station, the civilian's message and the crash site are all fictional. Real units may be named only as background. No real person's actions are attributed to the player.",
+      "status": "fiction",
+      "sources": []
+    }
+  ],
+  "scanEntries": [
+    {
+      "id": "scan_cricket",
+      "title": "Cricket Clicker",
+      "text": "A small brass toy clicker made by ACME in Birmingham. The 101st Airborne ordered about 7,000 and issued them just before D-Day. One click in the dark was answered by two. Whether the 82nd Airborne also used them is disputed.",
+      "status": "documented",
+      "sources": [
+        "eisenhower_clicker",
+        "amheritage_clicker",
+        "whn_cricket"
+      ]
+    },
+    {
+      "id": "scan_jump_jacket",
+      "title": "M1942 Jump Jacket",
+      "text": "The olive-drab jacket and trousers that American paratroopers wore into Normandy. Many were reinforced by unit riggers before the invasion. Its large pockets held ammunition, rations, maps and personal items.",
+      "status": "documented",
+      "sources": [
+        "nww2m_personal_link"
+      ]
+    },
+    {
+      "id": "scan_arm_flag",
+      "title": "Oilcloth Arm Flag",
+      "text": "A 48-star US flag printed on oilcloth and pinned or sewn to the sleeve. It helped friendly troops recognise a paratrooper landed behind enemy lines. These flags faded quickly in sunlight.",
+      "status": "documented",
+      "sources": [
+        "paratrooper_be_flags",
+        "qm_museum_aotm"
+      ]
+    },
+    {
+      "id": "scan_reserve_chute",
+      "title": "Reserve Parachute",
+      "text": "A spare parachute carried in addition to the main canopy, in case the main one failed. With the main parachute, weapons and supplies, a paratrooper's load often came to 90-120 lb over his own body weight.",
+      "status": "documented",
+      "sources": [
+        "pbs_paratroopers",
+        "ddaymem_equipment"
+      ]
+    },
+    {
+      "id": "scan_rommelspargel",
+      "title": "Rommel's Asparagus",
+      "text": "Wooden poles about 4-5 m tall planted in open fields to wreck gliders. Rommel ordered fields behind the coast staked from early 1944, with wire and mines meant to be added. Many fields were unfinished by June.",
+      "status": "documented",
+      "sources": [
+        "cmh_xchannel_ch7",
+        "wiki_rommelspargel"
+      ]
+    },
+    {
+      "id": "scan_minen_sign",
+      "title": "'Achtung Minen' Board",
+      "text": "A German warning board marking a minefield. Germans also laid dummy minefields, fenced and seeded with buried tins, so a sign did not prove that mines were there. Treat every marked field as dangerous.",
+      "status": "documented",
+      "sources": [
+        "ttt_minefields",
+        "ttt_dummy_positions"
+      ]
+    },
+    {
+      "id": "scan_leaflet",
+      "title": "Allied Warning Leaflet",
+      "text": "A leaflet headed 'Message urgent' from the Allied Supreme Command. It told townspeople that air attacks were coming and urged them to leave towns and roads for the countryside. Some leaflets drifted away on the wind.",
+      "status": "documented",
+      "sources": [
+        "historytoday_leaflets",
+        "eisenhower_scaef21"
+      ]
+    },
+    {
+      "id": "scan_invasion_stripes",
+      "title": "Invasion Stripes",
+      "text": "Three white and two black bands painted round the wings and fuselage of Allied aircraft for D-Day, so that Allied gunners would not fire on them. Orders to paint them reached troop carrier units on 3 June 1944. They were painted hastily, often by hand.",
+      "status": "documented",
+      "sources": [
+        "nasm_stripes",
+        "aviationist_stripes"
+      ]
+    },
+    {
+      "id": "scan_flooded_meadow",
+      "title": "Flooded Meadow",
+      "text": "Grazing land flooded on purpose by the Germans before the invasion. Grass still showing above the water hid the flooding from reconnaissance aircraft. Some paratroopers who landed in water like this drowned under the weight of their equipment.",
+      "status": "documented",
+      "sources": [
+        "historynet_lafiere",
+        "cmh_utah_airborne"
+      ]
+    },
+    {
+      "id": "scan_hedgerow",
+      "title": "Bocage Hedgerow",
+      "text": "An ancient earth bank, up to about a metre thick and often taller than a man, topped with hedges and trees. Banks like this enclose the small fields and sunken lanes of the bocage and hide the next field from view.",
+      "status": "documented",
+      "sources": [
+        "doubler_bocage"
+      ]
+    },
+    {
+      "id": "scan_cider_press",
+      "title": "Farm Cider Press",
+      "text": "Marsh farms around the Cotentin often kept the cider press, cellar, stables and hearth room under one long roof. Many of their walls were built of earth ('bauge') mixed with water and fibre.",
+      "status": "documented",
+      "sources": [
+        "pnr_terre"
+      ]
+    },
+    {
+      "id": "scan_red_cross_flag",
+      "title": "Red Cross Flag",
+      "text": "A white flag with a red cross marking a medical post. At Angoville-au-Plain, two American medics hung one on the village church and treated wounded men from both sides. Weapons had to be left outside the door.",
+      "status": "documented",
+      "sources": [
+        "healthmil_medics",
+        "bdn_moore"
+      ]
+    },
+    {
+      "id": "scan_glider",
+      "title": "Troop-Carrying Glider",
+      "text": "An unpowered aircraft towed behind a transport plane and released over its landing zone. From 04:04 on 6 June, 52 gliders landed for the 82nd Airborne with anti-tank guns, signals equipment and headquarters staff. ",
+      "status": "documented",
+      "sources": [
+        "aar_82nd",
+        "nww2m_timeline"
+      ]
+    }
+  ]
+}

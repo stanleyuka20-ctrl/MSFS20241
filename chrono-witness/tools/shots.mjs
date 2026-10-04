@@ -50,6 +50,17 @@ const views = [
   ['ldn-s14', 'london_blitz_1940', [-27.5, 1.5], 1.65, [-28.5, 1.0, 8]],
   ['ldn-overview', 'london_blitz_1940', [-45, 28], 22, [0, -3, -20]],
   ['ldn-sky-south', 'london_blitz_1940', [20, 18], 1.65, [28, 40, 140]],
+  ['b45-street-west', 'berlin_1945', [48, 1], 1.65, [0, 4, -4]],
+  ['b45-no12', 'berlin_1945', [2, 4], 1.65, [0, 6, -12]],
+  ['b45-pump', 'berlin_1945', [37, 2], 1.65, [31, 1.2, 8]],
+  ['b45-yard', 'berlin_1945', [0, -18], 1.65, [3, 3, -30]],
+  ['b45-cellar-steps', 'berlin_1945', [-6, -29.5], 1.65, [-6, -1.5, -35]],
+  ['b45-cellar', 'berlin_1945', [-6, -37.5], 0, [-9, -1.8, -42], [-1.08, true]],
+  ['b45-stairs', 'berlin_1945', [7.4, -25.4], 0, [8.5, 4.5, -29.5], [1.7, true]],
+  ['b45-flat', 'berlin_1945', [10.6, -25.2], 0, [10.6, 7.6, -30], [8.82, true]],
+  ['b45-firewall', 'berlin_1945', [-46, -6], 1.65, [-36.2, 2, -14]],
+  ['b45-office', 'berlin_1945', [0, 11], 0, [0, 1.2, 16], [1.75, true]],
+  ['b45-overview', 'berlin_1945', [40, 22], 26, [-5, 0, -15]],
 ];
 let current = null;
 for (const [name, ch, [x, z], eh, [lx, ly, lz], abs] of views.filter((v) => !filter || v[0].includes(filter))) {

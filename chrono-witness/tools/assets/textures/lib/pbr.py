@@ -12,7 +12,8 @@ ImageFile.MAXBLOCK = 1 << 25
 
 from .core import blur, lin_to_srgb, luminance
 
-JPEG_QUALITY = 88
+JPEG_QUALITY = 88          # albedo
+JPEG_QUALITY_DATA = 85     # normal + ORM (size budget ~1 MB per set)
 
 
 @dataclass
@@ -85,16 +86,51 @@ def finalize(m: Material):
     return dict(albedo=alb8, normal=encode_normal(nrm), orm=orm8), stats
 
 
-def save_set(m: Material, out_root: str):
+SET_BUDGET_BYTES = 1_100_000   # per set (albedo + normal + ORM); "about 1 MB"
+_SAVE_ARGS = {"albedo": dict(quality=JPEG_QUALITY, subsampling="4:2:0"),
+              "normal": dict(quality=JPEG_QUALITY_DATA, subsampling="4:4:4"),
+              "orm": dict(quality=JPEG_QUALITY_DATA, subsampling="4:4:4")}
+
+
+def _encode(arr, key):
+    import io
+    b = io.BytesIO()
+    Image.fromarray(arr).save(b, "JPEG", optimize=True, **_SAVE_ARGS[key])
+    return b.getvalue()
+
+
+def _soften(arr, key, sigma):
+    """Remove texel-level detail (the costliest part for JPEG) with a periodic Gaussian; normals are
+    re-normalised so the map stays valid."""
+    a = arr.astype(np.float32) / 255.0
+    a = blur(a, sigma)
+    if key == "normal":
+        v = a * 2 - 1
+        v /= np.linalg.norm(v, axis=-1, keepdims=True) + 1e-6
+        a = v * 0.5 + 0.5
+    return np.clip(np.round(a * 255), 0, 255).astype(np.uint8)
+
+
+def save_set(m: Material, out_root: str, budget=SET_BUDGET_BYTES):
     imgs, stats = finalize(m)
     d = os.path.join(out_root, m.name)
     os.makedirs(d, exist_ok=True)
-    Image.fromarray(imgs["albedo"]).save(os.path.join(d, f"{m.name}_albedo.jpg"), quality=JPEG_QUALITY,
-                                         optimize=True, subsampling="4:2:0")
-    Image.fromarray(imgs["normal"]).save(os.path.join(d, f"{m.name}_normal.jpg"), quality=JPEG_QUALITY,
-                                         optimize=True, subsampling="4:4:4")
-    Image.fromarray(imgs["orm"]).save(os.path.join(d, f"{m.name}_orm.jpg"), quality=JPEG_QUALITY,
-                                      optimize=True, subsampling="4:4:4")
+    data = {k: _encode(v, k) for k, v in imgs.items()}
+    sigma = {k: 0.0 for k in imgs}
+    caps = {"albedo": 0.8, "normal": 1.2, "orm": 1.4}
+    # size budget: repeatedly soften the currently largest map (never beyond its cap)
+    while sum(len(v) for v in data.values()) > budget:
+        cand = [k for k in data if sigma[k] < caps[k]]
+        if not cand:
+            break
+        k = max(cand, key=lambda q: len(data[q]) * (0.6 if q == "albedo" else 1.0))
+        sigma[k] = min(caps[k], sigma[k] + 0.25 if sigma[k] else 0.45)
+        data[k] = _encode(_soften(imgs[k], k, sigma[k]), k)
+    for k, suffix in (("albedo", "albedo"), ("normal", "normal"), ("orm", "orm")):
+        with open(os.path.join(d, f"{m.name}_{suffix}.jpg"), "wb") as f:
+            f.write(data[k])
+    stats["bytes"] = sum(len(v) for v in data.values())
+    stats["soften"] = {k: round(v, 2) for k, v in sigma.items() if v}
     return stats
 
 

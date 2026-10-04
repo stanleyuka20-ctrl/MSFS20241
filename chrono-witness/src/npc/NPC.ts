@@ -89,7 +89,8 @@ export class NPC {
           if (!this.neck && n.startsWith('neck')) this.neck = o as THREE.Bone;
         }
         if ((o as THREE.Mesh).isMesh) {
-          if (opts.hideMeshes?.some((h) => o.name.toLowerCase().includes(h))) o.visible = false;
+          const matName = ([] as THREE.Material[]).concat((o as THREE.Mesh).material ?? []).map((m) => m.name.toLowerCase()).join(' ');
+          if (opts.hideMeshes?.some((h) => o.name.toLowerCase().includes(h) || matName.includes(h))) o.visible = false;
           else if (isLod1(o)) this.lod1.push(o);
           else this.lod0.push(o);
         }

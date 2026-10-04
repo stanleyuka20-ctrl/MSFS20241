@@ -75,7 +75,8 @@ def main():
         print(f"[{time.time() - t:5.1f}s] {name:18s} albedoLum p1={stats['albedo_lum_p1']:.3f} "
               f"mean={stats['albedo_lum_mean']:.3f} p99={stats['albedo_lum_p99']:.3f} "
               f"rough {stats['rough_min']:.2f}/{stats['rough_mean']:.2f}/{stats['rough_max']:.2f} "
-              f"metal {stats['metal_mean']:.2f} ao {stats['ao_mean']:.2f}", flush=True)
+              f"metal {stats['metal_mean']:.2f} ao {stats['ao_mean']:.2f} | {stats['bytes'] / 1e6:.2f} MB"
+              f"{' soften ' + str(stats['soften']) if stats['soften'] else ''}", flush=True)
     if manifest:
         write_manifest(manifest, OUT)
 

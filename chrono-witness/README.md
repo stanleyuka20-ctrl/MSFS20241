@@ -4,13 +4,13 @@ A first-person historical time-travel adventure built with **Three.js + TypeScri
 headquarters you travel to historical moments, explore what those places may have looked like and
 complete fictional, personal missions. The documented outcome of major events never changes.
 
-> **Status: work in progress — 2 of 8 historical chapters playable.** The **Headquarters**, the
-> **Western Front (Somme, October 1916)** and **London during the Blitz (September 1940)** are playable
-> from start to finish, and an automated playthrough checks every mission stage of both chapters.
-> London's characters are still **stand-ins** (recoloured WW1 models) until its period cast is made.
-> The other six destinations are registered in the destination selector as **in development**, with
-> research notes and a planned mission outline but no playable content, so the full game is not
-> finished. See [Status by destination](#status-by-destination) and [Known limitations](#known-limitations).
+> **Status: work in progress — 3 of 8 historical chapters playable.** The **Headquarters**, the
+> **Western Front (Somme, October 1916)**, **London during the Blitz (September 1940)** and **Berlin after
+> the surrender (18 May 1945)** are playable from start to finish, and an automated playthrough checks
+> every mission stage of each chapter. London's and Berlin's characters are still **stand-ins**
+> (recoloured WW1 models) until their period casts are made. The other five destinations are registered
+> in the destination selector as **in development**, with research files and a planned mission outline
+> but no playable content, so the full game is not finished. See [Status by destination](#status-by-destination) and [Known limitations](#known-limitations).
 
 ## Contents
 
@@ -137,6 +137,33 @@ Optional tasks: **Fire-Watch** (incendiaries in the back yards, reached by the a
 Sweet** (tea from the WVS canteen for the rescue party), **Witness Record** (8 of 13 objects).
 Five checkpoints.
 
+**Berlin after the surrender: "Chalk" (Friday 18 May 1945, fictional street).**
+A sunny, dusty late-spring day ten days after the surrender. Lindenhofstraße has Wilhelmine tenements
+with sheared-off fronts and burnt-out shells, a stranded tram, white sheets in windows, a Litfaß
+pillar with the city commandant's orders, a Soviet traffic regulator at the crossing and a cast-iron
+street pump with a queue. No. 12 has a carriage gateway, a courtyard with a chestnut in leaf, a side
+wing with a broken stairwell and the cellar where the residents now live; the school across the street
+is the ration-card office.
+
+Main mission, 11 stages:
+1. Find Frau Brandt in the courtyard and take her buckets.
+2. Queue at the street pump (the queue moves only while you wait in it), pump, and carry the water
+   down to the cellar (slow, no running).
+3. Herr Lenz has heard nothing from his daughter since April. Read the messages chalked on a bare
+   firewall at the west end, find hers, and chalk his answer underneath.
+4. Fetch his papers from the second floor of the side wing: steps are missing, so carry planks from the
+   woodpile and lay them across the gap.
+5. Wait your turn at the ration-card office and bring back his new cards (the five-group system began
+   on 15 May).
+6. **Scripted event:** children have found an unexploded shell in the ruins. Send them away, tell the
+   Soviet traffic regulator, and stand back while a sapper blows it up (announced first, skippable).
+7. Join neighbours passing buckets of rubble from a doorway (a timed hand-over).
+8. Lotte, who saw the answer on the wall, arrives at the cellar.
+9. Return to the anchor.
+
+Optional tasks: **Frau Kaminski** (a second trip to the pump), **Firewood** (broken timber for the cellar
+stove), **Witness Record** (8 of 13 objects). Six checkpoints.
+
 ## Status by destination
 
 | Destination | Status |
@@ -145,7 +172,7 @@ Five checkpoints.
 | Western Front, Somme, Oct 1916 | **Playable**, full mission chain verified by automated playthrough |
 | London Blitz, Sept 1940 | **Playable**, full mission chain verified by automated playthrough. Characters are stand-ins until the period cast exists. |
 | Normandy, June 1944 | In development (research notes and mission outline only) |
-| Berlin, April 1945 | In development (research notes and mission outline only) |
+| Berlin, 18 May 1945 | **Playable**, full mission chain verified by automated playthrough. Characters are stand-ins until the period cast exists. |
 | Hiroshima, 6 August 1945 | In development. Research notes include mandatory depiction guidance; nothing is implemented. |
 | Pompeii, AD 79 | In development (needs a decision on the date: 24 August or about 24 October) |
 | RMS Titanic, 1912 | In development (research notes and mission outline only) |
@@ -217,7 +244,8 @@ chrono-witness/
     bench/       Benchmark routes and result collection
     chapters/    registry, shared types, common/ (builder, geometry batching, fire, particles),
                  HQ, WW1 (layout, terrain, dressing, dugouts, village, props, world, runtime),
-                 London (layout, houses, street, tube, sky, runtime), planned (in-development destinations)
+                 London (layout, houses, street, tube, sky, runtime), Berlin 1945 (layout, world, runtime),
+                 common/urban.ts (tenement kit), common/RuntimeBase.ts, planned (in-development destinations)
   public/assets/ textures/ (procedural PBR sets + fx), characters/ (GLB characters, animations, first-person arms)
   tools/         smoke.mjs, playthrough.mjs, playthrough_london.mjs, harness.mjs, shots.mjs, bench.mjs,
                  assets/ (texture + character generators)
@@ -232,6 +260,7 @@ npm test                                   # vitest unit tests (missions, facts,
 npm run dev &                               # then, in another shell:
 node tools/playthrough.mjs                 # full automated playthrough of the WW1 chapter (49 checks)
 node tools/playthrough_london.mjs          # full automated playthrough of the London chapter (64 checks)
+node tools/playthrough_berlin45.mjs        # full automated playthrough of the Berlin 1945 chapter (43 checks)
 node tools/smoke.mjs                       # boot + load screenshots
 node tools/shots.mjs                       # fixed viewpoints → docs/screenshots
 node tools/bench.mjs <url> 1920 1080 medium 30   # benchmark routes → bench-results/*.json
@@ -249,7 +278,8 @@ The London playthrough also smothers the incendiaries under the timer, leads the
 platform, takes the bomb sequence, retries from a checkpoint, opens the gate, carries the dressings,
 completes the silence and the rescue, and does two optional tasks.
 
-Last results: `tests/playthrough-result.json` and `tests/playthrough-london-result.json`.
+Last results: `tests/playthrough-result.json`, `tests/playthrough-london-result.json` and
+`tests/playthrough-berlin45-result.json`.
 
 The tools use the Playwright Chromium build at `/opt/pw-browsers/chromium` by default. Set
 `CHROMIUM_PATH` to use another browser.
@@ -286,6 +316,16 @@ alone.
   the "Raiders Passed" signal; September 1940 is "ARP" (the name "Civil Defence" came in 1941); there
   were no Tube bunks yet; fire-watching was still voluntary; most static water tanks and Morrison
   shelters came in 1941, so neither appears.
+- **Berlin 1945 research:** [`docs/history/berlin_1945.md`](docs/history/berlin_1945.md) and `.json`:
+  45 facts, 13 scanner entries, 29 sources. Corrections adopted: the date is set to 18 May 1945 (after
+  the 15 May ration system, before Moscow time was ordered on 20 May); the word "Trümmerfrauen" is not
+  used, because compulsory rubble work for women began on 1 June and early clearing relied largely on
+  others; trams are stranded, not running; no Berliner Zeitung yet. The chalk messages and the sapper
+  are marked reconstruction or fiction.
+- **Research still to verify:** the files for Titanic, Hiroshima and the Berlin Wall were written after
+  the research tool's web-search allowance ran out. Their facts beyond the earlier notes are tagged
+  reconstruction and marked unverified in the `.md` files; they need a verification pass before those
+  chapters are built and shipped.
 - **Corrections adopted from research (WW1):** the message form is Army Form C.2121, in Army Book 153. The
   PH gas helmet and Small Box Respirator coexisted in late 1916. Villages in the battle zone were
   shelled flat, so the farm is a roofless ruin over an intact cellar. British clocks were on GMT
@@ -306,9 +346,9 @@ See [ASSETS.md](ASSETS.md). In summary:
 
 ## Known limitations
 
-- **Two of eight historical chapters are playable.** The six other destinations are not implemented
+- **Three of eight historical chapters are playable.** The five other destinations are not implemented
   (see the table above). Hiroshima in particular has only research and depiction guidance.
-- **London characters are placeholders.** Until the period cast (warden, mother and children, rescue
+- **London and Berlin characters are placeholders.** Until the period cast (warden, mother and children, rescue
   men, nurse, WVS, AFS, civilians) is built, London uses the WW1 character models, recoloured to darker
   civilian/ARP tones, with helmets hidden and children scaled down. They are recognisably soldiers'
   bodies and uniforms. This is the most visible gap in the London chapter.

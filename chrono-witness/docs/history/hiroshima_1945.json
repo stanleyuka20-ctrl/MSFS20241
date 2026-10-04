@@ -1,0 +1,455 @@
+{
+  "chapter": "hiroshima_1945",
+  "verificationNote": "No new web verification was possible in this pass. The session's WebSearch budget was used up while researching the Pompeii chapter, and the sandbox network policy blocked direct fetches (WebFetch) for every Hiroshima reference host tried: hpmmuseum.jp, city.hiroshima.lg.jp, hiroshimapeacemedia.jp, rerf.or.jp, ahf.nuclearmuseum.org, hiro-tsuitokinenkan.go.jp and en.wikipedia.org. Every 'documented' fact here comes from sources listed in research_notes_hiroshima_1945.md (accessed 2026-10-03), whose author checked them against search-engine summaries of the cited official pages, not full reads. Items this brief asked for that those notes did not cover are tagged 'reconstruction' and listed as open questions in the .md: the Hiroden girls' school details, Ninoshima, other relief stations, temperature, Korean victim numbers, death-toll ranges, clothing, rationing and fire-water tanks. A human must re-verify every item against the Hiroshima Peace Memorial Museum and the City of Hiroshima before shipping. Where the older note gave only a descriptive title, the title here is descriptive and says so. Times are Japan time.",
+  "sources": {
+    "hiro_city_realities": {
+      "title": "The Realities of the Atomic Bombing",
+      "publisher": "City of Hiroshima",
+      "url": "https://www.city.hiroshima.lg.jp/english/peace/1029920/1009857.html",
+      "accessed": "2026-10-03"
+    },
+    "hiro_city_deaths": {
+      "title": "Q. How many people died because of the atomic bombing?",
+      "publisher": "City of Hiroshima",
+      "url": "https://www.city.hiroshima.lg.jp/english/peace/1029875/1010074.html",
+      "accessed": "2026-10-03"
+    },
+    "hiro_city_booklet": {
+      "title": "Hiroshima for Global Peace, Chapter 4 'Atomic bombing' (PDF)",
+      "publisher": "City of Hiroshima",
+      "url": "https://www.city.hiroshima.lg.jp/_res/projects/default_project/_page_/001/048/861/2603_80_e04_02.pdf",
+      "accessed": "2026-10-03"
+    },
+    "hpmm_exhibit_doc": {
+      "title": "Exhibition document on the bombing mission and detonation (descriptive title)",
+      "publisher": "Hiroshima Peace Memorial Museum",
+      "url": "http://hpmmuseum.jp/modules/exhibition/index.php?action=DocumentView&document_id=24&lang=eng",
+      "accessed": "2026-10-03"
+    },
+    "hpmm_demolition": {
+      "title": "Virtual Museum: building demolition and mobilised students (descriptive title)",
+      "publisher": "Hiroshima Peace Memorial Museum",
+      "url": "https://hpmmuseum.jp/virtual/VirtualMuseum_e/exhibit_e/exh1302_e/exh130201_e.html",
+      "accessed": "2026-10-03"
+    },
+    "pcf_hypocenter": {
+      "title": "Peace Memorial Park tour no. 43: Hypocenter / Shima Hospital",
+      "publisher": "Hiroshima Peace Culture Foundation",
+      "url": "https://www.pcf.city.hiroshima.jp/virtual/map-e/irei/tour_43_e.html",
+      "accessed": "2026-10-03"
+    },
+    "hpmc_aioi": {
+      "title": "Nakajima Honmachi, Part I: Aioi Bridge, target of the atomic bomb",
+      "publisher": "Chugoku Shimbun, Hiroshima Peace Media Center",
+      "url": "https://www.hiroshimapeacemedia.jp/?p=23067",
+      "accessed": "2026-10-03"
+    },
+    "hiro_city_dome": {
+      "title": "The Story of the Atomic Bomb Dome",
+      "publisher": "City of Hiroshima",
+      "url": "https://www.city.hiroshima.lg.jp/english/peace/1029869/1010014.html",
+      "accessed": "2026-10-03"
+    },
+    "hpmc_black_rain": {
+      "title": "Black rain (explainer article; descriptive title)",
+      "publisher": "Chugoku Shimbun, Hiroshima Peace Media Center",
+      "url": "https://www.hiroshimapeacemedia.jp/?p=131346",
+      "accessed": "2026-10-03"
+    },
+    "hpmm_relief": {
+      "title": "Virtual Museum: relief activities and the restart of streetcars (descriptive title)",
+      "publisher": "Hiroshima Peace Memorial Museum",
+      "url": "https://hpmmuseum.jp/virtual/VirtualMuseum_e/exhibit_e/exh0203_e/exh02034_e.html",
+      "accessed": "2026-10-03"
+    },
+    "hpmc_sasaguchi": {
+      "title": "Survivors' Stories: Satoko Sasaguchi, conductor on 'first streetcar'",
+      "publisher": "Chugoku Shimbun, Hiroshima Peace Media Center",
+      "url": "https://www.hiroshimapeacemedia.jp/?p=111995",
+      "accessed": "2026-10-03"
+    },
+    "ahf_tibbets": {
+      "title": "Tibbets on the Hiroshima mission (US perspective; key documents)",
+      "publisher": "Atomic Heritage Foundation / National Museum of Nuclear Science & History",
+      "url": "https://ahf.nuclearmuseum.org/ahf/key-documents/tibbets-hiroshima/",
+      "accessed": "2026-10-03"
+    },
+    "hpmc_nakajima": {
+      "title": "Nakajima and Hondori before the bombing (article series; descriptive title)",
+      "publisher": "Chugoku Shimbun, Hiroshima Peace Media Center",
+      "url": "https://www.hiroshimapeacemedia.jp/?p=116818",
+      "accessed": "2026-10-03"
+    },
+    "hpmm_before": {
+      "title": "Virtual Museum: Hiroshima before the Bombing",
+      "publisher": "Hiroshima Peace Memorial Museum",
+      "url": "https://hpmmuseum.jp/virtual/VirtualMuseum_e/exhibit_e/exh1202_e/exh120201_e.html",
+      "accessed": "2026-10-03"
+    },
+    "unesco_dome": {
+      "title": "Hiroshima Peace Memorial (Genbaku Dome)",
+      "publisher": "UNESCO World Heritage Centre",
+      "url": "https://whc.unesco.org/en/list/775/",
+      "accessed": "2026-10-03"
+    },
+    "ahf_ogura": {
+      "title": "Keiko Ogura's Interview (Voices of the Manhattan Project oral history)",
+      "publisher": "Atomic Heritage Foundation / National Museum of Nuclear Science & History",
+      "url": "https://ahf.nuclearmuseum.org/voices/oral-histories/keiki-oguras-interview/",
+      "accessed": "2026-10-03"
+    },
+    "hpmc_yamada": {
+      "title": "Survivors' Stories: Seiso Yamada, mushroom cloud was 'blood red'",
+      "publisher": "Chugoku Shimbun, Hiroshima Peace Media Center",
+      "url": "https://www.hiroshimapeacemedia.jp/?p=116937",
+      "accessed": "2026-10-03"
+    },
+    "hpmc_cloud_height": {
+      "title": "Mushroom cloud reached height of 16 kilometers",
+      "publisher": "Chugoku Shimbun, Hiroshima Peace Media Center",
+      "url": "https://www.hiroshimapeacemedia.jp/?p=14989",
+      "accessed": "2026-10-03"
+    },
+    "hpmc_cloud_photo": {
+      "title": "Documenting Hiroshima of 1945: Mushroom cloud photographed reflexively",
+      "publisher": "Chugoku Shimbun, Hiroshima Peace Media Center",
+      "url": "https://www.hiroshimapeacemedia.jp/?p=145954",
+      "accessed": "2026-10-03"
+    }
+  },
+  "facts": [
+    {
+      "id": "death_toll",
+      "text": "The City of Hiroshima estimates that about 140,000 people had died by the end of December 1945, out of about 350,000 people in the city that day.",
+      "status": "documented",
+      "sources": ["hiro_city_deaths"]
+    },
+    {
+      "id": "death_toll_who",
+      "text": "The dead included residents, soldiers, people brought in from surrounding towns for war work, and people from Korea, Taiwan and mainland China.",
+      "status": "documented",
+      "sources": ["hiro_city_deaths"]
+    },
+    {
+      "id": "death_toll_ranges",
+      "text": "Other published estimates differ from the City's figure, and the margin of uncertainty is large because records were destroyed and many people were not registered residents. The ranges were not verified in this pass. Use the City's 'about 140,000 by the end of 1945' in game text.",
+      "status": "reconstruction",
+      "sources": []
+    },
+    {
+      "id": "korean_victims",
+      "text": "Many Koreans lived and worked in Hiroshima in 1945, many brought to Japan as labourers. Estimates of Korean deaths vary widely between sources, and no figure was verified in this pass. Acknowledge Korean and other foreign victims in text without giving a number until one is sourced.",
+      "status": "reconstruction",
+      "sources": []
+    },
+    {
+      "id": "weather_planes",
+      "text": "Before dawn, weather-reconnaissance B-29s left Tinian for Hiroshima, Kokura and Nagasaki. Three more B-29s followed: the Enola Gay carrying the bomb, a scientific observation plane and a photography plane.",
+      "status": "documented",
+      "sources": ["hiro_city_booklet", "hpmm_exhibit_doc"]
+    },
+    {
+      "id": "time_zones",
+      "text": "US mission records often use Tinian time, one hour ahead of Japan time. All game text should use Japan time (8:15 a.m.).",
+      "status": "reconstruction",
+      "sources": []
+    },
+    {
+      "id": "alert_0709",
+      "text": "At 7:09 a.m. a yellow air-raid alert sounded in Hiroshima, triggered by the weather-reconnaissance B-29 over the city.",
+      "status": "documented",
+      "sources": ["hiro_city_booklet", "hpmm_exhibit_doc"]
+    },
+    {
+      "id": "all_clear_0731",
+      "text": "The alert was lifted at 7:31 a.m. People finished a simple wartime breakfast and set off for work. Mobilised students and volunteer corps gathered at building-demolition sites.",
+      "status": "documented",
+      "sources": ["hiro_city_booklet", "hpmm_demolition"]
+    },
+    {
+      "id": "weather_clear",
+      "text": "The morning was mostly clear with little cloud. The weather plane reported good conditions over the primary target, and that decided the target.",
+      "status": "documented",
+      "sources": ["hiro_city_booklet", "ahf_tibbets"]
+    },
+    {
+      "id": "temperature",
+      "text": "It was a hot, humid midsummer morning, with low sun in the east-south-east at about 8 a.m. and cicadas audible. The actual temperature and humidity were not verified; check Japan Meteorological Agency or Hiroshima Local Meteorological Observatory records.",
+      "status": "reconstruction",
+      "sources": []
+    },
+    {
+      "id": "detonation",
+      "text": "At 8:15 a.m. the bomb was dropped from about 9,600 m. It detonated about 600 m above Shima Hospital, the hypocentre.",
+      "status": "documented",
+      "sources": ["hiro_city_realities", "hpmm_exhibit_doc", "pcf_hypocenter"]
+    },
+    {
+      "id": "aiming_point",
+      "text": "The aiming point was the Aioi Bridge. It was rebuilt in 1932-34 with an extra arm to the tip of Nakajima, which gave it an unusual T shape that was easy to see from the air. It carried streetcar tracks.",
+      "status": "documented",
+      "sources": ["hpmc_aioi"]
+    },
+    {
+      "id": "dome_distance",
+      "text": "The bomb burst about 160 m south-east of the Hiroshima Prefectural Industrial Promotion Hall, now the A-Bomb Dome (Genbaku Dome).",
+      "status": "documented",
+      "sources": ["hpmm_exhibit_doc", "hiro_city_dome"]
+    },
+    {
+      "id": "dome_building",
+      "text": "The Industrial Promotion Hall was designed by the Czech architect Jan Letzel and completed in April 1915. It was 25 m high, with a stone-and-mortar exterior and a five-storey central tower topped by an oval dome.",
+      "status": "documented",
+      "sources": ["hiro_city_dome", "unesco_dome"]
+    },
+    {
+      "id": "nakajima",
+      "text": "Nakajima-hon-machi, now the Peace Memorial Park, had been the city's commercial and cultural centre. Its main street, on the old Saigoku-kaido road, was lined with cinemas, cafes, restaurants and taverns. From the gate of Jisenji Temple to the Aioi Bridge it had bell-shaped street lamps.",
+      "status": "documented",
+      "sources": ["hpmc_aioi", "hpmc_nakajima"]
+    },
+    {
+      "id": "hondori",
+      "text": "About 160 retailers were still trading on the Hondori shopping street in August 1945. Confirm this figure on the source page.",
+      "status": "documented",
+      "sources": ["hpmc_nakajima", "hpmm_before"]
+    },
+    {
+      "id": "demolition_work",
+      "text": "Building demolition to create firebreaks against incendiary raids began in November 1944. On 6 August large-scale demolition was under way in several places, including what is now Peace Boulevard. The work was done by students of about 12 to 14 (upper elementary grades and first- and second-year junior high school) and by volunteer citizen corps of men in their 40s and women.",
+      "status": "documented",
+      "sources": ["hpmm_demolition"]
+    },
+    {
+      "id": "demolition_toll",
+      "text": "About 8,400 students were working at demolition sites that morning. About 6,300 of them died.",
+      "status": "documented",
+      "sources": ["hpmm_demolition"]
+    },
+    {
+      "id": "heat_blast",
+      "text": "Design data only; never depict. The fireball grew to over 200 m radius within a second. Heat rays lasted about three seconds and burned exposed skin up to about 3.5 km away. Nearly everything within about 2 km was destroyed by blast and fire together. Poles and trees were charred within about 3 km.",
+      "status": "documented",
+      "sources": ["hiro_city_realities"]
+    },
+    {
+      "id": "roof_tiles",
+      "text": "Clay roof tiles within about 600 m of the hypocentre melted and blistered in the heat.",
+      "status": "documented",
+      "sources": ["hiro_city_realities"]
+    },
+    {
+      "id": "houses",
+      "text": "Most houses in residential areas were one- or two-storey wooden buildings with clay-tile roofs, in narrow lanes. That is why fires spread so fast.",
+      "status": "reconstruction",
+      "sources": []
+    },
+    {
+      "id": "rivers_delta",
+      "text": "Hiroshima stands on the delta of the Ota River, divided by several river channels (often counted as six or seven in 1945) crossed by many bridges. The exact channel count and bridge list for 1945 were not verified in this pass.",
+      "status": "reconstruction",
+      "sources": []
+    },
+    {
+      "id": "pika_don",
+      "text": "Survivors called the bomb 'pika-don'. 'Pika' is a blinding flash and 'don' is a huge boom.",
+      "status": "documented",
+      "sources": ["ahf_ogura"]
+    },
+    {
+      "id": "cloud_6km",
+      "text": "Seiso Yamada, about 6 km away, photographed the cloud about two minutes after the explosion. He remembered it as 'blood red'.",
+      "status": "documented",
+      "sources": ["hpmc_yamada"]
+    },
+    {
+      "id": "cloud_distant",
+      "text": "At Kure, about 20 km away, a man at the Naval Arsenal photographed a huge cloud swirling up in the western sky. About 30 km north, at Kake, people saw it glinting silver in the sun. It was visible across the prefecture and into Shimane.",
+      "status": "documented",
+      "sources": ["hpmc_cloud_photo", "hpmc_yamada", "hpmc_cloud_height"]
+    },
+    {
+      "id": "cloud_height",
+      "text": "Research suggests the cloud reached about 16 km high.",
+      "status": "documented",
+      "sources": ["hpmc_cloud_height"]
+    },
+    {
+      "id": "black_rain",
+      "text": "'Black rain' carried soot, dust and radioactive fallout and fell mainly to the north-west of the city. It began about 30 to 45 minutes after the explosion, was most widespread around 10 a.m. and stopped about 3 p.m.",
+      "status": "documented",
+      "sources": ["hpmc_black_rain"]
+    },
+    {
+      "id": "conflagration",
+      "text": "Through the rest of the day, fires joined into a city-wide blaze.",
+      "status": "documented",
+      "sources": ["hiro_city_realities", "hpmm_relief"]
+    },
+    {
+      "id": "akatsuki_relief",
+      "text": "The Army Marine Headquarters at Ujina, the 'Akatsuki' corps, was relatively undamaged. Without waiting for orders, it began fighting fires and carrying and treating the injured on the day of the bombing.",
+      "status": "documented",
+      "sources": ["hiro_city_realities", "hpmm_relief"]
+    },
+    {
+      "id": "ninoshima",
+      "text": "Injured people were taken by boat to the army quarantine station on Ninoshima island, in Hiroshima Bay, which became a large relief station. Dates and numbers were not verified in this pass; do not use a figure until sourced.",
+      "status": "reconstruction",
+      "sources": []
+    },
+    {
+      "id": "relief_stations",
+      "text": "Relief stations were improvised in surviving buildings such as schools, temples and offices on the edge of the city. Rescue and medical teams from surrounding towns and military units arrived from the afternoon of 6 August and over the next days. Which stations existed, and when each team arrived, were not verified in this pass.",
+      "status": "reconstruction",
+      "sources": []
+    },
+    {
+      "id": "streetcar_restart",
+      "text": "On 9 August streetcars ran again between Koi and Tenma-cho (Nishi-Tenma), powered from a substation about 15 km west. Survivors without money rode free.",
+      "status": "documented",
+      "sources": ["hpmm_relief", "hpmc_sasaguchi"]
+    },
+    {
+      "id": "student_conductor",
+      "text": "Women worked as streetcar conductors in 1945. A Chugoku Shimbun survivor profile records Satoko Sasaguchi as a conductor on the 'first streetcar' after the bombing.",
+      "status": "documented",
+      "sources": ["hpmc_sasaguchi"]
+    },
+    {
+      "id": "hiroden_school",
+      "text": "The Hiroshima Electric Railway ran a girls' school that trained teenage girls to work as streetcar conductors and drivers, replacing men called up for the war. Its opening date, the students' ages, their numbers, and whether they drove as well as conducted on 6 August were not verified in this pass.",
+      "status": "reconstruction",
+      "sources": []
+    },
+    {
+      "id": "clothing",
+      "text": "Women wore monpe, loose work trousers gathered at the ankle. Men wore the khaki national civilian uniform (kokuminfuku) with puttees, or work clothes. Students wore school uniforms and cloth armbands or name tags. Many people carried a padded cloth air-raid hood (bokuzukin) over the shoulder. Plausible and widely described, but not verified against a museum source in this pass.",
+      "status": "reconstruction",
+      "sources": []
+    },
+    {
+      "id": "rationing",
+      "text": "Rice and other staples were rationed, and supplies were short. Meals were plain, often rice mixed with barley or other grains, with vegetables. Ration details for Hiroshima in August 1945 were not verified in this pass.",
+      "status": "reconstruction",
+      "sources": []
+    },
+    {
+      "id": "fire_water_tanks",
+      "text": "Concrete or wooden fire-water tanks and buckets stood in streets and by houses for neighbourhood firefighting drills against incendiary raids. Not verified against a Hiroshima source in this pass.",
+      "status": "reconstruction",
+      "sources": []
+    },
+    {
+      "id": "testimony_collections",
+      "text": "Citable testimony collections include the Chugoku Shimbun 'Survivors' Stories' series on the Hiroshima Peace Media Center and the Atomic Heritage Foundation's 'Voices of the Manhattan Project' oral histories, which include Hiroshima survivors. The Hiroshima Peace Memorial Museum and the Hiroshima National Peace Memorial Hall for the Atomic Bomb Victims also hold testimony, but their pages were not reachable in this pass.",
+      "status": "documented",
+      "sources": ["hpmc_sasaguchi", "hpmc_yamada", "ahf_ogura"]
+    },
+    {
+      "id": "fiction_location",
+      "text": "The neighbourhood is fictional, about 3 km south-east of the hypocentre, between the city centre and Ujina. Its name must not be a real district's name. Heavy damage and fires starting, but not total destruction, are a design choice consistent with the City's damage figures for that distance.",
+      "status": "fiction",
+      "sources": []
+    },
+    {
+      "id": "fiction_premise",
+      "text": "The player, the resident whose delivery is completed, the survivors guided in the aftermath and the relief station are all fictional. The temporal device and the protected distant viewpoint are game inventions. No real victim is a character.",
+      "status": "fiction",
+      "sources": []
+    }
+  ],
+  "scanEntries": [
+    {
+      "id": "scan_streetcar",
+      "title": "Streetcar",
+      "text": "An electric streetcar of the Hiroshima Electric Railway. One conductor of the first car to run after the bombing later told her story to the Chugoku Shimbun. Three days after the bombing, cars ran again between Koi and Tenma-cho, and survivors without money rode free.",
+      "status": "documented",
+      "sources": ["hpmm_relief", "hpmc_sasaguchi"]
+    },
+    {
+      "id": "scan_demolition_site",
+      "title": "Firebreak Demolition Site",
+      "text": "A row of houses partly pulled down to make a firebreak against incendiary raids. This work began in November 1944. On 6 August it was done by schoolchildren of about 12 to 14 and by volunteer citizen corps.",
+      "status": "documented",
+      "sources": ["hpmm_demolition"]
+    },
+    {
+      "id": "scan_alert_board",
+      "title": "Neighbourhood Notice Board",
+      "text": "A neighbourhood notice board (its form is a reconstruction). This morning a yellow air-raid alert sounded at 7:09, set off by a single weather plane, and was lifted at 7:31. People then went to work and school as usual.",
+      "status": "documented",
+      "sources": ["hiro_city_booklet", "hpmm_exhibit_doc"]
+    },
+    {
+      "id": "scan_fire_water_tank",
+      "title": "Fire-Water Tank",
+      "text": "A tank of water kept by the street for neighbourhood firefighting, with buckets nearby. Residents drilled to put out small fires from incendiary bombs. Its exact form here is a reconstruction.",
+      "status": "reconstruction",
+      "sources": []
+    },
+    {
+      "id": "scan_air_raid_hood",
+      "title": "Air-Raid Hood",
+      "text": "A padded cloth hood (bokuzukin) that covered the head and shoulders, meant to soften falling debris and sparks. Many people carried one slung over the shoulder. This design is a reconstruction.",
+      "status": "reconstruction",
+      "sources": []
+    },
+    {
+      "id": "scan_monpe",
+      "title": "Monpe Work Trousers",
+      "text": "Loose cotton trousers gathered at the ankle, worn by women for wartime work and drills. They were often sewn at home from old kimono cloth. Reconstruction; not checked against a museum source.",
+      "status": "reconstruction",
+      "sources": []
+    },
+    {
+      "id": "scan_tile_roof",
+      "title": "Wooden House with Tile Roof",
+      "text": "A timber-framed house with clay roof tiles and paper-screened windows. Most homes in Hiroshima's residential districts were built like this, which is why fires spread so quickly. General layout is a reconstruction.",
+      "status": "reconstruction",
+      "sources": []
+    },
+    {
+      "id": "scan_ration_book",
+      "title": "Rice Ration Book",
+      "text": "A household's passbook for collecting rationed rice and staples. By 1945 rations were small, and rice was often mixed with barley or other grains. Reconstruction; Hiroshima ration details were not verified.",
+      "status": "reconstruction",
+      "sources": []
+    },
+    {
+      "id": "scan_dome_postcard",
+      "title": "Postcard: Industrial Promotion Hall",
+      "text": "A postcard of the Hiroshima Prefectural Industrial Promotion Hall, designed by Jan Letzel and opened in 1915, with its five-storey central tower and oval dome. Today its ruin, the A-Bomb Dome, is a UNESCO World Heritage Site.",
+      "status": "documented",
+      "sources": ["hiro_city_dome", "unesco_dome"]
+    },
+    {
+      "id": "scan_city_map",
+      "title": "City Map",
+      "text": "A map of the river delta showing the city's bridges and streetcar lines. The Aioi Bridge, near the city centre, had an unusual T shape after it was rebuilt in 1932-34 with an arm to the tip of Nakajima. It carried streetcar tracks.",
+      "status": "documented",
+      "sources": ["hpmc_aioi"]
+    },
+    {
+      "id": "scan_river_steps",
+      "title": "River Embankment Steps",
+      "text": "Stone steps down to one of the delta's river channels, used for fetching water and landing small boats. Reconstruction of a typical embankment.",
+      "status": "reconstruction",
+      "sources": []
+    },
+    {
+      "id": "scan_relief_station",
+      "title": "Relief Station",
+      "text": "A first-aid point in a surviving building on the edge of the burned area, with water, bandages and stretchers. On the day of the bombing, soldiers of the Army Marine Headquarters at Ujina, the Akatsuki corps, fought fires and carried and treated the injured without waiting for orders. This station is fictional.",
+      "status": "documented",
+      "sources": ["hiro_city_realities", "hpmm_relief"]
+    },
+    {
+      "id": "scan_distant_cloud",
+      "title": "The Cloud over Hiroshima",
+      "text": "From far outside the city, the cloud rose within minutes. A man 6 km away who photographed it remembered it as 'blood red'; at Kure, 20 km away, it swirled up in the western sky. It reached about 16 km high. By the end of 1945, about 140,000 people had died.",
+      "status": "documented",
+      "sources": ["hpmc_yamada", "hpmc_cloud_photo", "hpmc_cloud_height", "hiro_city_deaths"]
+    }
+  ]
+}

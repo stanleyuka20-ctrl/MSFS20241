@@ -1,0 +1,222 @@
+{
+  "date": "2026-10-04T02:16:30.578Z",
+  "passed": 43,
+  "total": 43,
+  "results": [
+    {
+      "name": "Chapter loads",
+      "ok": true,
+      "info": "asset issues: 13"
+    },
+    {
+      "name": "Intro cinematic skippable",
+      "ok": true,
+      "info": ""
+    },
+    {
+      "name": "Walk through the gateway into the courtyard",
+      "ok": true,
+      "info": "{\"ok\":true,\"pos\":[-0.94,0.05,-21.17],\"minDrop\":0}"
+    },
+    {
+      "name": "Frau Brandt gives the buckets",
+      "ok": true,
+      "info": "{\"ok\":true} You’re not from round here. Never mind, nobody is  / There’s no water in the taps, not since April. The / Here. Bring it down to the cellar, the steps are b"
+    },
+    {
+      "name": "Stage \"water\" + checkpoint \"yard\"",
+      "ok": true,
+      "info": ""
+    },
+    {
+      "name": "Join the end of the queue at the pump",
+      "ok": true,
+      "info": "{\"ok\":true,\"pos\":[35.28,0.13,7.87],\"minDrop\":0}"
+    },
+    {
+      "name": "Cannot pump before your turn",
+      "ok": true,
+      "info": ""
+    },
+    {
+      "name": "The queue moves on while you wait",
+      "ok": true,
+      "info": ""
+    },
+    {
+      "name": "Pump the water (hold E)",
+      "ok": true,
+      "info": "{\"ok\":true}"
+    },
+    {
+      "name": "Scan the street pump",
+      "ok": true,
+      "info": "{\"ok\":true}"
+    },
+    {
+      "name": "Carry the water down the cellar steps",
+      "ok": true,
+      "info": "{\"ok\":true,\"pos\":[-6.16,-2.7,-39.5],\"minDrop\":-999}"
+    },
+    {
+      "name": "Water delivered (stage \"lenz\", checkpoint \"cellar\")",
+      "ok": true,
+      "info": "{\"ok\":true}"
+    },
+    {
+      "name": "Herr Lenz asks you to look at the chalk wall",
+      "ok": true,
+      "info": "Water. Good. Sit a moment. My daughter Lotte was a / There is a big wall like that at the west end of t"
+    },
+    {
+      "name": "Optional \"Firewood\" offered",
+      "ok": true,
+      "info": "Water! Thank you. Now I need something to burn und"
+    },
+    {
+      "name": "Walk to the firewall at the west end",
+      "ok": true,
+      "info": "{\"ok\":true,\"pos\":[-39.31,-0.02,-13.46],\"minDrop\":0}"
+    },
+    {
+      "name": "Read the chalked messages",
+      "ok": true,
+      "info": "{\"ok\":true}"
+    },
+    {
+      "name": "Chalk Herr Lenz’s answer",
+      "ok": true,
+      "info": "{\"ok\":true}"
+    },
+    {
+      "name": "Lenz needs his papers",
+      "ok": true,
+      "info": "She is alive? She wrote it herself? Coming back on / My papers are in a tin box on the wardrobe in my f"
+    },
+    {
+      "name": "Take planks from the woodpile",
+      "ok": true,
+      "info": "{\"ok\":true}"
+    },
+    {
+      "name": "Climb to the broken flight (carrying)",
+      "ok": true,
+      "info": "{\"ok\":true,\"pos\":[8.38,5.4,-29.39],\"minDrop\":0}"
+    },
+    {
+      "name": "Lay planks across the gap",
+      "ok": true,
+      "info": "{\"ok\":true}"
+    },
+    {
+      "name": "Cross the planks into the Lenz flat",
+      "ok": true,
+      "info": "{\"ok\":true,\"pos\":[10.25,7.22,-27.01],\"minDrop\":0}"
+    },
+    {
+      "name": "Take the tin box of papers",
+      "ok": true,
+      "info": "{\"ok\":true}"
+    },
+    {
+      "name": "Checkpoint \"papers\"",
+      "ok": true,
+      "info": ""
+    },
+    {
+      "name": "Back down the stairs",
+      "ok": true,
+      "info": "{\"ok\":true,\"pos\":[3.21,0.05,-25.03],\"minDrop\":0}"
+    },
+    {
+      "name": "Into the ration-card office",
+      "ok": true,
+      "info": "{\"ok\":true,\"pos\":[0.65,0.15,14.47],\"minDrop\":0}"
+    },
+    {
+      "name": "Your turn comes",
+      "ok": true,
+      "info": ""
+    },
+    {
+      "name": "Clerk issues the new cards",
+      "ok": true,
+      "info": "Lenz, Wilhelm, Lindenhofstraße 12. Pensioner. That / Here are his cards. Don’t lose them; there are no "
+    },
+    {
+      "name": "Cards delivered (stage \"shell\", checkpoint \"office\")",
+      "ok": true,
+      "info": "New cards. Group five, I suppose, an old man witho"
+    },
+    {
+      "name": "Peter brings news of the shell",
+      "ok": true,
+      "info": ""
+    },
+    {
+      "name": "Send all three children away",
+      "ok": true,
+      "info": ""
+    },
+    {
+      "name": "Tell the traffic regulator; a sapper is sent",
+      "ok": true,
+      "info": "Что? A shell? Where? (You point down the street to / Хорошо. I send for the sapper. Keep the people awa"
+    },
+    {
+      "name": "Sapper arrives; the demolition asks first (skippable)",
+      "ok": true,
+      "info": "Skip this sequence (progress kept) | Experience it (He looks at the shell for a long time, then at yo / Back! Further! Gut."
+    },
+    {
+      "name": "Shell made safe (stage \"chain\")",
+      "ok": true,
+      "info": ""
+    },
+    {
+      "name": "Gather three pieces of firewood (optional)",
+      "ok": true,
+      "info": ""
+    },
+    {
+      "name": "Pass five buckets along the chain",
+      "ok": true,
+      "info": ""
+    },
+    {
+      "name": "Stack the firewood by the stove (optional complete)",
+      "ok": true,
+      "info": "{\"ok\":true}"
+    },
+    {
+      "name": "Lotte arrives at the cellar",
+      "ok": true,
+      "info": ""
+    },
+    {
+      "name": "Reunion (stage \"return\")",
+      "ok": true,
+      "info": "{\"ok\":true} I walked from Steglitz. Three days, with the bridg / Whoever wrote it for him, thank you."
+    },
+    {
+      "name": "Return to the anchor completes the chapter",
+      "ok": true,
+      "info": "{\"ok\":true,\"pos\":[47.69,0,0.96],\"minDrop\":-999}"
+    },
+    {
+      "name": "Completion recorded in the save",
+      "ok": true,
+      "info": ""
+    },
+    {
+      "name": "Witness record progress",
+      "ok": true,
+      "info": "7 scans"
+    },
+    {
+      "name": "No page errors",
+      "ok": true,
+      "info": ""
+    }
+  ]
+}

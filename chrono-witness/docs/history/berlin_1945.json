@@ -1,0 +1,652 @@
+{
+  "chapter": "berlin_1945",
+  "verificationNote": "Sources accessed 2026-10-04 unless marked 2026-10-03. Direct page fetching (WebFetch) was blocked by the network egress proxy for every reference host tried (bpb, Stiftung Berliner Mauer, museum-digital, gvoon, Wikipedia, Chronik der Mauer). Each 'documented' fact was checked against search-engine summaries of the cited page, not a full read. The session's web-search budget ran out partway through, so several topics (curfew hours, U-Bahn restart date, shelter signage, Cyrillic signs, clothing, weather, chalk messages) could not be researched and are tagged 'reconstruction'. Sources dated 2026-10-03 were carried over from research_notes_berlin_1945.md and were not re-checked. Keys starting 'sec_' are secondary and 'tert_' are tertiary. Some titles are taken from page headings or URL slugs. Confirm the wording on each live page before shipping.",
+  "sources": {
+    "iwm_battle_berlin": {
+      "title": "The Battle of Berlin: Germany's downfall on the Eastern Front",
+      "publisher": "Imperial War Museums",
+      "url": "https://www.iwm.org.uk/history/second-world-war/eastern-front/the-battle-of-berlin-germanys-downfall-on-the-eastern-front",
+      "accessed": "2026-10-03"
+    },
+    "barch_lagekarte": {
+      "title": "Lagekarte zur Schlacht um Berlin",
+      "publisher": "Bundesarchiv",
+      "url": "https://www.bundesarchiv.de/themen-entdecken/online-entdecken/dokumente-zur-zeitgeschichte/lagekarte-zur-schlacht-um-berlin/",
+      "accessed": "2026-10-03"
+    },
+    "barch_kapitulation": {
+      "title": "Die deutsche Kapitulation 1945",
+      "publisher": "Bundesarchiv",
+      "url": "https://www.bundesarchiv.de/themen-entdecken/online-entdecken/geschichtsgalerien/die-deutsche-kapitulation-1945/",
+      "accessed": "2026-10-03"
+    },
+    "nam_may1945": {
+      "title": "On This Day: May 1945",
+      "publisher": "National Army Museum",
+      "url": "https://nam.ac.uk/explore/day-may-1945",
+      "accessed": "2026-10-03"
+    },
+    "ghdi_female_survival": {
+      "title": "Female survival in Berlin in April 1945 (retrospective account, 1950s)",
+      "publisher": "German History in Documents and Images (GHI Washington)",
+      "url": "https://germanhistorydocs.org/en/nazi-germany-1933-1945/female-survival-in-berlin-in-april-1945-retrospective-account-1950s",
+      "accessed": "2026-10-03"
+    },
+    "sec_the_berliner": {
+      "title": "Trümmerfrauen: rubble women",
+      "publisher": "The Berliner (magazine; secondary)",
+      "url": "https://www.the-berliner.com/berlin/trummerfrauen-rubble-women-history-debris/",
+      "accessed": "2026-10-03"
+    },
+    "berlin_de_ns": {
+      "title": "Berlin in the National Socialist era",
+      "publisher": "Berlin.de (Land Berlin)",
+      "url": "https://www.berlin.de/en/history/8481323-8619314-berlin-in-the-national-socialist-era.en.html",
+      "accessed": "2026-10-03"
+    },
+    "sec_hoxne": {
+      "title": "WW2 The Battle for Berlin (PDF)",
+      "publisher": "Hoxne local history society (secondary)",
+      "url": "https://hoxnehistory.org.uk/WW2%20The%20Battle%20for%20Berlin.pdf",
+      "accessed": "2026-10-03"
+    },
+    "sec_macmillan": {
+      "title": "Berlin: Life and Death in the City at the Center of the World, excerpt ch. 1",
+      "publisher": "Macmillan (secondary)",
+      "url": "https://us.macmillan.com/books/9781250277510/berlinlifeanddeathinthecityatthecenteroftheworld",
+      "accessed": "2026-10-03"
+    },
+    "ghdi_bombed_out": {
+      "title": "After the storming of Berlin: bombed-out people on the street (May 1, 1945)",
+      "publisher": "German History in Documents and Images (GHI Washington)",
+      "url": "https://germanhistorydocs.org/en/occupation-and-the-emergence-of-two-states-1945-1961/after-the-storming-of-berlin-bombed-out-people-on-the-street-may-1-1945.pdf",
+      "accessed": "2026-10-04"
+    },
+    "mieterverein_pumps": {
+      "title": "Berliner Wasserpumpen: Trinkwasser per Muskelkraft (MieterMagazin 4/2024)",
+      "publisher": "Berliner Mieterverein",
+      "url": "https://www.berliner-mieterverein.de/magazin/online/hintergrund/berliner-wasserpumpen-trinkwasser-per-muskelkraft-042024.htm",
+      "accessed": "2026-10-04"
+    },
+    "tip_pumps": {
+      "title": "Straßenbrunnen in Berlin: Geschichte der Wasserpumpen",
+      "publisher": "tip Berlin (city magazine; secondary)",
+      "url": "https://www.tip-berlin.de/stadtleben/strassenbrunnen-berlin-wasserpumpen-geschichte/",
+      "accessed": "2026-10-04"
+    },
+    "vobl_1945_p4": {
+      "title": "Verordnungsblatt der Stadt Berlin 1945, page 4 (Order No. 4 of the Soviet city commandant, 20 May 1945)",
+      "publisher": "gvoon.de (transcription of the official gazette)",
+      "url": "https://www.gvoon.de/art/dokumente/1945/verordnungsblatt-vobl-berlin-1945/pdf/verordnungsblatt-vobl-berlin-1945-seite_004.pdf",
+      "accessed": "2026-10-04"
+    },
+    "tert_tz_germany": {
+      "title": "Completed timezone history of Germany (tz mailing list)",
+      "publisher": "IANA / ICANN tz mailing list (tertiary)",
+      "url": "https://mm.icann.org/pipermail/tz/2011-August/033787.html",
+      "accessed": "2026-10-04"
+    },
+    "cma_baltermants": {
+      "title": "Dmitri Baltermants, Resetting German Clocks Forward to Moscow Time, May 1945",
+      "publisher": "Cleveland Museum of Art",
+      "url": "https://www.clevelandart.org/art/2014.561",
+      "accessed": "2026-10-04"
+    },
+    "md_order1": {
+      "title": "Order No. 1 of the Soviet city commandant of Berlin (bilingual poster, 1945), object record 71177",
+      "publisher": "museum-digital:berlin",
+      "url": "https://berlin.museum-digital.de/pdf/object/71177.pdf?lang=en",
+      "accessed": "2026-10-04"
+    },
+    "md_ration_card": {
+      "title": "Food ration card, Berlin, May 1945 (Museum Berlin-Karlshorst), object record 81605",
+      "publisher": "museum-digital:berlin",
+      "url": "https://berlin.museum-digital.de/pdf/object/81605.pdf?lang=en",
+      "accessed": "2026-10-04"
+    },
+    "bz_berlin_lebt_auf": {
+      "title": "Berlin lebt auf",
+      "publisher": "Berliner Zeitung",
+      "url": "https://www.berliner-zeitung.de/article/nicht-veroeffentlichen-teil7-wurst-wider-wurst-83752",
+      "accessed": "2026-10-04"
+    },
+    "bz_white_armbands": {
+      "title": "28. April 1945: Hitler erfährt von der Kapitulation: 'Die Deutschen tragen alle weiße Armbinden'",
+      "publisher": "Berliner Zeitung",
+      "url": "https://www.berliner-zeitung.de/article/28-april-1945-hitler-erfaehrt-von-der-kapitulation-die-deutschen-tragen-alle-weisse-armbinden-46686",
+      "accessed": "2026-10-04"
+    },
+    "dhm_bersarin": {
+      "title": "Nikolai Bersarin 1904-1945 (LeMO biography)",
+      "publisher": "Deutsches Historisches Museum",
+      "url": "https://www.dhm.de/lemo/biografie/nikolai-bersarin",
+      "accessed": "2026-10-04"
+    },
+    "bpb_19_mai_1945": {
+      "title": "Deutschland-Chronik: 19. Mai 1945",
+      "publisher": "Bundeszentrale für politische Bildung (bpb)",
+      "url": "https://www.bpb.de/themen/zeit-kulturgeschichte/deutschland-chronik/131273/19-mai-1945/",
+      "accessed": "2026-10-04"
+    },
+    "berlin_de_mayors": {
+      "title": "Besatzung, Spaltung und Blockade 1945-1948/49 (gallery of mayors)",
+      "publisher": "Berlin.de (Senatskanzlei)",
+      "url": "https://www.berlin.de/rbmskzl/politik/senat/buergermeistergalerie/artikel.4559.php",
+      "accessed": "2026-10-04"
+    },
+    "dhm_kk_timeline": {
+      "title": "Kalter Krieg exhibition timeline, 1945",
+      "publisher": "Deutsches Historisches Museum (archived exhibition site)",
+      "url": "https://www.dhm.de/archiv/ausstellungen/kalter_krieg/aet_02.htm",
+      "accessed": "2026-10-04"
+    },
+    "berlin_de_tram": {
+      "title": "150 Jahre Straßenbahn",
+      "publisher": "Berlin.de",
+      "url": "https://www.berlin.de/aktuell/ausgaben/2015/dezember/berliner-ereignisse/150-jahre-strassenbahn-404916.php",
+      "accessed": "2026-10-04"
+    },
+    "tert_bvg_history": {
+      "title": "Berliner Verkehrsbetriebe (BVG) History",
+      "publisher": "FundingUniverse company histories (tertiary)",
+      "url": "https://www.fundinguniverse.com/company-histories/berliner-verkehrsbetriebe-bvg-history/",
+      "accessed": "2026-10-04"
+    },
+    "bpb_treber": {
+      "title": "Mythos Trümmerfrau: deutsch-deutsche Erinnerungen (Leonie Treber, APuZ)",
+      "publisher": "Bundeszentrale für politische Bildung (bpb)",
+      "url": "https://www.bpb.de/shop/zeitschriften/apuz/204282/mythos-truemmerfrau-deutsch-deutsche-erinnerungen/",
+      "accessed": "2026-10-04"
+    },
+    "pw_truemmerfrauen": {
+      "title": "Trümmerfrauen",
+      "publisher": "Planet Wissen (WDR/SWR)",
+      "url": "https://www.planet-wissen.de/geschichte/deutsche_geschichte/nachkriegszeit/truemmerfrauen-114.html",
+      "accessed": "2026-10-04"
+    },
+    "pw_suchdienste": {
+      "title": "Suchdienste nach 1945",
+      "publisher": "Planet Wissen (WDR/SWR)",
+      "url": "https://www.planet-wissen.de/geschichte/deutsche_geschichte/nachkriegszeit/suchdienste-nach-1945-100.html",
+      "accessed": "2026-10-04"
+    },
+    "bpb_zdes_byl": {
+      "title": "Ich war hier / Zdes byl (Schriftenreihe volume on the Reichstag graffiti)",
+      "publisher": "Bundeszentrale für politische Bildung (bpb)",
+      "url": "https://www.bpb.de/shop/buecher/schriftenreihe/290688/ich-war-hier-zdes-byl/",
+      "accessed": "2026-10-04"
+    }
+  },
+  "facts": [
+    {
+      "id": "chapter_date",
+      "text": "Game choice: the chapter is set on Friday 18 May 1945, ten days after the surrender. By then the new Soviet ration system had started (15 May), Radio Berlin was on air (13 May) and tram repairs had begun (13 May). It is before Moscow time was ordered (20 May) and before the first city government took office (19 May).",
+      "status": "fiction",
+      "sources": [
+        "md_ration_card",
+        "sec_the_berliner",
+        "dhm_kk_timeline",
+        "berlin_de_tram",
+        "vobl_1945_p4",
+        "bpb_19_mai_1945"
+      ]
+    },
+    {
+      "id": "battle_start",
+      "text": "The Soviet offensive on Berlin opened on 16 April 1945 at the Seelow Heights, the last major German defensive line east of the city.",
+      "status": "documented",
+      "sources": [
+        "iwm_battle_berlin"
+      ]
+    },
+    {
+      "id": "berlin_surrender",
+      "text": "On 2 May 1945 General Helmuth Weidling ordered the Berlin garrison to surrender, and the city passed to Soviet forces.",
+      "status": "documented",
+      "sources": [
+        "iwm_battle_berlin",
+        "barch_lagekarte"
+      ]
+    },
+    {
+      "id": "german_surrender",
+      "text": "The unconditional surrender of the German armed forces was signed in Berlin-Karlshorst on 8 May 1945 and took effect on 8/9 May.",
+      "status": "documented",
+      "sources": [
+        "barch_kapitulation",
+        "nam_may1945"
+      ]
+    },
+    {
+      "id": "bombing_history",
+      "text": "Berlin had been bombed from 1940 onwards. By 1945 large areas of the city lay in ruins, with about 16 square kilometres of rubble (secondary figure).",
+      "status": "documented",
+      "sources": [
+        "berlin_de_ns",
+        "sec_the_berliner"
+      ]
+    },
+    {
+      "id": "utilities_down",
+      "text": "In 1945 electricity, gas and mains water had failed across large parts of Berlin, in some areas for months.",
+      "status": "documented",
+      "sources": [
+        "mieterverein_pumps",
+        "tip_pumps"
+      ]
+    },
+    {
+      "id": "street_pumps",
+      "text": "Berlin's old cast-iron street pumps saved the population. When the mains failed, they were often the only working water source, and people queued at them with buckets. Each pump is its own well: a pipe runs down to the groundwater and the user lifts the water by working the lever.",
+      "status": "documented",
+      "sources": [
+        "mieterverein_pumps",
+        "tip_pumps"
+      ]
+    },
+    {
+      "id": "boil_water_disease",
+      "text": "Water had to be boiled, but fuel was scarce. Dysentery and typhus spread in summer 1945 and are reported to have killed about 3,000 people.",
+      "status": "documented",
+      "sources": [
+        "mieterverein_pumps",
+        "tip_pumps"
+      ]
+    },
+    {
+      "id": "queues",
+      "text": "Civilians queued for hours for food and water.",
+      "status": "documented",
+      "sources": [
+        "sec_hoxne",
+        "sec_macmillan"
+      ]
+    },
+    {
+      "id": "daily_struggles",
+      "text": "The main daily struggles were hunger, finding water, keeping a roof overhead and keeping warm.",
+      "status": "documented",
+      "sources": [
+        "berlin_de_ns",
+        "sec_the_berliner"
+      ]
+    },
+    {
+      "id": "tenement_block",
+      "text": "Art direction: a five-storey Wilhelmine Mietskaserne with a front building (Vorderhaus), side wings and a back courtyard (Hinterhof). The front building is partly collapsed, and stair flights hang in the air. The cellar served as the air-raid shelter, with knocked-through walls to the next building.",
+      "status": "reconstruction",
+      "sources": []
+    },
+    {
+      "id": "clothing",
+      "text": "Art direction: worn pre-war civilian clothes, coats even in May, headscarves for women, caps for men, dyed or cut-down uniform pieces without insignia, wooden-soled or patched shoes. People carry bags, rucksacks, buckets and handcarts. Not sourced in this pass.",
+      "status": "reconstruction",
+      "sources": []
+    },
+    {
+      "id": "women_majority",
+      "text": "About two-thirds of Berlin's roughly 3.1 million post-war inhabitants were women, because most men of working age were dead or prisoners of war.",
+      "status": "documented",
+      "sources": [
+        "pw_truemmerfrauen"
+      ]
+    },
+    {
+      "id": "bersarin",
+      "text": "Colonel General Nikolai Bersarin was the first Soviet city commandant of Berlin.",
+      "status": "documented",
+      "sources": [
+        "dhm_bersarin"
+      ]
+    },
+    {
+      "id": "order_no1",
+      "text": "Bersarin's Order No. 1, dated 28 April 1945, announced that all power in Berlin had passed to the Soviet military commandant's office. It was printed as a Russian and German poster (47.5 x 63.5 cm). The date was filled in as Soviet troops took each district.",
+      "status": "documented",
+      "sources": [
+        "md_order1"
+      ]
+    },
+    {
+      "id": "district_kommandantura",
+      "text": "Each district had its own Soviet commandant's office (Kommandantura), which issued local orders and work demands. The exact office for the fictional street is a game invention.",
+      "status": "reconstruction",
+      "sources": []
+    },
+    {
+      "id": "magistrat",
+      "text": "Bersarin appointed a new city government (Magistrat) on 12 May 1945 and presented it on 19 May. Its mayor was the non-party Arthur Werner, and Communists held key posts.",
+      "status": "documented",
+      "sources": [
+        "bpb_19_mai_1945",
+        "berlin_de_mayors"
+      ]
+    },
+    {
+      "id": "curfew",
+      "text": "A night curfew applied under Soviet occupation, but its exact hours in mid-May 1945 were not verified in this pass. Use only a vague 'be home before dark' and do not show a clock time.",
+      "status": "reconstruction",
+      "sources": []
+    },
+    {
+      "id": "white_armbands",
+      "text": "A Soviet officer's diary from these days says that the Germans all wore white armbands. White armbands and white cloths were signs of surrender.",
+      "status": "documented",
+      "sources": [
+        "bz_white_armbands"
+      ]
+    },
+    {
+      "id": "white_flags",
+      "text": "White sheets were hung from windows when the Red Army arrived. By mid-May some would still hang, torn and grey with dust.",
+      "status": "reconstruction",
+      "sources": []
+    },
+    {
+      "id": "moscow_time_order",
+      "text": "Order No. 4 of the Soviet city commandant, dated 20 May 1945, said that until further notice work in Berlin was to run on Moscow time. This covered working hours in shops, businesses and theatres.",
+      "status": "documented",
+      "sources": [
+        "vobl_1945_p4"
+      ]
+    },
+    {
+      "id": "moscow_time_tz",
+      "text": "The tz time-zone database records Berlin and the Soviet zone moving to 'double summer time' (UTC+3, the same as Moscow) at 02:00 on 24 May 1945.",
+      "status": "documented",
+      "sources": [
+        "tert_tz_germany"
+      ]
+    },
+    {
+      "id": "clocks_on_chapter_date",
+      "text": "On 18 May the order was not yet in force, so civilian clocks most likely still showed German summer time (UTC+2), one hour behind Moscow. Soviet units may already have used Moscow time. Baltermants photographed Soviet soldiers resetting a German street clock in May 1945; the place is not stated.",
+      "status": "reconstruction",
+      "sources": [
+        "cma_baltermants"
+      ]
+    },
+    {
+      "id": "old_cards_invalid",
+      "text": "German ration cards became invalid at the surrender.",
+      "status": "documented",
+      "sources": [
+        "berlin_de_ns",
+        "sec_the_berliner"
+      ]
+    },
+    {
+      "id": "provisional_rations",
+      "text": "On 5 May 1945 Bersarin ordered a temporary food ration. Adults got 200 g bread, 10 g sugar, 25 g meat, 10 g salt, 400 g potatoes and 2 g coffee a day.",
+      "status": "documented",
+      "sources": [
+        "md_ration_card",
+        "bz_berlin_lebt_auf"
+      ]
+    },
+    {
+      "id": "ration_cards_13may",
+      "text": "On 13 May 1945 the Soviet authorities introduced new food ration cards for Berlin.",
+      "status": "documented",
+      "sources": [
+        "md_ration_card",
+        "bz_berlin_lebt_auf"
+      ]
+    },
+    {
+      "id": "five_tier_system",
+      "text": "A five-group ration system began on 15 May 1945. Heavy workers got the most and people without work the least.",
+      "status": "documented",
+      "sources": [
+        "sec_the_berliner",
+        "berlin_de_ns"
+      ]
+    },
+    {
+      "id": "card_distribution",
+      "text": "Cards were handed out over the following days; one unattributed summary says by 18 May. Where they were collected (district office, ration office or block warden) was not verified. A queue at a local office is a reasonable reconstruction.",
+      "status": "reconstruction",
+      "sources": []
+    },
+    {
+      "id": "soup_kitchens_trade",
+      "text": "Bersarin opened soup kitchens in May 1945 and allowed private trade to help supply the city.",
+      "status": "documented",
+      "sources": [
+        "bz_berlin_lebt_auf"
+      ]
+    },
+    {
+      "id": "radio_berlin",
+      "text": "Radio Berlin broadcast its first programme on 13 May 1945.",
+      "status": "documented",
+      "sources": [
+        "dhm_kk_timeline"
+      ]
+    },
+    {
+      "id": "newspapers",
+      "text": "The Soviet paper Tägliche Rundschau first appeared on 15 May 1945. The Berliner Zeitung followed on 21 May, after the chapter date, so it must not appear.",
+      "status": "documented",
+      "sources": [
+        "dhm_kk_timeline"
+      ]
+    },
+    {
+      "id": "transport_state",
+      "text": "In May 1945 most tram tracks and overhead wires were unusable and many depots were destroyed. U-Bahn tunnels were mostly intact but flooded in places. Only about a quarter of the trams could be saved.",
+      "status": "documented",
+      "sources": [
+        "tert_bvg_history"
+      ]
+    },
+    {
+      "id": "tram_restart",
+      "text": "From 13 May 1945 the Soviet authorities under Bersarin started to restore the tram network. Order No. 6 called for twelve tram lines to resume.",
+      "status": "documented",
+      "sources": [
+        "berlin_de_tram"
+      ]
+    },
+    {
+      "id": "ubahn_restart",
+      "text": "The first short U-Bahn shuttle is often dated 14 May 1945, but this was not verified. Show the U-Bahn as closed or flooded near the chapter location.",
+      "status": "reconstruction",
+      "sources": []
+    },
+    {
+      "id": "truemmer_myth",
+      "text": "Historian Leonie Treber shows that rubble women did less of the clearing than popular memory says. Rubble work was treated as punishment work. After the war the occupiers used conscripted former Nazi Party members and German prisoners of war. In Berlin and the Soviet zone the press made the rubble woman a heroic image.",
+      "status": "documented",
+      "sources": [
+        "bpb_treber"
+      ]
+    },
+    {
+      "id": "women_obligation",
+      "text": "Secondary sources give 1 June 1945 as the start of compulsory rubble work for Berlin women. That is after the chapter date.",
+      "status": "documented",
+      "sources": [
+        "pw_truemmerfrauen"
+      ]
+    },
+    {
+      "id": "bucket_chain_mid_may",
+      "text": "In mid-May, clearing was organised locally, often on a commandant's order to clear streets and entrances. A neighbourly bucket chain clearing a doorway is plausible but not a specific recorded event.",
+      "status": "reconstruction",
+      "sources": []
+    },
+    {
+      "id": "suchdienst_origin",
+      "text": "The German Red Cross tracing service (Suchdienst) grew out of efforts in 1945, first in Flensburg, Hamburg and Munich. It used card indexes to reunite families.",
+      "status": "documented",
+      "sources": [
+        "pw_suchdienste"
+      ]
+    },
+    {
+      "id": "chalk_messages",
+      "text": "Chalked messages on ruin walls ('We are alive, at aunt's in Pankow') are widely described in memoirs and photographs of 1945. No archive source was found in this pass, so the mission is a reconstruction. No formal tracing office worked on Berlin streets by 18 May; neighbours relied on word of mouth and notes.",
+      "status": "reconstruction",
+      "sources": []
+    },
+    {
+      "id": "chalk_reichstag",
+      "text": "In May 1945 Soviet soldiers wrote their names and messages in chalk and charcoal on the walls of the Reichstag. Some survive today.",
+      "status": "documented",
+      "sources": [
+        "bpb_zdes_byl"
+      ]
+    },
+    {
+      "id": "unexploded_shells",
+      "text": "Unexploded shells and grenades lay in the ruins. The scripted find, the clearing of the area and the sapper team are game inventions.",
+      "status": "fiction",
+      "sources": []
+    },
+    {
+      "id": "sexual_violence_context",
+      "text": "Historians estimate that around 100,000 women were raped by Soviet soldiers in Berlin. This is for documentary context only and must never be shown or implied in gameplay.",
+      "status": "documented",
+      "sources": [
+        "berlin_de_ns",
+        "ghdi_female_survival"
+      ]
+    },
+    {
+      "id": "weather",
+      "text": "The weather on 18 May 1945 was not verified. Use a mild late-spring day with dust in the air and trees in leaf, and check Deutscher Wetterdienst records.",
+      "status": "reconstruction",
+      "sources": []
+    },
+    {
+      "id": "daylight",
+      "text": "Computed: on 18 May 1945 sunrise was about 05:05 and sunset about 21:00 German summer time (UTC+2). This is about 06:05 and 22:00 Moscow time.",
+      "status": "reconstruction",
+      "sources": []
+    },
+    {
+      "id": "fiction_premise",
+      "text": "The tenement, its residents, the neighbour, the district office and all missions are fictional. No real person interacts with the player.",
+      "status": "fiction",
+      "sources": []
+    }
+  ],
+  "scanEntries": [
+    {
+      "id": "scan_street_pump",
+      "title": "Street Water Pump",
+      "text": "A cast-iron hand pump on the pavement, drawing water from its own well. When the mains failed in 1945 these old pumps were often the only water supply, and people queued at them with buckets. Water still had to be boiled before drinking.",
+      "status": "documented",
+      "sources": [
+        "mieterverein_pumps",
+        "tip_pumps"
+      ]
+    },
+    {
+      "id": "scan_water_buckets",
+      "title": "Water Bucket and Pail",
+      "text": "Zinc buckets and enamel pails for carrying water home from the pump. Families made several trips a day. Without gas or electricity, boiling the water used precious wood or coal.",
+      "status": "documented",
+      "sources": [
+        "mieterverein_pumps",
+        "tip_pumps"
+      ]
+    },
+    {
+      "id": "scan_ration_card",
+      "title": "Ration Card, May 1945",
+      "text": "A new food ration card issued under Soviet rule. A five-group system began on 15 May 1945, and heavy workers received the most. The old German cards had become worthless at the surrender.",
+      "status": "documented",
+      "sources": [
+        "md_ration_card",
+        "sec_the_berliner"
+      ]
+    },
+    {
+      "id": "scan_kommandantura_notice",
+      "title": "Commandant's Order",
+      "text": "A printed Russian and German poster from the Soviet city commandant. Order No. 1 announced that all power in Berlin had passed to the Soviet commandant's office. Later orders set rations, work duties and even the clocks.",
+      "status": "documented",
+      "sources": [
+        "md_order1",
+        "vobl_1945_p4"
+      ]
+    },
+    {
+      "id": "scan_white_armband",
+      "title": "White Armband",
+      "text": "A strip of white cloth tied round the sleeve. In the first days of occupation many Berliners wore one to show that they were civilians and had surrendered. A Soviet officer wrote in his diary that 'the Germans all wear white armbands'.",
+      "status": "documented",
+      "sources": [
+        "bz_white_armbands"
+      ]
+    },
+    {
+      "id": "scan_tram",
+      "title": "Stranded Tram",
+      "text": "A Berlin tram car under fallen overhead wires. In May 1945 most tracks and power lines were wrecked, and only about a quarter of the trams could be saved. Repairs to the network began on 13 May on Soviet orders.",
+      "status": "documented",
+      "sources": [
+        "berlin_de_tram",
+        "tert_bvg_history"
+      ]
+    },
+    {
+      "id": "scan_chalk_messages",
+      "title": "Chalked Messages",
+      "text": "Names and addresses written in chalk on a ruined wall. Survivors left notes so that returning relatives could find them. No official tracing service yet worked on these streets.",
+      "status": "reconstruction",
+      "sources": []
+    },
+    {
+      "id": "scan_volksempfaenger",
+      "title": "People's Radio",
+      "text": "A cheap 'Volksempfänger' radio of the type sold widely in Nazi Germany. With the power off across most of the city, it is silent. Radio Berlin began broadcasting again on 13 May 1945.",
+      "status": "reconstruction",
+      "sources": [
+        "dhm_kk_timeline",
+        "mieterverein_pumps"
+      ]
+    },
+    {
+      "id": "scan_shelter_sign",
+      "title": "Air-Raid Shelter Sign",
+      "text": "A painted arrow and lettering pointing to the cellar shelter. Residents spent many nights of the bombing and the final battle underground. The exact lettering on this sign is a reconstruction.",
+      "status": "reconstruction",
+      "sources": []
+    },
+    {
+      "id": "scan_stirrup_pump",
+      "title": "Hand Pump and Sand Bucket",
+      "text": "Fire-fighting kit kept in stairwells and cellars during the air war. Residents used them on incendiary bombs. Now they stand idle among the rubble.",
+      "status": "reconstruction",
+      "sources": []
+    },
+    {
+      "id": "scan_handcart",
+      "title": "Handcart",
+      "text": "A wooden handcart for moving water, firewood, salvaged bricks or a family's belongings. With almost no transport running, carts did most of the carrying in 1945. Bombed-out families were photographed with their possessions on the streets.",
+      "status": "reconstruction",
+      "sources": [
+        "ghdi_bombed_out"
+      ]
+    },
+    {
+      "id": "scan_cyrillic_sign",
+      "title": "Soviet Road Sign",
+      "text": "A wooden direction board with Cyrillic lettering, put up by Red Army units to guide traffic. Signs like this marked Soviet routes through the city after its capture. The wording shown is a reconstruction.",
+      "status": "reconstruction",
+      "sources": []
+    },
+    {
+      "id": "scan_coal_stove",
+      "title": "Tiled Stove",
+      "text": "A tall tiled stove (Kachelofen) that once heated the flat. Fuel was scarce in 1945, so people burned broken furniture and wood from the ruins. In many flats it was also the only way to boil water.",
+      "status": "reconstruction",
+      "sources": [
+        "mieterverein_pumps"
+      ]
+    }
+  ]
+}

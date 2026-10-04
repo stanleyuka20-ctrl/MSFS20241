@@ -2,12 +2,13 @@ import type { ChapterConfig } from './types';
 import { HQ_CONFIG } from './hq/config';
 import { WW1_CONFIG } from './ww1/config';
 import { LONDON_CONFIG } from './london/config';
+import { BERLIN45_CONFIG } from './berlin45/config';
 import { PLANNED_CHAPTERS } from './planned';
 
 export const HQ_ID = 'hq';
 
 /** Every destination registered with the shared chapter system. Adding a chapter = adding a config here. */
-export const CHAPTERS: ChapterConfig[] = [HQ_CONFIG, WW1_CONFIG, LONDON_CONFIG, ...PLANNED_CHAPTERS];
+export const CHAPTERS: ChapterConfig[] = [HQ_CONFIG, WW1_CONFIG, LONDON_CONFIG, BERLIN45_CONFIG, ...PLANNED_CHAPTERS];
 
 export function creditsHtml(): string {
   return `

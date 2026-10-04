@@ -214,6 +214,29 @@ def finalize_part(pt, B):
         w = 0.5 * w
         w[C.BI["upperleg01.L"]] += 0.5
         m.W = np.broadcast_to(w, (len(m.v), nW)).copy()
+    elif pt.weights == "skirt":
+        # long coat/dress skirts: part of the leg influence goes to the hips so the hem does not
+        # balloon between the legs when walking
+        G.assign_weights(m, B.ref, from_src=m.src is not None, smooth=pt.smooth)
+        leg_b = [C.BI[n] for n in C.BONES if n.startswith(("upperleg", "lowerleg", "foot", "toes"))]
+        f = 0.3 * np.clip((0.95 - m.v[:, 1]) / 0.25, 0, 1)
+        W = m.W.copy()
+        moved = W[:, leg_b].sum(1) * f
+        W[:, leg_b] *= (1 - f)[:, None]
+        W[:, C.BI["hips"]] += moved
+        m.W = W / np.maximum(W.sum(1, keepdims=True), 1e-9)
+    elif pt.weights == "torso":
+        # drapes (cape, blanket): body weights without the arm chain so the arms move inside
+        G.assign_weights(m, B.ref, from_src=m.src is not None, smooth=pt.smooth)
+        arm_b = [C.BI[n] for n in C.BONES if n.startswith(("shoulder01", "upperarm", "lowerarm", "wrist", "finger"))]
+        W = m.W.copy()
+        moved = W[:, arm_b].sum(1)
+        W[:, arm_b] = 0
+        left = m.v[:, 0] > 0
+        W[left, C.BI["clavicle.L"]] += moved[left] * 0.4
+        W[~left, C.BI["clavicle.R"]] += moved[~left] * 0.4
+        W[:, C.BI["spine01"]] += moved * 0.6
+        m.W = W / np.maximum(W.sum(1, keepdims=True), 1e-9)
     elif pt.weights == "bundle":
         # carried bundle: rigid to the upper chest (the carry_box arms hold it there)
         m.W = np.zeros((len(m.v), nW))
@@ -736,6 +759,8 @@ def build(cid):
             res = CV.paint_gear(M, cfg, B.sk)
         elif g == "helmet" and civ:
             res = CV.paint_helmet(M, cfg)
+        elif g == "hair" and civ:
+            res = CV.paint_hair(M, cfg, B.landmarks)
         elif g == "cloth":
             res = MAT.paint_cloth(M, dict(cfg, tunic_style=("officer" if cfg.get("uniform") == "officer" else
                                                               cfg.get("tunic_style", "private"))), B.sk, B.landmarks)

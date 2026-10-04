@@ -25,7 +25,10 @@ $PY tools/assets/textures/fx.py rain_ripples               # one fx generator
 ## Output
 
 `public/assets/textures/<set>/<set>_albedo.jpg` (sRGB), `_normal.jpg` (OpenGL, +Y = green up),
-`_orm.jpg` (R = AO, G = roughness, B = metalness, linear). 1024², JPEG q88 (albedo 4:2:0, normal/ORM 4:4:4).
+`_orm.jpg` (R = AO, G = roughness, B = metalness, linear). 1024², JPEG albedo q88 (4:2:0), normal/ORM q85 (4:4:4).
+Each set has a ~1.1 MB budget: if the three files exceed it, `lib/pbr.save_set` softens texel-level detail
+(periodic blur, normals re-normalised) on the largest map first, up to a small cap; the generator log prints
+the size and any softening applied.
 `manifest.json` lists `tileMetres`, `notes` (orientation details) and `source` for every set.
 Albedo is clamped to 0.012–0.88 linear.
 
@@ -35,6 +38,10 @@ drips, stains and roof slope run towards the bottom of the image; corrugated_iro
 Cross-section sets are meant to be mapped once across their width: pavement_flags (kerb side at V=0) and
 concrete_platform (platform edge at V=0, painted strip at V≈0.1). `london_stock_brick_band` is the same wall
 as `london_stock_brick` with one red accent course, for a single band row on a facade.
+Further cross-section sets: berlin_sidewalk (granite slab band V 0.25-0.75, mosaic setts outside), dirt_lane
+(map U across the lane: ruts at U≈0.27/0.73, grass strip at U≈0.5), terrazzo_stair (border at V 0-0.12),
+interior_paint_distemper (dado at V≈0.4), cellar_whitewash (damp below V≈0.3), berlin_render_facade
+(string courses at V≈0.25/0.75).
 
 ## How it works
 
@@ -48,7 +55,7 @@ Everything is built from periodic primitives, so seamless tiling holds by constr
 | `lib/weave.py` | plain-weave thread model (crimp, slubs, wander, twist) used for hessian |
 | `lib/strokes.py` | supersampled polygon ribbons (grass blades, roots, stitches) with wrap-around |
 | `lib/pbr.py` | height (metres) → OpenGL normal at true texel scale, cavity AO, JPEG writing, manifest |
-| `sets/*.py` | one builder per material, returning albedo / height / roughness / metalness (`ww1_*`, `village`, `hq`, `blitz` = London 1940 chapter) |
+| `sets/*.py` | one builder per material, returning albedo / height / roughness / metalness (`ww1_*`, `village`, `hq`, `blitz` = London 1940, `berlin1945`, `normandy`) |
 | `fx.py` | effect textures |
 | `preview_blender.py` | Cycles preview renders |
 

@@ -117,15 +117,15 @@ interface CastSpec {
 
 const CAST: Record<string, CastSpec> = {
   pike: { prefs: ['warden_woman'], fallback: 'officer', tint: 0x30343c },
-  ivy: { prefs: ['mother_1940', 'civilian_woman'], fallback: 'medic', tint: 0x5e4a40, hide: ['helmet'] },
-  joan: { prefs: ['girl_1940'], fallback: 'soldier_a', tint: 0x6a4a44, scale: 0.72, hide: ['helmet'] },
-  billy: { prefs: ['boy_1940'], fallback: 'soldier_c', tint: 0x4c4a48, scale: 0.64, hide: ['helmet'] },
-  moss: { prefs: ['old_man_1940'], fallback: 'wounded', tint: 0x6c645a, hide: ['helmet'] },
+  ivy: { prefs: ['mother_1940', 'civilian_woman'], fallback: 'medic', tint: 0x5e4a40, hide: ['helmet', 'gear'] },
+  joan: { prefs: ['girl_1940'], fallback: 'soldier_a', tint: 0x6a4a44, scale: 0.72, hide: ['helmet', 'gear'] },
+  billy: { prefs: ['boy_1940'], fallback: 'soldier_c', tint: 0x4c4a48, scale: 0.64, hide: ['helmet', 'gear'] },
+  moss: { prefs: ['old_man_1940'], fallback: 'wounded', tint: 0x6c645a, hide: ['helmet', 'gear'] },
   carver: { prefs: ['rescue_man_a'], fallback: 'soldier_b', tint: 0x2a2c30 },
   rescuer1: { prefs: ['rescue_man_b', 'rescue_man_a'], fallback: 'soldier_c', tint: 0x2a2c30 },
   rescuer2: { prefs: ['rescue_man_a', 'rescue_man_b'], fallback: 'soldier_a', tint: 0x2a2c30 },
   nurse: { prefs: ['nurse_1940'], fallback: 'medic', tint: 0x26304a },
-  wvs: { prefs: ['wvs_woman'], fallback: 'medic', tint: 0x4f5a4c, hide: ['helmet'] },
+  wvs: { prefs: ['wvs_woman'], fallback: 'medic', tint: 0x4f5a4c, hide: ['helmet', 'gear'] },
   afs1: { prefs: ['afs_fireman'], fallback: 'soldier_b', tint: 0x23262c },
   afs2: { prefs: ['afs_fireman'], fallback: 'soldier_c', tint: 0x23262c },
 };
@@ -845,8 +845,8 @@ class LondonRuntime implements ChapterRuntime {
       const pose = poses[k % poses.length];
       const lying = pose.startsWith('lie');
       const z = lying ? pf.zBack - 0.7 : pf.zBack - 0.15;
-      const n = ctx.npcs.spawn({ id: `shelterer${k}`, name: 'Shelterer', character: ch, position: P(x, pf.y, z), yaw: lying ? Math.PI / 2 : Math.PI, pose, attentive: k % 3 === 0, hideMeshes: real ? undefined : ['helmet'] });
-      if (!real) this.standIn(n, { prefs, fallback: fb, tint: [0x4a4038, 0x3a3c40, 0x5a4c44, 0x3e3a34][k % 4], hide: ['helmet'] });
+      const n = ctx.npcs.spawn({ id: `shelterer${k}`, name: 'Shelterer', character: ch, position: P(x, pf.y, z), yaw: lying ? Math.PI / 2 : Math.PI, pose, attentive: k % 3 === 0, hideMeshes: real ? undefined : ['helmet', 'gear'] });
+      if (!real) this.standIn(n, { prefs, fallback: fb, tint: [0x4a4038, 0x3a3c40, 0x5a4c44, 0x3e3a34][k % 4], hide: ['helmet', 'gear'] });
       n.root.userData.noCollide = true;
       this.crowd.push(n);
       k++;

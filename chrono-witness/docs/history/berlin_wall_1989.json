@@ -1,0 +1,521 @@
+{
+  "chapter": "berlin_wall_1989",
+  "verificationNote": "All sources were first checked on 2026-10-03 (research_notes_berlin_wall_1989.md) against search-engine summaries of the cited pages, not full reads. In this pass (2026-10-04) direct page fetching was blocked by the network egress proxy for every host tried (Chronik der Mauer, Stiftung Berliner Mauer, bpb, Wikipedia), and the session's web-search budget ran out before this chapter could be researched. No new sources were added and the carried-over sources were not re-checked. Facts marked 'reconstruction' that end with 'Not verified in this pass' come from the researcher's general knowledge and are well known, but they need checking against the Chronik der Mauer and Stiftung Berliner Mauer before shipping: press conference minute and wording, the visa rule, the 'valve solution', Harald Jäger's decision, the order of crossings, the bridge and checkpoint layout, and the weather. The key starting with 'sec_' is a secondary news source. Confirm the wording on each live page before shipping.",
+  "sources": {
+    "cdm_chronicle_1989": {
+      "title": "Chronicle of the Berlin Wall: 1989",
+      "publisher": "Chronik der Mauer (bpb / ZZF / Deutschlandradio)",
+      "url": "https://www.chronik-der-mauer.de/en/chronicle/_year1989/_month11/?month=11&year=1989&opennid=179496&moc=1",
+      "accessed": "2026-10-03"
+    },
+    "cdm_transcript": {
+      "title": "Transcript of the Schabowski press conference, 9 November 1989 (PDF, German)",
+      "publisher": "Chronik der Mauer (bpb / ZZF / Deutschlandradio)",
+      "url": "https://www.chronik-der-mauer.de/system/files/dokument_pdf/1989_11_09_CdM_Dok_Schabowski_PK_Transkription_NEU_0.pdf",
+      "accessed": "2026-10-03"
+    },
+    "hdg_zettel": {
+      "title": "Schabowski-Zettel (LeMO object)",
+      "publisher": "Stiftung Haus der Geschichte der Bundesrepublik Deutschland",
+      "url": "https://www.hdg.de/lemo/bestand/objekt/dokument-notizzettel-schabowski.html",
+      "accessed": "2026-10-03"
+    },
+    "bundesregierung_9nov": {
+      "title": "9 November: a historically significant date",
+      "publisher": "Die Bundesregierung",
+      "url": "https://www.bundesregierung.de/breg-en/service/archive/archive/9-november-a-historically-signficant-date-411370",
+      "accessed": "2026-10-03"
+    },
+    "berlin_de_bornholmer": {
+      "title": "Bornholmer Straße (Berlin Wall monuments)",
+      "publisher": "Berlin.de, Landesdenkmalamt Berlin",
+      "url": "https://www.berlin.de/landesdenkmalamt/denkmale/highlight-berliner-mauer/mauer-denkmale/bornholmer-strasse-649637.en.php",
+      "accessed": "2026-10-03"
+    },
+    "deutschland_de_dancing": {
+      "title": "Dancing on the wall",
+      "publisher": "deutschland.de",
+      "url": "https://www.deutschland.de/en/topic/politics/germany-europe/dancing-on-the-wall",
+      "accessed": "2026-10-03"
+    },
+    "ghdi_wall_image": {
+      "title": "Opening of the Berlin Wall: cheering Berliners on the Wall at Brandenburg Gate (November 9, 1989)",
+      "publisher": "German History in Documents and Images (GHI Washington)",
+      "url": "https://germanhistorydocs.org/en/a-new-germany-1990-2023/opening-of-the-berlin-wall-cheering-berliners-on-the-wall-at-brandenburg-gate-november-9-1989",
+      "accessed": "2026-10-03"
+    },
+    "sec_ap_wptv": {
+      "title": "Over 100,000 celebrate 30 years since fall of Berlin Wall",
+      "publisher": "Associated Press via WPTV (news; secondary)",
+      "url": "https://www.wptv.com/news/world/over-100-000-celebrate-30-years-since-fall-of-berlin-wall",
+      "accessed": "2026-10-03"
+    },
+    "britannica_wall": {
+      "title": "Berlin Wall",
+      "publisher": "Encyclopaedia Britannica",
+      "url": "https://www.britannica.com/topic/Berlin-Wall",
+      "accessed": "2026-10-03"
+    },
+    "britannica_death_strip": {
+      "title": "What was the 'death strip'?",
+      "publisher": "Encyclopaedia Britannica",
+      "url": "https://www.britannica.com/question/What-was-the-death-strip",
+      "accessed": "2026-10-03"
+    },
+    "sbm_berlin_wall": {
+      "title": "The Berlin Wall",
+      "publisher": "Stiftung Berliner Mauer",
+      "url": "https://www.stiftung-berliner-mauer.de/en/topics/berlin-wall",
+      "accessed": "2026-10-03"
+    },
+    "berlin_de_wall": {
+      "title": "Berlin Wall",
+      "publisher": "Berlin.de",
+      "url": "https://www.berlin.de/en/attractions-and-sights/3561866-3104052-berlin-wall.en.html",
+      "accessed": "2026-10-03"
+    },
+    "sbm_checkpoint": {
+      "title": "The Border Crossing (Friedrichstraße / Checkpoint Charlie)",
+      "publisher": "Stiftung Berliner Mauer",
+      "url": "https://www.stiftung-berliner-mauer.de/en/checkpoint-charlie/historical-site/border-crossing-friedrichstrasse",
+      "accessed": "2026-10-03"
+    },
+    "britannica_checkpoint": {
+      "title": "Checkpoint Charlie",
+      "publisher": "Encyclopaedia Britannica",
+      "url": "https://www.britannica.com/topic/Checkpoint-Charlie",
+      "accessed": "2026-10-03"
+    },
+    "sbm_victims": {
+      "title": "Victims at the Berlin Wall",
+      "publisher": "Stiftung Berliner Mauer",
+      "url": "https://www.stiftung-berliner-mauer.de/en/topics/victims-berlin-wall",
+      "accessed": "2026-10-03"
+    },
+    "sbm_gueffroy": {
+      "title": "Memorial Site for Chris Gueffroy",
+      "publisher": "Stiftung Berliner Mauer",
+      "url": "https://www.stiftung-berliner-mauer.de/en/node/1803",
+      "accessed": "2026-10-03"
+    }
+  },
+  "facts": [
+    {
+      "id": "presser_start",
+      "text": "On Thursday 9 November 1989 at 6 p.m. Politburo spokesman Günter Schabowski began an international press conference. GDR television and radio broadcast it live.",
+      "status": "documented",
+      "sources": [
+        "cdm_chronicle_1989",
+        "bundesregierung_9nov"
+      ]
+    },
+    {
+      "id": "presser_sofort",
+      "text": "Near the end of the press conference, at about 7 p.m., Schabowski was asked when the new travel rule would take effect. He answered 'sofort, unverzüglich' ('immediately, without delay').",
+      "status": "documented",
+      "sources": [
+        "cdm_chronicle_1989",
+        "cdm_transcript",
+        "hdg_zettel"
+      ]
+    },
+    {
+      "id": "presser_records",
+      "text": "A transcript of the press conference and Schabowski's handwritten note survive. The note is held by the Haus der Geschichte.",
+      "status": "documented",
+      "sources": [
+        "cdm_transcript",
+        "hdg_zettel"
+      ]
+    },
+    {
+      "id": "presser_minute",
+      "text": "The travel question came at about 18:53 and the press conference ended at about 19:00. Use 'just before seven' on screen. Not verified in this pass; check against the Chronik der Mauer chronicle and transcript.",
+      "status": "reconstruction",
+      "sources": []
+    },
+    {
+      "id": "presser_wording",
+      "text": "Schabowski read from a paper that private trips abroad could be applied for without giving reasons or family ties, and that permits would be issued at short notice. He also read that permanent emigration could go through all border crossings to West Germany and West Berlin. The game should quote only short, checked phrases. Not verified in this pass; check against the Chronik der Mauer chronicle and transcript.",
+      "status": "reconstruction",
+      "sources": []
+    },
+    {
+      "id": "rule_intended",
+      "text": "The new rule was meant to start the next day, 10 November. People were meant to get a visa stamp first from the People's Police passport offices. Nobody at the crossing that night had one. Not verified in this pass; check against the Chronik der Mauer chronicle and transcript.",
+      "status": "reconstruction",
+      "sources": []
+    },
+    {
+      "id": "western_tv",
+      "text": "Many East Germans watched West German television news that evening, which reported that the GDR was opening its border. This drew people to the crossings. Not verified in this pass; check against the Chronik der Mauer chronicle and transcript.",
+      "status": "reconstruction",
+      "sources": []
+    },
+    {
+      "id": "crowds_gather",
+      "text": "During the evening thousands of East Berliners gathered at the border crossings.",
+      "status": "documented",
+      "sources": [
+        "bundesregierung_9nov",
+        "berlin_de_bornholmer"
+      ]
+    },
+    {
+      "id": "bornholmer_first",
+      "text": "Bornholmer Straße was the first crossing to raise its barriers. Crowds poured over the Bösebrücke into West Berlin, and other crossings followed during the night.",
+      "status": "documented",
+      "sources": [
+        "berlin_de_bornholmer",
+        "bundesregierung_9nov"
+      ]
+    },
+    {
+      "id": "bornholmer_time",
+      "text": "Sources differ on when Bornholmer Straße opened: about 10:30 p.m. (Berlin.de monument listing) or about 11:30 p.m. (other accounts). The full opening is usually put at about 11:30 p.m. The game uses about 23:30 and words it as 'late evening' in documentary text.",
+      "status": "documented",
+      "sources": [
+        "berlin_de_bornholmer"
+      ]
+    },
+    {
+      "id": "valve_solution",
+      "text": "Before the full opening, officers at Bornholmer Straße let the loudest people out one by one. Their ID was stamped over the photo, which secretly cancelled their right to return. This is often called the 'valve solution'. The timing (about 21:20) is not verified. Not verified in this pass; check against the Chronik der Mauer chronicle and transcript.",
+      "status": "reconstruction",
+      "sources": []
+    },
+    {
+      "id": "jaeger_decision",
+      "text": "The officer in charge of passport control at Bornholmer Straße that night, Harald Jäger, decided to open the gate without orders from above. He may be named in documentary text only; no real person appears on screen. Not verified in this pass; check against the Chronik der Mauer chronicle and transcript.",
+      "status": "reconstruction",
+      "sources": []
+    },
+    {
+      "id": "no_violence",
+      "text": "The night passed without shots or deaths at the crossings. Guards were overwhelmed by numbers, not by force.",
+      "status": "reconstruction",
+      "sources": []
+    },
+    {
+      "id": "crossing_order",
+      "text": "After Bornholmer Straße, the other inner-city crossings (among them Invalidenstraße, Sonnenallee and Checkpoint Charlie) opened during the next hour or so. Exact times vary by source. Not verified in this pass; check against the Chronik der Mauer chronicle and transcript.",
+      "status": "reconstruction",
+      "sources": []
+    },
+    {
+      "id": "brandenburg_gate",
+      "text": "On the night of 9-10 November crowds climbed onto the Wall at the Brandenburg Gate. The gate was not a crossing point that night.",
+      "status": "documented",
+      "sources": [
+        "deutschland_de_dancing",
+        "ghdi_wall_image"
+      ]
+    },
+    {
+      "id": "west_celebration",
+      "text": "People celebrated on the Kurfürstendamm. West Berlin shops stayed open late, and banks paid East Germans 100 DM of 'welcome money' (Begrüßungsgeld).",
+      "status": "documented",
+      "sources": [
+        "deutschland_de_dancing",
+        "sec_ap_wptv"
+      ]
+    },
+    {
+      "id": "three_million",
+      "text": "By 12 November more than 3 million of the GDR's 16.6 million people had visited the West (news figure).",
+      "status": "documented",
+      "sources": [
+        "sec_ap_wptv"
+      ]
+    },
+    {
+      "id": "bornholmer_monument",
+      "text": "The former crossing at Bornholmer Straße is now a listed Berlin Wall monument site.",
+      "status": "documented",
+      "sources": [
+        "berlin_de_bornholmer"
+      ]
+    },
+    {
+      "id": "bridge_location",
+      "text": "The Bösebrücke is a steel bridge over railway lines. It links Prenzlauer Berg (East Berlin) with Wedding (West Berlin, French sector). Not verified in this pass; check against the Chronik der Mauer chronicle and transcript.",
+      "status": "reconstruction",
+      "sources": []
+    },
+    {
+      "id": "checkpoint_layout",
+      "text": "Art direction: on the eastern side, a long control area with lanes for cars and pedestrians, low flat-roofed control buildings and booths, red-and-white barrier poles, fences and tall floodlights. The exact plan of Bornholmer Straße in 1989 should be checked against Stiftung Berliner Mauer site plans.",
+      "status": "reconstruction",
+      "sources": []
+    },
+    {
+      "id": "border_at_bridge",
+      "text": "Art direction: the border strip ran along the railway beside the bridge. There was an inner (hinterland) wall facing East Berlin, a signal fence, a patrol road and lighting, with the outer wall facing the West. The exact layout at Bornholmer was not verified.",
+      "status": "reconstruction",
+      "sources": []
+    },
+    {
+      "id": "not_checkpoint_charlie",
+      "text": "Checkpoint Charlie, with its zig-zag concrete chicanes and the Allied hut, was the crossing for foreigners and Allied staff. Do not copy its look onto Bornholmer Straße.",
+      "status": "documented",
+      "sources": [
+        "sbm_checkpoint",
+        "britannica_checkpoint"
+      ]
+    },
+    {
+      "id": "wall_length",
+      "text": "The border system ran about 45 km through the city and about 120 km around West Berlin.",
+      "status": "documented",
+      "sources": [
+        "britannica_wall"
+      ]
+    },
+    {
+      "id": "death_strip",
+      "text": "The 'death strip' lay between the inner (hinterland) wall and the outer border wall. It was raked sand or gravel, with watchtowers, bright lighting at night and, in places, dog runs.",
+      "status": "documented",
+      "sources": [
+        "britannica_death_strip",
+        "sbm_berlin_wall",
+        "berlin_de_wall"
+      ]
+    },
+    {
+      "id": "wall_height",
+      "text": "Concrete walls were up to about 5 m high in places and some were topped with barbed wire.",
+      "status": "documented",
+      "sources": [
+        "britannica_wall",
+        "sbm_berlin_wall"
+      ]
+    },
+    {
+      "id": "grenzmauer_75",
+      "text": "The last outer wall type ('Grenzmauer 75') is usually given as about 3.6 m of L-shaped concrete segments topped with a round pipe. Not verified in this pass; check against the Chronik der Mauer chronicle and transcript.",
+      "status": "reconstruction",
+      "sources": []
+    },
+    {
+      "id": "wall_faces",
+      "text": "The western face of the Wall was covered in graffiti in many places. The eastern face could not be reached and stayed bare.",
+      "status": "reconstruction",
+      "sources": []
+    },
+    {
+      "id": "victims",
+      "text": "At least 140 people died at the Berlin Wall between 1961 and 1989.",
+      "status": "documented",
+      "sources": [
+        "sbm_victims"
+      ]
+    },
+    {
+      "id": "gueffroy",
+      "text": "Chris Gueffroy, shot on 5 February 1989, was the last person shot dead at the Berlin Wall while trying to escape.",
+      "status": "documented",
+      "sources": [
+        "sbm_gueffroy",
+        "sbm_victims"
+      ]
+    },
+    {
+      "id": "id_cards",
+      "text": "East Germans carried a GDR identity card (Personalausweis), a small blue booklet. It was the document guards stamped that night. Not verified in this pass; check against the Chronik der Mauer chronicle and transcript.",
+      "status": "reconstruction",
+      "sources": []
+    },
+    {
+      "id": "money",
+      "text": "The East German mark could not be exchanged freely, so most people crossing had no West German money. This is why the 100 DM welcome money mattered.",
+      "status": "reconstruction",
+      "sources": []
+    },
+    {
+      "id": "on_foot",
+      "text": "At Bornholmer Straße most people crossed on foot that night. Trabants and Wartburgs queued at crossings in the following hours and days.",
+      "status": "reconstruction",
+      "sources": []
+    },
+    {
+      "id": "cars",
+      "text": "The Trabant (small, two-stroke, plastic-bodied) and the Wartburg (larger, also two-stroke) were the common East German cars. Their exhaust had a strong two-stroke smell.",
+      "status": "reconstruction",
+      "sources": []
+    },
+    {
+      "id": "what_people_carried",
+      "text": "Art direction: most people left in a hurry, in coats over house clothes, carrying only their ID card, keys and perhaps a bag. Some walked out in slippers or night clothes, according to widely repeated anecdotes.",
+      "status": "reconstruction",
+      "sources": []
+    },
+    {
+      "id": "wahnsinn",
+      "text": "'Wahnsinn!' ('Madness!') is the exclamation most often reported from that night. Sparkling wine, car horns and strangers hugging are widely reported, mainly at the western ends of crossings.",
+      "status": "reconstruction",
+      "sources": []
+    },
+    {
+      "id": "west_side_greeting",
+      "text": "Art direction: West Berliners on the western side cheered, clapped, slapped car roofs and handed out drinks. Some came from nearby pubs in Wedding.",
+      "status": "reconstruction",
+      "sources": []
+    },
+    {
+      "id": "cold_night",
+      "text": "It was a cold November night.",
+      "status": "documented",
+      "sources": [
+        "deutschland_de_dancing"
+      ]
+    },
+    {
+      "id": "weather_detail",
+      "text": "Exact temperature and rain were not verified. Use a cold, mostly dry night with visible breath, and check Deutscher Wetterdienst records.",
+      "status": "reconstruction",
+      "sources": []
+    },
+    {
+      "id": "darkness",
+      "text": "Computed: sunset in Berlin on 9 November 1989 was about 16:25 CET. A waxing gibbous moon (about 11 days old; full on about 13 November) was up in the evening sky.",
+      "status": "reconstruction",
+      "sources": []
+    },
+    {
+      "id": "lighting_contrast",
+      "text": "Art direction: the border strip was lit by white floodlights, while West Berlin streets had orange sodium lamps. TV camera lights appeared at crossings later in the night.",
+      "status": "reconstruction",
+      "sources": []
+    },
+    {
+      "id": "fiction_premise",
+      "text": "The flat, the neighbour, her sister in the West and all on-scene characters are fictional. Real people are referred to only in documentary text, and the documented order of events is not changed.",
+      "status": "fiction",
+      "sources": []
+    }
+  ],
+  "scanEntries": [
+    {
+      "id": "scan_tv_set",
+      "title": "Television Set",
+      "text": "An East German TV set in a living room. GDR television broadcast the 6 p.m. press conference live. Near the end, Schabowski said the new travel rule applied 'immediately, without delay'.",
+      "status": "documented",
+      "sources": [
+        "cdm_chronicle_1989",
+        "bundesregierung_9nov"
+      ]
+    },
+    {
+      "id": "scan_schabowski_note",
+      "title": "Schabowski's Note",
+      "text": "A copy of the kind of paper Schabowski read from at the press conference. His real handwritten note survives and is held by the Haus der Geschichte. This prop is a replica.",
+      "status": "documented",
+      "sources": [
+        "hdg_zettel",
+        "cdm_transcript"
+      ]
+    },
+    {
+      "id": "scan_barrier_pole",
+      "title": "Barrier Pole",
+      "text": "A striped barrier across the lane at the control point. On this night Bornholmer Straße was the first crossing to raise its barriers. Thousands then crossed the Bösebrücke into West Berlin.",
+      "status": "documented",
+      "sources": [
+        "berlin_de_bornholmer",
+        "bundesregierung_9nov"
+      ]
+    },
+    {
+      "id": "scan_floodlight",
+      "title": "Border Floodlight",
+      "text": "A tall lamp lighting the border strip. At night the strip was brightly lit so that guards could see anyone trying to cross.",
+      "status": "documented",
+      "sources": [
+        "britannica_death_strip",
+        "sbm_berlin_wall"
+      ]
+    },
+    {
+      "id": "scan_hinterland_wall",
+      "title": "Hinterland Wall",
+      "text": "The inner wall that faced East Berlin. Behind it lay the death strip and, beyond that, the outer wall facing the West.",
+      "status": "documented",
+      "sources": [
+        "britannica_death_strip",
+        "sbm_berlin_wall"
+      ]
+    },
+    {
+      "id": "scan_watchtower",
+      "title": "Watchtower",
+      "text": "A concrete tower from which border guards watched the strip. Towers stood about 250 m apart along the strip.",
+      "status": "documented",
+      "sources": [
+        "britannica_death_strip",
+        "sbm_berlin_wall"
+      ]
+    },
+    {
+      "id": "scan_memorial_cross",
+      "title": "Memorial Cross",
+      "text": "A simple cross remembering someone who died at the Wall. At least 140 people died at the Berlin Wall between 1961 and 1989. The last to be shot dead while escaping was Chris Gueffroy, in February 1989.",
+      "status": "documented",
+      "sources": [
+        "sbm_victims",
+        "sbm_gueffroy"
+      ]
+    },
+    {
+      "id": "scan_control_booth",
+      "title": "Control Booth",
+      "text": "A small booth where passport officers checked papers and stamped ID cards. On this night the officers had no clear orders and were vastly outnumbered. The layout shown is a reconstruction.",
+      "status": "reconstruction",
+      "sources": []
+    },
+    {
+      "id": "scan_signal_fence",
+      "title": "Signal Fence",
+      "text": "A wire fence inside the border strip that set off an alarm when touched. It warned the guards before anyone reached the outer wall. Its exact position at Bornholmer is a reconstruction.",
+      "status": "reconstruction",
+      "sources": []
+    },
+    {
+      "id": "scan_trabant",
+      "title": "Trabant",
+      "text": "The most common East German car, small and noisy with a two-stroke engine and a plastic body. Families often waited years for one. In the hours and days after the opening, queues of Trabants crossed into West Berlin.",
+      "status": "reconstruction",
+      "sources": []
+    },
+    {
+      "id": "scan_wartburg",
+      "title": "Wartburg",
+      "text": "A larger East German car, also with a two-stroke engine. It was more expensive and harder to get than a Trabant. Its blue exhaust smoke was part of East Berlin's street smell.",
+      "status": "reconstruction",
+      "sources": []
+    },
+    {
+      "id": "scan_id_card",
+      "title": "GDR Identity Card",
+      "text": "The small blue booklet every East German adult carried. That night it was all most people had with them. Some early crossers had theirs stamped over the photo, which secretly cancelled their right to return.",
+      "status": "reconstruction",
+      "sources": []
+    },
+    {
+      "id": "scan_welcome_money",
+      "title": "Welcome Money",
+      "text": "West German banknotes paid out to visitors from the East. East Germans received 100 DM of 'welcome money', because their own currency could not be exchanged freely.",
+      "status": "documented",
+      "sources": [
+        "deutschland_de_dancing",
+        "sec_ap_wptv"
+      ]
+    },
+    {
+      "id": "scan_sekt_bottle",
+      "title": "Sparkling Wine Bottle",
+      "text": "A bottle of German sparkling wine (Sekt) handed out on the western side. Strangers shared drinks and hugs as people came across. Such scenes are widely reported, but this bottle is a reconstruction.",
+      "status": "reconstruction",
+      "sources": []
+    }
+  ]
+}

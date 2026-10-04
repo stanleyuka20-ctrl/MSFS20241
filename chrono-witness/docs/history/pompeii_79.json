@@ -1,0 +1,860 @@
+{
+  "chapter": "pompeii_79",
+  "verificationNote": "Sources accessed 2026-10-04 unless the source entry says 2026-10-03 (those were carried over from research_notes_pompeii_79.md). Direct page fetching (WebFetch) was blocked by the sandbox network policy for every reference host tried (pompeiisites.org, pompeii.iath.virginia.edu and others). Each 'documented' fact was checked against search-engine result summaries of the cited page, not a full read. The session's WebSearch budget ran out partway through, so some items could not be cross-checked a second time; they are flagged in the .md open questions. The exact wording of the Pliny passages on the sea and shore (pliny_sea) comes from the standard text of Letter 6.16 and 6.20 and was not re-checked against a summary in this pass. Where a search index showed only a URL slug, the source title is descriptive and marked as such. Keys starting 'wiki_' are tertiary; 'madain_', 'pompeiipictures_' and 'brewminate_' are secondary or enthusiast sources, used only alongside stronger ones. Confirm wording on each live page before shipping.",
+  "sources": {
+    "pap_regio_v_inscription": {
+      "title": "From maintenance to excavation: two prestigious dwellings brought to light in Regio V",
+      "publisher": "Parco Archeologico di Pompei",
+      "url": "https://pompeiisites.org/en/?p=8577",
+      "accessed": "2026-10-03"
+    },
+    "cnn_inscription": {
+      "title": "Pompeii charcoal inscription and the eruption date (descriptive title; indexed as 'pompeii-eruption-inscription-date-intl')",
+      "publisher": "CNN Style",
+      "url": "https://edition.cnn.com/style/article/pompeii-eruption-inscription-date-intl",
+      "accessed": "2026-10-04"
+    },
+    "thelocal_inscription": {
+      "title": "Was Pompeii destroyed two months later than we thought?",
+      "publisher": "The Local Italy (16 October 2018)",
+      "url": "https://www.thelocal.it/20181016/was-pompeii-destroyed-two-months-later-than-we-thought",
+      "accessed": "2026-10-04"
+    },
+    "finestre_date_debate": {
+      "title": "Zuchtriegel surprisingly reopens debate on Pompeii's eruption: August or October",
+      "publisher": "Finestre sull'Arte",
+      "url": "https://finestresullarte.info/en/news-focus/zuchtriegel-surprisingly-reopens-debate-on-pompeii-s-eruption-august-or-october",
+      "accessed": "2026-10-04"
+    },
+    "brewminate_date": {
+      "title": "When did Vesuvius erupt? The evidence for and against August 24",
+      "publisher": "Brewminate (secondary republication; medium reliability)",
+      "url": "https://brewminate.com/when-did-vesuvius-erupt-the-evidence-for-and-against-august-24/",
+      "accessed": "2026-10-04"
+    },
+    "pliny_uva": {
+      "title": "Pliny the Younger, Letters 6.16 and 6.20 (English translation)",
+      "publisher": "University of Virginia, Institute for Advanced Technology in the Humanities (Pompeii Forum Project)",
+      "url": "https://pompeii.iath.virginia.edu/pliny.html",
+      "accessed": "2026-10-03"
+    },
+    "pliny_cscp": {
+      "title": "Pliny the Younger, Letters 6.16 and 6.20",
+      "publisher": "Cambridge School Classics Project",
+      "url": "https://www.na4.cambridgescp.com/weblink/2182",
+      "accessed": "2026-10-04"
+    },
+    "pliny_uark": {
+      "title": "The Eruption of Vesuvius (Pliny the Younger, Letters 6.16 and 6.20, translation)",
+      "publisher": "The Bibliotheke, University of Arkansas (C. Muntz)",
+      "url": "https://cmuntz.hosted.uark.edu/texts/pliny-the-younger/the-eruption-of-vesuvius.html",
+      "accessed": "2026-10-04"
+    },
+    "mtu_vesuvio79": {
+      "title": "Vesuvio: The eruption of A.D. 79 (summarises Sigurdsson et al. and later volcanological work)",
+      "publisher": "Michigan Technological University, Department of Geological and Mining Engineering and Sciences (mirrored volcano reference page)",
+      "url": "https://geo.mtu.edu/volcanoes/boris/mirror/mirrored_html/VESUVIO_79.html",
+      "accessed": "2026-10-04"
+    },
+    "smithsonian_fall_rise": {
+      "title": "The Fall and Rise and Fall of Pompeii",
+      "publisher": "Smithsonian Magazine",
+      "url": "https://smithsonianmag.com/history/fall-rise-fall-pompeii-180955732/",
+      "accessed": "2026-10-03"
+    },
+    "luongo2003": {
+      "title": "Impact of the AD 79 explosive eruption on Pompeii, II. Causes of death of the inhabitants inferred by stratigraphic analysis and areal distribution of the human casualties (Luongo, Perrotta, Scarpati, De Carolis, Patricelli, Ciarallo; Journal of Volcanology and Geothermal Research 126, 169-200, 2003)",
+      "publisher": "IRIS, Università di Napoli Federico II (repository record)",
+      "url": "https://www.iris.unina.it/handle/11588/163033",
+      "accessed": "2026-10-04"
+    },
+    "plos_lethal_surges": {
+      "title": "Lethal Thermal Impact at Periphery of Pyroclastic Surges: Evidences at Pompeii",
+      "publisher": "PLOS ONE (2010)",
+      "url": "https://journals.plos.org/plosone/article?id=10.1371%2Fjournal.pone.0011127",
+      "accessed": "2026-10-03"
+    },
+    "wiki_eruption79": {
+      "title": "Eruption of Mount Vesuvius in 79 AD",
+      "publisher": "Wikipedia (tertiary; cites Sigurdsson et al. 1985, National Geographic Research 1(3))",
+      "url": "https://en.wikipedia.org/wiki/Eruption_of_Mount_Vesuvius_in_79_AD",
+      "accessed": "2026-10-04"
+    },
+    "historyuk_eruption": {
+      "title": "The eruption of Mount Vesuvius in 79 AD and the destruction of Pompeii",
+      "publisher": "History (UK)",
+      "url": "https://www.history.co.uk/article/the-eruption-of-mount-vesuvius-in-79-ad-and-the-destruction-of-pompeii",
+      "accessed": "2026-10-04"
+    },
+    "pap_marina_gate": {
+      "title": "Marina Gate and walls",
+      "publisher": "Parco Archeologico di Pompei",
+      "url": "https://pompeiisites.org/en/archaeological-site/marina-gate-and-walls/",
+      "accessed": "2026-10-04"
+    },
+    "madain_gates": {
+      "title": "City Gates of Ancient Pompeii",
+      "publisher": "Madain Project (secondary)",
+      "url": "https://madainproject.com/city_gates_of_ancient_pompeii",
+      "accessed": "2026-10-04"
+    },
+    "pap_fugitives": {
+      "title": "Garden of the Fugitives (site page; descriptive title)",
+      "publisher": "Parco Archeologico di Pompei",
+      "url": "https://pompeiisites.org/en/?p=3264",
+      "accessed": "2026-10-04"
+    },
+    "pompeiipictures_nocera": {
+      "title": "Victims at Porta Nocera (cast catalogue page)",
+      "publisher": "pompeii.pictures (enthusiast photographic archive; medium reliability)",
+      "url": "https://pompeii.pictures/Casts/victims%20nocera.htm",
+      "accessed": "2026-10-04"
+    },
+    "pap_coins_fugitive": {
+      "title": "With a sack of 20 silver and bronze coins close to his chest, the Pompeian fugitive made his escape",
+      "publisher": "Parco Archeologico di Pompei",
+      "url": "https://pompeiisites.org/?p=4573",
+      "accessed": "2026-10-04"
+    },
+    "pap_regio_ix_victims": {
+      "title": "Pompeii, the remains of two more victims of the eruption found in Region IX",
+      "publisher": "Parco Archeologico di Pompei",
+      "url": "https://pompeiisites.org/en/?p=56079",
+      "accessed": "2026-10-04"
+    },
+    "britannica_pompeii": {
+      "title": "Pompeii",
+      "publisher": "Encyclopaedia Britannica (Scholars edition)",
+      "url": "https://kids.britannica.com/scholars/article/Pompeii/60753",
+      "accessed": "2026-10-03"
+    },
+    "livescience_tuck": {
+      "title": "Mount Vesuvius Didn't Kill Everyone in Pompeii. Where Did the Survivors Go?",
+      "publisher": "Live Science (on research by Steven Tuck, Miami University)",
+      "url": "https://www.livescience.com/64854-where-pompeii-refugees-fled.html",
+      "accessed": "2026-10-04"
+    },
+    "mau1899_overwhelmed": {
+      "title": "Pompeii: Its Life and Art (A. Mau, trans. F. W. Kelsey, 1899), chapter 'The City Overwhelmed'",
+      "publisher": "Heidelberg University Library (digital edition)",
+      "url": "https://digi.ub.uni-heidelberg.de/diglit/mau1899/0053",
+      "accessed": "2026-10-04"
+    },
+    "currbio_dna2024": {
+      "title": "Ancient DNA study of the Pompeii plaster casts (Current Biology, 2024; PDF)",
+      "publisher": "Reich Laboratory, Harvard Medical School (author copy)",
+      "url": "https://reich.hms.harvard.edu/sites/reich.hms.harvard.edu/files/inline-files/2024_CurrentBiology_Pompeii_2.pdf",
+      "accessed": "2026-10-04"
+    },
+    "archmag_dna": {
+      "title": "DNA evidence rewrites history of Pompeii victims",
+      "publisher": "Archaeology Magazine (archaeologymag.com), November 2024",
+      "url": "https://archaeologymag.com/2024/11/dna-evidence-rewrites-history-of-pompeii-victims",
+      "accessed": "2026-10-04"
+    },
+    "archaeology_poehler": {
+      "title": "Conversation: Eric Poehler on Pompeii's streets and traffic",
+      "publisher": "Archaeology Magazine Archive (Archaeological Institute of America), November/December 2008",
+      "url": "https://archive.archaeology.org/0811/etc/conversation.html",
+      "accessed": "2026-10-04"
+    },
+    "pbs_traffic": {
+      "title": "Ancient Pompeii's Modern Solution to Traffic Jams",
+      "publisher": "PBS, Secrets of the Dead (video)",
+      "url": "https://www.pbs.org/video/ancient-pompeiis-modern-solution-traffic-jams-zk1gb3",
+      "accessed": "2026-10-04"
+    },
+    "pap_castellum": {
+      "title": "Castellum Aquae (site page; descriptive title)",
+      "publisher": "Parco Archeologico di Pompei",
+      "url": "https://pompeiisites.org/en/?p=7658",
+      "accessed": "2026-10-04"
+    },
+    "keenanjones2015": {
+      "title": "Somma-Vesuvian Ground Movements and the Water Supply of Pompeii and the Bay of Naples (D. Keenan-Jones, American Journal of Archaeology 119.2, 191-215, 2015)",
+      "publisher": "American Journal of Archaeology (Archaeological Institute of America)",
+      "url": "https://ajaonline.org/article/2052/",
+      "accessed": "2026-10-04"
+    },
+    "lacus_northumbria": {
+      "title": "The supply of the public lacus of Pompeii, estimated from the discharge of their overflow channels",
+      "publisher": "Northumbria University Research Repository",
+      "url": "https://nrl.northumbria.ac.uk/id/eprint/46407",
+      "accessed": "2026-10-04"
+    },
+    "thepast_thermopolium": {
+      "title": "Frescoed food-shop unearthed at Pompeii",
+      "publisher": "The Past (Current Publishing)",
+      "url": "https://the-past.com/news/frescoed-food-shop-unearthed-at-pompeii",
+      "accessed": "2026-10-04"
+    },
+    "madain_commercial": {
+      "title": "Commercial Establishments in Ancient Pompeii",
+      "publisher": "Madain Project (secondary)",
+      "url": "https://madainproject.com/commercial_establishments_in_ancient_pompeii",
+      "accessed": "2026-10-03"
+    },
+    "whe_popidius": {
+      "title": "The Bakery of Popidius Priscus in Pompeii",
+      "publisher": "World History Encyclopedia",
+      "url": "https://www.worldhistory.org/image/11294/the-bakery-of-popidius-priscus-in-pompeii/",
+      "accessed": "2026-10-04"
+    },
+    "finestre_bakery": {
+      "title": "A bakery emerges in Pompeii, bearing witness to the backbreaking labor of slaves and animals",
+      "publisher": "Finestre sull'Arte",
+      "url": "https://www.finestresullarte.info/en/archaeology/a-bakery-emerges-in-pompeii-bearing-witness-to-the-backbreaking-labor-of-slaves-and-animals",
+      "accessed": "2026-10-04"
+    },
+    "whe_fullers": {
+      "title": "The Fullers of Ancient Rome",
+      "publisher": "World History Encyclopedia",
+      "url": "https://www.worldhistory.org/article/46/the-fullers-of-ancient-rome/",
+      "accessed": "2026-10-04"
+    },
+    "archaeology_politics": {
+      "title": "Pompeian Politics",
+      "publisher": "Archaeology (Archaeological Institute of America), May/June 2024",
+      "url": "https://archaeology.org/issues/may-june-2024/digs-discoveries/pompeian-politics/",
+      "accessed": "2026-10-04"
+    },
+    "mann_elections": {
+      "title": "Elections in Pompeii",
+      "publisher": "National Archaeological Museum of Naples, on Google Arts & Culture",
+      "url": "https://artsandculture.google.com/story/elections-in-pompeii-national-archaeological-museum-of-naples/tgUBNHEcEscIJg?hl=en",
+      "accessed": "2026-10-04"
+    },
+    "britannica_domus": {
+      "title": "Domus",
+      "publisher": "Encyclopaedia Britannica",
+      "url": "https://www.britannica.com/technology/domus-dwelling",
+      "accessed": "2026-10-03"
+    },
+    "bas_four_styles": {
+      "title": "Wall Paintings at Stabiae: The Four Styles",
+      "publisher": "Biblical Archaeology Society Library",
+      "url": "https://library.biblicalarchaeology.org/sidebar/wall-paintings-at-stabiae-the-four-styles/",
+      "accessed": "2026-10-04"
+    },
+    "cambridge_earthquake": {
+      "title": "Fear and Healing: Seneca, Caecilius Iucundus and the Campanian Earthquake of 62/63 CE",
+      "publisher": "Greece & Rome (Cambridge University Press)",
+      "url": "https://www.cambridge.org/core/journals/greece-and-rome/article/fear-and-healing-seneca-caecilius-iucundus-and-the-campanian-earthquake-of-6263-ce/5A17DD934C9786FB0E4BE1F1AAE73DE3",
+      "accessed": "2026-10-04"
+    },
+    "wiki_ad62": {
+      "title": "AD 62 Pompeii earthquake",
+      "publisher": "Wikipedia (tertiary)",
+      "url": "https://en.wikipedia.org/wiki/AD_62_Pompeii_earthquake",
+      "accessed": "2026-10-04"
+    },
+    "pap_guide": {
+      "title": "A Guide to the Pompeii Excavations (PDF)",
+      "publisher": "Parco Archeologico di Pompei",
+      "url": "https://pompeiisites.org/wp-content/uploads/A-Guide-to-the-Pompeii-Excavations-2.pdf",
+      "accessed": "2026-10-03"
+    },
+    "smithsonian_construction": {
+      "title": "Archaeologists in Pompeii Find Ancient Construction Site",
+      "publisher": "Smithsonian Magazine",
+      "url": "https://www.smithsonianmag.com/smart-news/researchers-unearth-an-ancient-roman-construction-site-at-pompeii-180984045/",
+      "accessed": "2026-10-03"
+    },
+    "aia_clothing": {
+      "title": "Clothing in Roman Art (PDF)",
+      "publisher": "Archaeological Institute of America",
+      "url": "https://www.archaeological.org/wp-content/uploads/2024/08/Clothing-in-Roman-Art.pdf",
+      "accessed": "2026-10-04"
+    },
+    "wiki_clothing": {
+      "title": "Clothing in ancient Rome",
+      "publisher": "Wikipedia (tertiary)",
+      "url": "https://en.wikipedia.org/wiki/Clothing_in_ancient_Rome",
+      "accessed": "2026-10-04"
+    },
+    "whe_coinage": {
+      "title": "Roman Coinage",
+      "publisher": "World History Encyclopedia",
+      "url": "https://www.worldhistory.org/Roman_Coinage/",
+      "accessed": "2026-10-04"
+    },
+    "wiki_iucundus": {
+      "title": "Lucius Caecilius Iucundus",
+      "publisher": "Wikipedia (tertiary)",
+      "url": "https://en.wikipedia.org/wiki/Lucius_Caecilius_Iucundus",
+      "accessed": "2026-10-04"
+    },
+    "cscp_iucundus": {
+      "title": "Lucius Caecilius Iucundus",
+      "publisher": "Cambridge School Classics Project",
+      "url": "https://www.dl.cambridgescp.com/weblink/7",
+      "accessed": "2026-10-04"
+    },
+    "mau1899_tablets": {
+      "title": "Pompeii: Its Life and Art (A. Mau, trans. F. W. Kelsey, 1899), chapter LVII (the wax tablets of Caecilius Iucundus)",
+      "publisher": "Heidelberg University Library (digital edition)",
+      "url": "https://digi.ub.uni-heidelberg.de/diglit/mau1899/0572/text_ocr",
+      "accessed": "2026-10-04"
+    },
+    "ansa_casts": {
+      "title": "Casts of 86 Pompeii victims go on show",
+      "publisher": "ANSA",
+      "url": "https://www.ansa.it/english/news/lifestyle/arts/2015/05/20/casts-of-86-pompeii-victims-go-on-show_9996b8ef-992a-448a-a688-237c36e0eaef.html",
+      "accessed": "2026-10-03"
+    },
+    "conversation_casts": {
+      "title": "How can we ethically display the dead in museums? (The Conversation, republished)",
+      "publisher": "Rogue Classicism (republishing The Conversation)",
+      "url": "https://rogueclassicism.com/2025/03/23/the-conversation-how-can-we-ethically-display-the-dead-in-museums-what-about-resin-casts-of-those-who-died-violently-in-pompeii/",
+      "accessed": "2026-10-03"
+    },
+    "petrone2018": {
+      "title": "Petrone et al. 2018, PLOS ONE (forensic hypothesis on victims; cited only to say do not depict)",
+      "publisher": "PLOS ONE",
+      "url": "https://journals.plos.org/plosone/article?id=10.1371%2Fjournal.pone.0203210",
+      "accessed": "2026-10-03"
+    }
+  },
+  "facts": [
+    {
+      "id": "date_traditional",
+      "text": "The traditional date, 24 August AD 79, comes from manuscript copies of Pliny the Younger's Letter 6.16, which gives the ninth day before the Kalends of September. Pliny wrote the letters to Tacitus about 25 to 30 years after the eruption.",
+      "status": "documented",
+      "sources": [
+        "pliny_cscp",
+        "pliny_uark",
+        "pliny_uva"
+      ]
+    },
+    {
+      "id": "date_inscription",
+      "text": "In 2018 excavators in Regio V found a charcoal inscription reading 'XVI K Nov', the 16th day before the Kalends of November, which is 17 October. It was in a house being renovated, so it would probably soon have been plastered over. Because charcoal is fragile, the Park judged it highly probable that it was written in October 79, about a week before an eruption on about 24 October. The inscription gives no year. It shows only that someone wrote on a wall on a 17 October, probably shortly before burial. The '24 October' date is a hypothesis built on it, not a recorded date.",
+      "status": "documented",
+      "sources": [
+        "pap_regio_v_inscription",
+        "cnn_inscription",
+        "thelocal_inscription",
+        "finestre_date_debate"
+      ]
+    },
+    {
+      "id": "date_autumn_finds",
+      "text": "Other evidence used for an autumn date: heavier clothing on some victims, braziers in many houses, and plant remains of pomegranates and walnuts, which ripen in autumn. A worn coin naming Titus as imperator for the 15th time has also been cited, but experts disagree about when it was struck.",
+      "status": "documented",
+      "sources": [
+        "brewminate_date",
+        "finestre_date_debate"
+      ]
+    },
+    {
+      "id": "date_still_debated",
+      "text": "The date is still debated. Fish-sauce (garum) remains have been argued to fit a summer date, and the Park's director, Gabriel Zuchtriegel, has publicly said the August-or-October question is open.",
+      "status": "documented",
+      "sources": [
+        "brewminate_date",
+        "finestre_date_debate"
+      ]
+    },
+    {
+      "id": "erupt_opening_phase",
+      "text": "The eruption began with a brief phase of phreatomagmatic explosions, probably on the morning of the first day. They spread fine, pale ash mainly to the east, only a few centimetres thick even near the volcano.",
+      "status": "documented",
+      "sources": [
+        "mtu_vesuvio79"
+      ]
+    },
+    {
+      "id": "erupt_column_time",
+      "text": "From Misenum, about 30 km west, Pliny's mother pointed out a cloud of unusual size and shape at about the seventh hour, roughly 1 p.m. Pliny compared its shape to an umbrella pine: a tall trunk that spread out into branches.",
+      "status": "documented",
+      "sources": [
+        "pliny_cscp",
+        "pliny_uark",
+        "mtu_vesuvio79"
+      ]
+    },
+    {
+      "id": "roman_hours",
+      "text": "Roman hours were twelfths of the daylight, so their length changed with the season. 'The seventh hour' means early afternoon, shortly after midday, in either August or October.",
+      "status": "reconstruction",
+      "sources": []
+    },
+    {
+      "id": "erupt_column_height",
+      "text": "The Plinian column rose roughly 15 to over 30 km. It was lower during the early white-pumice phase and higher during the later grey-pumice phase.",
+      "status": "documented",
+      "sources": [
+        "mtu_vesuvio79",
+        "wiki_eruption79"
+      ]
+    },
+    {
+      "id": "erupt_pumice_rate",
+      "text": "High winds carried the plume south-east over Pompeii, about 10 km from the vent. Pumice fell there at about 15 cm an hour for roughly 18 to 20 hours, first white pumice and then grey, and built up to about 2.8 m.",
+      "status": "documented",
+      "sources": [
+        "smithsonian_fall_rise",
+        "mtu_vesuvio79",
+        "wiki_eruption79"
+      ]
+    },
+    {
+      "id": "erupt_roof_collapse",
+      "text": "Most inhabitants left during the pumice fall. A 2003 study found that 38% of the known victims died in this first phase, mainly when roofs and walls collapsed under the growing weight of pumice.",
+      "status": "documented",
+      "sources": [
+        "luongo2003"
+      ]
+    },
+    {
+      "id": "erupt_surges",
+      "text": "During the grey-pumice phase the column partly collapsed several times. The pumice fall was interrupted six times by pyroclastic surges and flows, each generally stronger than the last.",
+      "status": "documented",
+      "sources": [
+        "mtu_vesuvio79",
+        "wiki_eruption79"
+      ]
+    },
+    {
+      "id": "erupt_surge_pompeii",
+      "text": "A pyroclastic surge (S4 in Sigurdsson's scheme) reached Pompeii early on the second morning, at about 7 a.m., and killed people still in the city. Heat was the main cause of death. The 2003 study counted about 650 victims in these surge deposits.",
+      "status": "documented",
+      "sources": [
+        "wiki_eruption79",
+        "historyuk_eruption",
+        "luongo2003",
+        "plos_lethal_surges"
+      ]
+    },
+    {
+      "id": "pliny_stabiae",
+      "text": "At Stabiae, Pliny the Elder's hosts tied pillows on their heads with cloths to protect themselves from falling stones. They carried torches and lamps because the darkness was thicker than any night, and buildings shook with repeated strong tremors. Pliny the Elder died on the shore there on the second day.",
+      "status": "documented",
+      "sources": [
+        "pliny_uark",
+        "pliny_cscp",
+        "pliny_uva"
+      ]
+    },
+    {
+      "id": "pliny_sea",
+      "text": "Escape by sea was hard. In Letter 6.16 debris and sudden shallows blocked the shore near the volcano, and the wind kept boats from leaving Stabiae. In Letter 6.20 the sea at Misenum was sucked back from the shore.",
+      "status": "documented",
+      "sources": [
+        "pliny_uva",
+        "pliny_uark"
+      ]
+    },
+    {
+      "id": "city_walls_gates",
+      "text": "The city wall is over 3,200 m long: a double wall with a walkway and twelve towers. It had seven gates: Marina, Ercolano (Herculaneum), Vesuvio, Nola, Sarno, Nocera and Stabia.",
+      "status": "documented",
+      "sources": [
+        "pap_marina_gate",
+        "madain_gates"
+      ]
+    },
+    {
+      "id": "gate_marina",
+      "text": "Porta Marina, on the west side, is the most imposing gate. Its road led down to the sea. It has two vaulted passages: a higher one for horses and pack animals and a smaller one for people on foot.",
+      "status": "documented",
+      "sources": [
+        "pap_marina_gate"
+      ]
+    },
+    {
+      "id": "gate_stabia_nocera",
+      "text": "Porta Stabia stands at the south end of Via Stabiana, on the road toward Stabiae. Porta Nocera, in the south-east, opened on the road to Nuceria. Roads outside the gates were lined with tombs.",
+      "status": "documented",
+      "sources": [
+        "madain_gates",
+        "pompeiipictures_nocera"
+      ]
+    },
+    {
+      "id": "flight_outside_walls",
+      "text": "Some people died after leaving their houses. Thirteen adults and children were found in the Garden of the Fugitives, a former vineyard just inside the walls near Porta Nocera, while trying to reach the gate. Other fugitives were found on the road outside Porta Nocera, and one outside Porta Stabia.",
+      "status": "documented",
+      "sources": [
+        "pap_fugitives",
+        "pompeiipictures_nocera"
+      ]
+    },
+    {
+      "id": "flight_carried",
+      "text": "People fleeing carried money and keys. One man in Regio V had a purse with 20 silver and 2 bronze coins and an iron object, probably a house key. A woman found in Regio IX in 2024 had gold, silver and bronze coins, gold and pearl earrings and a key.",
+      "status": "documented",
+      "sources": [
+        "pap_coins_fugitive",
+        "pap_regio_ix_victims"
+      ]
+    },
+    {
+      "id": "most_escaped",
+      "text": "Most of the population escaped. The eruption began hours before the heaviest pumice fall, so people who understood the danger had time to leave. Survivors seem to have resettled along the coast, in Naples, Cumae, Puteoli and Ostia.",
+      "status": "documented",
+      "sources": [
+        "mau1899_overwhelmed",
+        "livescience_tuck"
+      ]
+    },
+    {
+      "id": "population",
+      "text": "Estimates of Pompeii's population range from about 10,000 to 20,000; figures of about 11,000 to 15,000 are often quoted. The walls enclose about 66 hectares.",
+      "status": "documented",
+      "sources": [
+        "britannica_pompeii",
+        "livescience_tuck"
+      ]
+    },
+    {
+      "id": "victims_found",
+      "text": "A 2003 study counted 1,150 victims recovered in excavations: 394 in the pumice-fall layer and 650 in the later surge deposits. More remains are still found, for example two people in Regio IX in 2024. The true total is unknown, because not all of the city and its surroundings has been excavated.",
+      "status": "documented",
+      "sources": [
+        "luongo2003",
+        "pap_regio_ix_victims"
+      ]
+    },
+    {
+      "id": "casts_dna",
+      "text": "A 2024 ancient-DNA study of 14 casts showed that long-told stories about them were wrong. An adult wearing a gold bracelet and holding a child, long called a mother, was an unrelated man.",
+      "status": "documented",
+      "sources": [
+        "currbio_dna2024",
+        "archmag_dna"
+      ]
+    },
+    {
+      "id": "casts_ethics",
+      "text": "The plaster casts, made with Fiorelli's method from 1863, hold the real skeletal remains of people who died. 86 restored casts were shown together in 2015. Museum writers now argue that they should be shown as people, not statues, with care over how and whether they are displayed. The 2018 forensic claims about the victims' last moments are contested and must not be depicted.",
+      "status": "documented",
+      "sources": [
+        "ansa_casts",
+        "conversation_casts",
+        "petrone2018"
+      ]
+    },
+    {
+      "id": "street_paving",
+      "text": "By AD 79 at least 61% of Pompeii's streets were paved with blocks of lava stone. Cart wheels wore deep ruts into the paving. About 80% of streets were too narrow for two carts to pass. Wear on the kerbs shows that many were one-way.",
+      "status": "documented",
+      "sources": [
+        "archaeology_poehler",
+        "pbs_traffic"
+      ]
+    },
+    {
+      "id": "street_stepping_stones",
+      "text": "Raised sidewalks kept water away from house doors. Stepping stones crossed the street so people could keep their feet out of rainwater, dirt and animal dung. They were spaced so cart wheels could pass between them.",
+      "status": "documented",
+      "sources": [
+        "archaeology_poehler",
+        "pbs_traffic"
+      ]
+    },
+    {
+      "id": "water_fountains",
+      "text": "There were about 40 public street fountains (42 in the standard catalogue). Most were a simple stone basin with a carved spout stone, fed by lead pipes under the street. Pipes ran from the castellum aquae to at least 14 tall water towers that reduced the pressure.",
+      "status": "documented",
+      "sources": [
+        "lacus_northumbria",
+        "pap_castellum"
+      ]
+    },
+    {
+      "id": "water_castellum",
+      "text": "The castellum aquae, the main water distributor, stands just inside Porta Vesuvio at the highest point of the city (42 m). It was fed by the Augustan Serino aqueduct and split the water into three pipes. It was damaged in the earthquake of 62 and seems not to have been in use in 79.",
+      "status": "documented",
+      "sources": [
+        "pap_castellum"
+      ]
+    },
+    {
+      "id": "water_under_repair",
+      "text": "In 79 the piped water system was being rebuilt. A wholly new third phase of distribution was under construction, possibly because ground uplift before the eruption had disrupted the aqueduct's gentle slope.",
+      "status": "documented",
+      "sources": [
+        "keenanjones2015"
+      ]
+    },
+    {
+      "id": "water_mission_risk",
+      "text": "Whether any particular street fountain was running on the eruption day is unknown. A fountain giving a weak or stopped flow, with work on pipes nearby, is defensible. A full, steady flow everywhere is less certain.",
+      "status": "reconstruction",
+      "sources": []
+    },
+    {
+      "id": "thermopolium",
+      "text": "Pompeii had well over a hundred street-food bars (thermopolia), with masonry counters holding embedded jars (dolia). A thermopolium fully excavated in Regio V in 2020 has a painted counter showing a Nereid on a sea-horse, two mallards and a rooster, and a dog on a lead. The jars held remains of pig, goat, fish and snails; a wine jar held ground broad beans.",
+      "status": "documented",
+      "sources": [
+        "thepast_thermopolium",
+        "madain_commercial"
+      ]
+    },
+    {
+      "id": "bakery",
+      "text": "About 33 bakeries are known. The bakery of Popidius Priscus had four large lava-stone mills, a stable, storerooms and a big oven, and no shop counter, so its bread was sold through other outlets. Mills were turned by a donkey or by enslaved workers, often both together. Carbonised loaves found in one oven show that bakeries were working on the day of the eruption.",
+      "status": "documented",
+      "sources": [
+        "whe_popidius",
+        "finestre_bakery"
+      ]
+    },
+    {
+      "id": "fullonica",
+      "text": "Fullers washed and finished cloth, using urine as a cleaning agent. Workers, often enslaved, trod the cloth in vats. The Fullonica of Stephanus on Via dell'Abbondanza, excavated in 1912-14, is the best preserved.",
+      "status": "documented",
+      "sources": [
+        "whe_fullers",
+        "madain_commercial"
+      ]
+    },
+    {
+      "id": "programmata",
+      "text": "About 2,500 painted electoral notices (programmata) survive. Professional sign painters brushed them in red or black on house and shop walls along busy streets. Most backed candidates for aedile or duovir.",
+      "status": "documented",
+      "sources": [
+        "archaeology_politics",
+        "mann_elections"
+      ]
+    },
+    {
+      "id": "graffiti",
+      "text": "Besides painted notices, walls carried scratched graffiti: personal messages, greetings and advertisements for shows.",
+      "status": "documented",
+      "sources": [
+        "madain_commercial"
+      ]
+    },
+    {
+      "id": "house_atrium",
+      "text": "A domus was entered through a passage into the atrium. Rain fell through an opening in its roof (compluvium) into a shallow basin below (impluvium). Further in was a colonnaded garden, the peristyle, surrounded by reception rooms, bedrooms and dining rooms.",
+      "status": "documented",
+      "sources": [
+        "britannica_domus",
+        "bas_four_styles"
+      ]
+    },
+    {
+      "id": "fourth_style",
+      "text": "The Fourth Style of wall painting (about AD 50/60-79) was in fashion when the city was buried. Much of it belongs to rebuilding after the earthquake; the House of the Vettii was redecorated between 62 and 79.",
+      "status": "documented",
+      "sources": [
+        "bas_four_styles"
+      ]
+    },
+    {
+      "id": "quake_62",
+      "text": "A strong earthquake struck the area on 5 February in AD 62 or 63; ancient writers disagree on the year. Seneca described it in Book 6 of his Natural Questions. Pompeii was still repairing and rebuilding in 79, and a construction site has been found in Regio IX.",
+      "status": "documented",
+      "sources": [
+        "cambridge_earthquake",
+        "wiki_ad62",
+        "pap_guide",
+        "smithsonian_construction"
+      ]
+    },
+    {
+      "id": "clothing",
+      "text": "Men and boys wore a knee-length tunic; women and girls wore a longer tunic, often with sleeves. Tunics were wool or linen. Citizen men wore the toga only on formal occasions, and married citizen women wore a palla over a stola. The poor used a hooded wool cloak, the paenula. Footwear ranged from sandals to closed boots (calcei), and ordinary people mostly wore undyed or earth-toned cloth.",
+      "status": "documented",
+      "sources": [
+        "aia_clothing",
+        "wiki_clothing"
+      ]
+    },
+    {
+      "id": "coinage",
+      "text": "Coins in use: 1 gold aureus = 25 silver denarii; 1 denarius = 4 sestertii; 1 sestertius = 2 dupondii; 1 dupondius = 2 asses. The dupondius was yellow brass (orichalcum). The as and the small quadrans were copper.",
+      "status": "documented",
+      "sources": [
+        "whe_coinage"
+      ]
+    },
+    {
+      "id": "iucundus_archive",
+      "text": "In 1875 an archive of 153 wax tablets was found in the house of the banker Lucius Caecilius Iucundus: 16 contracts with the town and 137 receipts for auction payments made for other people. Most are triptychs: three wooden leaves tied together to open like a book. Nearly all date from AD 52-62.",
+      "status": "documented",
+      "sources": [
+        "wiki_iucundus",
+        "mau1899_tablets",
+        "cscp_iucundus"
+      ]
+    },
+    {
+      "id": "iucundus_role",
+      "text": "Iucundus was an argentarius: auctioneer, broker and lender. He paid the seller and gave the buyer time to repay. His father, Felix, was a freedman and also a banker. His records stop around 62, so he may have died in the earthquake; he was probably not doing business in 79.",
+      "status": "documented",
+      "sources": [
+        "wiki_iucundus",
+        "cscp_iucundus"
+      ]
+    },
+    {
+      "id": "fictional_banker",
+      "text": "The game's freedman banker is fictional and modelled on the Iucundus archive. His tablets are sealed triptychs carrying receipts, in the documented format. He must not be presented as Iucundus or as an occupant of Iucundus's house.",
+      "status": "fiction",
+      "sources": []
+    },
+    {
+      "id": "october_life",
+      "text": "If the chapter uses late October: the grape harvest is just over, new wine is in jars, mornings are cool, braziers are lit indoors, and people wear cloaks. Pomegranates and walnuts are on sale.",
+      "status": "reconstruction",
+      "sources": []
+    },
+    {
+      "id": "light_and_sound",
+      "text": "On the afternoon of Day 1, daylight dims to grey-brown under the plume. Pumice is light and grey-white, from gravel to walnut size, and rattles on tile roofs. Tremors keep coming, and by late afternoon it is as dark as night. People carry lamps and torches.",
+      "status": "reconstruction",
+      "sources": []
+    },
+    {
+      "id": "fiction_premise",
+      "text": "The house, the street block, the banker or baker, the household and all named residents are fictional. The player's route to a gate and the road beyond is a game invention. The player leaves on Day 1, before the surges.",
+      "status": "fiction",
+      "sources": []
+    }
+  ],
+  "scanEntries": [
+    {
+      "id": "scan_stepping_stones",
+      "title": "Stepping Stones",
+      "text": "Raised blocks set across the lava-paved street. They let people cross without stepping in rainwater, dirt and dung. They are spaced so that cart wheels pass between them, and the paving around them is grooved by wheel ruts.",
+      "status": "documented",
+      "sources": [
+        "archaeology_poehler",
+        "pbs_traffic"
+      ]
+    },
+    {
+      "id": "scan_street_fountain",
+      "title": "Street Fountain",
+      "text": "A stone basin with a carved spout stone, fed by a lead pipe under the street. Pompeii had about 40 of these public fountains along its streets. In 79 the town's piped water was being rebuilt, so the flow may have been weak.",
+      "status": "documented",
+      "sources": [
+        "lacus_northumbria",
+        "keenanjones2015"
+      ]
+    },
+    {
+      "id": "scan_water_tower",
+      "title": "Water Tower",
+      "text": "A tall masonry pillar with a lead tank on top. Water from the castellum aquae was piped up into it to reduce the pressure before it went on to fountains, baths and houses. At least 14 stood around the town.",
+      "status": "documented",
+      "sources": [
+        "pap_castellum",
+        "lacus_northumbria"
+      ]
+    },
+    {
+      "id": "scan_wax_tablet",
+      "title": "Wax Writing Tablet",
+      "text": "Three wooden leaves tied together like a book, their insides coated in wax for writing with a stylus. A banker's archive found in 1875 held 153 such tablets, mostly receipts for auction payments with the names of witnesses. This tablet is a fictional prop based on that archive.",
+      "status": "documented",
+      "sources": [
+        "mau1899_tablets",
+        "wiki_iucundus"
+      ]
+    },
+    {
+      "id": "scan_thermopolium",
+      "title": "Food-Bar Counter",
+      "text": "A masonry counter with large jars (dolia) set into the top, for hot food and wine. Pompeii had well over a hundred such bars. One excavated in 2020 had painted ducks, a rooster and a dog on its counter, and remains of pig, goat, fish and snails in its jars.",
+      "status": "documented",
+      "sources": [
+        "thepast_thermopolium",
+        "madain_commercial"
+      ]
+    },
+    {
+      "id": "scan_bakery_mill",
+      "title": "Lava-Stone Mill",
+      "text": "A large two-part mill of rough volcanic lava stone. A donkey or an enslaved worker pushed it round to grind grain for the oven. About 33 bakeries are known in Pompeii.",
+      "status": "documented",
+      "sources": [
+        "whe_popidius",
+        "finestre_bakery"
+      ]
+    },
+    {
+      "id": "scan_fullonica_vat",
+      "title": "Fuller's Vat",
+      "text": "A small walled basin where workers trod cloth in water mixed with urine to clean it. Fullers also rinsed, dyed and finished cloth. The work was smelly and low-status, and it was often done by enslaved people.",
+      "status": "documented",
+      "sources": [
+        "whe_fullers"
+      ]
+    },
+    {
+      "id": "scan_programma",
+      "title": "Painted Election Notice",
+      "text": "Large red or black letters brushed onto a wall, urging people to vote for a candidate for aedile or duovir. About 2,500 such notices survive at Pompeii. They were painted by professional sign painters on busy streets. The candidate named here is fictional.",
+      "status": "documented",
+      "sources": [
+        "archaeology_politics",
+        "mann_elections"
+      ]
+    },
+    {
+      "id": "scan_graffiti",
+      "title": "Wall Graffiti",
+      "text": "Words scratched into plaster with a sharp point: greetings, jokes, complaints and notices of shows. Pompeii's walls preserve thousands of these everyday messages. The text shown here is invented for the game.",
+      "status": "documented",
+      "sources": [
+        "madain_commercial"
+      ]
+    },
+    {
+      "id": "scan_impluvium",
+      "title": "Atrium Rain Basin",
+      "text": "A shallow basin in the floor of the atrium, under an opening in the roof. Rainwater fell through the opening into the basin. The atrium was the first large room a visitor entered.",
+      "status": "documented",
+      "sources": [
+        "britannica_domus",
+        "bas_four_styles"
+      ]
+    },
+    {
+      "id": "scan_fresco",
+      "title": "Fourth Style Wall Painting",
+      "text": "Painted plaster in the Fourth Style, sometimes called the 'fantasy style'. It was fashionable from about AD 60 until the eruption. Many houses were repainted in it while being repaired after the earthquake of 62.",
+      "status": "documented",
+      "sources": [
+        "bas_four_styles"
+      ]
+    },
+    {
+      "id": "scan_coin_purse",
+      "title": "Coin Purse",
+      "text": "A small cloth purse holding silver denarii and bronze coins. One sestertius was worth four copper asses, and four sestertii made a silver denarius. One man fleeing the eruption carried 20 silver and 2 bronze coins and probably his house key in a purse like this.",
+      "status": "documented",
+      "sources": [
+        "whe_coinage",
+        "pap_coins_fugitive"
+      ]
+    },
+    {
+      "id": "scan_pumice",
+      "title": "Pumice Stones",
+      "text": "Light, frothy volcanic stones, grey-white and full of holes. On the eruption day they fell on Pompeii at about 15 cm an hour, until the layer was nearly 3 m deep. The weight on flat and tiled roofs brought many of them down.",
+      "status": "documented",
+      "sources": [
+        "smithsonian_fall_rise",
+        "luongo2003"
+      ]
+    },
+    {
+      "id": "scan_repair_works",
+      "title": "Earthquake Repairs",
+      "text": "A cracked wall propped with timber, with fresh mortar and stacked building material nearby. A strong earthquake in 62 or 63 damaged the town, and seventeen years later repairs and rebuilding were still going on. Archaeologists have found a construction site of 79 in Regio IX.",
+      "status": "documented",
+      "sources": [
+        "cambridge_earthquake",
+        "smithsonian_construction",
+        "pap_guide"
+      ]
+    }
+  ]
+}

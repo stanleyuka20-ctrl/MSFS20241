@@ -93,6 +93,23 @@ def head_rest_y(B, band_r, zscale=1.1, extra=0.012):
     return Lm["eye.L"][1] + 0.05, cz
 
 
+def head_band(B, zscale=1.12, extra=0.012, frac=0.40):
+    """Band height/radius for a hat: slice the head at eye + frac*(crown - eye); returns
+    (y, centre_z, radius incl. `extra`) so hats scale with the head (children have
+    proportionally bigger heads in canonical space)."""
+    Lm = B.landmarks
+    hv = B.v[C.wsum(B.W, ["head"]) > 0.5]
+    cz = (Lm["nose"][2] + Lm["back"][2]) / 2 - 0.005
+    ye = Lm["eye.L"][1]
+    yt = hv[:, 1].max()
+    y = ye + frac * (yt - ye)
+    head_band.crown = yt - y  # head height above the band (hats must clear it)
+    sl = hv[np.abs(hv[:, 1] - y) < 0.005]
+    cz = (sl[:, 2].max() + sl[:, 2].min()) / 2
+    r = np.sqrt(sl[:, 0] ** 2 + ((sl[:, 2] - cz) / zscale) ** 2).max() + extra
+    return y, cz, r
+
+
 def place(m, y, cz, tilt_x=0.0, tilt_z=0.0, dz=0.0):
     a = np.radians(tilt_x)
     Rx = np.array([[1, 0, 0], [0, np.cos(a), np.sin(a)], [0, -np.sin(a), np.cos(a)]])
@@ -139,8 +156,21 @@ def cape(B, R, o):
     bl = min(loops, key=lambda L: m.v[L, 1].mean())
     m.v[bl, 1] = ys
     G.laplacian_smooth(m, 4, 0.4, body=B.ref, dmin=ease * 0.7)
-    pts = p[(R["hand"] < 0.2) & (R["fa"] < 0.15) & (p[:, 1] > hem - 0.06) & (p[:, 1] < ys + 0.02) &
-            (R["head"] + R["neck"] < 0.3)]
+    # drape volume = torso + the upper arms rotated down to the sides (the A-pose arms would
+    # make a flat, wide "table"); the cape is skinned to the torso so arms move inside it
+    torso = p[(R["arm"] < 0.3) & (R["head"] + R["neck"] < 0.3) & (p[:, 1] > hem - 0.06) & (p[:, 1] < ys + 0.02)]
+    arms = []
+    for s_, sg in (("L", 1), ("R", -1)):
+        sh = C.J(B, "upperarm01." + s_)
+        el = C.J(B, "lowerarm01." + s_)
+        av = p[(R["arm"] > 0.5) & (R["fa"] < 0.1) & ((p[:, 0] * sg) > 0)]
+        d0 = nrm(el - sh)
+        ang = np.arctan2(d0[0] * sg, -d0[1])  # abduction from straight down
+        a = -ang * sg + np.radians(8) * sg
+        Rz = np.array([[np.cos(a), -np.sin(a), 0], [np.sin(a), np.cos(a), 0], [0, 0, 1]])
+        arms.append((av - sh) @ Rz.T + sh)
+    pts = np.concatenate([torso] + arms, 0)
+    pts = pts[(pts[:, 1] > hem - 0.06) & (pts[:, 1] < ys + 0.02)]
     nlev = max(3, int(round((ys - hem) / 0.035)))
     hs = np.linspace(ys, hem, nlev + 1)[1:]
     G.extrude_loop(m, bl, hs, pts, np.linspace(ease + 0.004, ease + 0.016, nlev),
@@ -204,11 +234,11 @@ def hair_bob(B, cfg):
     sel_v &= ~((p[:, 1] < jaw_y + 0.06) & (p[:, 2] > Lm["ear.L"][2] + 0.02))  # keep the cheeks clear
     fsel = C.faces_all(B, sel_v)
     low = np.clip((eye_y + 0.03 - p[:, 1]) / 0.08, 0, 1)
-    th = 0.007 + 0.006 * np.clip((p[:, 1] - (eye_y + 0.04)) / 0.06, 0, 1) + 0.012 * low
+    th = 0.005 + 0.005 * np.clip((p[:, 1] - (eye_y + 0.04)) / 0.06, 0, 1) + 0.006 * low
     m = G.shell(B.ref, fsel, th, smooth=14, dmin=th * 0.6)
     for L in G.boundary_loops(m.f):
         if len(L) >= 8:
-            G.lip(m, L, depth=0.004, back=0.006, smooth_loop=8)
+            G.lip(m, L, depth=0.003, back=0.005, smooth_loop=8)
     dens = np.clip((p[:, 1] - thr) / 0.02, 0, 1)
     m.attrs = {"dens": np.ones(len(m.v))}
     return m, dens
@@ -222,45 +252,61 @@ def headscarf(B, o):
     hc = Lm["head"]
     front = Lm["nose"][2]
     ear_z = (Lm["ear.L"][2] + Lm["ear.R"][2]) / 2
-    zf = np.clip((p[:, 2] - (ear_z + 0.005)) / 0.03, 0, 1)
-    jaw_y = Lm["jaw"][1] - 0.005
+    zf = np.clip((p[:, 2] - (ear_z + 0.03)) / 0.03, 0, 1)
+    jaw_y = Lm["jaw"][1] - 0.012
     thr = (eye_y + o.get("front", 0.062)) * zf + jaw_y * (1 - zf)
     headw = C.wsum(B.W, ["head"]) > 0.35
     back_neck = (C.wsum(B.W, ["neck02", "neck01"]) > 0.4) & (p[:, 2] < C.J(B, "neck02")[2] - 0.01) & \
         (p[:, 1] > C.J(B, "neck02")[1] - 0.01)
     sel_v = ((p[:, 1] > thr) & headw) | back_neck
+    for s_ in "LR":  # ears are covered (no hole round the ear)
+        sel_v |= (np.linalg.norm(p - Lm["ear." + s_], axis=1) < 0.04) & (p[:, 1] > jaw_y)
     fsel = C.faces_all(B, sel_v)
-    th = o.get("thick", 0.016)
+    th0 = o.get("thick", 0.016)
+    # looser at the back of the head / nape where the cloth hangs over pinned-up hair
+    back = np.clip((ear_z - p[:, 2]) / 0.08, 0, 1) * np.clip((Lm["ear.L"][1] + 0.05 - p[:, 1]) / 0.08, 0, 1)
+    th = th0 + 0.014 * back + 0.004 * np.clip((p[:, 1] - Lm["eye.L"][1] - 0.06) / 0.05, 0, 1)
     m = G.shell(B.ref, fsel, th, smooth=16, dmin=th * 0.8)
+    th = th0
     loops = G.boundary_loops(m.f)
+    if len(loops) > 1:  # fill small holes left by fiddly anatomy: keep the largest piece/opening only
+        pass
     L = max(loops, key=len)
     P_ = m.v[L].copy()
-    for _ in range(20):
+    for _ in range(3):  # light relaxation only: a closed-curve smoother shrinks the opening
         P_ = 0.5 * P_ + 0.25 * (np.roll(P_, 1, 0) + np.roll(P_, -1, 0))
     m.v[L] = P_
     m.v[L], _ = B.ref.push_out(m.v[L], th * 0.8)
     G.laplacian_smooth(m, 3, 0.4, body=B.ref, dmin=th * 0.7)
-    G.lip(m, L, depth=-0.004, back=0.012, smooth_loop=10)
-    # ties under the chin
-    jl = Lm["jaw"] + np.array([0.05, -0.03, 0.035])
-    jr = Lm["jaw"] + np.array([-0.05, -0.03, 0.035])
-    ch = Lm["chin"] + np.array([0, -0.022, 0.0])
-    ctrl = np.array([jr + np.array([-0.008, 0.02, -0.01]), jr, (jr + ch) / 2 + np.array([0, -0.006, 0]), ch,
-                     (jl + ch) / 2 + np.array([0, -0.006, 0]), jl, jl + np.array([0.008, 0.02, -0.01])])
-    path = C.catmull(ctrl, 30)
+    G.lip(m, L, depth=-0.004, back=0.012, smooth_loop=4)
+    # ties: from under the scarf edge below the ears, along the jaw, knotted under the chin
+    ch = Lm["chin"] + np.array([0, -0.02, -0.004])
+    ctrl = []
+    for s_ in ("R", "L"):
+        e = Lm["ear." + s_]
+        sg = 1 if s_ == "L" else -1
+        a0 = e + np.array([-0.012 * sg, -0.045, 0.012])
+        a1 = e + np.array([-0.02 * sg, -0.085, 0.04])
+        seg = [a0, a1, (a1 + ch) / 2 + np.array([0, -0.01, 0])]
+        ctrl += seg if s_ == "R" else seg[::-1]
+        if s_ == "R":
+            ctrl.append(ch)
+    path = C.catmull(np.array(ctrl), 36)
+    path, _ = B.ref.push_out(path, th * 0.6)
     d, idx = B.ref.tree.query(path, k=4)
     nb = nrm(B.ref.n[idx].mean(1))
-    vb = B.ref.v[idx].mean(1)
-    sdist = ((path - vb) * nb).sum(1)
-    path = path + nb * np.maximum(0.006 - sdist, 0)[:, None]
-    ties = C.ribbon(path, 0.022, 0.003, normals=nb)
+    ties = C.ribbon(path, 0.024, 0.003, normals=nb)
     knot = C.flat_box(ch + np.array([0, -0.004, 0.006]), nrm(np.array([0, -0.6, 1.0])), 0.03, 0.026, 0.016)
     return m, ties, knot
 
 
-def revolve_hat(B, prof, band_r, zscale, extra, tilt=4.0, tilt_z=0.0, forward=0.0, nseg=36, dz=0.0, lift=0.0):
-    m = C.revolve(prof, nseg, scale_xz=(1.0, zscale))
-    y, cz = head_rest_y(B, band_r, zscale, extra)
+def revolve_hat(B, prof, band_r, zscale, extra, tilt=4.0, tilt_z=0.0, forward=0.0, nseg=36, dz=0.0, lift=0.0,
+                frac=0.40):
+    y, cz, r = head_band(B, zscale, extra, frac)
+    k = r / band_r
+    inner_top = min(b for a, b in prof[-2:])  # crown underside (last profile points are the inside)
+    ky = max(k, (head_band.crown + extra + 0.004) / max(inner_top, 1e-3))
+    m = C.revolve([(a * k, b * ky) for a, b in prof], nseg, scale_xz=(1.0, zscale))
     if forward:
         m.v[:, 2] += forward * np.clip(m.v[:, 1] / max(m.v[:, 1].max(), 1e-6), 0, 1)
     place(m, y + lift, cz, tilt, tilt_z, dz)
@@ -270,10 +316,11 @@ def revolve_hat(B, prof, band_r, zscale, extra, tilt=4.0, tilt_z=0.0, forward=0.
 def felt_hat(B, o):
     """Women's felt hat (WVS): shallow crown, ribbon band, narrow down-turned brim."""
     br = 0.094
-    prof = [(0.0, 0.074), (0.055, 0.073), (0.082, 0.066), (0.092, 0.045), (0.095, 0.012), (br, 0.0),
-            (0.125, -0.004), (0.142, -0.013), (0.14, -0.017), (0.122, -0.009), (0.093, -0.004),
-            (0.089, -0.003), (0.088, 0.06), (0.0, 0.062)]
-    m = revolve_hat(B, prof, 0.09, 1.12, o.get("extra", 0.014), tilt=o.get("tilt", 6), tilt_z=o.get("tilt_z", -5))
+    prof = [(0.0, 0.088), (0.05, 0.087), (0.078, 0.081), (0.09, 0.06), (0.094, 0.015), (br, 0.0),
+            (0.112, -0.002), (0.124, -0.008), (0.123, -0.012), (0.11, -0.007), (0.093, -0.004),
+            (0.089, -0.003), (0.088, 0.075), (0.0, 0.077)]
+    m = revolve_hat(B, prof, 0.088, 1.12, o.get("extra", 0.014), tilt=o.get("tilt", 6), tilt_z=o.get("tilt_z", -5),
+                    frac=0.45)
     k = m.attrs["prof_k"]
     band = (k >= 3) & (k <= 4)
     m.attrs = {"civ1": band.astype(float)}
@@ -281,18 +328,47 @@ def felt_hat(B, o):
 
 
 def flat_cap(B, o):
-    """Cloth flat cap: flat crown pulled forward over a short stiff peak."""
-    prof = [(0.0, 0.05), (0.07, 0.049), (0.105, 0.043), (0.116, 0.03), (0.108, 0.012), (0.1, 0.0),
-            (0.096, 0.0), (0.094, 0.04), (0.0, 0.042)]
-    y, cz = head_rest_y(B, 0.096, 1.14, o.get("extra", 0.01))
-    m = C.revolve(prof, 32, scale_xz=(1.0, 1.14))
-    m.v[:, 2] += 0.028 * np.clip(m.v[:, 1] / 0.05, 0, 1) ** 1.5
-    place(m, y, cz, o.get("tilt", 7))
+    """Cloth flat cap: a shell over the skull (fits any head size), crown flattened and pulled
+    forward over a short stiff peak."""
+    Lm = B.landmarks
+    p = B.v
+    hc = Lm["head"]
+    eye_y = Lm["eye.L"][1]
+    front = Lm["nose"][2]
+    zf = np.clip((p[:, 2] - (hc[2] - 0.03)) / (front - hc[2] + 0.03), 0, 1)
+    thr = eye_y + 0.022 + 0.03 * zf
+    for s_ in "LR":
+        e = Lm["ear." + s_]
+        thr = np.maximum(thr, np.where(np.linalg.norm(p - e, axis=1) < 0.04, e[1] + 0.04, thr))
+    sel_v = (p[:, 1] > thr) & (C.wsum(B.W, ["head"]) > 0.5)
+    fsel = C.faces_all(B, sel_v)
+    th = o.get("thick", 0.016)
+    m = G.shell(B.ref, fsel, th, smooth=14, dmin=th * 0.8)
+    loops = G.boundary_loops(m.f)
+    L = max(loops, key=len)
+    P_ = m.v[L].copy()
+    for _ in range(4):
+        P_ = 0.5 * P_ + 0.25 * (np.roll(P_, 1, 0) + np.roll(P_, -1, 0))
+    m.v[L], _ = B.ref.push_out(P_, th * 0.8)
+    # flat crown pulled forward
+    ytop = m.v[:, 1].max()
+    yb = m.v[L, 1].mean()
+    t = np.clip((m.v[:, 1] - yb) / max(ytop - yb, 1e-3), 0, 1)
+    m.v[:, 2] += 0.03 * t ** 1.5
+    m.v[:, 1] = np.minimum(m.v[:, 1], ytop - 0.012) + 0.004 * t
+    out = np.stack([m.v[:, 0], np.zeros(len(m.v)), m.v[:, 2] - hc[2]], 1)
+    m.v += nrm(out + 1e-9) * (0.008 * t * (1 - t) * 4)[:, None]  # soft overhang at the crown edge
+    G.laplacian_smooth(m, 3, 0.4, body=B.ref, dmin=th * 0.7)
+    G.lip(m, L, depth=0.004, back=0.012, smooth_loop=4)
+    # peak: stiff half-ellipse in front of the band
+    fr = m.v[L][m.v[L, 2] > hc[2] + 0.02]
+    c0 = np.array([0.0, fr[:, 1].mean(), hc[2]])
+    rx = np.abs(fr[:, 0]).max()
+    rz = fr[:, 2].max() - hc[2]
     ang = np.linspace(-1.15, 1.15, 13) + np.pi / 2
-    rin = np.stack([0.097 * np.cos(ang), np.zeros_like(ang), 0.097 * 1.14 * np.sin(ang)], 1)
-    rout = np.stack([0.125 * np.cos(ang), -0.012 * np.ones_like(ang), 0.125 * 1.2 * np.sin(ang) + 0.012], 1)
-    rout[:, 2] = np.maximum(rout[:, 2], rin[:, 2] + 0.01)
-    V = np.concatenate([rin, rout, rin - np.array([0, 0.004, 0]), rout - np.array([0, 0.004, 0])], 0)
+    rin = np.stack([(rx - 0.006) * np.cos(ang), np.full(len(ang), 0.006), (rz - 0.008) * np.sin(ang)], 1)
+    rout = np.stack([(rx + 0.012) * np.cos(ang), -0.014 * np.ones_like(ang), (rz + 0.055) * np.sin(ang)], 1)
+    V = np.concatenate([rin, rout, rin - np.array([0, 0.004, 0]), rout - np.array([0, 0.004, 0])], 0) + c0
     n = len(ang)
     f = []
     for i in range(n - 1):
@@ -300,7 +376,6 @@ def flat_cap(B, o):
         f.append((2 * n + i, 3 * n + i, 3 * n + i + 1, 2 * n + i + 1))
         f.append((n + i, n + i + 1, 3 * n + i + 1, 3 * n + i))
     peak = G.Mesh(V, f)
-    place(peak, y + 0.004, cz, o.get("tilt", 7))
     return m, peak
 
 
@@ -335,8 +410,8 @@ def crossbody_box(B, tun, o):
     torso = np.abs(tv[:, 0]) < 0.24
     tsurf = G.Mesh(tv[torso], [])
     yb = o.get("y", 0.93)
-    sel = (tv[:, 0] > 0.08) & (np.abs(tv[:, 1] - yb) < 0.02) & (tv[:, 2] > -0.02)
-    c = tv[sel][np.argmax(tv[sel][:, 0] * 0.6 + tv[sel][:, 2])]
+    sel = (tv[:, 0] > 0.08) & (np.abs(tv[:, 1] - yb) < 0.045) & (tv[:, 2] > -0.02)
+    c = tv[sel][np.argmax(tv[sel][:, 0] * 0.6 + tv[sel][:, 2] - 2.0 * np.abs(tv[sel][:, 1] - yb))]
     box = C.box_on_surface(tfull, c, (0.115, 0.14), 0.095, np.array([0.75, -0.05, 0.65]), nx=3, ny=3, round_=0.08)
     ctrl = np.array([c + np.array([-0.01, 0.075, 0.03]), C.front_point(tsurf, 0.06, 1.12), C.front_point(tsurf, -0.05, 1.3),
                      np.array([-0.125, 1.475, 0.0]), C.front_point(tsurf, -0.04, 1.3, -1), C.front_point(tsurf, 0.09, 1.1, -1),
@@ -352,8 +427,8 @@ def braces(B, sh, o):
     out = []
     surf = G.Mesh(sh.v, sh.f)
     for sg in (1, -1):
-        ctrl = np.array([C.front_point(surf, 0.075 * sg, 1.06), C.front_point(surf, 0.08 * sg, 1.2),
-                         C.front_point(surf, 0.085 * sg, 1.34)])
+        ctrl = np.array([C.front_point(surf, 0.06 * sg, 1.10), C.front_point(surf, 0.065 * sg, 1.22),
+                         C.front_point(surf, 0.072 * sg, 1.34)])
         path, nn = C.surface_path(ctrl, surf, 0.003, n=14)
         out.append(C.ribbon(path, 0.022, 0.002, normals=nn))
     return out
@@ -369,8 +444,8 @@ def belt_axe(B, tun, o):
     fp = C.front_point(tsurf, 0.0, by)
     buckle = C.flat_box(fp + np.array([0, 0, 0.008]), np.array([0, 0, 1.0]), 0.06, 0.055, 0.005)
     tfull = G.Mesh(tv, tun.f)
-    sel = (tv[:, 0] < -0.1) & (np.abs(tv[:, 1] - (by - 0.07)) < 0.02)
-    c = tv[sel][np.argmin(tv[sel][:, 0])]
+    sel = (tv[:, 0] < -0.1) & (np.abs(tv[:, 1] - (by - 0.07)) < 0.045)
+    c = tv[sel][np.argmin(tv[sel][:, 0] + 0.5 * np.abs(tv[sel][:, 1] - (by - 0.07)))]
     pouch = C.box_on_surface(tfull, c, (0.07, 0.12), 0.03, np.array([-1.0, -0.05, 0.1]), nx=3, ny=4, round_=0.3)
     # axe: handle hanging down through the pouch, head at the top (blade forward)
     out_n = nrm(np.array([-1.0, 0, 0.1]))
@@ -410,7 +485,9 @@ def make_parts(cid, cfg, B, R):
           "fire_tunic": K["fire_tunic"], "jacket": K["coat"]}[top["kind"]]
     tun, cv, tcfg = top_garment(B, R, top)
     cover |= cv
-    parts.append(P_("cloth", "top", tun, tk, smooth=3))
+    if top.get("hem", 0.8) < 0.75:  # legs hidden up to just under the hem (knees stepping through the skirt)
+        cover |= (B.v[:, 1] > top["hem"] - 0.04) & (R["leg"] > 0.5) & (R["hand"] < 0.1)
+    parts.append(P_("cloth", "top", tun, tk, weights="skirt" if top.get("hem", 0.8) < 0.75 else "body", smooth=3))
     if tcfg.get("collar") == "open":
         cover |= C.vneck_region(B, R, tcfg, grow=0.025) & (R["neck"] < 0.5)
         sh = C.shirt_tie(B, R, dict(tcfg, tie=o.get("tie", False), shirt_collar=o.get("shirt_collar", True)))
@@ -448,9 +525,9 @@ def make_parts(cid, cfg, B, R):
     parts.append(P_("gear", "footwear", bo, fk, smooth=1))
     # over-garments and gear
     if "cape" in o:
-        parts.append(P_("cloth", "cape", cape(B, R, o["cape"]), K["cape"], smooth=4))
+        parts.append(P_("cloth", "cape", cape(B, R, o["cape"]), K["cape"], weights="torso", smooth=4))
     if "blanket" in o:
-        parts.append(P_("cloth", "blanket", cape(B, R, o["blanket"]), K["blanket"], smooth=4))
+        parts.append(P_("cloth", "blanket", cape(B, R, o["blanket"]), K["blanket"], weights="torso", smooth=4))
     if o.get("gasmask_chest"):
         bag, flap, sling = chest_haversack(B, tun, o.get("gasmask_cfg", {}))
         parts += [P_("gear", "gasmask_bag", bag, K["canvas"], smooth=4),
@@ -482,7 +559,9 @@ def make_parts(cid, cfg, B, R):
         parts.append(P_("cloth", "armband", arm, K["armband"]))
     # head
     hs = cfg.get("hair_style", "short")
-    if hs == "female":
+    if hs == "female" and o.get("head") == "headscarf":
+        hair, dens = C.hair_cap(B, dict(cfg.get("hair", {}), top_len=0.01, side=0.005))
+    elif hs == "female":
         hair, dens = hair_female(B, cfg)
     elif hs == "bob":
         hair, dens = hair_bob(B, cfg)
@@ -720,7 +799,7 @@ def paint_cloth(M, cfg, sk, Lm):
     # cape: scarlet border along the hem / collar
     cpm = kind == K["cape"]
     if cpm.any() and "trim" in cfg.get("cols", {}):
-        tr = (M["civ1"][..., 0] < 0.03) | (M["civ1"][..., 0] > (o["cape"].get("top", 1.4) - o["cape"].get("hem", 1.18)) + 0.06)
+        tr = M["civ1"][..., 0] < 0.035
         alb[cpm & tr] = srgb(cfg["cols"]["trim"]) * (1 + 0.06 * fib[cpm & tr])[..., None]
     # trousers seams + knee folds, elbow folds on tops
     trm = kind == K["trousers"]
@@ -757,7 +836,10 @@ def paint_cloth(M, cfg, sk, Lm):
             tm_ = text_mask(u, v, txt, 0.22) * (np.abs(angl) < 1.3)
             alb = np.where((am & (tm_ > 0.5))[..., None], srgb(cfg.get("armband_text_col", (200, 170, 60))), alb)
     # dust (plaster / brick) and soot
-    dust = MAT.mud_field(p, n, cfg.get("mud", 0.15), seed + 20, wet=0.0)
+    # soft plaster dust: settles on upward faces and low down, no sharp splats
+    dust = cfg.get("mud", 0.15) * np.clip(0.25 + 0.45 * fbm(p * 7.0, 3, seed=seed + 20) + 0.45 * np.clip(n[..., 1], 0, 1) +
+                                          0.35 * np.clip((0.6 - y) / 0.6, 0, 1), 0, 1) * \
+        (0.75 + 0.25 * fbm(p * 60.0, 2, seed=seed + 21))
     dcol = srgb(cfg.get("mud_col", (150, 144, 134)))
     alb = T.lerp(alb, dcol, dust)
     rough = rough + 0.05 * dust
@@ -823,14 +905,14 @@ def paint_helmet(M, cfg):
     n = M["nrm"]
     outer = M["outer"][..., 0] > 0.5
     prof = M["prof_k"][..., 0]
-    bowl = outer & (prof < 0.55) & (n[..., 2] > 0.35) & M["mask"]
+    bowl = outer & (prof < 0.8) & (n[..., 2] > 0.3) & (n[..., 1] < 0.75) & M["mask"]
     if not bowl.any():
         return res
-    mid = bowl & (np.abs(p[..., 0]) < 0.012) & (n[..., 2] > 0.5)
+    mid = bowl & (np.abs(p[..., 0]) < 0.012)
     if not mid.any():
         mid = bowl
-    ylo, yhi = np.percentile(p[..., 1][mid], 3), np.percentile(p[..., 1][mid], 97)
-    yc = ylo + cfg.get("letter_at", 0.42) * (yhi - ylo)
+    ylo = np.percentile(p[..., 1][mid], 2)  # bowl / brim junction at the front
+    yc = ylo + cfg.get("letter_at", 0.032)
     sz = cfg.get("letter_size", 0.024)
     u = p[..., 0] / sz
     v = (p[..., 1] - yc) / sz
@@ -869,3 +951,28 @@ def legwear(res, M, cfg, sk):
         res["albedo"] = np.where(sock[..., None], sc, res["albedo"])
         res["height"] = np.where(sock, 0.0003 * rib + 0.0006 * band, res["height"])
         res["rough"] = np.where(sock, 0.95, res["rough"])
+
+
+def paint_hair(M, cfg, Lm):
+    """Longer hair (women, girl): stronger strand contrast, clumps, darker underside/roots."""
+    res = MAT.paint_hair(M, cfg, Lm)
+    if cfg.get("hair_style") not in ("female", "bob"):
+        return res
+    p = M["pos"]
+    n = M["nrm"]
+    seed = cfg.get("seed", 1) + 330
+    crown = Lm["head"] + np.array([0, 0.13, -0.03])
+    d = p - crown
+    flow = d - (d * n).sum(-1, keepdims=True) * n
+    flow /= np.maximum(np.linalg.norm(flow, axis=-1, keepdims=True), 1e-6)
+    side = np.cross(n, flow)
+    q1 = (p * side).sum(-1)
+    q2 = (p * flow).sum(-1)
+    clump = gnoise(np.stack([q1 * 420, q2 * 40, p[..., 1] * 10], -1), seed)
+    fine = gnoise(np.stack([q1 * 5200, q2 * 300, p[..., 0] * 30], -1), seed + 1)
+    s = 0.55 * clump + 0.45 * fine
+    under = np.clip(-n[..., 1], 0, 1)
+    res["albedo"] = res["albedo"] * (1 + 0.32 * s[..., None]) * (1 - 0.35 * under[..., None])
+    res["height"] = res["height"] + 0.0006 * clump + 0.0002 * fine
+    res["rough"] = np.clip(res["rough"] - 0.08 * np.clip(clump, 0, 1), 0.3, 0.9)
+    return res

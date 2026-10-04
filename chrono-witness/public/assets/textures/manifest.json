@@ -4,6 +4,21 @@
     "notes": "Charcoal heathered wool/felt acoustic panel fabric, very rough.",
     "source": "procedural (own work)"
   },
+  "berlin_cobbles": {
+    "tileMetres": 2.0,
+    "notes": "Dry grey granite setts (Kopfsteinpflaster), 14 courses along U, dusty sand/brick-dust joints.",
+    "source": "procedural (own work)"
+  },
+  "berlin_render_facade": {
+    "tileMetres": 1.8,
+    "notes": "Grey-ochre lime render, V up, moulded string courses every 0.9 m (at V\u22480.25 and 0.75), soot, chips to red brick, bullet and shrapnel pocks.",
+    "source": "procedural (own work)"
+  },
+  "berlin_sidewalk": {
+    "tileMetres": 3.0,
+    "notes": "Berlin sidewalk: granite slab band (V 0.25-0.75, slabs along U) with small granite mosaic setts either side; map V across the sidewalk. Dry, dust and brick grit in joints.",
+    "source": "procedural (own work)"
+  },
   "brick_french": {
     "tileMetres": 1.0,
     "notes": "Hand-made red-brown French farmhouse brick, running bond (16 courses x 4 bricks per tile), recessed lime mortar, soot, efflorescence, damaged bricks.",
@@ -19,9 +34,19 @@
     "notes": "Weathered khaki/off-white cotton duck canvas: tension wrinkles, tide-line water stains, mildew, felled seam along U at V\u22480.7.",
     "source": "procedural (own work)"
   },
+  "cellar_whitewash": {
+    "tileMetres": 2.0,
+    "notes": "Whitewashed brick cellar wall (26 courses), flaking; rising damp, salts and mould below V\u22480.3. V up, V=0 = floor.",
+    "source": "procedural (own work)"
+  },
   "chalk_spoil": {
     "tileMetres": 2.0,
     "notes": "Somme chalk spoil: angular white-grey chalk lumps, flints, brown earth matrix and chalk fines; parapets / spoil heaps.",
+    "source": "procedural (own work)"
+  },
+  "cob_torchis": {
+    "tileMetres": 1.0,
+    "notes": "Ochre-brown earth-and-straw cob infill, shrinkage cracks, straw and grit, limewash remnants.",
     "source": "procedural (own work)"
   },
   "cobblestone_wet": {
@@ -54,6 +79,11 @@
     "notes": "Supply-crate boards (7 per tile, grain along U), faded grey-green paint worn to grey wood, nails; no stencils.",
     "source": "procedural (own work)"
   },
+  "dirt_lane": {
+    "tileMetres": 3.0,
+    "notes": "Dry rutted farm lane running along V; map U across the lane: wheel ruts at U\u22480.27/0.73, grass strip at U\u22480.5, hoof prints, stones.",
+    "source": "procedural (own work)"
+  },
   "earth_wall": {
     "tileMetres": 2.0,
     "notes": "Spade-cut trench wall, V = up: layered loam/clay strata (periodic over the tile), chalk flecks, flints, roots, spade facets, damp seeps.",
@@ -69,9 +99,29 @@
     "notes": "Matted dead autumn grass, tussocks and fallen leaves over wet mud (behind-the-lines ground).",
     "source": "procedural (own work)"
   },
+  "grass_summer": {
+    "tileMetres": 3.0,
+    "notes": "Lush June meadow grass with clover and white clover flowers, few bare patches.",
+    "source": "procedural (own work)"
+  },
+  "hedgerow_bank": {
+    "tileMetres": 2.0,
+    "notes": "Bocage earth bank, vertical (V up): soil, roots, stones, ferns, glossy ivy, grass tufts.",
+    "source": "procedural (own work)"
+  },
+  "interior_paint_distemper": {
+    "tileMetres": 2.0,
+    "notes": "Two-tone distemper: faded green below the dado line at V\u22480.4, cream above, dark lining stripe; cracked, flaking, water stains. V up.",
+    "source": "procedural (own work)"
+  },
   "interior_wallpaper": {
     "tileMetres": 1.0,
     "notes": "Faded 1930s floral wallpaper (half-drop repeat, strip seams at U=0/0.5), torn to plaster, water stains (V up), mould.",
+    "source": "procedural (own work)"
+  },
+  "limestone_ashlar": {
+    "tileMetres": 2.0,
+    "notes": "Pale Caen-type limestone ashlar, 6 courses of 0.33 m, weathered: alveolar pitting, claw marks, black crust, lichen.",
     "source": "procedural (own work)"
   },
   "london_stock_brick": {
@@ -89,14 +139,29 @@
     "notes": "Churned Somme trench-floor mud (brown-grey clay), boot prints, ruts along U, flint/chalk stones; puddles = roughness ~0.07 areas.",
     "source": "procedural (own work)"
   },
+  "norman_stone_rubble_wall": {
+    "tileMetres": 2.0,
+    "notes": "Random rubble masonry: grey-brown granite and schist, small pinning stones, recessed lime mortar, lichen.",
+    "source": "procedural (own work)"
+  },
   "oak_veneer": {
     "tileMetres": 1.2,
     "notes": "Fumed dark-oak flat-cut veneer, 4 leaves of 30 cm per tile (seams and grain along U), pores and ray flecks, satin lacquer.",
     "source": "procedural (own work)"
   },
+  "orchard_bark": {
+    "tileMetres": 1.0,
+    "notes": "Gnarled apple-tree bark, scaly plates flaking to orange-brown underbark, lichen, algae; V along the trunk.",
+    "source": "procedural (own work)"
+  },
   "painted_wood": {
     "tileMetres": 0.5,
     "notes": "Chipped dark-green enamel over cream undercoat and red-oxide primer on softwood, scuffed; grain along U.",
+    "source": "procedural (own work)"
+  },
+  "parquet_oak": {
+    "tileMetres": 1.0,
+    "notes": "Herringbone oak parquet (70 x 354 mm slats at \u00b145\u00b0, zig-zag along U), worn, dusty, a few missing slats showing bitumen.",
     "source": "procedural (own work)"
   },
   "pavement_flags": {
@@ -109,6 +174,11 @@
     "notes": "Lime plaster over rubble-stone masonry, flaking to expose the stones, cracks, water run-down stains (V = up).",
     "source": "procedural (own work)"
   },
+  "pump_iron_green": {
+    "tileMetres": 0.5,
+    "notes": "Dark-green painted cast iron chipped through red-lead primer to rust, rust bleeding downwards (V up).",
+    "source": "procedural (own work)"
+  },
   "render_stucco": {
     "tileMetres": 2.0,
     "notes": "Cream lime stucco ruled as ashlar (5 courses of 0.4 m), soot streaks running down (V up), cracks, patches, spalls showing brick.",
@@ -117,6 +187,11 @@
   "roof_tiles": {
     "tileMetres": 1.0,
     "notes": "Terracotta interlocking 'tuiles m\u00e9caniques' (5 x 3 tiles per tile), moss and lichen, dirt in the flutes; eaves/down-slope towards V=0 (image bottom).",
+    "source": "procedural (own work)"
+  },
+  "rubble_brick_plaster": {
+    "tileMetres": 2.0,
+    "notes": "Heap surface: broken red brick, plaster lumps, mortar, splinters, heavy light dust.",
     "source": "procedural (own work)"
   },
   "rusty_steel": {
@@ -154,9 +229,24 @@
     "notes": "Old wet tar-macadam: exposed chippings, wheel tracks along U, crocodile and longitudinal cracks, tar patches, puddles in ruts. No tram rails.",
     "source": "procedural (own work)"
   },
+  "terrazzo_stair": {
+    "tileMetres": 1.0,
+    "notes": "Worn grey terrazzo; darker border band along U at V 0-0.12 (nosing side) behind a brass divider (metalness 1).",
+    "source": "procedural (own work)"
+  },
+  "thatch_roof": {
+    "tileMetres": 1.0,
+    "notes": "Weathered straw thatch, V up the roof (stalk butts face down-slope), moss, faint 25 cm courses.",
+    "source": "procedural (own work)"
+  },
   "tile_station": {
     "tileMetres": 1.0,
     "notes": "Cream glazed wall tiles in half bond (6 x 12 per tile) with a two-course green band at V\u22480.3; crazing, chips, grime. No logos or text.",
+    "source": "procedural (own work)"
+  },
+  "timber_frame_oak": {
+    "tileMetres": 1.0,
+    "notes": "Weathered silver-grey oak beams, eroded grain along U, deep checks, oak pegs, lichen.",
     "source": "procedural (own work)"
   },
   "wicker_hurdle": {
